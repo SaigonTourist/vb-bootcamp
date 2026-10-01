@@ -43,3 +43,32 @@ Command:
 ```bash
 python3 .claude/skills/video-gen/scripts/vg.py submit seedance --prompt-file templates/A_teaser/prompts/s2.md --dur 5 --slot templates/A_teaser/s2
 ```
+
+## Several reference images
+
+Seedance can build a scene from several images: a room, an object, a material. Through OpenRouter
+the references arrive in the order given to `--ref`, and the prompt refers to them by that order.
+
+- **Give each image one role, positively, by number:** "the room from image 1, the leather folder
+  from image 2 lying closed on the table". Never leave the model to guess which image is what.
+- **Only include an image when its content is in the shot.** An unused reference still leaks into
+  the picture.
+- **The image decides the pose.** If the folder must lie flat, image 2 shows it lying flat.
+- **No people in reference images.** Seedance rejects them; people come from the prompt (from
+  behind, at a distance) or the shot moves to H3.
+- Each image at least 300 px per side, aspect between 0.4 and 2.5 (pad logos onto a square canvas).
+- `--first-frame` overrides references: use one or the other.
+
+```bash
+python3 .claude/skills/video-gen/scripts/vg.py submit seedance --prompt-file shot.md --dur 6 \
+  --ref input/refs/room.jpg input/refs/folder.jpg
+```
+
+```
+ACTION: a hand sets the leather folder from image 2 down closed and flat on the round table in the
+room from image 1, then slides it a few centimetres toward the empty chair.
+SHOT: close shot from slightly above, 50mm lens, camera locked off.
+PLACE: the room from image 1, morning light through its tall windows.
+LIGHT: one soft key from the windows camera-left, about 4:1.
+SOUND: quiet room tone, the soft slide of leather on wood.
+```

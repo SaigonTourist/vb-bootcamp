@@ -54,3 +54,27 @@ Command (draft, then final):
 python3 .claude/skills/video-gen/scripts/vg.py submit veo-fast --prompt-file templates/A_teaser/prompts/s1.md --dur 6 --seed 11 --label A_s1_draft
 python3 .claude/skills/video-gen/scripts/vg.py submit veo --prompt-file templates/A_teaser/prompts/s1.md --dur 6 --seed 11 --slot templates/A_teaser/s1
 ```
+
+## Dialogue in Veo
+
+Veo speaks German too, with one or two short lines per shot. H3 is the better choice for a
+presenter to camera; Veo is for a line spoken inside a scene, or a short exchange between two people.
+
+- **Attribute every line** to a person described by clothing and position:
+  `The woman in the grey blazer says in German: "..."`. Without that, voices land on the wrong face.
+- **Short.** 8 s holds about 12 to 15 German words in total. One line per speaker.
+- **Medium or medium-wide two-shot**, both faces visible, camera static.
+- **No continuity of faces between calls**, so a conversation longer than one shot is two H3 takes
+  (one start frame per person) cut together, not several Veo calls.
+- If burned-in subtitles appear, add them to the safety net: `--negative "subtitles, captions, on-screen text"`.
+
+```
+SHOT: medium two-shot, eye level, 35mm at T2.8, static, 25 fps.
+SUBJECT AND ACTION: at a tall table, a younger man in a white shirt turns to an older woman in a
+grey blazer and asks his question; she answers calmly, with a small reassuring nod.
+DIALOGUE: The man says in German: "Wie würden Sie das ansprechen?" The woman answers in German:
+"Ehrlich. Und mit einer guten Frage."
+PLACE: a small meeting corner, frosted glass wall behind them, a plant at the edge of frame.
+LIGHT: one soft key from a window camera-left, about 4:1, warm practical lamp in the background.
+SOUND: quiet office room tone, their voices close and natural.
+```

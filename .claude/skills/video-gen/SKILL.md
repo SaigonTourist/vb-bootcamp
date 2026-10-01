@@ -28,6 +28,24 @@ python3 .claude/skills/video-gen/scripts/assemble.py --help
 
 `vg.py show <key>` prints the exact call template, limits, prices and known failure modes.
 
+## From an idea to a prompt
+
+Designers bring ideas, not prompts. Follow `reference/idea_to_prompt.md`: find the filmable action
+behind every abstract word, split into shots, pick the engine per shot, fill framing, light, sound
+and length with the defaults listed there instead of asking, write from the engine's template, lint,
+and show the designer the engine, the prompt and one line per change with its reason. Ask only
+questions whose answer changes the engine or the cost.
+
+Prompt templates per engine, in `.claude/skills/video-gen/prompts/`:
+
+| File | For |
+|---|---|
+| `h3_talking.md` | A person speaking to camera, series with one presenter |
+| `h3_object.md` | An object that must match a photo |
+| `veo_cinematic.md` | Cinematic shots, and short dialogue inside a scene |
+| `seedance_broll.md` | B-roll, and scenes built from several reference images |
+| `image_start_frame.md` | Start frames and variants of the same fictional presenter |
+
 ## The flow for one shot
 
 1. **Find the slot.** `assemble.py templates/<template> --status` lists slots, models and what is
@@ -94,6 +112,7 @@ push, and the designer opens them from the repository in the browser.
 
 ## Reference
 
+- `reference/idea_to_prompt.md`: from a designer's idea to one prompt per engine, with worked examples.
 - `reference/model_guide.md`: the one-page model guide the team keeps.
 - `reference/prompting.md`: the prompt contract, with before and after examples.
 - `reference/compliance.md`: consent, GDPR, EU AI Act transparency, where the data goes.

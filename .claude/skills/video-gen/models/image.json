@@ -4,26 +4,58 @@
   "name": "Nano Banana Pro (Gemini 3 Pro Image)",
   "role": "Start frames: a fictional presenter, a room, an object in the right pose. Feed the result to H3 or Seedance as first_frame",
   "limits": {
-    "ratios": ["16:9", "9:16", "1:1", "4:3", "3:4"],
+    "ratios": [
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:3",
+      "3:4"
+    ],
     "refs": "images",
     "max_refs": 4
   },
-  "defaults": { "aspect_ratio": "16:9" },
-  "pricing": { "usd_per_image": 0.14 },
-  "render_minutes": [0.2, 1],
+  "defaults": {
+    "aspect_ratio": "16:9"
+  },
+  "pricing": {
+    "usd_per_image": 0.14
+  },
+  "render_minutes": [
+    0.2,
+    1
+  ],
   "example_call": {
     "method": "POST",
     "url": "https://openrouter.ai/api/v1/chat/completions",
-    "headers": { "Authorization": "Bearer $OPENROUTER_API_KEY", "Content-Type": "application/json" },
+    "headers": {
+      "Authorization": "Bearer $OPENROUTER_API_KEY",
+      "Content-Type": "application/json"
+    },
     "body": {
       "model": "google/gemini-3-pro-image-preview",
-      "modalities": ["image", "text"],
-      "image_config": { "aspect_ratio": "16:9" },
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "image_config": {
+        "aspect_ratio": "16:9"
+      },
       "messages": [
-        { "role": "user", "content": [
-          { "type": "text", "text": "{{prompt}}" },
-          { "type": "image_url", "image_url": { "url": "data:image/jpeg;base64,{{optional_input}}" } }
-        ] }
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "{{prompt}}"
+            },
+            {
+              "type": "image_url",
+              "image_url": {
+                "url": "data:image/jpeg;base64,{{optional_input}}"
+              }
+            }
+          ]
+        }
       ]
     },
     "response": "choices[0].message.images[0].image_url.url holds a data: URL with the PNG"
@@ -32,5 +64,8 @@
     "Synchronous: the image comes back in the same response, no job to poll.",
     "Describe a phone-camera photo (pores, freckles, no retouching, a clip-on mic) to get a presenter that does not look like stock.",
     "The person must be fictional. Never feed a photo of a colleague to make 'them' speak."
+  ],
+  "prompt_templates": [
+    "image_start_frame.md"
   ]
 }

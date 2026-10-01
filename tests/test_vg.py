@@ -68,6 +68,37 @@ class Lint(unittest.TestCase):
         self.assertIn("LAUGH", codes("seedance", "ACTION: two people laugh."))
 
 
+class GuideExamples(unittest.TestCase):
+    """Every prompt the guides teach must pass the lint it teaches."""
+
+    @staticmethod
+    def blocks(path):
+        import re
+        return [b for lang, b in re.findall(r"```(\w*)\n(.*?)```", path.read_text(), re.S)
+                if not lang and re.search(r"^(SHOT|ACTION):", b, re.M)]
+
+    def test_idea_to_prompt_examples(self):
+        ref = SCRIPTS.parent / "reference/idea_to_prompt.md"
+        engines = [("seedance", 6), ("h3", 8), ("veo", 8), ("seedance", 6), ("veo", 8)]
+        examples = self.blocks(ref)
+        self.assertEqual(len(examples), len(engines))
+        for (m, d), b in zip(engines, examples):
+            self.assertEqual(vg.lint(vg.load_model(m), b, d), [], b.splitlines()[0])
+
+    def test_prompt_template_examples(self):
+        for name, m, d in (("veo_cinematic.md", "veo", 8), ("seedance_broll.md", "seedance", 6),
+                           ("h3_talking.md", "h3", 8), ("h3_object.md", "h3", 8)):
+            for b in self.blocks(SCRIPTS.parent / "prompts" / name):
+                if "{" in b:
+                    continue  # skeletons with {placeholders}
+                warn = [c for lvl, c, _ in vg.lint(vg.load_model(m), b, d) if lvl == "warn"]
+                self.assertEqual(warn, [], f"{name}: {b.splitlines()[0]}")
+
+    def test_abstract_idea_is_flagged(self):
+        self.assertIn("ABSTRACT", codes("seedance", "ACTION: a scene that shows trust and security."))
+        self.assertNotIn("ABSTRACT", codes("h3", 'SHOT: medium, 35mm.\nACTION: she speaks.\nDIALOGUE: "Vertrauen ist alles."', 5))
+
+
 class Body(unittest.TestCase):
     def test_limits(self):
         with self.assertRaises(SystemExit):

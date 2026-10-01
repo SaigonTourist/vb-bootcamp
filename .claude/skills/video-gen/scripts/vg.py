@@ -136,9 +136,12 @@ BRANDS = re.compile(
 TEXT_SURFACES = re.compile(
     r"\b(screens?|monitors?|displays?|laptop screen|phone screen|smartphone|tablet|notebook|whiteboard|"
     r"flip ?chart|calculator|posters?|signs?|signage|documents?|contracts?|forms?|letters?|book covers?|"
-    r"labels?|newspapers?|slides?|presentation|charts?|graphs?|spreadsheets?|bildschirm\w*|tafel|vertrag|"
+    r"labels?|newspapers?|presentation slides?|presentation|charts?|graphs?|spreadsheets?|bildschirm\w*|tafel|vertrag|"
     r"formular|dokument\w*|plakat\w*|schild\w*)\b", re.I)
 VAGUE = re.compile(r"\b(cinematic|beautiful|stunning|epic|amazing|bright|vibrant|high quality|masterpiece|8k|4k)\b", re.I)
+ABSTRACT = re.compile(r"\b(trust|trustworthy|confidence|success|successful|innovation|innovative|quality|security|"
+                      r"safety|growth|future|values|professionalism|empathy|reliability|excellence|vertrauen|"
+                      r"sicherheit|erfolg|zukunft|kompetenz|qualität|innovation|wertschätzung|zuverlässigkeit)\b", re.I)
 LAUGH = re.compile(r"\blaugh\w*|lach\w*", re.I)
 EDIT_VERBS = re.compile(r"\b(add|adds|remove|removes|replace|replaces|modify|extend|extends|continue|continues)\b", re.I)
 CONTINUITY = re.compile(r"\b(same as before|as before|previous shot|last shot|like before|wie vorher|again)\b", re.I)
@@ -153,7 +156,10 @@ PERISHABLE = re.compile(r"(\d|%|€|\beuro\b|\bprozent\b|\bheute\b|\bmorgen\b|\b
 def dialogue_of(prompt: str) -> str:
     m = re.search(r"(?i:dialogue)\s*:\s*(.+?)(?:\n\s*\n|\n\s*[A-Z][A-Z ]+:|\Z)", prompt, re.S)
     if m:
-        return m.group(1).strip()
+        section = m.group(1).strip()
+        said = re.findall(r'[„"“](.+?)["“”]', section)
+        # 'The man says in German: "..."' -> only the quoted words are spoken
+        return " ".join(said) if said else section
     quoted = re.findall(r"[„\"“](.+?)[\"“”]", prompt)
     return " ".join(quoted)
 
@@ -179,6 +185,10 @@ def lint(m: dict, prompt: str, dur=None) -> list:
     surf = sorted({x.lower() for x in TEXT_SURFACES.findall(visual)})
     if surf:
         out.append(("warn", "TEXT_SURFACE", f"{', '.join(surf)}: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."))
+    abstract = sorted({x.lower() for x in ABSTRACT.findall(visual)})
+    if abstract:
+        out.append(("info", "ABSTRACT", f"{', '.join(abstract)}: an idea, not something a camera sees. Name the small physical "
+                                        "action that makes a viewer feel it (see reference/idea_to_prompt.md)."))
     vague = sorted({x.lower() for x in VAGUE.findall(prompt)})
     if vague:
         out.append(("info", "VAGUE", f"{', '.join(vague)}: says nothing executable. Name the lens, the distance, one light source and its direction."))
