@@ -1,0 +1,59 @@
+{
+  "id": "A_teaser",
+  "title": "A · Attention teaser for a learning module",
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "lesson": "Model choice per shot, prompting craft, iteration discipline (draft on veo-fast, final on veo).",
+  "card_style": {
+    "bg": "0x14213d",
+    "fg": "white"
+  },
+  "frames": [
+    {
+      "id": "presenter_A",
+      "out": "input/refs/presenter_A.png",
+      "prompt": "prompts/frame_presenter_A.md"
+    }
+  ],
+  "slots": [
+    {
+      "id": "s1",
+      "type": "gen",
+      "model": "veo",
+      "dur": 6,
+      "purpose": "Opener: someone arrives in a calm advisory room",
+      "prompt": "prompts/s1.md",
+      "seed": 11
+    },
+    {
+      "id": "s2",
+      "type": "gen",
+      "model": "seedance",
+      "dur": 5,
+      "purpose": "B-roll: two cups set on the table, the room waits",
+      "prompt": "prompts/s2.md"
+    },
+    {
+      "id": "s3",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6.4,
+      "gen_dur": 8,
+      "purpose": "Presenter says the module's promise in German",
+      "prompt": "prompts/s3.md",
+      "first_frame": "input/refs/presenter_A.png"
+    },
+    {
+      "id": "card",
+      "type": "card",
+      "dur": 3,
+      "lines": [
+        "Das gute Gespräch",
+        "Neues Lernmodul im Lernportal"
+      ]
+    }
+  ]
+}

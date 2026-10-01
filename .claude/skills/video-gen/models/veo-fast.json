@@ -1,0 +1,42 @@
+{
+  "key": "veo-fast",
+  "id": "google/veo-3.1-fast",
+  "name": "Google Veo 3.1 Fast",
+  "role": "Cheap drafts of a Veo shot: find the prompt here, render the keeper on veo",
+  "limits": {
+    "durations": [4, 6, 8],
+    "ratios": ["16:9", "9:16"],
+    "resolutions": ["720p", "1080p", "4K"],
+    "frame_images": ["first_frame", "last_frame"],
+    "refs": "none",
+    "max_refs": 0,
+    "audio": true,
+    "seed": true
+  },
+  "defaults": { "duration": 8, "aspect_ratio": "16:9", "resolution": "720p", "generate_audio": true },
+  "pricing": {
+    "usd_per_second": { "audio": 0.12, "no_audio": 0.10, "audio_720p": 0.10, "no_audio_720p": 0.08, "audio_4K": 0.30, "no_audio_4K": 0.25 },
+    "note": "About a quarter of the price of veo. Same prompt, same seed, then switch the model for the final."
+  },
+  "render_minutes": [1, 4],
+  "prompt_templates": ["veo_cinematic.md"],
+  "example_call": {
+    "method": "POST",
+    "url": "https://openrouter.ai/api/v1/videos",
+    "headers": { "Authorization": "Bearer $OPENROUTER_API_KEY", "Content-Type": "application/json" },
+    "body": {
+      "model": "google/veo-3.1-fast",
+      "prompt": "{{prompt}}",
+      "duration": 8,
+      "aspect_ratio": "16:9",
+      "resolution": "720p",
+      "generate_audio": true,
+      "seed": 7
+    }
+  },
+  "passthrough": ["personGeneration", "negativePrompt", "enhancePrompt", "conditioningScale"],
+  "gotchas": [
+    "Everything in veo.json applies here.",
+    "A good draft on fast is not guaranteed to come back identical on veo with the same seed; it comes back close."
+  ]
+}

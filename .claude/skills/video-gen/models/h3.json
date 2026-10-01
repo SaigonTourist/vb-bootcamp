@@ -1,0 +1,57 @@
+{
+  "key": "h3",
+  "id": "minimax/hailuo-3",
+  "name": "MiniMax H3",
+  "role": "People speaking to camera with lip sync (German and other languages), objects that must match a reference photo",
+  "limits": {
+    "durations": [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "ratios": ["21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],
+    "resolutions": ["2K"],
+    "frame_images": ["first_frame", "last_frame"],
+    "refs": "images",
+    "max_refs": 10,
+    "audio": true,
+    "seed": false
+  },
+  "defaults": { "duration": 8, "aspect_ratio": "16:9", "generate_audio": true },
+  "pricing": {
+    "usd_per_second": 0.13,
+    "usd_per_reference_image": 0.04,
+    "note": "Reference images are billed on top; the estimate counts every reference, so it is an upper bound."
+  },
+  "render_minutes": [4, 13],
+  "prompt_templates": ["h3_talking.md", "h3_object.md"],
+  "example_call": {
+    "method": "POST",
+    "url": "https://openrouter.ai/api/v1/videos",
+    "headers": { "Authorization": "Bearer $OPENROUTER_API_KEY", "Content-Type": "application/json" },
+    "body": {
+      "model": "minimax/hailuo-3",
+      "prompt": "{{prompt}}",
+      "duration": 8,
+      "aspect_ratio": "16:9",
+      "generate_audio": true,
+      "frame_images": [
+        { "type": "image_url", "frame_type": "first_frame", "image_url": { "url": "data:image/png;base64,{{first_frame}}" } }
+      ]
+    },
+    "body_with_references_instead_of_first_frame": {
+      "model": "minimax/hailuo-3",
+      "prompt": "{{prompt}}",
+      "duration": 8,
+      "aspect_ratio": "16:9",
+      "generate_audio": true,
+      "input_references": [
+        { "type": "image_url", "image_url": { "url": "data:image/jpeg;base64,{{ref_1}}" } }
+      ]
+    }
+  },
+  "gotchas": [
+    "A reference written as {\"image_url\": ...} without \"type\": \"image_url\" is rejected with 400 \"No matching discriminator\".",
+    "frame_images wins over input_references: with a first frame, the references are ignored.",
+    "It delivers about 0.6 s more than requested and keeps talking to the end. End the dialogue with a short filler line and cut on it in the edit.",
+    "It invents lettering on any cover, screen or sign it is told about. Keep surfaces turned away or plain, add real text in the edit.",
+    "Same first frame + same scene text + only the dialogue changing = the same person and room across takes.",
+    "No seed: two identical calls give two different takes."
+  ]
+}

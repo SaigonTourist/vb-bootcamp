@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/setup_cloud.sh\"", "timeout": 240 }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python3 .claude/skills/video-gen/scripts/vg.py:*)",
+      "Bash(python3 .claude/skills/video-gen/scripts/assemble.py:*)",
+      "Bash(bash scripts/setup_cloud.sh)",
+      "Bash(ffmpeg:*)"
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "B_series",
+  "title": "B · One presenter, three short lessons",
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "lesson": "Consistency: one start frame and one SCENE block reused word for word, only the dialogue changes.",
+  "card_style": {
+    "bg": "0x1f3a2e",
+    "fg": "white"
+  },
+  "frames": [
+    {
+      "id": "presenter_B",
+      "out": "input/refs/presenter_B.png",
+      "prompt": "prompts/frame_presenter_B.md"
+    }
+  ],
+  "slots": [
+    {
+      "id": "intro",
+      "type": "card",
+      "dur": 2.5,
+      "lines": [
+        "Drei Fragen",
+        "die jedes Gespräch öffnen"
+      ]
+    },
+    {
+      "id": "q1",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6.4,
+      "gen_dur": 8,
+      "purpose": "Question 1 to camera",
+      "prompt": "prompts/q1.md",
+      "first_frame": "input/refs/presenter_B.png",
+      "caption": "1 · Was ist Ihnen gerade wichtig?"
+    },
+    {
+      "id": "b1",
+      "type": "gen",
+      "model": "seedance",
+      "dur": 4,
+      "purpose": "B-roll: a client listens, seen from behind",
+      "prompt": "prompts/b1.md"
+    },
+    {
+      "id": "q2",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6.4,
+      "gen_dur": 8,
+      "purpose": "Question 2 to camera",
+      "prompt": "prompts/q2.md",
+      "first_frame": "input/refs/presenter_B.png",
+      "caption": "2 · Was hat sich verändert?"
+    },
+    {
+      "id": "b2",
+      "type": "gen",
+      "model": "seedance",
+      "dur": 4,
+      "purpose": "B-roll: hands, a pen set down, a pause",
+      "prompt": "prompts/b2.md"
+    },
+    {
+      "id": "q3",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6.4,
+      "gen_dur": 8,
+      "purpose": "Question 3 to camera",
+      "prompt": "prompts/q3.md",
+      "first_frame": "input/refs/presenter_B.png",
+      "caption": "3 · Woran merken Sie, dass es passt?"
+    },
+    {
+      "id": "card",
+      "type": "card",
+      "dur": 3,
+      "lines": [
+        "Drei Fragen. Ein gutes Gespräch.",
+        "Mehr im Lernportal"
+      ]
+    }
+  ]
+}

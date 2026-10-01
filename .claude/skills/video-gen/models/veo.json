@@ -1,0 +1,47 @@
+{
+  "key": "veo",
+  "id": "google/veo-3.1",
+  "name": "Google Veo 3.1",
+  "role": "Final-quality cinematic shots in 16:9 with native sound; openers, establishing shots, short spoken lines",
+  "limits": {
+    "durations": [4, 6, 8],
+    "ratios": ["16:9", "9:16"],
+    "resolutions": ["720p", "1080p", "4K"],
+    "frame_images": ["first_frame", "last_frame"],
+    "refs": "none",
+    "max_refs": 0,
+    "audio": true,
+    "seed": true
+  },
+  "defaults": { "duration": 8, "aspect_ratio": "16:9", "resolution": "1080p", "generate_audio": true },
+  "pricing": {
+    "usd_per_second": { "audio": 0.40, "no_audio": 0.20, "audio_4K": 0.60, "no_audio_4K": 0.40 },
+    "note": "720p costs the same as 1080p on this tier. Iterate on veo-fast, render the keeper here."
+  },
+  "render_minutes": [2, 8],
+  "prompt_templates": ["veo_cinematic.md"],
+  "example_call": {
+    "method": "POST",
+    "url": "https://openrouter.ai/api/v1/videos",
+    "headers": { "Authorization": "Bearer $OPENROUTER_API_KEY", "Content-Type": "application/json" },
+    "body": {
+      "model": "google/veo-3.1",
+      "prompt": "{{prompt}}",
+      "duration": 8,
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "generate_audio": true,
+      "seed": 7,
+      "negativePrompt": "on-screen text, watermark, logo"
+    }
+  },
+  "passthrough": ["personGeneration", "negativePrompt", "enhancePrompt", "conditioningScale"],
+  "gotchas": [
+    "Whatever the prompt names, Veo draws, and negativePrompt does not stop it. Naming a camera brand printed the brand in the corner; naming a polo shirt embroidered a logo. Describe without brand names.",
+    "Close-ups of faces with high energy drift into grimaces. Keep a SHOT: line with medium shot or wider.",
+    "Light: one source with a direction and a ratio (about 4:1), not 'bright' or 'cinematic'. 'Bright white room with big windows' comes back washed out.",
+    "No face continuity between calls. For several people speaking, describe a different person in each shot instead of chasing the same one.",
+    "9:16 is limited to 720p in practice; e-learning is 16:9 anyway.",
+    "Only 4, 6 or 8 seconds."
+  ]
+}
