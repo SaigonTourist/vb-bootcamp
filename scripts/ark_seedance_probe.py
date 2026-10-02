@@ -8,7 +8,8 @@ Standard library only, so it runs unchanged in a Claude Code on the web session 
   python3 scripts/ark_seedance_probe.py              one 5 s clip, 16:9, with sound (paid)
   python3 scripts/ark_seedance_probe.py --prompt-file templates/A_teaser/prompts/s1.md --dur 6
 
-Environment: ARK_API_KEY (required), ARK_BASE (default the ap-southeast endpoint),
+Environment: ARK_API_KEY (optional in Claude Code on the web when a managed credential for the Ark
+host injects the Authorization header), ARK_BASE (default the ap-southeast endpoint),
 ARK_MODEL (default dreamina-seedance-2-5-260628).
 
 Seedance 2.5 on Ark takes only: model, content[], generate_audio, ratio, duration (4-30),
@@ -42,17 +43,18 @@ def die(msg):
     sys.exit(1)
 
 
-def key():
+def auth_headers():
+    """With ARK_API_KEY in the environment, send it. Without it, send no Authorization header: in Claude
+    Code on the web a managed credential for this host makes the proxy add it, and the key never
+    enters the container."""
     k = os.environ.get("ARK_API_KEY", "").strip()
-    if not k:
-        die("ARK_API_KEY is not set. In the cloud: environment settings → environment variables.")
-    return k
+    return {"Authorization": f"Bearer {k}"} if k else {}
 
 
 def call(method, url, body=None, timeout=120):
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(url, data=data, method=method,
-                                 headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
+                                 headers={**auth_headers(), "Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.status, json.loads(r.read() or b"{}")
@@ -89,7 +91,10 @@ def check():
     err = (j.get("error") or {}) if isinstance(j, dict) else {}
     print(f"  {host} answered HTTP {code} {err.get('code', '')}")
     if code in (401, 403):
-        die("the key was rejected. Check ARK_API_KEY and that it belongs to the ap-southeast region.")
+        if auth_headers():
+            die("the key was rejected. Check ARK_API_KEY and that it belongs to the ap-southeast region.")
+        die(f"no key reached {host}. Add a managed credential for {host} (type Bearer, header Authorization, "
+            "path prefix /api/v3/) or set ARK_API_KEY.")
     print("  ✓ key accepted and host reachable. Nothing was generated, nothing was charged.")
 
 
