@@ -59,6 +59,17 @@ which we can also run from our own machines.
    Review every reserve, regenerate the bad ones, then commit `templates/*/reserves/` and the
    start frames in `input/refs/`.
 
+## 2b. Seedance straight through ModelArk (while the OpenRouter keys are pending)
+
+`scripts/ark_seedance_probe.py` makes one Seedance 2.5 call directly against BytePlus ModelArk,
+standard library only. Needs `ARK_API_KEY` in the environment and, in the cloud,
+`ark.ap-southeast.bytepluses.com` plus the download host it reports in the allowed domains.
+
+```bash
+python3 scripts/ark_seedance_probe.py --check     # free: key and network only
+python3 scripts/ark_seedance_probe.py             # one 5 s clip, about 108k video tokens
+```
+
 ## 3. The rehearsal (fresh cloud session, timed like the day)
 
 Open a new session on the repo with the dry-run key and work only through the chat, as a designer.
