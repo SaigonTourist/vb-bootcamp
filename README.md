@@ -9,7 +9,9 @@ Open this repository in Claude Code on the web and say:
 
 > Run the doctor, then show me the three templates.
 
-Pick one and work slot by slot. Every slot already has a working prompt to start from.
+Pick one and work slot by slot. Every slot already has a working prompt to start from. To ask for
+your own shots, brief Claude with the shot card in `.claude/skills/video-gen/reference/shot_brief.md`:
+you describe the shot, Claude writes the prompt.
 
 | Template | What you build | What you learn |
 |---|---|---|

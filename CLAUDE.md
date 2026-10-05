@@ -28,6 +28,8 @@ Use the `video-gen` skill for anything video. Start a session by running
 show the three templates with `assemble.py templates/<template> --status`.
 
 - Talk to the designer in the language they write in (English or German).
+- The designer briefs, you prompt. Show their brief back as the shot card (`reference/shot_brief.md`)
+  with your assumptions marked, then the engine and the estimate; the model prompt only on request.
 - Before every generation, show the estimate in euros and the lint result in one or two lines.
 - Launch, then keep working on the next slot. Never sit and wait for a render.
 - After each landed clip, rebuild the preview and give the link (or the file path).

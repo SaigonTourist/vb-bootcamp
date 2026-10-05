@@ -28,13 +28,27 @@ python3 .claude/skills/video-gen/scripts/assemble.py --help
 
 `vg.py show <key>` prints the exact call template, limits, prices and known failure modes.
 
-## From an idea to a prompt
+## The designer briefs, Claude prompts
 
-Designers bring ideas, not prompts. Follow `reference/idea_to_prompt.md`: find the filmable action
-behind every abstract word, split into shots, pick the engine per shot, fill framing, light, sound
-and length with the defaults listed there instead of asking, write from the engine's template, lint,
-and show the designer the engine, the prompt and one line per change with its reason. Ask only
-questions whose answer changes the engine or the cost.
+Designers do not write model prompts; they brief you, and the day's goal is that they learn to brief
+well. `reference/shot_brief.md` is the shot card they use: what the viewer should take away, the one
+action, who (and whether it is the same person as another shot), camera distance, place, light,
+sound with exact words, on-screen text, length.
+
+1. **Read their brief against the card.** Turn it into a prompt following
+   `reference/idea_to_prompt.md` (filmable action behind every abstract word, one shot per action,
+   the engine per shot, defaults for what is missing).
+2. **Show the brief back before anything else**, in their words, as the filled card: each field,
+   and for every field they did not give, your default marked *(assumed)*. Then the engine with its
+   reason and the estimate. Show the model prompt itself only if they ask, or after the render.
+3. **Coach, briefly.** If a field that decides quality is missing or vague (no action, a feeling
+   instead of something visible, no exact words for speech, "close-up" on an emotional face,
+   a brand name, a date in the voice), say in one line what it would cost them and offer the fix.
+   Ask only what changes the engine, the cost or the result; assume the rest.
+4. **They correct the card, not the prompt.** "Wider", "only he speaks", "morning not evening":
+   apply it, re-show the changed fields, launch on their go.
+5. **After the render, ask for feedback the card's way:** what is wrong in one word, where, what to
+   keep (the table at the end of `reference/shot_brief.md`). Change one thing and say which.
 
 Prompt templates per engine, in `.claude/skills/video-gen/prompts/`:
 
@@ -112,6 +126,7 @@ push, and the designer opens them from the repository in the browser.
 
 ## Reference
 
+- `reference/shot_brief.md`: the shot card designers brief you with, and the feedback words after a render.
 - `reference/idea_to_prompt.md`: from a designer's idea to one prompt per engine, with worked examples.
 - `reference/model_guide.md`: the one-page model guide the team keeps.
 - `reference/prompting.md`: the prompt contract, with before and after examples.
