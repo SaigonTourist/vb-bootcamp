@@ -11,13 +11,13 @@ Every pair here was watched before it was kept: the failure in each "before" is 
 |---|---|---|---|---|
 | 1 | `01_light` | Veo Fast, 4 s, seed 21 | "Bright, cinematic, 8k, masterpiece" comes back as stock footage with a "BANK" sign and invented subtitles ("Tine gotwle too hout cany basimer.?") | Adjectives give nothing to execute; one light source with a direction does. |
 | 2 | `02_brands` | Veo Fast, 4 s, seed 31 | "Apple commercial style" prints the Apple logo in the corner; "Ralph Lauren" embroiders the polo player | Name a brand and its logo gets drawn. Describe the look instead. |
-| 3 | `03_closeup` | Veo Fast, 4 s, seed 41 | The same good news: a grimace in extreme close-up, joy in a medium shot | Big emotion in close-up turns into a grimace; tell it with distance. |
+| 3 | `03_closeup` | Veo Fast, 4 s, seed 41 | The same good news: a grimace in extreme close-up, joy in an over-the-shoulder medium shot where she looks at her colleague, not at the lens | Big emotion in close-up turns into a grimace; tell it with distance. |
 | 4 | `04_text` | Seedance 480p, 5 s | "Kreditvertrag" comes back as "Kredittract", the table mixes German and English, the numbers are invented | It reads right at a glance and wrong when you read it. A bank cannot ship a typo or fix one letter without a re-render. Text goes in the edit. |
 | 5 | `05_consistency` | H3, 5 s, 2 takes per side | "The same woman from the previous video" gives two different women; one start frame gives the same woman twice | No shot remembers another. One frame, the same scene words, only the dialogue changes. **Play the sequence: the German is word for word.** |
 | 6 | `06_idea` | Seedance 720p, 5 s | "Trust and security" gives a stock handshake; the cup turned toward the guest gives a moment | You cannot film an idea; you can film the small action that makes people feel it. |
 | 7 | `07_draft` | Veo Fast vs Veo, 6 s, seed 11 | Draft 0.60 $ vs final 2.40 $, same prompt and seed | Find the shot on the cheap model, render it once on the good one. |
 
-Pair 3 is controlled (only the shot distance changes); the others compare a real first attempt with
+Pair 3 is controlled (only the shot distance changes; the colleague in frame gives her somewhere to look, because Veo otherwise turns to smile into the lens); the others compare a real first attempt with
 the method. The "after" of pair 6 is the clip rendered through ModelArk on 2 October.
 
 ## Talking points without a pair
