@@ -5,7 +5,7 @@
     "title": "The model draws what you name",
     "lesson": "A wall of prohibitions names every failure; the same shot written as what is there comes back clean.",
     "labels": [
-      "BEFORE · nine prohibitions, action last",
+      "BEFORE · a list of what not to show",
       "AFTER · action first, positive"
     ],
     "before": [
@@ -37,7 +37,7 @@
     "title": "Technical specification, not mood",
     "lesson": "Mood adjectives give nothing executable; one source, a direction and a ratio give light with shape.",
     "labels": [
-      "BEFORE · bright, cinematic, stunning",
+      "BEFORE · bright, cinematic, 8k, masterpiece",
       "AFTER · one source, camera-left, 4:1"
     ],
     "before": [
@@ -69,7 +69,7 @@
     "title": "No brand names",
     "lesson": "A named camera or garment gets its logo drawn; the negative prompt does not stop it. Describe without the name.",
     "labels": [
-      "BEFORE · camera and polo named",
+      "BEFORE · famous brands as shorthand",
       "AFTER · same things, described"
     ],
     "before": [
@@ -133,7 +133,7 @@
     "title": "Readable surfaces come out as scribbles",
     "lesson": "No model writes reliably. Keep surfaces closed or turned away and add the real text in the edit.",
     "labels": [
-      "BEFORE · legible handwriting asked",
+      "BEFORE · screen, chart and contract, \"readable\"",
       "AFTER · cover closed, text added later"
     ],
     "before": [
@@ -165,7 +165,7 @@
     "title": "No shot remembers another",
     "lesson": "Described twice, the presenter becomes two people. One start frame and identical scene text keep one person.",
     "labels": [
-      "BEFORE · described in text, two takes",
+      "BEFORE · \"the same woman from the previous video\"",
       "AFTER · one start frame, two takes"
     ],
     "needs_frame": true,

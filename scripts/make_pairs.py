@@ -8,6 +8,7 @@ Each pair changes one thing, so the difference on screen is the strategy and not
   python3 scripts/make_pairs.py --wait             collect what has rendered (repeat until nothing is pending)
   python3 scripts/make_pairs.py --compose          one side-by-side pair.mp4 per pair, for the beamer
   python3 scripts/make_pairs.py --go --only 03_brands 04_closeup
+  python3 scripts/make_pairs.py --go --redo before --only 01_negations     after rewriting a prompt
 
 Pairs live in teaching/pairs/pairs.json; prompts next to each pair. Runs on the 'pairs' ledger.
 """
@@ -60,7 +61,7 @@ def run_vg(*args):
     return subprocess.run([sys.executable, str(VG), *args], cwd=REPO, env=env).returncode
 
 
-def plan(pairs):
+def plan(pairs, redo=()):
     steps, image_usd = [], vg.load_model("image")["pricing"]["usd_per_image"]
     # a job already queued or done on the ledger is never sent twice
     busy = {j.get("label") for j in vg.jobs().values() if j.get("status") != "failed"}
@@ -72,7 +73,9 @@ def plan(pairs):
                 steps.append(("image", p["id"], ["image", "--prompt-file", str((PAIRS / p["id"] / im["prompt"]).relative_to(REPO)),
                                                  "--out", im["out"]], image_usd))
         for side, i, s, out in shots(p):
-            if s.get("reuse") or (REPO / out).exists() or f"{p['id']}_{out.stem}" in busy:
+            if s.get("reuse"):
+                continue
+            if side not in redo and ((REPO / out).exists() or f"{p['id']}_{out.stem}" in busy):
                 continue
             m = vg.load_model(s["model"])
             nrefs = s["args"].count("--ref")
@@ -138,6 +141,8 @@ def main():
     ap.add_argument("--wait", action="store_true")
     ap.add_argument("--compose", action="store_true")
     ap.add_argument("--only", nargs="*")
+    ap.add_argument("--redo", nargs="*", default=[], choices=["before", "after"],
+                    help="send that side again even if it exists (after rewriting its prompts)")
     a = ap.parse_args()
     pairs = load(a.only)
 
@@ -148,7 +153,7 @@ def main():
             compose(p)
         return
 
-    steps = plan(pairs)
+    steps = plan(pairs, a.redo)
     for kind, name, args, usd in steps:
         model = "image" if kind == "image" else args[1]
         print(f"  {name:28} {model:9} {vg.fmt_money(usd)}")

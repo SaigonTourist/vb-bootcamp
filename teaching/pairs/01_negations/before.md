@@ -1,3 +1,3 @@
-A leather folder on a desk. The folder must not stand up, never upright, not floating, nothing
-else on the desk, no logo, do not show any text, no people, the folder must not open, never tilted,
-nothing moves except the hand. Camera does not move. ACTION: a hand puts the folder down.
+A businessman puts a leather folder down on his desk. Don't show his face, no text on the folder, no
+logos, the folder must not open, no weird hands, nothing floating, no extra fingers, don't make it
+look AI generated, not blurry.
