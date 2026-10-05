@@ -1,0 +1,343 @@
+[
+  {
+    "id": "01_negations",
+    "n": 1,
+    "title": "The model draws what you name",
+    "lesson": "A wall of prohibitions names every failure; the same shot written as what is there comes back clean.",
+    "labels": [
+      "BEFORE · nine prohibitions, action last",
+      "AFTER · action first, positive"
+    ],
+    "before": [
+      {
+        "model": "seedance",
+        "prompt": "before.md",
+        "dur": 5,
+        "args": [
+          "--resolution",
+          "480p"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "seedance",
+        "prompt": "after.md",
+        "dur": 5,
+        "args": [
+          "--resolution",
+          "480p"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "02_light",
+    "n": 2,
+    "title": "Technical specification, not mood",
+    "lesson": "Mood adjectives give nothing executable; one source, a direction and a ratio give light with shape.",
+    "labels": [
+      "BEFORE · bright, cinematic, stunning",
+      "AFTER · one source, camera-left, 4:1"
+    ],
+    "before": [
+      {
+        "model": "veo-fast",
+        "prompt": "before.md",
+        "dur": 4,
+        "args": [
+          "--seed",
+          "21"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "veo-fast",
+        "prompt": "after.md",
+        "dur": 4,
+        "args": [
+          "--seed",
+          "21"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "03_brands",
+    "n": 3,
+    "title": "No brand names",
+    "lesson": "A named camera or garment gets its logo drawn; the negative prompt does not stop it. Describe without the name.",
+    "labels": [
+      "BEFORE · camera and polo named",
+      "AFTER · same things, described"
+    ],
+    "before": [
+      {
+        "model": "veo-fast",
+        "prompt": "before.md",
+        "dur": 4,
+        "args": [
+          "--seed",
+          "31"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "veo-fast",
+        "prompt": "after.md",
+        "dur": 4,
+        "args": [
+          "--seed",
+          "31"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "04_closeup",
+    "n": 4,
+    "title": "Distance protects faces",
+    "lesson": "An energetic close-up drifts into a grimace; the same beat in a medium shot reads as joy.",
+    "labels": [
+      "BEFORE · extreme close-up, high energy",
+      "AFTER · medium shot, small gesture"
+    ],
+    "before": [
+      {
+        "model": "veo-fast",
+        "prompt": "before.md",
+        "dur": 4,
+        "args": [
+          "--seed",
+          "41"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "veo-fast",
+        "prompt": "after.md",
+        "dur": 4,
+        "args": [
+          "--seed",
+          "41"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "05_text",
+    "n": 5,
+    "title": "Readable surfaces come out as scribbles",
+    "lesson": "No model writes reliably. Keep surfaces closed or turned away and add the real text in the edit.",
+    "labels": [
+      "BEFORE · legible handwriting asked",
+      "AFTER · cover closed, text added later"
+    ],
+    "before": [
+      {
+        "model": "seedance",
+        "prompt": "before.md",
+        "dur": 5,
+        "args": [
+          "--resolution",
+          "480p"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "seedance",
+        "prompt": "after.md",
+        "dur": 5,
+        "args": [
+          "--resolution",
+          "480p"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "06_consistency",
+    "n": 6,
+    "title": "No shot remembers another",
+    "lesson": "Described twice, the presenter becomes two people. One start frame and identical scene text keep one person.",
+    "labels": [
+      "BEFORE · described in text, two takes",
+      "AFTER · one start frame, two takes"
+    ],
+    "needs_frame": true,
+    "before": [
+      {
+        "model": "h3",
+        "prompt": "before_1.md",
+        "dur": 5,
+        "args": []
+      },
+      {
+        "model": "h3",
+        "prompt": "before_2.md",
+        "dur": 5,
+        "args": []
+      }
+    ],
+    "after": [
+      {
+        "model": "h3",
+        "prompt": "after_1.md",
+        "dur": 5,
+        "args": [
+          "--first-frame",
+          "input/refs/presenter_A.png"
+        ]
+      },
+      {
+        "model": "h3",
+        "prompt": "after_2.md",
+        "dur": 5,
+        "args": [
+          "--first-frame",
+          "input/refs/presenter_A.png"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "07_filler",
+    "n": 7,
+    "title": "Give H3 something harmless to say at the end",
+    "lesson": "H3 talks to the end of the clip. Without a filler it repeats or invents words; with one, the edit cuts cleanly before it. Play with sound.",
+    "labels": [
+      "BEFORE · line ends early",
+      "AFTER · filler line, cut before it"
+    ],
+    "needs_frame": true,
+    "audio": true,
+    "before": [
+      {
+        "model": "h3",
+        "prompt": "before.md",
+        "dur": 6,
+        "args": [
+          "--first-frame",
+          "input/refs/presenter_A.png"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "h3",
+        "prompt": "after.md",
+        "dur": 6,
+        "args": [
+          "--first-frame",
+          "input/refs/presenter_A.png"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "08_pose",
+    "n": 8,
+    "title": "The reference image decides the pose",
+    "lesson": "Same prompt asking for a flat folder; only the reference changes. The photo wins over the sentence.",
+    "labels": [
+      "BEFORE · reference standing",
+      "AFTER · reference lying flat"
+    ],
+    "images": [
+      {
+        "out": "teaching/pairs/08_pose/folder_upright.png",
+        "prompt": "folder_upright.md"
+      },
+      {
+        "out": "teaching/pairs/08_pose/folder_flat.png",
+        "prompt": "folder_flat.md"
+      }
+    ],
+    "before": [
+      {
+        "model": "seedance",
+        "prompt": "shot.md",
+        "dur": 5,
+        "args": [
+          "--resolution",
+          "480p",
+          "--ref",
+          "teaching/pairs/08_pose/folder_upright.png"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "seedance",
+        "prompt": "shot.md",
+        "dur": 5,
+        "args": [
+          "--resolution",
+          "480p",
+          "--ref",
+          "teaching/pairs/08_pose/folder_flat.png"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "09_idea",
+    "n": 9,
+    "title": "From an idea to a filmable action",
+    "lesson": "\"Trust\" cannot be filmed. A small physical action that makes a viewer feel it can.",
+    "labels": [
+      "BEFORE · the idea as words",
+      "AFTER · the cup turned toward the guest"
+    ],
+    "before": [
+      {
+        "model": "seedance",
+        "prompt": "before.md",
+        "dur": 5,
+        "args": []
+      }
+    ],
+    "after": [
+      {
+        "reuse": "after.mp4",
+        "prompt": "after.md"
+      }
+    ]
+  },
+  {
+    "id": "10_draft",
+    "n": 10,
+    "title": "Draft cheap, finish once",
+    "lesson": "Same prompt and seed: the draft costs a quarter and is close enough to judge framing, action and light.",
+    "labels": [
+      "DRAFT · veo-fast 720p, 0.60 $",
+      "FINAL · veo 1080p, 2.40 $"
+    ],
+    "before": [
+      {
+        "model": "veo-fast",
+        "prompt": "shot.md",
+        "dur": 6,
+        "args": [
+          "--seed",
+          "11"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "model": "veo",
+        "prompt": "shot.md",
+        "dur": 6,
+        "args": [
+          "--seed",
+          "11"
+        ]
+      }
+    ]
+  }
+]
