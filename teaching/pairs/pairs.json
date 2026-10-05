@@ -1,39 +1,7 @@
 [
   {
-    "id": "01_one_action",
+    "id": "01_light",
     "n": 1,
-    "title": "One shot, one action",
-    "lesson": "A whole story in one 6 s shot comes back rushed and garbled. One physical action per shot; the story comes from the cut.",
-    "labels": [
-      "BEFORE · the whole story in one shot",
-      "AFTER · one action, start to end"
-    ],
-    "before": [
-      {
-        "model": "veo-fast",
-        "prompt": "before.md",
-        "dur": 6,
-        "args": [
-          "--seed",
-          "51"
-        ]
-      }
-    ],
-    "after": [
-      {
-        "model": "veo-fast",
-        "prompt": "after.md",
-        "dur": 6,
-        "args": [
-          "--seed",
-          "51"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "02_light",
-    "n": 2,
     "title": "Technical specification, not mood",
     "lesson": "Mood adjectives give nothing executable; one source, a direction and a ratio give light with shape.",
     "labels": [
@@ -64,8 +32,8 @@
     ]
   },
   {
-    "id": "03_brands",
-    "n": 3,
+    "id": "02_brands",
+    "n": 2,
     "title": "No brand names",
     "lesson": "A named camera or garment gets its logo drawn; the negative prompt does not stop it. Describe without the name.",
     "labels": [
@@ -96,10 +64,10 @@
     ]
   },
   {
-    "id": "04_closeup",
-    "n": 4,
+    "id": "03_closeup",
+    "n": 3,
     "title": "Distance protects faces",
-    "lesson": "An energetic close-up drifts into a grimace; the same beat in a medium shot reads as joy.",
+    "lesson": "An energetic close-up turns into a grimace; the same good news told in a medium shot reads as joy.",
     "labels": [
       "BEFORE · extreme close-up, high energy",
       "AFTER · medium shot, small gesture"
@@ -128,8 +96,8 @@
     ]
   },
   {
-    "id": "05_text",
-    "n": 5,
+    "id": "04_text",
+    "n": 4,
     "title": "Text looks right at a glance and is wrong when you read it",
     "lesson": "\"Kreditvertrag\" came back as \"Kredittract\", the table mixes German and English and the numbers are invented. A typo in a bank's video cannot ship and cannot be fixed without a re-render. Text goes in the edit.",
     "labels": [
@@ -160,8 +128,8 @@
     ]
   },
   {
-    "id": "06_consistency",
-    "n": 6,
+    "id": "05_consistency",
+    "n": 5,
     "title": "No shot remembers another",
     "lesson": "Described twice, the presenter becomes two people. One start frame and identical scene text keep one person.",
     "labels": [
@@ -205,88 +173,8 @@
     ]
   },
   {
-    "id": "07_filler",
-    "n": 7,
-    "title": "Give H3 something harmless to say at the end",
-    "lesson": "H3 talks to the end of the clip. Without a filler it repeats or invents words; with one, the edit cuts cleanly before it. Play with sound.",
-    "labels": [
-      "BEFORE · line ends early",
-      "AFTER · filler line, cut before it"
-    ],
-    "needs_frame": true,
-    "audio": true,
-    "before": [
-      {
-        "model": "h3",
-        "prompt": "before.md",
-        "dur": 6,
-        "args": [
-          "--first-frame",
-          "input/refs/presenter_A.png"
-        ]
-      }
-    ],
-    "after": [
-      {
-        "model": "h3",
-        "prompt": "after.md",
-        "dur": 6,
-        "args": [
-          "--first-frame",
-          "input/refs/presenter_A.png"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "08_pose",
-    "n": 8,
-    "title": "The reference image decides the pose",
-    "lesson": "Same prompt asking for a flat folder; only the reference changes. The photo wins over the sentence.",
-    "labels": [
-      "BEFORE · reference standing",
-      "AFTER · reference lying flat"
-    ],
-    "images": [
-      {
-        "out": "teaching/pairs/08_pose/folder_upright.png",
-        "prompt": "folder_upright.md"
-      },
-      {
-        "out": "teaching/pairs/08_pose/folder_flat.png",
-        "prompt": "folder_flat.md"
-      }
-    ],
-    "before": [
-      {
-        "model": "seedance",
-        "prompt": "shot.md",
-        "dur": 5,
-        "args": [
-          "--resolution",
-          "480p",
-          "--ref",
-          "teaching/pairs/08_pose/folder_upright.png"
-        ]
-      }
-    ],
-    "after": [
-      {
-        "model": "seedance",
-        "prompt": "shot.md",
-        "dur": 5,
-        "args": [
-          "--resolution",
-          "480p",
-          "--ref",
-          "teaching/pairs/08_pose/folder_flat.png"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "09_idea",
-    "n": 9,
+    "id": "06_idea",
+    "n": 6,
     "title": "From an idea to a filmable action",
     "lesson": "\"Trust\" cannot be filmed. A small physical action that makes a viewer feel it can.",
     "labels": [
@@ -309,8 +197,8 @@
     ]
   },
   {
-    "id": "10_draft",
-    "n": 10,
+    "id": "07_draft",
+    "n": 7,
     "title": "Draft cheap, finish once",
     "lesson": "Same prompt and seed: the draft costs a quarter and is close enough to judge framing, action and light.",
     "labels": [
