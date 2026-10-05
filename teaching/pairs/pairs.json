@@ -1,32 +1,32 @@
 [
   {
-    "id": "01_negations",
+    "id": "01_one_action",
     "n": 1,
-    "title": "The model draws what you name",
-    "lesson": "A wall of prohibitions names every failure; the same shot written as what is there comes back clean.",
+    "title": "One shot, one action",
+    "lesson": "A whole story in one 6 s shot comes back rushed and garbled. One physical action per shot; the story comes from the cut.",
     "labels": [
-      "BEFORE · a list of what not to show",
-      "AFTER · action first, positive"
+      "BEFORE · the whole story in one shot",
+      "AFTER · one action, start to end"
     ],
     "before": [
       {
-        "model": "seedance",
+        "model": "veo-fast",
         "prompt": "before.md",
-        "dur": 5,
+        "dur": 6,
         "args": [
-          "--resolution",
-          "480p"
+          "--seed",
+          "51"
         ]
       }
     ],
     "after": [
       {
-        "model": "seedance",
+        "model": "veo-fast",
         "prompt": "after.md",
-        "dur": 5,
+        "dur": 6,
         "args": [
-          "--resolution",
-          "480p"
+          "--seed",
+          "51"
         ]
       }
     ]
@@ -130,8 +130,8 @@
   {
     "id": "05_text",
     "n": 5,
-    "title": "Readable surfaces come out as scribbles",
-    "lesson": "No model writes reliably. Keep surfaces closed or turned away and add the real text in the edit.",
+    "title": "Text looks right at a glance and is wrong when you read it",
+    "lesson": "\"Kreditvertrag\" came back as \"Kredittract\", the table mixes German and English and the numbers are invented. A typo in a bank's video cannot ship and cannot be fixed without a re-render. Text goes in the edit.",
     "labels": [
       "BEFORE · screen, chart and contract, \"readable\"",
       "AFTER · cover closed, text added later"
