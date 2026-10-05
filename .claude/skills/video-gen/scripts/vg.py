@@ -256,12 +256,25 @@ def or_headers():
     return {"Authorization": f"Bearer {api_key()}"}
 
 
+def sniff_mime(raw: bytes, name: str) -> str:
+    """The bytes decide, not the extension: image models may return JPEG for a file we named .png."""
+    if raw[:8] == b"\x89PNG\r\n\x1a\n":
+        return "image/png"
+    if raw[:3] == b"\xff\xd8\xff":
+        return "image/jpeg"
+    if raw[:4] == b"RIFF" and raw[8:12] == b"WEBP":
+        return "image/webp"
+    if raw[4:8] == b"ftyp":
+        return "video/mp4"
+    return mimetypes.guess_type(name)[0] or "application/octet-stream"
+
+
 def data_url(p: Path) -> str:
     p = Path(p)
     if not p.exists():
         die(f"file not found: {p}")
-    mime = mimetypes.guess_type(str(p))[0] or "application/octet-stream"
-    return f"data:{mime};base64," + base64.b64encode(p.read_bytes()).decode()
+    raw = p.read_bytes()
+    return f"data:{sniff_mime(raw, str(p))};base64," + base64.b64encode(raw).decode()
 
 
 def download(url, dest: Path, auth=True):
@@ -575,9 +588,8 @@ def cmd_image(a):
     out.parent.mkdir(parents=True, exist_ok=True)
     jid = f"img-{int(time.time() * 1000)}"
     if MOCK:
-        frame = ASSETS / "mock_frame.png"
-        shutil.copyfile(frame, out.with_suffix(".png"))
-        out, cost = out.with_suffix(".png"), 0.0
+        shutil.copyfile(ASSETS / "mock_frame.png", out)
+        cost = 0.0
     else:
         content = [{"type": "text", "text": prompt}] + [{"type": "image_url", "image_url": {"url": data_url(p)}} for p in a.inp]
         body = {"model": m["id"], "messages": [{"role": "user", "content": content}],
@@ -591,7 +603,7 @@ def cmd_image(a):
         mm = re.match(r"data:(image/\w+);base64,(.*)", url, re.S)
         if not mm:
             die("unexpected image response")
-        out = out.with_suffix(mimetypes.guess_extension(mm.group(1)) or ".png")
+        # keep the name that was asked for: start frames are referenced by it (data_url sniffs the real type)
         out.write_bytes(base64.b64decode(mm.group(2)))
         cost = (r.get("usage") or {}).get("cost", usd)
     ledger_append({"id": jid, "kind": "image", "user": USER, "model": m["id"], "key": "image", "label": out.stem,

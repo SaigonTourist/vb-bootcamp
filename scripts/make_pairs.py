@@ -62,6 +62,8 @@ def run_vg(*args):
 
 def plan(pairs):
     steps, image_usd = [], vg.load_model("image")["pricing"]["usd_per_image"]
+    # a job already queued or done on the ledger is never sent twice
+    busy = {j.get("label") for j in vg.jobs().values() if j.get("status") != "failed"}
     if any(p.get("needs_frame") for p in pairs) and not (REPO / FRAME).exists():
         steps.append(("image", "presenter_A", ["image", "--prompt-file", FRAME_PROMPT, "--out", FRAME], image_usd))
     for p in pairs:
@@ -70,7 +72,7 @@ def plan(pairs):
                 steps.append(("image", p["id"], ["image", "--prompt-file", str((PAIRS / p["id"] / im["prompt"]).relative_to(REPO)),
                                                  "--out", im["out"]], image_usd))
         for side, i, s, out in shots(p):
-            if s.get("reuse") or (REPO / out).exists():
+            if s.get("reuse") or (REPO / out).exists() or f"{p['id']}_{out.stem}" in busy:
                 continue
             m = vg.load_model(s["model"])
             nrefs = s["args"].count("--ref")
