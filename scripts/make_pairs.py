@@ -6,7 +6,7 @@ Each pair changes one thing, so the difference on screen is the strategy and not
   python3 scripts/make_pairs.py                    plan and cost, nothing sent
   python3 scripts/make_pairs.py --go               start frames and images, then submit every video at once
   python3 scripts/make_pairs.py --wait             collect what has rendered (repeat until nothing is pending)
-  python3 scripts/make_pairs.py --compose          one side-by-side pair.mp4 per pair, for the beamer
+  python3 scripts/make_pairs.py --compose          per pair: pair.mp4 side by side (muted) and sequence.mp4 with sound
   python3 scripts/make_pairs.py --go --only 03_brands 04_closeup
   python3 scripts/make_pairs.py --go --redo before --only 01_negations     after rewriting a prompt
 
@@ -131,8 +131,37 @@ def compose(p):
         cmd += ["-filter_complex", fc, "-map", "[o]", "-t", f"{longest + 0.5:.2f}", "-an",
                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out)]
         assemble.run(cmd)
-    note = " (muted; play the originals for sound)" if p.get("audio") else ""
-    print(f"  ✓ {out.relative_to(REPO)}{note}")
+    print(f"  ✓ {out.relative_to(REPO)} (side by side, muted)")
+    sequence(p, files, labels)
+
+
+def sequence(p, files, labels):
+    """Each clip full screen with its own sound, before first: the version to play when audio matters."""
+    ff = assemble.ffmpeg()
+    out = PAIRS / p["id"] / "sequence.mp4"
+    with tempfile.TemporaryDirectory() as t:
+        tmp = Path(t)
+        parts = []
+        for k, (f, lab) in enumerate(zip(files, labels)):
+            tf = tmp / f"l{k}.txt"
+            tf.write_text(f"{p['n']:02d} · {lab}")
+            seg = tmp / f"s{k}.mp4"
+            has_audio = assemble.probe(f)[1]
+            cmd = [ff, "-y", "-i", str(f)]
+            if not has_audio:
+                cmd += ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo", "-shortest"]
+            cmd += ["-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=25,"
+                    f"drawtext={assemble.font_opt()}:textfile='{assemble.esc_path(tf)}':fontcolor=white:fontsize=40:"
+                    "box=1:boxcolor=black@0.6:boxborderw=14:x=32:y=32",
+                    "-map", "0:v:0", "-map", "0:a:0" if has_audio else "1:a:0",
+                    "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+                    "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "160k", str(seg)]
+            assemble.run(cmd)
+            parts.append(seg)
+        lst = tmp / "list.txt"
+        lst.write_text("".join(f"file '{x}'\n" for x in parts))
+        assemble.run([ff, "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", "-movflags", "+faststart", str(out)])
+    print(f"  ✓ {out.relative_to(REPO)} (one after the other, with sound)")
 
 
 def main():

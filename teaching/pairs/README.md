@@ -38,7 +38,7 @@ python3 scripts/make_pairs.py --go --redo before --only 01_one_action   after re
 python3 scripts/make_pairs.py --compose      teaching/pairs/<pair>/pair.mp4, side by side with labels, for the beamer
 ```
 
-Composed pairs are muted; for 06 and 07 play the original clips for the sound. Before the day,
+`--compose` makes two files per pair: `pair.mp4`, side by side and muted, to compare the picture, and `sequence.mp4`, before then after full screen with their own sound. Play the sequence for 06 and 07. Before the day,
 watch every pair: if a "before" happens to come out fine, regenerate it (a lucky take teaches
 nothing), and if an "after" fails, fix it with one change and note what you changed; that is a
 story worth telling in the room.
