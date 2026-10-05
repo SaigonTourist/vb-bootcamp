@@ -86,6 +86,17 @@ def plan(pairs, redo=()):
     return steps
 
 
+def overlay_filter(p, tmp, is_after, size):
+    """The real text an 'after' gets in the edit (pair 4): a clean title the model never had to draw."""
+    text = p.get("after_overlay")
+    if not text or not is_after:
+        return ""
+    tf = tmp / "overlay.txt"
+    tf.write_text(text)
+    return (f",drawtext={assemble.font_opt()}:textfile='{assemble.esc_path(tf)}':fontcolor=white:fontsize={size}:"
+            f"box=1:boxcolor=0x14213d@0.85:boxborderw={size // 3}:x=(w-text_w)/2:y=h*0.72")
+
+
 def compose(p):
     rows = {"before": [], "after": []}
     for side, i, s, out in shots(p):
@@ -110,10 +121,11 @@ def compose(p):
             d = assemble.probe(f)[0]
             # in the 2x2 grid the title sits on the seam, so the lower row labels its clips at the bottom
             y = "h-text_h-16" if cols > 1 and k >= cols else "16"
+            title_card = overlay_filter(p, tmp, k >= cols, 40)
             chains.append(f"[{k}:v]scale={w}:{h}:force_original_aspect_ratio=decrease,pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,"
                           f"setsar=1,fps=25,tpad=stop_mode=clone:stop_duration={longest - d + 0.5:.2f},"
                           f"drawtext={assemble.font_opt()}:textfile='{assemble.esc_path(tf)}':fontcolor=white:fontsize=26:"
-                          f"box=1:boxcolor=black@0.6:boxborderw=10:x=16:y={y}[v{k}]")
+                          f"box=1:boxcolor=black@0.6:boxborderw=10:x=16:y={y}{title_card}[v{k}]")
         title = tmp / "title.txt"
         title.write_text(f"{p['n']:02d} · {p['title']}")
         n = len(files)
@@ -152,7 +164,7 @@ def sequence(p, files, labels):
                 cmd += ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo", "-shortest"]
             cmd += ["-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=25,"
                     f"drawtext={assemble.font_opt()}:textfile='{assemble.esc_path(tf)}':fontcolor=white:fontsize=40:"
-                    "box=1:boxcolor=black@0.6:boxborderw=14:x=32:y=32",
+                    "box=1:boxcolor=black@0.6:boxborderw=14:x=32:y=32" + overlay_filter(p, tmp, k >= len(files) // 2, 80),
                     "-map", "0:v:0", "-map", "0:a:0" if has_audio else "1:a:0",
                     "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
                     "-c:a", "aac", "-ar", "48000", "-ac", "2", "-b:a", "160k", str(seg)]

@@ -102,7 +102,7 @@
     "lesson": "\"Kreditvertrag\" came back as \"Kredittract\", the table mixes German and English and the numbers are invented. A typo in a bank's video cannot ship and cannot be fixed without a re-render. Text goes in the edit.",
     "labels": [
       "BEFORE · screen, chart and contract, \"readable\"",
-      "AFTER · cover closed, text added later"
+      "AFTER · the real text, added in the edit"
     ],
     "before": [
       {
@@ -125,7 +125,8 @@
           "480p"
         ]
       }
-    ]
+    ],
+    "after_overlay": "Kreditvertrag"
   },
   {
     "id": "05_consistency",
