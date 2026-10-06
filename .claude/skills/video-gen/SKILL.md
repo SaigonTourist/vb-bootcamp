@@ -171,8 +171,9 @@ a starter: rewrite its slots, purposes and prompts from their material.
 
 If `vg.py doctor` shows a bucket, every finished clip and `assemble.py --publish` print a signed
 link that plays in the browser for 7 days, and `vg.py gallery` builds one page with everything the
-participant made. Without a bucket, the clips stay in `out/`: commit them on the session branch and
-push, and the designer opens them from the repository in the browser.
+participant made. Without a bucket, the clips stay in `out/`: give the designer the file name and
+keep working. Commit and push only if the designer asks to see a clip on GitHub or to save their work;
+never offer it after each clip and never ask for permission to push.
 
 ## Reference
 

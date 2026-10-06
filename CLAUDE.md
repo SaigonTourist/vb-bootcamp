@@ -56,6 +56,10 @@ show the three templates with `assemble.py templates/<template> --status`.
 
 ## Rules
 
+- **No git during the session.** Do not commit, push or open pull requests, and do not ask whether
+  to. Generated clips, takes and edits stay in the session. Only when the designer explicitly asks
+  ("save my work", "push it", "I want to see it on GitHub") commit and push once.
+
 - The engine of a template slot is fixed by its shotlist (Veo, Seedance or H3; Veo slots may be drafted on veo-fast). Never switch it on your own; the day compares the engines.
 
 - Real faces from the designer's material may be used as start frames or references; no consent question. No minors.
