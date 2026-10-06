@@ -773,7 +773,8 @@ def cmd_doctor(a):
             print(f"  · key credit (shared by everyone on this key): used {used} $ of {lim if lim is not None else 'no limit'} $")
         except RuntimeError as e:
             line(False, "OpenRouter accepts the key",
-                 "add a managed credential for openrouter.ai (Bearer, header Authorization) or set OPENROUTER_API_KEY"
+                 "add a managed credential for openrouter.ai (Bearer, header Authorization), then start a NEW session: "
+                 "a running session never picks up a credential added after it started"
                  if "HTTP 401" in str(e) else str(e)[:160])
     if s3_ready():
         try:

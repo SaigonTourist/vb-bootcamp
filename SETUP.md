@@ -3,6 +3,10 @@
 Ten minutes, all in your browser. Nothing is installed on your laptop. Raise your hand at any step
 that does not look like this page.
 
+> **Do not start a session until step 4.** A session only sees the key and settings that existed when
+> it started. If you already opened one, that is fine: finish steps 2 and 3, then start a **new**
+> session and use that one.
+
 ## 1. Open Claude Code
 
 Go to **claude.ai/code** and sign in with your Claude account. If it asks to connect GitHub, accept.
@@ -41,7 +45,7 @@ Claude asks before any single video above 3 €, and stops your session at 40 �
 
 ## 4. Start a session and check
 
-Start a **new session** on **vb-bootcamp** and type:
+Now, and only now, start a **new session** on **vb-bootcamp** and type:
 
 > Run the doctor.
 
@@ -52,4 +56,5 @@ You are ready when every line shows ✓:
 - openrouter.ai reachable
 - OpenRouter accepts the key
 
-Any ✗: leave the session open and raise your hand.
+Any ✗ on the key: check step 2, then start another **new** session (an open session never picks
+up a key added later). Anything else: raise your hand.

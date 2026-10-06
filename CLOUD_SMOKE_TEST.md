@@ -112,7 +112,7 @@ Typical fixes to point to:
 - **Key not accepted (doctor ✗ "OpenRouter accepts the key"):** claude.ai/code → this environment →
   add a credential: type Bearer, allowed website `openrouter.ai`, path prefix `/api/v1/`, header
   `Authorization` with prefix `Bearer` and the key as value. Or, simpler but less safe, an
-  environment variable `OPENROUTER_API_KEY`. Start a new session afterwards.
+  environment variable `OPENROUTER_API_KEY`. Then start a new session: a running session never picks up a credential or variable added after it started.
 - **Host blocked:** same settings → network access: keep the trusted defaults and add the host
   (`openrouter.ai`, plus any download host from step 12 and the bucket host if used).
 - **ffmpeg could not be installed:** say which route failed (apt or pip) and the error line; the
