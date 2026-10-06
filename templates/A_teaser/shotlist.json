@@ -1,12 +1,12 @@
 {
   "id": "A_teaser",
-  "title": "A · Attention teaser for a learning module",
+  "title": "A · A joke in three shots",
   "size": [
     1920,
     1080
   ],
   "fps": 25,
-  "lesson": "Every slot is a decision you make: what we see first, how close, which light, who your presenter is, what they say. You brief, compare takes, choose.",
+  "lesson": "Tell a joke in three shots, setup, twist, punchline, then design your end card. Every shot is your decision: you brief it, compare takes, choose.",
   "card_style": {
     "bg": "0x14213d",
     "fg": "white"
@@ -25,19 +25,19 @@
       "type": "gen",
       "model": "veo",
       "dur": 6,
-      "purpose": "Opener: the first thing the viewer sees",
+      "purpose": "Setup: the situation everyone recognises",
       "prompt": "prompts/s1.md",
       "seed": 11,
-      "task": "Decide what the viewer sees first. Brief it with the shot card, draft it twice on veo-fast changing ONE thing (light or distance), compare the two takes, choose, then render the final on veo."
+      "task": "Set up the joke: the situation everyone in the room recognises. Brief it with the shot card, draft it twice on veo-fast changing ONE thing (light or distance), compare the two takes, choose, then render the final on veo."
     },
     {
       "id": "s2",
       "type": "gen",
       "model": "seedance",
       "dur": 5,
-      "purpose": "B-roll: the advisor prepares, no face",
+      "purpose": "Twist: the detail that turns it, no face",
       "prompt": "prompts/s2.md",
-      "task": "Your first render. Show that the advisor prepares for the client, without a face. Brief it with three fields: what the viewer should take away, the one action, the sound."
+      "task": "Your first render. The twist: the one detail that turns the situation, shown without a face. Brief it with three fields: what the viewer should get, the one action, the sound."
     },
     {
       "id": "s3",
@@ -45,20 +45,21 @@
       "model": "h3",
       "dur": 6.4,
       "gen_dur": 8,
-      "purpose": "Presenter: the module's promise in German",
+      "purpose": "Punchline: your presenter says it in German",
       "prompt": "prompts/s3.md",
       "first_frame": "input/refs/presenter_A.png",
-      "task": "Design your presenter: ask for two or three start-frame candidates (age, clothing, room) or bring a photo, and pick one. Write the German line yourself, 14 words at most. Render, then fix one thing."
+      "task": "The punchline. Design your presenter: ask for two or three start-frame candidates or bring a photo, and pick one. Write the German line yourself, 14 words at most: timing beats length. Render, then fix one thing."
     },
     {
       "id": "card",
       "type": "card",
       "dur": 3,
       "lines": [
-        "Das gute Gespräch",
-        "Neues Lernmodul im Lernportal"
+        "Your tag line",
+        "Your subline"
       ],
-      "task": "Write your own title and subline."
+      "task": "Design your end card. Write the tag line, then the look: a solid colour, the last frame of your punchline frozen and blurred behind the text, or your own image; text colour, size, centred or low, your logo. Ask for a still preview, it is instant and free, and iterate until you like it.",
+      "purpose": "End card: your tag line and your look"
     }
   ],
   "note": "The prompts in prompts/ are worked examples and the source of the reserve clips, not the starting point: the designer briefs each slot from its task."

@@ -174,6 +174,21 @@ class Takes(unittest.TestCase):
             self.assertIn("t1 (in use), t2", run(asm, "templates/A_teaser", "--takes").stdout)
 
 
+class Card(unittest.TestCase):
+    def test_card_preview_all_styles(self):
+        if not shutil.which("ffmpeg"):
+            self.skipTest("ffmpeg missing")
+        import assemble
+        sl = json.loads((REPO / "templates/A_teaser/shotlist.json").read_text())
+        card = next(x for x in sl["slots"] if x["id"] == "card")
+        with tempfile.TemporaryDirectory() as t:
+            for style in ({"style": "solid", "bg": "0x1f3a2e"}, {"style": "freeze", "align": "lower", "size": "l"},
+                          {"style": "image", "image": ".claude/skills/video-gen/assets/mock_frame.png"}):
+                out = Path(t) / f"{style['style']}.mp4"
+                assemble.render_custom_card(out, {**card, **style}, sl, REPO / "templates/A_teaser", Path(t))
+                self.assertGreater(assemble.probe(out)[0], 2.5)
+
+
 class Welcome(unittest.TestCase):
     def test_greeting_report_in_mock_mode(self):
         env = dict(os.environ, VG_MOCK="1", VG_USER="welcometest", CLAUDE_PROJECT_DIR=str(REPO))

@@ -82,6 +82,12 @@ use one only when the designer asks for it or time runs out, and say so.
   action) so the comparison teaches something.
 - **The edit is theirs.** Order of slots, durations (`dur`), where a clip starts (`trim_start`), card
   lines, captions: change `shotlist.json` when they ask, in plain words, and rebuild the preview.
+- **End cards.** The card slot is designed by the designer. Fields on the card slot in `shotlist.json`:
+  `lines`; `style` = `solid` (with `bg`), `freeze` (last frame of the previous clip, or `freeze_from`
+  a slot, blurred and darkened) or `image` (`image` path); `fg` text colour; `size` s / m / l; `align`
+  center / lower; `logo` path and `logo_pos` top / corner; `font` path to a TTF they bring; `ai_label`
+  (on by default, keep it unless they insist). After each change show
+  `assemble.py templates/<template> --card`: a still, instant and free. Iterate there, then rebuild.
 - **Presenters.** Offer two or three start-frame candidates (`vg.py image`, a few cents each) from
   their description, or use the photo they bring, and let them pick before any video is made.
 

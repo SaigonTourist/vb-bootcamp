@@ -9,7 +9,7 @@ nothing is installed or run locally**, and the designer only ever needs the brow
 | Path | What |
 |---|---|
 | `.claude/skills/video-gen/` | The skill: model call templates, prompt templates, `vg.py`, `assemble.py`, reference pages |
-| `templates/A_teaser/` | Template A: 20 s teaser for a learning module (Veo opener, Seedance b-roll, H3 presenter, card) |
+| `templates/A_teaser/` | Template A: a joke in three shots (Veo setup, Seedance twist, H3 punchline) and a designed end card |
 | `templates/B_series/` | Template B: one fictional presenter, three short questions, b-roll between them |
 | `templates/C_own_material/` | Template C: built from the designer's own material (module text, photos of their spaces, a clip they own) |
 | `input/refs/` | Start frames and reference images |
