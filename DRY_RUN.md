@@ -25,14 +25,15 @@ which we can also run from our own machines.
 ## 2. Setup (facilitators)
 
 1. **Repository.** Push this repo to a private GitHub repository and give the participants access.
-2. **OpenRouter keys.** One key per participant plus one for the dry run, each with a credit limit
-   (suggested 40 $), named after the person. Revoke them all after the day.
+2. **One OpenRouter key for everyone**, named after the day, with a hard credit limit of 150 $
+   (about 25 $ per participant plus margin). Revoke it the evening of 8 October. The per-session
+   soft cap `VG_BUDGET_EUR=40` stops any single session from eating the shared credit.
 3. **Cloud environment** in Claude Code on the web, one per participant (or shared, if variables
    can be per user):
    - Network access: the default trusted list plus **`openrouter.ai`** (and the bucket host if any).
    - The key as a **managed credential** (the key never enters the container): type Bearer,
      allowed website `openrouter.ai`, path prefix `/api/v1/`, header `Authorization`, prefix
-     `Bearer`, value = the participant's key. `vg.py doctor` confirms it is accepted.
+     `Bearer`, value = the shared key. `vg.py doctor` confirms it is accepted.
    - Environment variables:
      ```
      VG_USER=<first name, no spaces>
@@ -60,7 +61,7 @@ which we can also run from our own machines.
    Review every reserve, regenerate the bad ones, then commit `templates/*/reserves/` and the
    start frames in `input/refs/`.
 
-## 2b. Seedance straight through ModelArk (while the OpenRouter keys are pending)
+## 2b. Seedance straight through ModelArk (live demo, and fallback if OpenRouter is down)
 
 `scripts/ark_seedance_probe.py` makes one Seedance 2.5 call directly against BytePlus ModelArk,
 standard library only. Needs `ARK_API_KEY` in the environment and, in the cloud,
@@ -93,7 +94,8 @@ per participant, anything the browser could not open.
 ## 4. Before the day
 
 - [ ] `jobs/` contains only `probes.jsonl` and `reserves.jsonl`; delete the dry-run ledger.
-- [ ] Participant keys created, limits set, environments configured and tested with `doctor`.
+- [ ] The shared key created with its 150 $ limit, every participant's environment configured and tested with `doctor`.
+- [ ] Reminder set to revoke the shared key after the day.
 - [ ] Reserves reviewed and committed; previews of A, B and C build from reserves alone.
 - [ ] The corrected PDF sent: the IT list is claude.ai, github.com (and the bucket host), not the
       video endpoints; the fallback is pre-generated clips, not guest wifi.

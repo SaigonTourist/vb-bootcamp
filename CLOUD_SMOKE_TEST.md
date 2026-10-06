@@ -117,5 +117,5 @@ Typical fixes to point to:
   (`openrouter.ai`, plus any download host from step 12 and the bucket host if used).
 - **ffmpeg could not be installed:** say which route failed (apt or pip) and the error line; the
   package mirrors may be outside the allowed network list.
-- **402 from OpenRouter:** the key has no credit or hit its limit, on openrouter.ai → Keys.
+- **402 from OpenRouter:** the shared key has no credit or hit its limit, on openrouter.ai → Keys. It is shared: tell the facilitator, do not retry.
 - **Push refused:** the Claude GitHub app has no write access to this repository.

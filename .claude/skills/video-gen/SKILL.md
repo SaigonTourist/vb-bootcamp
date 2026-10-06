@@ -129,7 +129,7 @@ a starter: rewrite its slots, purposes and prompts from their material.
 | Message | Meaning | Do |
 |---|---|---|
 | `400 ... No matching discriminator` | A reference lacks `"type": "image_url"` | Bug in a hand-built call; use `vg.py submit` |
-| `402` / insufficient credits | The participant key hit its cap | Stop, call a facilitator |
+| `402` / insufficient credits | The shared key hit its cap | Stop, call a facilitator; it affects everyone |
 | `InputImageSensitiveContentDetected` | Seedance saw a person in an input image | Move the shot to `h3` or use an image without people |
 | `TaskTypeConstraint` | Seedance read the prompt as an edit | Remove add / remove / replace / extend / continue |
 | Status `failed` with `Invalid media input` | Provider-side flake fetching the media | Resubmit once as a new job |

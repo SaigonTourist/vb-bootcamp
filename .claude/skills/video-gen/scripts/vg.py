@@ -770,7 +770,7 @@ def cmd_doctor(a):
             k = http("GET", f"{BASE}/key", headers=or_headers(), timeout=30).get("data", {})
             lim, used = k.get("limit"), k.get("usage")
             line(True, "OpenRouter accepts the key")
-            print(f"  · key credit: used {used} $ of {lim if lim is not None else 'no limit'} $")
+            print(f"  · key credit (shared by everyone on this key): used {used} $ of {lim if lim is not None else 'no limit'} $")
         except RuntimeError as e:
             line(False, "OpenRouter accepts the key",
                  "add a managed credential for openrouter.ai (Bearer, header Authorization) or set OPENROUTER_API_KEY"

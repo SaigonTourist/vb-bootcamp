@@ -34,7 +34,7 @@ compliance teams have the final word; bring this page to them.
 
 ## Cost
 
-- Each participant has a key with a hard credit cap set by the facilitators.
+- One shared key for the day, with a hard credit cap set by the facilitators and revoked afterwards.
 - `vg.py` adds two soft limits: a confirmation line per generation (`VG_CONFIRM_EUR`, default 3 €)
   and a session budget (`VG_BUDGET_EUR`, default 60 €).
 - `vg.py estimate` before every expensive call, `vg.py spend` at any time.
