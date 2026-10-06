@@ -58,9 +58,9 @@
       "dur": 6.4,
       "gen_dur": 8,
       "purpose": "Your question 2 to camera",
-      "prompt": "prompts/q2.md",
+      "prompt": "prompts/q2_designer.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "2 · Was hat sich verändert?",
+      "caption": "2 · KI-Texte prüfen",
       "task": "Your second question. Only the line changes from q1."
     },
     {
@@ -79,9 +79,9 @@
       "dur": 6.4,
       "gen_dur": 8,
       "purpose": "Your question 3 to camera",
-      "prompt": "prompts/q3.md",
+      "prompt": "prompts/q3_designer.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "3 · Woran merken Sie, dass es passt?",
+      "caption": "3 · Kundendaten",
       "task": "Your third question. Only the line changes; compare the three takes for consistency."
     },
     {
@@ -89,8 +89,9 @@
       "type": "card",
       "dur": 3,
       "lines": [
-        "Drei Fragen. Ein gutes Gespräch.",
-        "Mehr im Lernportal"
+        "Fragen? Fragen Sie die KI.",
+        "Bitte nicht uns.",
+        "Einige Szenen wurden mit KI erstellt."
       ],
       "task": "Write your closing line."
     }
