@@ -8,7 +8,7 @@ survives an API outage. Start frames are made first, because H3 slots depend on 
   python3 scripts/make_reserves.py --go                submit everything (then: vg.py wait)
   python3 scripts/make_reserves.py --go --only A_teaser
 
-Slots whose prompt still has [brackets] to fill in are skipped (template C waits for the real footage).
+Slots whose prompt still has [brackets] to fill in are skipped (template C is built from each designer's own material).
 Runs on the 'reserves' ledger, so it never counts against a participant.
 """
 import argparse

@@ -11,9 +11,9 @@ nothing is installed or run locally**, and the designer only ever needs the brow
 | `.claude/skills/video-gen/` | The skill: model call templates, prompt templates, `vg.py`, `assemble.py`, reference pages |
 | `templates/A_teaser/` | Template A: 20 s teaser for a learning module (Veo opener, Seedance b-roll, H3 presenter, card) |
 | `templates/B_series/` | Template B: one fictional presenter, three short questions, b-roll between them |
-| `templates/C_real_plus_ai/` | Template C: the bank's own footage untouched, AI shots carrying each key message |
+| `templates/C_own_material/` | Template C: built from the designer's own material (module text, photos of their spaces, a clip they own) |
 | `input/refs/` | Start frames and reference images (fictional people only) |
-| `input/real/` | Real footage for template C |
+| `input/own/` | The designer's own material for template C (see its README) |
 | `out/` | Every generated clip and every preview |
 | `jobs/<participant>.jsonl` | Ledger of every generation: prompt, model, cost, result |
 

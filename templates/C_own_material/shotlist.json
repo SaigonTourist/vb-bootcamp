@@ -1,0 +1,71 @@
+{
+  "id": "C_own_material",
+  "title": "C · Your material",
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "lesson": "Start from what you already have: a module script, photos of your spaces and objects, a clip you own. Claude rewrites this shotlist from it; your footage stays untouched and generated shots carry each key message.",
+  "card_style": {
+    "bg": "0x14213d",
+    "fg": "white"
+  },
+  "frames": [],
+  "slots": [
+    {
+      "id": "a0",
+      "type": "gen",
+      "model": "veo",
+      "dur": 4,
+      "purpose": "Opener: the place your material is about",
+      "prompt": "prompts/a0.md",
+      "seed": 5
+    },
+    {
+      "id": "own1",
+      "type": "real",
+      "dur": 10,
+      "file": "input/own/clip.mp4",
+      "trim_start": 0,
+      "purpose": "Your material, part 1 (first key message)",
+      "caption": "Kernbotschaft 1"
+    },
+    {
+      "id": "a1",
+      "type": "gen",
+      "model": "seedance",
+      "dur": 5,
+      "purpose": "Shows key message 1 from your material",
+      "prompt": "prompts/a1.md"
+    },
+    {
+      "id": "own2",
+      "type": "real",
+      "dur": 10,
+      "file": "input/own/clip.mp4",
+      "trim_start": 10,
+      "purpose": "Your material, part 2 (second key message)",
+      "caption": "Kernbotschaft 2"
+    },
+    {
+      "id": "a2",
+      "type": "gen",
+      "model": "veo",
+      "dur": 6,
+      "purpose": "Shows key message 2, closes the arc",
+      "prompt": "prompts/a2.md",
+      "seed": 9
+    },
+    {
+      "id": "card",
+      "type": "card",
+      "dur": 3,
+      "lines": [
+        "Title of your piece",
+        "Einige Szenen wurden mit KI erstellt."
+      ]
+    }
+  ],
+  "note": "Starter layout only. Claude replaces the slots, purposes and prompts with ones built from the designer's material in input/own/."
+}

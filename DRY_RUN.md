@@ -20,7 +20,7 @@ which we can also run from our own machines.
       share with them.
 - [ ] From the office browser: do claude.ai and github.com open, and do videos play on github.com?
       If we use a bucket: does its link play? (`vg.py doctor` prints a test link.)
-- [ ] An internal video we may use in template C (`input/real/internal_video.mp4`, 20 s or more,
+- [ ] Send participants `BRING_YOUR_MATERIAL.md` (module text, photos without people, a clip they own) and check they can upload to github.com from the bank network. Former item, no longer needed: an internal video for template C (`input/real/internal_video.mp4`, 20 s or more,
       with the speaker's consent), or we bring our own sample footage.
 
 ## 2. Setup (facilitators)

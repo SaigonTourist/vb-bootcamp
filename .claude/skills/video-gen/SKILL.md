@@ -60,6 +60,24 @@ Prompt templates per engine, in `.claude/skills/video-gen/prompts/`:
 | `seedance_broll.md` | B-roll, and scenes built from several reference images |
 | `image_start_frame.md` | Start frames and variants of the same fictional presenter |
 
+## Template C: the designer's own material
+
+Template C is built from what the designer brings, in `input/own/` (uploaded on github.com, then
+`git pull`; pasted images you save there yourself). `templates/C_own_material/shotlist.json` is only
+a starter: rewrite its slots, purposes and prompts from their material.
+
+- **Module text** (script, storyboard, slides): pull out two or three key messages, show them back
+  as a list, and turn each into one shot via the shot card. Spoken lines come from their text,
+  shortened to about 2 words per second.
+- **Photos of their places and objects**: use them as Seedance references or start frames so the
+  generated shots look like their world. Check each one first: if a person is recognisable, do not
+  use it as a reference and say why.
+- **A clip they own**: ask once whether everyone visible agreed to be filmed for this use. Yes: cut it
+  in untouched as `type: real` slots (`trim_start` and `dur` pick the part). Unsure: leave it out.
+- **Logo and colours**: title and end cards in the edit, never inside a generated shot.
+- Nothing from their material leaves the session except what a generation needs, and nothing with
+  client data or real people's faces goes to a model.
+
 ## The flow for one shot
 
 1. **Find the slot.** `assemble.py templates/<template> --status` lists slots, models and what is

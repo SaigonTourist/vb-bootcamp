@@ -17,7 +17,7 @@ you describe the shot, Claude writes the prompt.
 |---|---|---|
 | **A · Teaser** | 20 s attention piece for a learning module | Which model for which shot, prompting, drafting cheap |
 | **B · Series** | One presenter, three short questions | Keeping a person and a room consistent across takes |
-| **C · Real + AI** | Your own footage with AI shots carrying each key message | Combining real material with generated worlds |
+| **C · Your material** | A piece built from what you bring: a module script, photos of your spaces, a clip you own | Turning your own content into shots, combining real material with generated ones |
 
 ## The models
 

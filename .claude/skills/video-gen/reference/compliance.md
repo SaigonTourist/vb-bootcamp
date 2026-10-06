@@ -7,7 +7,7 @@ compliance teams have the final word; bring this page to them.
 
 - **Fictional presenters only.** Presenters are generated from scratch with `vg.py image`. A photo
   of a colleague, client or public figure is never used to make "them" speak or move.
-- **Real people only as real footage**, with documented consent for that use (an internal video
+- **Real people only as real footage**, with documented consent for that use (a clip the designer brings
   where the speaker agreed to appear). The AI builds around them; it does not alter them.
 - **No minors**, in inputs or as generated characters.
 - **Voices** come from the models. No voice of a real person is cloned.
