@@ -40,6 +40,9 @@ def plan(only=None):
         for s in sl["slots"]:
             if not s.get("model"):
                 continue
+            if s.get("first_frame_from"):
+                print(f"  · skip {sl['id']}/{s['id']}: a bridge needs the frames of its neighbours, made on the day")
+                continue
             prompt = (m / s["prompt"]).read_text()
             if "[" in prompt:
                 print(f"  · skip {sl['id']}/{s['id']}: prompt still has [brackets] to fill in")

@@ -6,7 +6,7 @@
     1080
   ],
   "fps": 25,
-  "lesson": "One presenter across three takes. You design the person once, write three questions, and keep everything else identical so only the line changes.",
+  "lesson": "One presenter across three takes. Between q1 and q2 a cut to b-roll; between q2 and q3 a bridge generated from first and last frame, so the join cannot be seen. You design the person once, write three questions, and keep everything else identical.",
   "card_style": {
     "bg": "0x1f3a2e",
     "fg": "white"
@@ -49,7 +49,7 @@
       "dur": 4,
       "purpose": "B-roll between questions, no face",
       "prompt": "prompts/b1.md",
-      "task": "B-roll between questions, no face: brief it with the shot card."
+      "task": "The b-roll between q1 and q2, no face: brief it with the shot card. This one is a plain cut; the next join is a bridge."
     },
     {
       "id": "q2",
@@ -64,13 +64,16 @@
       "task": "Your second question. Only the line changes from q1."
     },
     {
-      "id": "b2",
+      "id": "bridge",
       "type": "gen",
-      "model": "seedance",
-      "dur": 4,
-      "purpose": "B-roll, one thing changed from b1",
-      "prompt": "prompts/b2.md",
-      "task": "A second b-roll. Change one thing from b1 (distance or action) and compare."
+      "model": "h3",
+      "dur": 5,
+      "gen_dur": 5,
+      "purpose": "Bridge: from where q2 is cut to where q3 begins",
+      "prompt": "prompts/bridge.md",
+      "first_frame_from": "q2@cut",
+      "last_frame_from": "q3@start",
+      "task": "Join q2 and q3 with no visible cut. Extract the two frames (where q2 is cut in the edit, where q3 begins), then brief ONE small natural action between them: a sip of water, a glance at notes. Compare it with the hard cut between q1 and q2."
     },
     {
       "id": "q3",

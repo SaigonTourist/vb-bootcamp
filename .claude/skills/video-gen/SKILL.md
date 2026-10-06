@@ -88,6 +88,13 @@ use one only when the designer asks for it or time runs out, and say so.
   center / lower; `logo` path and `logo_pos` top / corner; `font` path to a TTF they bring; `ai_label`
   (on by default, keep it unless they insist). After each change show
   `assemble.py templates/<template> --card`: a still, instant and free. Iterate there, then rebuild.
+- **Bridges (first and last frame).** A slot with `first_frame_from` / `last_frame_from` (template B,
+  `bridge`, between q2 and q3) joins two takes with no visible cut. Order: the clip before it must be
+  in its slot, then `assemble.py templates/<template> --frames <slot>` extracts the frame **where the
+  previous slot is cut in the edit** (not the raw clip's end; H3 overshoots) and the frame the next
+  slot starts from, and prints the submit command with `--first-frame` and `--last-frame`. Brief ONE
+  small natural action between the two frames. If the previous slot's take or `dur` changes, extract
+  the frames again. Show the preview next to the hard cut between q1 and q2: that comparison is the lesson.
 - **Presenters.** Offer two or three start-frame candidates (`vg.py image`, a few cents each) from
   their description, or use the photo they bring, and let them pick before any video is made.
 

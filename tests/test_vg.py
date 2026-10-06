@@ -189,6 +189,25 @@ class Card(unittest.TestCase):
                 self.assertGreater(assemble.probe(out)[0], 2.5)
 
 
+class Bridge(unittest.TestCase):
+    def test_bridge_frames_at_the_cut(self):
+        if not shutil.which("ffmpeg"):
+            self.skipTest("ffmpeg missing")
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t) / "lab"
+            shutil.copytree(REPO, root, ignore=shutil.ignore_patterns("out", "jobs", ".git", "slots", "takes", "frames"))
+            (root / "templates/B_series/slots").mkdir()
+            shutil.copy(SCRIPTS.parent / "assets/mock.mp4", root / "templates/B_series/slots/q2.mp4")
+            shutil.copy(SCRIPTS.parent / "assets/mock_frame.png", root / "input/refs/presenter_B.png")
+            env = dict(os.environ, CLAUDE_PROJECT_DIR=str(root))
+            r = subprocess.run([sys.executable, str(root / ".claude/skills/video-gen/scripts/assemble.py"),
+                                "templates/B_series", "--frames", "bridge"], cwd=root, env=env, capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            self.assertIn("q2 generated clip at 6.40 s", r.stdout)
+            for f in ("bridge_first.png", "bridge_last.png"):
+                self.assertGreater((root / "templates/B_series/frames" / f).stat().st_size, 0)
+
+
 class Welcome(unittest.TestCase):
     def test_greeting_report_in_mock_mode(self):
         env = dict(os.environ, VG_MOCK="1", VG_USER="welcometest", CLAUDE_PROJECT_DIR=str(REPO))

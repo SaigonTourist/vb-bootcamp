@@ -10,6 +10,7 @@ Assemble a template (mock-up) from its shotlist: every slot gets the best clip a
   assemble.py templates/A_teaser --compare s1    the takes of s1 side by side, to choose
   assemble.py templates/A_teaser --use s1 t2     put take t2 into slot s1
   assemble.py templates/A_teaser --card          a still of the end card, to iterate its design
+  assemble.py templates/B_series --frames bridge first/last frame for a bridge, at the real cut points
 
 Source per slot, first match wins:
   slots/<id>.mp4        generated today (vg.py submit --slot templates/A_teaser/<id>)
@@ -407,6 +408,48 @@ def compare(template: Path, slot: str, publish: bool):
         print(f"    watch: {vg.publish(out)}")
 
 
+def frame_at(template: Path, sl: dict, ref: str, out: Path) -> str:
+    """ref = '<slot>@cut' (the frame where that slot is cut in the edit) or '<slot>@start' (its first frame).
+    A slot not generated yet falls back to the start frame it will be made from."""
+    sid, where = ref.split("@")
+    slot = next(x for x in sl["slots"] if x["id"] == sid)
+    src, kind = source(template, slot)
+    ff = ffmpeg()
+    if kind in ("generated", "reserve", "real footage") and src is not None:
+        length, _ = probe(src)
+        start = float(slot.get("trim_start", 0))
+        if where == "start":
+            t = start
+            run([ff, "-y", "-ss", f"{t:.3f}", "-i", str(src), "-frames:v", "1", str(out)])
+        else:
+            # the frame shown last before the cut; reading the 0.3 s before it and keeping the last frame
+            # also works when the cut falls on the very end of the clip
+            t = min(start + float(slot["dur"]), length)
+            run([ff, "-y", "-ss", f"{max(t - 0.3, 0):.3f}", "-i", str(src), "-t", "0.3", "-update", "1", str(out)])
+        if not out.exists() or out.stat().st_size == 0:
+            vg.die(f"could not read a frame from {sid} at {t:.2f} s")
+        return f"{sid} {kind} clip at {t:.2f} s"
+    if where == "start" and slot.get("first_frame") and (REPO / slot["first_frame"]).exists():
+        shutil.copyfile(REPO / slot["first_frame"], out)
+        return f"{sid} not generated yet: its start frame {slot['first_frame']}"
+    if where == "start":
+        vg.die(f"{sid} has no clip and no start frame yet; make its start frame (or generate it) first")
+    vg.die(f"{sid} has no clip yet; generate it first (the bridge needs the frame where it is cut)")
+
+
+def bridge_frames(template: Path, sl: dict, sid: str):
+    slot = next((x for x in sl["slots"] if x["id"] == sid), None)
+    if not slot or not slot.get("first_frame_from"):
+        vg.die(f"{sid} is not a first/last-frame slot")
+    fdir = template / "frames"
+    fdir.mkdir(exist_ok=True)
+    first, last = fdir / f"{sid}_first.png", fdir / f"{sid}_last.png"
+    print(f"  ✓ first frame {first.relative_to(REPO)} ← {frame_at(template, sl, slot['first_frame_from'], first)}")
+    print(f"  ✓ last frame  {last.relative_to(REPO)} ← {frame_at(template, sl, slot['last_frame_from'], last)}")
+    print(f"  next: vg.py submit {slot['model']} --prompt-file <brief> --dur {int(slot.get('gen_dur', slot['dur']))} "
+          f"--first-frame {first.relative_to(REPO)} --last-frame {last.relative_to(REPO)} --slot {template.relative_to(REPO)}/{sid}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("template")
@@ -417,11 +460,14 @@ def main():
     ap.add_argument("--use", nargs=2, metavar=("SLOT", "TAKE"), help="put a take into the slot, e.g. --use s1 t2")
     ap.add_argument("--compare", metavar="SLOT", help="the takes of one slot side by side")
     ap.add_argument("--card", action="store_true", help="a still of the end card, instant and free, to iterate its design")
+    ap.add_argument("--frames", metavar="SLOT", help="first and last frame for a bridge slot, taken at the real cut points")
     a = ap.parse_args()
     template = (REPO / a.template) if not Path(a.template).is_absolute() else Path(a.template)
     sl = load(template)
     try:
-        if a.card:
+        if a.frames:
+            bridge_frames(template, sl, a.frames)
+        elif a.card:
             card_preview(template, sl)
         elif a.takes:
             list_takes(template, sl)
