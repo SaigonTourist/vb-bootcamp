@@ -72,6 +72,14 @@ python3 scripts/ark_seedance_probe.py --check     # free: key and network only
 python3 scripts/ark_seedance_probe.py             # one 5 s clip, about 108k video tokens
 ```
 
+## 2c. Participant setup on the day (08:30)
+
+Each participant configures their own environment with `SETUP.md`: the shared key as a managed
+credential (one credential covers generating, polling and downloading, all on `openrouter.ai/api/v1/`),
+`VG_USER`, `VG_BUDGET_EUR`, `VG_CONFIRM_EUR`, then "Run the doctor". Before the day: invite every
+participant's GitHub account to the repository, and print `SETUP.md` plus one slip per person with
+the key (the key never goes into the repository or the slides).
+
 ## 3. The rehearsal (fresh cloud session, timed like the day)
 
 Open a new session on the repo with the dry-run key and work only through the chat, as a designer.

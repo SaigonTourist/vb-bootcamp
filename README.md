@@ -5,6 +5,8 @@ writes the call, sends it to the model, collects the clip and drops it into a mo
 
 ## Start
 
+First time? Follow `SETUP.md` (ten minutes, browser only).
+
 Open this repository in Claude Code on the web and say:
 
 > Run the doctor, then show me the three templates.
