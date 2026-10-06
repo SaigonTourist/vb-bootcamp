@@ -92,7 +92,7 @@ def main():
     elif pending:
         print("  Collect what is rendering: \"Check my renders.\" Meanwhile brief the next slot.")
     elif not videos:
-        print("  First render: \"Let's start with template A. Launch slot s2 with its ready prompt.\"")
+        print("  First render: \"Let's start template A. I want to brief slot s2.\"")
     elif a_done < a_total:
         print("  Continue template A: \"Show me the shot card for the next empty slot of template A.\"")
     elif b_done < b_total:

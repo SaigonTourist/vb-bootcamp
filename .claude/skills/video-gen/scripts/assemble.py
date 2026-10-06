@@ -6,6 +6,9 @@ Assemble a template (mock-up) from its shotlist: every slot gets the best clip a
   assemble.py templates/A_teaser                 build out/A_teaser_preview.mp4
   assemble.py templates/A_teaser --publish       ... and print a link that plays in the browser
   assemble.py templates/A_teaser --placeholders  (re)render the grey placeholder clips
+  assemble.py templates/A_teaser --takes         every take of every slot, and which one is in use
+  assemble.py templates/A_teaser --compare s1    the takes of s1 side by side, to choose
+  assemble.py templates/A_teaser --use s1 t2     put take t2 into slot s1
 
 Source per slot, first match wins:
   slots/<id>.mp4        generated today (vg.py submit --slot templates/A_teaser/<id>)
@@ -174,6 +177,8 @@ def status(template: Path, sl: dict):
             kind = "drawn"
             mark = "✓"
         print(f"  {mark} {s['id']:5} {model:9} {float(s['dur']):4.1f} s  {kind:12} {s.get('purpose', '')}")
+        if s.get("task"):
+            print(f"          task: {s['task']}")
     est = sum(vg.estimate_usd(vg.load_model(s["model"]), s.get("gen_dur", int(s["dur"]))) for s in sl["slots"] if s.get("model"))
     est += sum(vg.load_model("image")["pricing"]["usd_per_image"] for _ in sl.get("frames", []))
     print(f"  filling every slot once costs about {vg.fmt_money(est)}")
@@ -225,17 +230,93 @@ def build(template: Path, sl: dict, publish: bool):
         print(f"    watch: {vg.publish(out)}")
 
 
+def takes_of(template: Path, slot: str) -> list:
+    return sorted((template / "takes").glob(f"{slot}_t*.mp4"), key=lambda f: int(f.stem.rsplit("_t", 1)[1]))
+
+
+def list_takes(template: Path, sl: dict):
+    for s in sl["slots"]:
+        if not s.get("model"):
+            continue
+        takes = takes_of(template, s["id"])
+        mark = template / "slots" / f"{s['id']}.take"
+        in_use = mark.read_text().strip() if mark.exists() else None
+        names = [f"t{t.stem.rsplit('_t', 1)[1]}" + (" (in use)" if in_use == f"t{t.stem.rsplit('_t', 1)[1]}" else "")
+                 for t in takes]
+        print(f"  {s['id']:5} {', '.join(names) or 'none yet'}")
+
+
+def use_take(template: Path, slot: str, take: str):
+    n = take.lstrip("tT")
+    src = template / "takes" / f"{slot}_t{n}.mp4"
+    if not src.exists():
+        vg.die(f"no take t{n} for {slot}; see --takes")
+    (template / "slots").mkdir(exist_ok=True)
+    shutil.copyfile(src, template / "slots" / f"{slot}.mp4")
+    (template / "slots" / f"{slot}.take").write_text(f"t{n}")
+    print(f"  ✓ {slot} now uses take t{n}. Rebuild the preview to see it in place.")
+
+
+def compare(template: Path, slot: str, publish: bool):
+    """All takes of one slot side by side (up to 4), labelled, muted: the picture to choose from."""
+    takes = takes_of(template, slot)[-4:]
+    if len(takes) < 2:
+        vg.die(f"{slot} has {len(takes)} take(s); render another variation to compare")
+    ff = ffmpeg()
+    longest = max(probe(t)[0] for t in takes)
+    w, h = 960, 540
+    out = vg.OUT / f"{template.name}_{slot}_takes.mp4"
+    with tempfile.TemporaryDirectory() as tmpd:
+        tmp = Path(tmpd)
+        chains = []
+        for k, t in enumerate(takes):
+            lab = tmp / f"l{k}.txt"
+            lab.write_text(f"{slot} · take t{t.stem.rsplit('_t', 1)[1]}")
+            d = probe(t)[0]
+            chains.append(f"[{k}:v]scale={w}:{h}:force_original_aspect_ratio=decrease,pad={w}:{h}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=25,"
+                          f"tpad=stop_mode=clone:stop_duration={longest - d + 0.3:.2f},"
+                          f"drawtext={font_opt()}:textfile='{esc_path(lab)}':fontcolor=white:fontsize=30:box=1:"
+                          f"boxcolor=black@0.6:boxborderw=10:x=16:y=16[v{k}]")
+        n = len(takes)
+        if n == 2:
+            grid = "[v0][v1]hstack=inputs=2,pad=1920:1080:0:270:color=black[o]"
+        else:
+            pads = "".join(f"[v{k}]" for k in range(n))
+            if n == 3:
+                chains.append(f"color=c=black:s={w}x{h}:r=25:d={longest + 0.3:.2f}[v3]")
+                pads += "[v3]"
+            grid = f"{pads}xstack=inputs=4:layout=0_0|w0_0|0_h0|w0_h0[o]"
+        cmd = [ff, "-y"]
+        for t in takes:
+            cmd += ["-i", str(t)]
+        cmd += ["-filter_complex", ";".join(chains) + ";" + grid, "-map", "[o]", "-t", f"{longest + 0.3:.2f}", "-an",
+                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out)]
+        run(cmd)
+    print(f"  ✓ {out.relative_to(REPO)} · {n} takes of {slot} side by side")
+    if publish and vg.s3_ready():
+        print(f"    watch: {vg.publish(out)}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("template")
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--placeholders", action="store_true")
     ap.add_argument("--publish", action="store_true")
+    ap.add_argument("--takes", action="store_true", help="list the takes of every slot")
+    ap.add_argument("--use", nargs=2, metavar=("SLOT", "TAKE"), help="put a take into the slot, e.g. --use s1 t2")
+    ap.add_argument("--compare", metavar="SLOT", help="the takes of one slot side by side")
     a = ap.parse_args()
     template = (REPO / a.template) if not Path(a.template).is_absolute() else Path(a.template)
     sl = load(template)
     try:
-        if a.status:
+        if a.takes:
+            list_takes(template, sl)
+        elif a.use:
+            use_take(template, *a.use)
+        elif a.compare:
+            compare(template, a.compare, a.publish)
+        elif a.status:
             status(template, sl)
         elif a.placeholders:
             placeholders(template, sl)

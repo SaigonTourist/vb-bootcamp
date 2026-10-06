@@ -493,11 +493,20 @@ def finish(j: dict, src: Path | None = None, url: str | None = None, cost=None):
         shutil.copyfile(src, dest)
     else:
         download(url, dest)
-    placed = None
+    placed, take = None, None
     if j.get("slot"):
         placed = REPO / j["slot"]
         placed.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(dest, placed)
+        if placed.parent.name == "slots":
+            # every render of a template slot is kept as a take, so the designer can compare and choose
+            takes = placed.parent.parent / "takes"
+            takes.mkdir(exist_ok=True)
+            n = len(list(takes.glob(f"{placed.stem}_t*.mp4"))) + 1
+            take = takes / f"{placed.stem}_t{n}.mp4"
+            shutil.copyfile(dest, take)
+            take.with_suffix(".txt").write_text(j.get("prompt", ""))
+            placed.with_suffix(".take").write_text(f"t{n}")
     link = publish(dest) if s3_ready() else None
     took = time.time() - j.get("submitted", time.time())
     upd = {"id": j["id"], "status": "completed", "file": str(dest.relative_to(REPO)), "link": link,
@@ -508,7 +517,7 @@ def finish(j: dict, src: Path | None = None, url: str | None = None, cost=None):
     cost_txt = fmt_money(float(cost)) if cost is not None else "cost pending"
     print(f"  ✓ {j['label']} · {dest.relative_to(REPO)} · {took / 60:.1f} min · {cost_txt}")
     if placed:
-        print(f"    placed in {placed.relative_to(REPO)}")
+        print(f"    placed in {placed.relative_to(REPO)}" + (f" (take {take.stem.rsplit('_t', 1)[1]}, kept in takes/)" if take else ""))
     if link:
         print(f"    watch: {link}")
 

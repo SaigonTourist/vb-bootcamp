@@ -60,6 +60,24 @@ Prompt templates per engine, in `.claude/skills/video-gen/prompts/`:
 | `seedance_broll.md` | B-roll, and scenes built from several reference images |
 | `image_start_frame.md` | Start frames and variants of the same presenter |
 
+## Templates A and B are exercises, not recipes
+
+Each slot in `shotlist.json` has a `task`: a decision the designer makes (what we see first, how
+close, which light, who the presenter is, the exact line). Guide them through it with the shot card.
+The prompts in `templates/<template>/prompts/` are worked examples and the source of the reserves:
+use one only when the designer asks for it or time runs out, and say so.
+
+- **Takes.** Every render of a slot is kept in `takes/` as t1, t2, …; the newest goes into the slot.
+  When a slot has two or more takes, offer the comparison:
+  `assemble.py templates/<template> --compare <slot>` (side by side), then
+  `assemble.py templates/<template> --use <slot> <take>` for the one they choose. `--takes` lists them.
+- **Variations on purpose.** For a draft, suggest two takes that differ in ONE thing (light, distance,
+  action) so the comparison teaches something.
+- **The edit is theirs.** Order of slots, durations (`dur`), where a clip starts (`trim_start`), card
+  lines, captions: change `shotlist.json` when they ask, in plain words, and rebuild the preview.
+- **Presenters.** Offer two or three start-frame candidates (`vg.py image`, a few cents each) from
+  their description, or use the photo they bring, and let them pick before any video is made.
+
 ## Template C: the designer's own material
 
 Template C is built from what the designer brings, in `input/own/` (uploaded on github.com, then

@@ -6,7 +6,7 @@
     1080
   ],
   "fps": 25,
-  "lesson": "Consistency: one start frame and one SCENE block reused word for word, only the dialogue changes.",
+  "lesson": "One presenter across three takes. You design the person once, write three questions, and keep everything else identical so only the line changes.",
   "card_style": {
     "bg": "0x1f3a2e",
     "fg": "white"
@@ -15,7 +15,8 @@
     {
       "id": "presenter_B",
       "out": "input/refs/presenter_B.png",
-      "prompt": "prompts/frame_presenter_B.md"
+      "prompt": "prompts/frame_presenter_B.md",
+      "task": "Design the presenter: two or three candidates from a short description, or a photo the designer brings. They pick."
     }
   ],
   "slots": [
@@ -26,7 +27,8 @@
       "lines": [
         "Drei Fragen",
         "die jedes Gespräch öffnen"
-      ]
+      ],
+      "task": "Write your series title."
     },
     {
       "id": "q1",
@@ -34,18 +36,20 @@
       "model": "h3",
       "dur": 6.4,
       "gen_dur": 8,
-      "purpose": "Question 1 to camera",
+      "purpose": "Your question 1 to camera",
       "prompt": "prompts/q1.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "1 · Was ist Ihnen gerade wichtig?"
+      "caption": "1 · Was ist Ihnen gerade wichtig?",
+      "task": "Write your first question in German, 14 words at most. Same start frame, same scene words as q2 and q3."
     },
     {
       "id": "b1",
       "type": "gen",
       "model": "seedance",
       "dur": 4,
-      "purpose": "B-roll: a client listens, seen from behind",
-      "prompt": "prompts/b1.md"
+      "purpose": "B-roll between questions, no face",
+      "prompt": "prompts/b1.md",
+      "task": "B-roll between questions, no face: brief it with the shot card."
     },
     {
       "id": "q2",
@@ -53,18 +57,20 @@
       "model": "h3",
       "dur": 6.4,
       "gen_dur": 8,
-      "purpose": "Question 2 to camera",
+      "purpose": "Your question 2 to camera",
       "prompt": "prompts/q2.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "2 · Was hat sich verändert?"
+      "caption": "2 · Was hat sich verändert?",
+      "task": "Your second question. Only the line changes from q1."
     },
     {
       "id": "b2",
       "type": "gen",
       "model": "seedance",
       "dur": 4,
-      "purpose": "B-roll: hands, a pen set down, a pause",
-      "prompt": "prompts/b2.md"
+      "purpose": "B-roll, one thing changed from b1",
+      "prompt": "prompts/b2.md",
+      "task": "A second b-roll. Change one thing from b1 (distance or action) and compare."
     },
     {
       "id": "q3",
@@ -72,10 +78,11 @@
       "model": "h3",
       "dur": 6.4,
       "gen_dur": 8,
-      "purpose": "Question 3 to camera",
+      "purpose": "Your question 3 to camera",
       "prompt": "prompts/q3.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "3 · Woran merken Sie, dass es passt?"
+      "caption": "3 · Woran merken Sie, dass es passt?",
+      "task": "Your third question. Only the line changes; compare the three takes for consistency."
     },
     {
       "id": "card",
@@ -84,7 +91,9 @@
       "lines": [
         "Drei Fragen. Ein gutes Gespräch.",
         "Mehr im Lernportal"
-      ]
+      ],
+      "task": "Write your closing line."
     }
-  ]
+  ],
+  "note": "The prompts in prompts/ are worked examples and the source of the reserve clips, not the starting point: the designer briefs each slot from its task."
 }

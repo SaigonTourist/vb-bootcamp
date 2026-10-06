@@ -128,6 +128,31 @@ class Body(unittest.TestCase):
         self.assertEqual(vg.build_body(vg.load_model("veo"), "x", seed=3)["seed"], 3)
 
 
+class Takes(unittest.TestCase):
+    def test_takes_compare_and_use(self):
+        if not shutil.which("ffmpeg"):
+            self.skipTest("ffmpeg missing")
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t) / "lab"
+            shutil.copytree(REPO, root, ignore=shutil.ignore_patterns("out", "jobs", ".git", "slots", "takes", "teaching"))
+            env = dict(os.environ, VG_MOCK="1", VG_USER="takes", CLAUDE_PROJECT_DIR=str(root))
+            vgp = root / ".claude/skills/video-gen/scripts/vg.py"
+            asm = root / ".claude/skills/video-gen/scripts/assemble.py"
+
+            def run(script, *args):
+                return subprocess.run([sys.executable, str(script), *args], cwd=root, env=env, capture_output=True, text=True)
+
+            for _ in range(2):
+                self.assertEqual(run(vgp, "submit", "seedance", "--prompt", "ACTION: a cup.", "--dur", "5",
+                                     "--slot", "templates/A_teaser/s2").returncode, 0)
+                self.assertEqual(run(vgp, "wait").returncode, 0)
+            self.assertIn("t1, t2 (in use)", run(asm, "templates/A_teaser", "--takes").stdout)
+            self.assertEqual(run(asm, "templates/A_teaser", "--compare", "s2").returncode, 0)
+            self.assertTrue((root / "out/A_teaser_s2_takes.mp4").exists())
+            run(asm, "templates/A_teaser", "--use", "s2", "t1")
+            self.assertIn("t1 (in use), t2", run(asm, "templates/A_teaser", "--takes").stdout)
+
+
 class Welcome(unittest.TestCase):
     def test_greeting_report_in_mock_mode(self):
         env = dict(os.environ, VG_MOCK="1", VG_USER="welcometest", CLAUDE_PROJECT_DIR=str(REPO))

@@ -6,7 +6,7 @@
     1080
   ],
   "fps": 25,
-  "lesson": "Model choice per shot, prompting craft, iteration discipline (draft on veo-fast, final on veo).",
+  "lesson": "Every slot is a decision you make: what we see first, how close, which light, who your presenter is, what they say. You brief, compare takes, choose.",
   "card_style": {
     "bg": "0x14213d",
     "fg": "white"
@@ -15,7 +15,8 @@
     {
       "id": "presenter_A",
       "out": "input/refs/presenter_A.png",
-      "prompt": "prompts/frame_presenter_A.md"
+      "prompt": "prompts/frame_presenter_A.md",
+      "task": "Design the presenter: two or three candidates from a short description, or a photo the designer brings. They pick."
     }
   ],
   "slots": [
@@ -24,17 +25,19 @@
       "type": "gen",
       "model": "veo",
       "dur": 6,
-      "purpose": "Opener: someone arrives in a calm advisory room",
+      "purpose": "Opener: the first thing the viewer sees",
       "prompt": "prompts/s1.md",
-      "seed": 11
+      "seed": 11,
+      "task": "Decide what the viewer sees first. Brief it with the shot card, draft it twice on veo-fast changing ONE thing (light or distance), compare the two takes, choose, then render the final on veo."
     },
     {
       "id": "s2",
       "type": "gen",
       "model": "seedance",
       "dur": 5,
-      "purpose": "B-roll: two cups set on the table, the room waits",
-      "prompt": "prompts/s2.md"
+      "purpose": "B-roll: the advisor prepares, no face",
+      "prompt": "prompts/s2.md",
+      "task": "Your first render. Show that the advisor prepares for the client, without a face. Brief it with three fields: what the viewer should take away, the one action, the sound."
     },
     {
       "id": "s3",
@@ -42,9 +45,10 @@
       "model": "h3",
       "dur": 6.4,
       "gen_dur": 8,
-      "purpose": "Presenter says the module's promise in German",
+      "purpose": "Presenter: the module's promise in German",
       "prompt": "prompts/s3.md",
-      "first_frame": "input/refs/presenter_A.png"
+      "first_frame": "input/refs/presenter_A.png",
+      "task": "Design your presenter: ask for two or three start-frame candidates (age, clothing, room) or bring a photo, and pick one. Write the German line yourself, 14 words at most. Render, then fix one thing."
     },
     {
       "id": "card",
@@ -53,7 +57,9 @@
       "lines": [
         "Das gute Gespräch",
         "Neues Lernmodul im Lernportal"
-      ]
+      ],
+      "task": "Write your own title and subline."
     }
-  ]
+  ],
+  "note": "The prompts in prompts/ are worked examples and the source of the reserve clips, not the starting point: the designer briefs each slot from its task."
 }
