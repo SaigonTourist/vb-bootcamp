@@ -69,7 +69,7 @@
       "model": "veo",
       "dur": 4,
       "purpose": "B-roll, one thing changed from b1",
-      "prompt": "prompts/b2_text.md",
+      "prompt": "prompts/b2_button.md",
       "task": "A second b-roll. Change one thing from b1 (distance or action) and compare.",
       "seed": 31
     },
