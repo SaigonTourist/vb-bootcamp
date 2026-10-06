@@ -1,6 +1,6 @@
 {
   "id": "C_own_material",
-  "title": "C · Your material",
+  "title": "C · Mega ramp, 2000s broadcast",
   "size": [
     1920,
     1080
@@ -14,55 +14,30 @@
   "frames": [],
   "slots": [
     {
-      "id": "a0",
-      "type": "gen",
-      "model": "veo",
-      "dur": 4,
-      "purpose": "Opener: the place your material is about",
-      "prompt": "prompts/a0.md",
-      "seed": 5
-    },
-    {
-      "id": "own1",
-      "type": "real",
-      "dur": 10,
-      "file": "input/own/clip.mp4",
-      "trim_start": 0,
-      "purpose": "Your material, part 1 (first key message)",
-      "caption": "Kernbotschaft 1"
-    },
-    {
       "id": "a1",
       "type": "gen",
-      "model": "seedance",
-      "dur": 5,
-      "purpose": "Shows key message 1 from your material",
-      "prompt": "prompts/a1.md"
-    },
-    {
-      "id": "own2",
-      "type": "real",
-      "dur": 10,
-      "file": "input/own/clip.mp4",
-      "trim_start": 10,
-      "purpose": "Your material, part 2 (second key message)",
-      "caption": "Kernbotschaft 2"
+      "model": "h3",
+      "dur": 8,
+      "purpose": "The run: drop in, gap, triple backflip, broadcast graphics",
+      "prompt": "prompts/c_jump_gfx_slowmo.md",
+      "first_frame": "input/refs/C_rider_top.png"
     },
     {
       "id": "a2",
       "type": "gen",
-      "model": "veo",
-      "dur": 6,
-      "purpose": "Shows key message 2, closes the arc",
-      "prompt": "prompts/a2.md",
-      "seed": 9
+      "model": "h3",
+      "dur": 8,
+      "purpose": "The celebration: champagne",
+      "prompt": "prompts/c_champagne.md",
+      "seed": 9,
+      "first_frame": "input/refs/C_rider_bottom.png"
     },
     {
       "id": "card",
       "type": "card",
       "dur": 3,
       "lines": [
-        "Title of your piece",
+        "MEGA RAMP FINAL",
         "Einige Szenen wurden mit KI erstellt."
       ]
     }
