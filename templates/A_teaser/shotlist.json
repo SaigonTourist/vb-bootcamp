@@ -1,12 +1,12 @@
 {
   "id": "A_teaser",
-  "title": "A · A joke in three shots",
+  "title": "A · Attention teaser for a learning module",
   "size": [
     1920,
     1080
   ],
   "fps": 25,
-  "lesson": "Tell a joke in three shots, setup, twist, punchline, then design your end card. Every shot is your decision: you brief it, compare takes, choose.",
+  "lesson": "Every slot is a decision you make: what we see first, how close, which light, who your presenter is, and the joke they tell. You brief, compare takes, choose, then design your end card.",
   "card_style": {
     "bg": "0x14213d",
     "fg": "white"
@@ -25,19 +25,19 @@
       "type": "gen",
       "model": "veo",
       "dur": 6,
-      "purpose": "Setup: the situation everyone recognises",
+      "purpose": "Opener: the first thing the viewer sees",
       "prompt": "prompts/s1.md",
       "seed": 11,
-      "task": "Set up the joke: the situation everyone in the room recognises. Brief it with the shot card, draft it twice on veo-fast changing ONE thing (light or distance), compare the two takes, choose, then render the final on veo."
+      "task": "Decide what the viewer sees first. Brief it with the shot card, draft it twice on veo-fast changing ONE thing (light or distance), compare the two takes, choose, then render the final on veo."
     },
     {
       "id": "s2",
       "type": "gen",
       "model": "seedance",
       "dur": 5,
-      "purpose": "Twist: the detail that turns it, no face",
+      "purpose": "B-roll: the advisor prepares, no face",
       "prompt": "prompts/s2.md",
-      "task": "Your first render. The twist: the one detail that turns the situation, shown without a face. Brief it with three fields: what the viewer should get, the one action, the sound."
+      "task": "Your first render. Show that the advisor prepares for the client, without a face. Brief it with three fields: what the viewer should take away, the one action, the sound."
     },
     {
       "id": "s3",
@@ -45,10 +45,10 @@
       "model": "h3",
       "dur": 6.4,
       "gen_dur": 8,
-      "purpose": "Punchline: your presenter says it in German",
+      "purpose": "Presenter: tells your joke in German",
       "prompt": "prompts/s3.md",
       "first_frame": "input/refs/presenter_A.png",
-      "task": "The punchline. Design your presenter: ask for two or three start-frame candidates or bring a photo, and pick one. Write the German line yourself, 14 words at most: timing beats length. Render, then fix one thing."
+      "task": "Bring your joke. Design your presenter: ask for two or three start-frame candidates or bring a photo, and pick one. The joke is the German line, 14 words at most: timing beats length. Render, then fix one thing."
     },
     {
       "id": "card",

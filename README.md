@@ -17,7 +17,7 @@ the prompts; the edit is yours.
 
 | Template | What you build | What you learn |
 |---|---|---|
-| **A · The joke** | A joke in three shots (setup, twist, punchline) plus your own end card | Briefing, comparing takes, choosing, designing the card |
+| **A · Teaser** | A 20 s teaser where your presenter tells your joke, plus your own end card | Briefing, comparing takes, choosing, designing the card |
 | **B · Series** | Your presenter asking your three questions | Designing a person once and keeping them consistent across takes |
 | **C · Your material** | A piece built from what you bring: a module script, photos of your spaces, a clip you own | Turning your own content into shots, combining real material with generated ones |
 
