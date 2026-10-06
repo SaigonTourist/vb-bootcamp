@@ -50,7 +50,7 @@ show the three templates with `assemble.py templates/<template> --status`.
   with your assumptions marked, then the engine and the estimate; the model prompt only on request.
 - Before every generation, show the estimate in euros and the lint result in one or two lines.
 - Launch, then keep working on the next slot. Never sit and wait for a render.
-- After each landed clip, rebuild the preview and give the link (or the file path).
+- After each landed clip, rebuild the preview and show the clip and the preview in the chat, where the designer watches and can download them.
 - Keep answers short and concrete. The designer is learning the craft; explain the reason behind a
   prompt change in one sentence.
 
