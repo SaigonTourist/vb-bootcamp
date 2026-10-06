@@ -128,6 +128,16 @@ class Body(unittest.TestCase):
         self.assertEqual(vg.build_body(vg.load_model("veo"), "x", seed=3)["seed"], 3)
 
 
+class Welcome(unittest.TestCase):
+    def test_greeting_report_in_mock_mode(self):
+        env = dict(os.environ, VG_MOCK="1", VG_USER="welcometest", CLAUDE_PROJECT_DIR=str(REPO))
+        r = subprocess.run([sys.executable, str(SCRIPTS / "welcome.py")], cwd=REPO, env=env, capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        for part in ("## Checks", "## Templates", "## Your generations", "## Suggested next step"):
+            self.assertIn(part, r.stdout)
+        (REPO / "jobs" / "welcometest.jsonl").unlink(missing_ok=True)
+
+
 class Presign(unittest.TestCase):
     def test_aws_documented_vector(self):
         # AWS SigV4 docs, "GET object" presigned URL example

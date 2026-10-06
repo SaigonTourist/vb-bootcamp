@@ -13,6 +13,7 @@
     "allow": [
       "Bash(python3 .claude/skills/video-gen/scripts/vg.py:*)",
       "Bash(python3 .claude/skills/video-gen/scripts/assemble.py:*)",
+      "Bash(python3 .claude/skills/video-gen/scripts/welcome.py)",
       "Bash(bash scripts/setup_cloud.sh)",
       "Bash(ffmpeg:*)"
     ]

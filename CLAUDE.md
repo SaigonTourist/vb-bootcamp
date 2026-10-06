@@ -21,6 +21,24 @@ Each template has `shotlist.json` (slots, models, durations), `prompts/` (a read
 `placeholders/` (grey cards), `reserves/` (pre-generated clips, used if an API is down) and `slots/`
 (what the participant generated).
 
+## When the session opens with a greeting
+
+If the first message is a greeting or has no specific request ("Hello!", "Hi", "Hallo", "Let's go"),
+run `python3 .claude/skills/video-gen/scripts/welcome.py` once and answer in the language of the
+greeting, in this order and briefly:
+
+1. **Welcome**: one or two sentences. This is the AI Video Bootcamp: they describe shots, you write
+   the prompts, call Veo, Seedance and MiniMax H3, and assemble the clips into a finished piece.
+2. **Checks**: one line if everything is ✓. Otherwise name each ✗ with its fix in plain words; a key
+   that is not accepted means adding the credential and starting a **new** session (this one will
+   never see it).
+3. **Where you are**: the three templates in one line each (A teaser, B series, C your material)
+   with how many slots are filled, anything still rendering, spend so far, and any material found
+   in `input/own/`.
+4. **Next step**: the suggested step from the script, with the exact sentence they can type.
+
+No tables of commands, no file paths unless they need one. End with the sentence to type.
+
 ## How to work with the designer
 
 Use the `video-gen` skill for anything video. Start a session by running
