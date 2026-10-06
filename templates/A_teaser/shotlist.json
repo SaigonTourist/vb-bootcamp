@@ -26,7 +26,7 @@
       "model": "veo",
       "dur": 6,
       "purpose": "Opener: the first thing the viewer sees",
-      "prompt": "prompts/s1.md",
+      "prompt": "prompts/s1_wall.md",
       "seed": 11,
       "task": "Decide what the viewer sees first. Brief it with the shot card, draft it twice on veo-fast changing ONE thing (light or distance), compare the two takes, choose, then render the final on veo."
     },
@@ -36,19 +36,18 @@
       "model": "seedance",
       "dur": 5,
       "purpose": "B-roll: the advisor prepares, no face",
-      "prompt": "prompts/s2.md",
+      "prompt": "prompts/s2_designer.md",
       "task": "Your first render. Show that the advisor prepares for the client, without a face. Brief it with three fields: what the viewer should take away, the one action, the sound."
     },
     {
       "id": "s3",
       "type": "gen",
-      "model": "h3",
-      "dur": 6.4,
-      "gen_dur": 8,
-      "purpose": "Presenter: the module's promise in German",
-      "prompt": "prompts/s3.md",
-      "first_frame": "input/refs/presenter_A.png",
-      "task": "Design your presenter: ask for two or three start-frame candidates (age, clothing, room) or bring a photo, and pick one. Write the German line yourself, 14 words at most. Render, then fix one thing."
+      "model": "veo",
+      "dur": 8,
+      "purpose": "Conversation: saving on paper for AI licences, in German",
+      "prompt": "prompts/s3_conversation.md",
+      "task": "Design your presenter: ask for two or three start-frame candidates (age, clothing, room) or bring a photo, and pick one. Write the German line yourself, 14 words at most. Render, then fix one thing.",
+      "seed": 23
     },
     {
       "id": "card",
