@@ -19,8 +19,8 @@
       "model": "h3",
       "dur": 8,
       "purpose": "Cruise: the chimp spots the ice cream stand",
-      "prompt": "prompts/c_car_v2.md",
-      "first_frame": "input/refs/C_car_v3.png"
+      "prompt": "prompts/c_car.md",
+      "first_frame": "input/refs/C_car.png"
     },
     {
       "id": "a2",
@@ -28,9 +28,9 @@
       "model": "h3",
       "dur": 8,
       "purpose": "Walk: ice cream, kisses, \"Hey!\"",
-      "prompt": "prompts/c_walk_v2.md",
+      "prompt": "prompts/c_walk.md",
       "seed": 9,
-      "first_frame": "input/refs/C_walk_v2.png"
+      "first_frame": "input/refs/C_walk.png"
     },
     {
       "id": "card",
