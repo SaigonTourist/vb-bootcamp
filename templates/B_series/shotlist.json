@@ -45,11 +45,12 @@
     {
       "id": "b1",
       "type": "gen",
-      "model": "seedance",
+      "model": "veo",
       "dur": 4,
       "purpose": "B-roll between questions, no face",
-      "prompt": "prompts/b1.md",
-      "task": "B-roll between questions, no face: brief it with the shot card."
+      "prompt": "prompts/b1_designer.md",
+      "task": "B-roll between questions, no face: brief it with the shot card.",
+      "seed": 41
     },
     {
       "id": "q2",
