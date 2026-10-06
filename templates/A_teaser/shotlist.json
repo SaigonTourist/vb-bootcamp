@@ -42,12 +42,23 @@
     {
       "id": "s3",
       "type": "gen",
-      "model": "veo",
-      "dur": 8,
-      "purpose": "Conversation: saving on paper for AI licences, in German",
-      "prompt": "prompts/s3_conversation.md",
-      "task": "Design your presenter: ask for two or three start-frame candidates (age, clothing, room) or bring a photo, and pick one. Write the German line yourself, 14 words at most. Render, then fix one thing.",
-      "seed": 23
+      "model": "h3",
+      "dur": 4.5,
+      "gen_dur": 6,
+      "purpose": "Conversation 1/2: she names the problem, in German",
+      "prompt": "prompts/s3a_her.md",
+      "first_frame": "input/refs/s3_woman_1.png",
+      "task": "Design your presenter: ask for two or three start-frame candidates (age, clothing, room) or bring a photo, and pick one. Write the German line yourself, 14 words at most. Render, then fix one thing."
+    },
+    {
+      "id": "s3b",
+      "type": "gen",
+      "model": "h3",
+      "dur": 3.5,
+      "gen_dur": 5,
+      "purpose": "Conversation 2/2: his punchline, then a look into the lens",
+      "prompt": "prompts/s3b_him.md",
+      "first_frame": "input/refs/s3_man_2.png"
     },
     {
       "id": "card",

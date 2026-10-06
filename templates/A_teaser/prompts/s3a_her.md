@@ -1,0 +1,5 @@
+SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.
+ACTION: the woman looks at her colleague across the table, just right of the camera, and speaks in German, dry and serious, at a natural pace, a small flat gesture of one hand on the word PAPIER, keeps looking at him to the end.
+DIALOGUE: "Unsere Ausgaben sind zu hoch. Wir streichen das PAPIER. Also, ja."
+SCENE: a quiet meeting room, round pale oak table with two glasses of water and a leather notepad, navy wool blazer over a white top. One soft window light from camera left, warm floor lamp in the background.
+RULES: German pronunciation, native speaker from southern Germany. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then she waits, unblinking.
