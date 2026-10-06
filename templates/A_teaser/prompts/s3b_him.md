@@ -1,5 +1,5 @@
-SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.
-ACTION: the man looks at his colleague across the table, just left of the camera, nods once solemnly and answers in German, deadpan, at a natural pace; after his last word he slowly turns his head and holds a silent, straight-faced look into the lens to the end.
+SHOT: medium over-the-shoulder shot, eye level, 35mm lens, as in the start frame; the woman's shoulder and hair stay soft in the left edge of the frame. Static while he speaks; after his line the camera pushes in slowly and steadily toward his face, ending in a close-up.
+ACTION: the man looks at the woman across the table, toward the left edge of the frame, nods once solemnly and answers her in German, deadpan, at a natural pace; after his last word he slowly turns his head and holds a silent, straight-faced look into the lens to the end. The woman in the foreground stays still.
 DIALOGUE: "Für mehr KI-LIZENZEN."
-SCENE: a quiet meeting room, round pale oak table with two glasses of water and a leather notepad, blue and white striped shirt, thin metal-framed glasses. One soft window light from camera left, warm floor lamp in the background.
-RULES: German pronunciation, native speaker from southern Germany. Mouth matches every word. Steady camera, same framing for the whole take. After his line he stays silent with his mouth closed.
+SCENE: a quiet meeting room, round pale oak table with two glasses of water and a leather notepad, blue and white striped shirt, thin metal-framed glasses, a tall green plant behind him. One soft window light from camera right.
+RULES: German pronunciation, native speaker from southern Germany. Only the man speaks; his mouth matches every word. After his line he stays silent with his mouth closed.

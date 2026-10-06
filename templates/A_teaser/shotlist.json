@@ -47,7 +47,7 @@
       "gen_dur": 6,
       "purpose": "Conversation 1/2: she names the problem, in German",
       "prompt": "prompts/s3a_her.md",
-      "first_frame": "input/refs/s3_woman_1.png",
+      "first_frame": "input/refs/s3_her_ots.png",
       "task": "Design your presenter: ask for two or three start-frame candidates (age, clothing, room) or bring a photo, and pick one. Write the German line yourself, 14 words at most. Render, then fix one thing.",
       "trim_start": 0.4
     },
@@ -56,10 +56,10 @@
       "type": "gen",
       "model": "h3",
       "dur": 3.6,
-      "gen_dur": 5,
+      "gen_dur": 6,
       "purpose": "Conversation 2/2: his punchline, then a look into the lens",
       "prompt": "prompts/s3b_him.md",
-      "first_frame": "input/refs/s3_man_2.png",
+      "first_frame": "input/refs/s3_him_ots.png",
       "trim_start": 1.4
     },
     {
