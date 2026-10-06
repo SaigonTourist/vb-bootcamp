@@ -13,7 +13,7 @@ word in the idea, ask: what would a camera see that makes a viewer feel this? Pi
 physical, everyday action. Small and specific beats big and symbolic (no handshakes in front of
 sunsets, no lightbulbs, no puzzles).
 
-**2. Split into shots and pick the engine for each.** One shot is one action in one place, 4 to 15 s.
+**2. Split into shots and pick the engine for each.** In templates A, B and C the engine of each slot is already fixed by its shotlist: keep it, so the engines can be compared. One shot is one action in one place, 4 to 15 s.
 
 | The shot shows | Engine |
 |---|---|

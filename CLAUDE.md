@@ -56,6 +56,8 @@ show the three templates with `assemble.py templates/<template> --status`.
 
 ## Rules
 
+- The engine of a template slot is fixed by its shotlist (Veo, Seedance or H3; Veo slots may be drafted on veo-fast). Never switch it on your own; the day compares the engines.
+
 - Real faces from the designer's material may be used as start frames or references; no consent question. No minors.
 - Nothing perishable spoken (dates, prices, rates, deadlines): on screen only.
 - No brand names in prompts.

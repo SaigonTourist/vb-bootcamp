@@ -128,6 +128,27 @@ class Body(unittest.TestCase):
         self.assertEqual(vg.build_body(vg.load_model("veo"), "x", seed=3)["seed"], 3)
 
 
+class EngineLock(unittest.TestCase):
+    def test_template_slot_keeps_its_engine(self):
+        with tempfile.TemporaryDirectory() as t:
+            env = dict(os.environ, VG_MOCK="1", VG_USER="lock", VG_LEDGER=str(Path(t) / "l.jsonl"), CLAUDE_PROJECT_DIR=str(REPO))
+
+            def submit(model, *extra):
+                return subprocess.run([sys.executable, str(SCRIPTS / "vg.py"), "submit", model, "--prompt", "ACTION: x.",
+                                       "--dur", "8", "--slot", "templates/A_teaser/s3", "--dry-run", *extra],
+                                      cwd=REPO, env=env, capture_output=True, text=True)
+
+            r = submit("veo")
+            self.assertEqual(r.returncode, 1)
+            self.assertIn("MiniMax H3 slot", r.stderr)
+            self.assertEqual(submit("h3").returncode, 0)
+            self.assertEqual(submit("veo", "--change-engine").returncode, 0)
+            r = subprocess.run([sys.executable, str(SCRIPTS / "vg.py"), "submit", "veo-fast", "--prompt", "SHOT: wide.\nx",
+                                "--dur", "6", "--slot", "templates/A_teaser/s1", "--dry-run"], cwd=REPO, env=env,
+                               capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, "drafting a Veo slot on veo-fast is allowed")
+
+
 class Takes(unittest.TestCase):
     def test_takes_compare_and_use(self):
         if not shutil.which("ffmpeg"):

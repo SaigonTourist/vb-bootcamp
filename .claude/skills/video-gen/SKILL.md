@@ -62,6 +62,13 @@ Prompt templates per engine, in `.claude/skills/video-gen/prompts/`:
 
 ## Templates A and B are exercises, not recipes
 
+**The engine of each template slot is fixed by its shotlist and never changes on your initiative.**
+The point of the exercise is to compare how Veo, Seedance and H3 look side by side. Brief the slot
+for its engine (a Veo slot may be drafted on `veo-fast`). If you think another engine would serve
+the shot better, say so in one line and keep the fixed one; switch only when the designer explicitly
+asks, with `--change-engine`, and tell them the comparison is lost for that slot. `vg.py submit`
+refuses a mismatched engine without that flag.
+
 Each slot in `shotlist.json` has a `task`: a decision the designer makes (what we see first, how
 close, which light, who the presenter is, the exact line). Guide them through it with the shot card.
 The prompts in `templates/<template>/prompts/` are worked examples and the source of the reserves:

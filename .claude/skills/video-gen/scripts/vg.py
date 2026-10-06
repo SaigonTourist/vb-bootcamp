@@ -450,10 +450,33 @@ def budget_check(usd, force=False):
     return spent
 
 
+ENGINE_FAMILY = {"veo-fast": "veo"}  # drafting a Veo slot on Veo Fast is part of the method
+
+
+def slot_engine(slot: str | None):
+    """(template slot id, engine the shotlist fixes for it), or (None, None) when not a template slot."""
+    target = slot_target(slot)
+    if not target or target.parent.name != "slots":
+        return None, None
+    shotlist = target.parent.parent / "shotlist.json"
+    if not shotlist.exists():
+        return None, None
+    for s in json.loads(shotlist.read_text())["slots"]:
+        if s["id"] == target.stem:
+            return s["id"], s.get("model")
+    return None, None
+
+
 def cmd_submit(a):
     m = load_model(a.model)
     if m["key"] == "image":
         die("use 'vg.py image' for start frames")
+    sid, fixed = slot_engine(a.slot)
+    if fixed and ENGINE_FAMILY.get(m["key"], m["key"]) != fixed and not a.change_engine:
+        die(f"slot {sid} is a {load_model(fixed)['name']} slot in its shotlist, not {m['name']}. The engines are fixed "
+            f"so the takes can be compared. Use {fixed}"
+            + (" (or veo-fast for a draft)" if fixed == "veo" else "")
+            + ". Only if the designer explicitly asks for another engine: add --change-engine and say so.")
     prompt = read_prompt(a)
     body = build_body(m, prompt, a.dur, a.ratio, a.resolution, None if not a.no_audio else False, a.seed,
                       a.first_frame, a.last_frame, a.ref, a.ref_video, a.negative)
@@ -825,7 +848,9 @@ def main(argv=None):
     p.add_argument("--ref", nargs="*", default=[]); p.add_argument("--ref-video", nargs="*", default=[])
     p.add_argument("--negative"); p.add_argument("--slot", help="templates/<template>/<slot id>")
     p.add_argument("--label"); p.add_argument("--yes", action="store_true"); p.add_argument("--dry-run", action="store_true")
-    p.add_argument("--over-budget", action="store_true", help="facilitator only"); p.set_defaults(f=cmd_submit)
+    p.add_argument("--over-budget", action="store_true", help="facilitator only")
+    p.add_argument("--change-engine", action="store_true", help="only when the designer explicitly asks for another engine on a template slot")
+    p.set_defaults(f=cmd_submit)
 
     p = sub.add_parser("wait"); p.add_argument("--job"); p.add_argument("--max-minutes", type=float, default=9)
     p.add_argument("--every", type=float, default=15); p.set_defaults(f=cmd_wait)
