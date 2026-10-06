@@ -1,6 +1,6 @@
 {
   "id": "C_own_material",
-  "title": "C · Mega ramp, 2000s broadcast",
+  "title": "C · Sunday cruise with the chimp",
   "size": [
     1920,
     1080
@@ -18,26 +18,26 @@
       "type": "gen",
       "model": "h3",
       "dur": 8,
-      "purpose": "The run: drop in, gap, triple backflip, broadcast graphics",
-      "prompt": "prompts/c_jump_gfx_slowmo.md",
-      "first_frame": "input/refs/C_rider_top.png"
+      "purpose": "Cruise: the chimp spots the ice cream stand",
+      "prompt": "prompts/c_car.md",
+      "first_frame": "input/refs/C_car.png"
     },
     {
       "id": "a2",
       "type": "gen",
       "model": "h3",
       "dur": 8,
-      "purpose": "The celebration: champagne",
-      "prompt": "prompts/c_champagne.md",
+      "purpose": "Walk: ice cream, kisses, \"Hey!\"",
+      "prompt": "prompts/c_walk.md",
       "seed": 9,
-      "first_frame": "input/refs/C_rider_bottom.png"
+      "first_frame": "input/refs/C_walk.png"
     },
     {
       "id": "card",
       "type": "card",
       "dur": 3,
       "lines": [
-        "MEGA RAMP FINAL",
+        "Sunday Cruise",
         "Einige Szenen wurden mit KI erstellt."
       ]
     }
