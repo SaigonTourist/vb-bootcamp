@@ -46,9 +46,9 @@
       "id": "b1",
       "type": "gen",
       "model": "veo",
-      "dur": 4,
+      "dur": 5,
       "purpose": "B-roll between questions, no face",
-      "prompt": "prompts/b1_designer.md",
+      "prompt": "prompts/b1_leopold.md",
       "task": "B-roll between questions, no face: brief it with the shot card.",
       "seed": 41
     },
