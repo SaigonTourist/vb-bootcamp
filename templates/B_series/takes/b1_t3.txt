@@ -1,0 +1,5 @@
+SHOT: medium-close shot from directly behind a man, 50mm at T2, static, 25 fps; we see only the back of his head, his shoulders and the hand holding the phone; his cheek and jaw stay hidden behind his head.
+SUBJECT AND ACTION: a man in his fifties with short dark curly hair going grey and a dark green knitted jumper, no glasses, sits at his desk holding a black smartphone to his ear, its plain back facing the camera; a woman's furious voice blasts out of the phone, he listens frozen with his lips pressed shut, flinches, and slowly moves the phone a few centimetres away from his ear, and stays silent.
+PLACE: a cluttered open-plan office desk, a window and other desks softly out of focus.
+LIGHT: soft daylight from a window camera-right, about 4:1.
+SOUND: quiet office room tone. Only the woman on the phone speaks, once, shouting through the small phone speaker, tinny and distorted, in German: "LEOPOLD! Warum schreibst du seiner FRAU?!" The man says nothing.
