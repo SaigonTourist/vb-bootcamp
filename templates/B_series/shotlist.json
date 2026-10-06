@@ -66,11 +66,12 @@
     {
       "id": "b2",
       "type": "gen",
-      "model": "seedance",
+      "model": "veo",
       "dur": 4,
       "purpose": "B-roll, one thing changed from b1",
-      "prompt": "prompts/b2.md",
-      "task": "A second b-roll. Change one thing from b1 (distance or action) and compare."
+      "prompt": "prompts/b2_text.md",
+      "task": "A second b-roll. Change one thing from b1 (distance or action) and compare.",
+      "seed": 31
     },
     {
       "id": "q3",

@@ -1,0 +1,6 @@
+SHOT: close shot of a computer monitor and a fingertip, 50mm at T2.8, camera locked off, 25 fps; the pop-up and its button stay in the same place for the whole shot.
+SUBJECT AND ACTION: an index finger presses a large grey rectangular button in the middle of a plain white pop-up window on the screen, twelve times in a row, fast and compulsively, without stopping. The button carries one word in large bold black capital letters: "DISMISS". The word stays sharp and legible the whole time.
+PLACE: an office desk in the evening, the monitor fills the frame, the white pop-up window shows only that one button.
+LIGHT: the cool glow of the monitor on the finger, a warm desk lamp at the edge of frame.
+COLOUR: cool white screen, warm skin, dark surroundings.
+SOUND: quiet room tone, a sharp click with every press, a soft warning chime after each click.
