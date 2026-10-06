@@ -1,6 +1,6 @@
 # Nano Banana Pro · start frames
 
-Use for: the opening image of an H3 take (a fictional presenter), a room or an object in exactly
+Use for: the opening image of an H3 take (a presenter), a room or an object in exactly
 the pose a video must start from. About 0.14 $ per image, back in under a minute.
 
 ```bash
@@ -21,7 +21,8 @@ python3 .claude/skills/video-gen/scripts/vg.py image --prompt-file <file> --out 
 5. **The same light as the video prompt.** If the video prompt says "window light from camera
    left", so does the image. A mismatch makes the first second jump.
 6. **No readable text anywhere** in the scene: plain folders, a blank wall, a turned-away screen.
-7. **Fictional people only.** Never a photo of a colleague or anyone real as input for a person.
+7. **A real person works too.** A photo from the designer's material can be the start frame as it is,
+   or the input to restage it (same face, new room or framing). Public figures are refused.
 
 ## Skeleton
 

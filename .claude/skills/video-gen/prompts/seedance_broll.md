@@ -12,7 +12,7 @@ or far away), scenes assembled from several reference images, long takes up to 3
    edit and the call fails (TaskTypeConstraint).
 4. **No readable surfaces in close-up.** Screens, forms, notebooks and calculators come out as
    scribbles. Keep them turned away, far, or out of focus; put the real text on top in the edit.
-5. **Faces belong on H3.** Seedance rejects reference images that may show a real person, and close
+5. **Faces belong on H3.** Seedance may reject reference images that show a person, and close
    faces are not its strength here.
 6. **Smiles, not laughs.** Acted laughter looks uncomfortable.
 

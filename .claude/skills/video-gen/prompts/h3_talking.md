@@ -5,7 +5,7 @@ Use for: a presenter, a trainer, a colleague-type character saying one or two se
 
 ## How it holds a person across takes
 
-1. Make the person once as a start frame with `vg.py image` (a fictional person, never a real colleague).
+1. Make the person once as a start frame with `vg.py image`, or use a photo of the real person from the designer's material.
 2. Every take uses that image as `--first-frame` and the **same SHOT, SCENE and RULES text, word for word**.
 3. Only the DIALOGUE changes between takes.
 

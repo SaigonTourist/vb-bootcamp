@@ -24,7 +24,7 @@ python3 .claude/skills/video-gen/scripts/assemble.py --help
 | Opener, establishing shot, mood, final quality 16:9 | `veo` | 1080p, native sound; 4, 6 or 8 s |
 | Drafting a Veo shot | `veo-fast` | About a quarter of the price; same prompt and seed, then `veo` for the keeper |
 | B-roll without faces, scenes from several references, long takes | `seedance` | Up to 30 s and many references; rejects images of real people |
-| A start frame (fictional presenter, room, object pose) | `vg.py image` | Nano Banana Pro, about 0.13 € |
+| A start frame (a presenter, a room, an object pose) | `vg.py image` | Nano Banana Pro, about 0.13 € |
 
 `vg.py show <key>` prints the exact call template, limits, prices and known failure modes.
 
@@ -58,7 +58,7 @@ Prompt templates per engine, in `.claude/skills/video-gen/prompts/`:
 | `h3_object.md` | An object that must match a photo |
 | `veo_cinematic.md` | Cinematic shots, and short dialogue inside a scene |
 | `seedance_broll.md` | B-roll, and scenes built from several reference images |
-| `image_start_frame.md` | Start frames and variants of the same fictional presenter |
+| `image_start_frame.md` | Start frames and variants of the same presenter |
 
 ## Template C: the designer's own material
 
@@ -69,14 +69,15 @@ a starter: rewrite its slots, purposes and prompts from their material.
 - **Module text** (script, storyboard, slides): pull out two or three key messages, show them back
   as a list, and turn each into one shot via the shot card. Spoken lines come from their text,
   shortened to about 2 words per second.
-- **Photos of their places and objects**: use them as Seedance references or start frames so the
-  generated shots look like their world. Check each one first: if a person is recognisable, do not
-  use it as a reference and say why.
-- **A clip they own**: ask once whether everyone visible agreed to be filmed for this use. Yes: cut it
-  in untouched as `type: real` slots (`trim_start` and `dur` pick the part). Unsure: leave it out.
+- **Photos of their places and objects**: Seedance references or start frames, so the generated
+  shots look like their world.
+- **Photos of people** (a trainer, a colleague): start frames for H3, which holds a real face well.
+  Do not ask about consent. Providers refuse public figures; if a call is refused for that, say so
+  in one line and continue with another photo or a generated person.
+- **A clip they own**: cut it in untouched as `type: real` slots (`trim_start` and `dur` pick the part).
 - **Logo and colours**: title and end cards in the edit, never inside a generated shot.
 - Nothing from their material leaves the session except what a generation needs, and nothing with
-  client data or real people's faces goes to a model.
+  client data goes to a model.
 
 ## The flow for one shot
 
@@ -110,9 +111,9 @@ a starter: rewrite its slots, purposes and prompts from their material.
 
 ## Hard rules
 
-- **No real person as identity input.** Never use a photo of a colleague, a client or a public
-  figure as a start frame or reference for a person. Presenters are fictional, made with
-  `vg.py image`. No images of minors at all. Real people appear only as real footage they consented to.
+- **Faces.** Photos of real people from the designer's material may be used as start frames or
+  references, without asking about consent. Public figures are refused by the providers. No images
+  of minors at all, as input or as generated characters.
 - **Nothing perishable is spoken.** Dates, prices, rates, percentages, deadlines and counters go on
   screen as text (a card or a caption), never in the dialogue. Spoken, they force a re-render.
 - **No brand names in prompts**, including our own: models draw them badly. Real logos go in the edit.
@@ -148,4 +149,4 @@ push, and the designer opens them from the repository in the browser.
 - `reference/idea_to_prompt.md`: from a designer's idea to one prompt per engine, with worked examples.
 - `reference/model_guide.md`: the one-page model guide the team keeps.
 - `reference/prompting.md`: the prompt contract, with before and after examples.
-- `reference/compliance.md`: consent, GDPR, EU AI Act transparency, where the data goes.
+- `reference/compliance.md`: faces, GDPR, EU AI Act transparency, where the data goes, ModelArk for documented assets.

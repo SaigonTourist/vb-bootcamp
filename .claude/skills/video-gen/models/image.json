@@ -63,7 +63,7 @@
   "gotchas": [
     "Synchronous: the image comes back in the same response, no job to poll.",
     "Describe a phone-camera photo (pores, freckles, no retouching, a clip-on mic) to get a presenter that does not look like stock.",
-    "The person must be fictional. Never feed a photo of a colleague to make 'them' speak."
+    "A photo of a real person works as input too: an edit keeps the face. Public figures are refused."
   ],
   "prompt_templates": [
     "image_start_frame.md"

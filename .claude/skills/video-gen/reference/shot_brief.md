@@ -10,7 +10,7 @@ can use. These are the details that matter, in the order Claude needs them.
 |---|---|---|---|
 | 1 | **What the viewer should take away** from this shot, in one sentence | "That the advisor prepares for the client, before they arrive." | Claude turns it into something a camera can see. A feeling alone ("trust") gets a stock handshake. |
 | 2 | **The one thing that happens**, start to end | "She places two cups and turns one handle toward the empty chair." | One shot holds one action. A whole story in one shot comes back as the model's own edit. |
-| 3 | **Who is in it**, and whether it is the same person as in another shot | "A woman in her forties, navy cardigan. Same presenter as slot s3." | Same person across shots needs a start frame. Nothing gets carried over by itself. |
+| 3 | **Who is in it** (a description, or a photo of the real person), and whether it is the same person as in another shot | "Our trainer, photo trainer.jpg. Same presenter as slot s3." | Same person across shots needs a start frame. Nothing gets carried over by itself. |
 | 4 | **How close the camera is** | "Wide, we see the whole room." / "Medium, waist up." | Close-ups of emotional faces turn into grimaces. Medium or wider for people. |
 | 5 | **Where** it happens, with two or three real details | "Our advisory room: round oak table, tall plant, window on the left." | Concrete things beat adjectives. "Modern office" gets a stock office. |
 | 6 | **The light and the time of day** | "Grey morning, light from the window, a lamp on." | "Bright and cinematic" comes back glossy and fake. A light source with a direction looks filmed. |
@@ -22,7 +22,7 @@ You do not have to fill everything. Give 1, 2 and 7 at least; Claude fills the r
 defaults and shows you what it assumed. Change any of it in plain words.
 
 **Leave out:** brand and product names (they get drawn as logos), dates, prices and deadlines in the
-voice (they expire; they go on screen), real people's photos (never a colleague's face), "no X" lists
+voice (they expire; they go on screen), "no X" lists
 (say what is there instead).
 
 ## A brief, before and after

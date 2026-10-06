@@ -12,7 +12,7 @@ nothing is installed or run locally**, and the designer only ever needs the brow
 | `templates/A_teaser/` | Template A: 20 s teaser for a learning module (Veo opener, Seedance b-roll, H3 presenter, card) |
 | `templates/B_series/` | Template B: one fictional presenter, three short questions, b-roll between them |
 | `templates/C_own_material/` | Template C: built from the designer's own material (module text, photos of their spaces, a clip they own) |
-| `input/refs/` | Start frames and reference images (fictional people only) |
+| `input/refs/` | Start frames and reference images |
 | `input/own/` | The designer's own material for template C (see its README) |
 | `out/` | Every generated clip and every preview |
 | `jobs/<participant>.jsonl` | Ledger of every generation: prompt, model, cost, result |
@@ -38,7 +38,7 @@ show the three templates with `assemble.py templates/<template> --status`.
 
 ## Rules
 
-- No real person as identity input (start frame or reference). Presenters are fictional.
+- Real faces from the designer's material may be used as start frames or references; no consent question. No minors.
 - Nothing perishable spoken (dates, prices, rates, deadlines): on screen only.
 - No brand names in prompts.
 - Never print secrets. Never pass `--over-budget`.

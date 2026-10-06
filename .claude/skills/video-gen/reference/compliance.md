@@ -5,10 +5,10 @@ compliance teams have the final word; bring this page to them.
 
 ## People
 
-- **Fictional presenters only.** Presenters are generated from scratch with `vg.py image`. A photo
-  of a colleague, client or public figure is never used to make "them" speak or move.
-- **Real people only as real footage**, with documented consent for that use (a clip the designer brings
-  where the speaker agreed to appear). The AI builds around them; it does not alter them.
+- **Faces from the designers' own material** can be used as start frames or references (H3 holds a
+  real face best). The providers refuse public figures.
+- **Documented consent and legal backing** for a real person's likeness: ModelArk registered assets,
+  where the person passes a verification and becomes a reusable asset. Taught as its own block.
 - **No minors**, in inputs or as generated characters.
 - **Voices** come from the models. No voice of a real person is cloned.
 
