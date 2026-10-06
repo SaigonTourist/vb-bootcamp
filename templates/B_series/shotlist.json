@@ -34,7 +34,7 @@
       "id": "q1",
       "type": "gen",
       "model": "h3",
-      "dur": 10,
+      "dur": 9.6,
       "gen_dur": 11,
       "purpose": "Your question 1 to camera",
       "prompt": "prompts/q1_designer.md",
