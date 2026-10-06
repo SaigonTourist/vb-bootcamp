@@ -1,0 +1,6 @@
+SHOT: close shot from slightly above, 50mm at T2.8, camera locked off, 25 fps; the button stays in the same place for the whole shot.
+SUBJECT AND ACTION: an index finger presses a large round physical push-button, twelve times in a row, fast and compulsively, without stopping; the button sinks with each press and springs back up. The button sits on a small plain black metal box on a desk; on the front of the box, a white label with two words in large bold black capital letters: "ALLOW ALL". The words stay sharp and legible the whole time.
+PLACE: an office desk in the evening, a closed laptop and a coffee cup softly out of focus behind the box.
+LIGHT: a warm desk lamp from camera left, about 4:1, dark surroundings.
+COLOUR: matte black box, white label, warm skin.
+SOUND: quiet room tone, a loud mechanical clack with every press.
