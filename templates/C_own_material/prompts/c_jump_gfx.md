@@ -1,0 +1,7 @@
+SHOT: live sports TV broadcast, wide telephoto shot that pans and follows the rider, as in the start frame; the camera keeps the whole mega ramp and the rider in frame.
+ACTION: the young man in the black helmet and flame T-shirt drops in down the steep roll-in at high speed, flies over the gap, rolls up the towering quarter pipe at the far end, launches high above it, spins three full backflips with the board under his feet, lands clean on all four wheels and rolls away raising both fists.
+DIALOGUE: an excited male sports commentator off camera, in American English, shouting: "Drop in... big air... ONE, TWO, THREE! TRIPLE BACKFLIP! That is SICK!"
+SCENE: a giant wooden mega ramp inside a packed indoor football stadium: steep roll-in, kicker, gap, landing, and a towering quarter pipe at the far end; stadium floodlights from above.
+RULES: the rider never speaks, his mouth stays closed; only the commentator off camera speaks. Realistic body physics, one person on the ramp.
+LOOK: footage from a mid-2000s live sports TV broadcast: 4:3 standard-definition video, slightly soft, light video noise and interlacing, saturated colours.
+GRAPHICS: glossy mid-2000s broadcast graphics burned into the picture for the whole shot: a small red box reading "LIVE" in the top left corner; a dark blue channel bug reading "BIG AIR" in the top right corner; a dark blue lower-third bar along the bottom reading "MEGA RAMP FINAL" in bold white capitals, with a thin gold stripe. After the landing, an orange score box pops in above the lower third reading "96.33".
