@@ -29,7 +29,8 @@ Run each check and note the result.
 3. ffmpeg: `command -v ffmpeg || ls ~/.local/bin/ffmpeg`. If missing, the session-start hook did not
    install it: run `bash scripts/setup_cloud.sh` once and check again. Then check for the text
    filter used by cards and captions: `ffmpeg -hide_banner -filters | grep -c drawtext`.
-4. Secrets present, without values:
+4. Secrets present, without values. Keys may come as managed credentials (the proxy adds the header and
+   the variable does not exist in the container); `vg.py doctor` in step 6 is the real test:
    `for v in OPENROUTER_API_KEY VG_S3_ENDPOINT VG_S3_BUCKET; do [ -n "${!v}" ] && echo "$v set" || echo "$v missing"; done`
    (a missing bucket is fine; it is optional).
 5. Network: `curl -s -o /dev/null -w "%{http_code}\n" https://openrouter.ai/api/v1/videos/models`
@@ -108,9 +109,10 @@ End with this table, filled in, and nothing after it except the questions for th
 
 Typical fixes to point to:
 
-- **Variable missing:** claude.ai/code → this environment's settings → environment variables. Add
-  `OPENROUTER_API_KEY=...` (and optionally `VG_CONFIRM_EUR`, `VG_BUDGET_EUR`). Start a new session
-  afterwards; running sessions do not pick it up.
+- **Key not accepted (doctor ✗ "OpenRouter accepts the key"):** claude.ai/code → this environment →
+  add a credential: type Bearer, allowed website `openrouter.ai`, path prefix `/api/v1/`, header
+  `Authorization` with prefix `Bearer` and the key as value. Or, simpler but less safe, an
+  environment variable `OPENROUTER_API_KEY`. Start a new session afterwards.
 - **Host blocked:** same settings → network access: keep the trusted defaults and add the host
   (`openrouter.ai`, plus any download host from step 12 and the bucket host if used).
 - **ffmpeg could not be installed:** say which route failed (apt or pip) and the error line; the

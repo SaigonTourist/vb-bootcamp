@@ -16,7 +16,7 @@ Standard library only, so nothing has to be installed in the cloud environment.
   vg.py gallery                            one page with every clip, signed link
   vg.py doctor                             environment check, prints status only, never secrets
 
-Environment: OPENROUTER_API_KEY, VG_USER, VG_CONFIRM_EUR (3), VG_BUDGET_EUR (60), VG_USD_EUR (0.90),
+Environment: OPENROUTER_API_KEY (or a managed credential for openrouter.ai in the cloud), VG_USER, VG_CONFIRM_EUR (3), VG_BUDGET_EUR (60), VG_USD_EUR (0.90),
 VG_MOCK=1 (no network, no cost), VG_S3_ENDPOINT / VG_S3_BUCKET / VG_S3_REGION / VG_S3_ACCESS_KEY /
 VG_S3_SECRET_KEY / VG_S3_PREFIX for the bucket, VG_LINK_DAYS (7).
 """
@@ -230,10 +230,7 @@ def print_lint(items):
 # ---------------------------------------------------------------- http
 
 def api_key() -> str:
-    k = os.environ.get("OPENROUTER_API_KEY", "").strip()
-    if not k and not MOCK:
-        die("OPENROUTER_API_KEY is not set in this environment. Add it under the cloud environment's variables.")
-    return k
+    return os.environ.get("OPENROUTER_API_KEY", "").strip()
 
 
 def http(method, url, body=None, headers=None, timeout=120, raw=False):
@@ -253,7 +250,11 @@ def http(method, url, body=None, headers=None, timeout=120, raw=False):
 
 
 def or_headers():
-    return {"Authorization": f"Bearer {api_key()}"}
+    """With OPENROUTER_API_KEY in the environment, send it. Without it, send nothing: in Claude Code on
+    the web a managed credential for openrouter.ai makes the proxy add the header, and the key never
+    enters the container. A 401 then means no credential is configured."""
+    k = api_key()
+    return {"Authorization": f"Bearer {k}"} if k else {}
 
 
 def sniff_mime(raw: bytes, name: str) -> str:
@@ -752,10 +753,14 @@ def cmd_doctor(a):
     if not ff and (Path.home() / ".local" / "bin" / "ffmpeg").exists():
         ff = str(Path.home() / ".local" / "bin" / "ffmpeg")
     line(ff, f"ffmpeg {'at ' + ff if ff else 'missing'}", "run: bash scripts/setup_cloud.sh")
-    line(bool(os.environ.get("OPENROUTER_API_KEY")) or MOCK, "OPENROUTER_API_KEY set" + (" (mock mode)" if MOCK else ""),
-         "add it to the cloud environment variables")
+    if MOCK:
+        print("  · mock mode: no network, no cost")
+    elif api_key():
+        print("  · OpenRouter key: from the environment variable")
+    else:
+        print("  · OpenRouter key: none in the container; expecting a managed credential for openrouter.ai")
     print(f"  · VG_USER={USER} · confirm above {CONFIRM_EUR:.0f} € · budget {BUDGET_EUR:.0f} € · spent {eur(spent_usd()):.2f} €")
-    if not MOCK and os.environ.get("OPENROUTER_API_KEY"):
+    if not MOCK:
         try:
             n = len(http("GET", f"{BASE}/videos/models", headers=or_headers(), timeout=30)["data"])
             line(True, f"openrouter.ai reachable ({n} video models)")
@@ -764,9 +769,12 @@ def cmd_doctor(a):
         try:
             k = http("GET", f"{BASE}/key", headers=or_headers(), timeout=30).get("data", {})
             lim, used = k.get("limit"), k.get("usage")
+            line(True, "OpenRouter accepts the key")
             print(f"  · key credit: used {used} $ of {lim if lim is not None else 'no limit'} $")
-        except Exception:  # noqa: BLE001
-            pass
+        except RuntimeError as e:
+            line(False, "OpenRouter accepts the key",
+                 "add a managed credential for openrouter.ai (Bearer, header Authorization) or set OPENROUTER_API_KEY"
+                 if "HTTP 401" in str(e) else str(e)[:160])
     if s3_ready():
         try:
             probe = OUT / ".doctor.txt"

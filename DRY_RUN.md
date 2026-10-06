@@ -31,9 +31,11 @@ which we can also run from our own machines.
 3. **Cloud environment** in Claude Code on the web, one per participant (or shared, if variables
    can be per user):
    - Network access: the default trusted list plus **`openrouter.ai`** (and the bucket host if any).
+   - The key as a **managed credential** (the key never enters the container): type Bearer,
+     allowed website `openrouter.ai`, path prefix `/api/v1/`, header `Authorization`, prefix
+     `Bearer`, value = the participant's key. `vg.py doctor` confirms it is accepted.
    - Environment variables:
      ```
-     OPENROUTER_API_KEY=<the participant's key>
      VG_USER=<first name, no spaces>
      VG_CONFIRM_EUR=3
      VG_BUDGET_EUR=40
