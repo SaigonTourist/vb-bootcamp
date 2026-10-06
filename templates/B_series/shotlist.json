@@ -34,12 +34,12 @@
       "id": "q1",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
-      "gen_dur": 8,
+      "dur": 10,
+      "gen_dur": 11,
       "purpose": "Your question 1 to camera",
-      "prompt": "prompts/q1.md",
+      "prompt": "prompts/q1_designer.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "1 · Was ist Ihnen gerade wichtig?",
+      "caption": "1 · KI und E-Mails",
       "task": "Write your first question in German, 14 words at most. Same start frame, same scene words as q2 and q3."
     },
     {
