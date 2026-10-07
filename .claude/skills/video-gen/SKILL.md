@@ -196,7 +196,7 @@ a starter: rewrite its slots, purposes and prompts from their material.
 
 ## The Bootcamp wall
 
-A live page the whole room watches on the projector and in their own browser:
+A live page the whole room watches on the projector (only the facilitators open it):
 https://claude.ai/artifact/SJM7nxmnMABKndktuVZ8nJ (also in `wall.json`). Every landed clip goes there
 with the prompt that was sent, raw or assisted, and the lint findings. Nobody downloads or uploads
 anything by hand. Send every landed video clip (not start frames, not previews unless the designer

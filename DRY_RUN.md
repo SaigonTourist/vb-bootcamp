@@ -105,7 +105,7 @@ per participant, anything the browser could not open.
 - [ ] `jobs/` contains only `probes.jsonl` and `reserves.jsonl`; delete the dry-run ledger.
 - [ ] The shared key created with its 150 $ limit, every participant's environment configured and tested with `doctor`.
 - [ ] Reminder set to revoke the shared key after the day.
-- [ ] Bootcamp wall: shared with every participant (view is enough; the station posts), `main` protected in the repository settings, the station session running (`WALL_STATION.md`), the two example posts removed or kept, the wall open on the projector.
+- [ ] Bootcamp wall: not shared with participants (it runs on the projector from the facilitator's account), `main` protected in the repository settings, the station session running (`WALL_STATION.md`), the wall open on the projector.
 - [ ] Reserves reviewed and committed; previews of A, B and C build from reserves alone.
 - [ ] The corrected PDF sent: the IT list is claude.ai, github.com (and the bucket host), not the
       video endpoints; the fallback is pre-generated clips, not guest wifi.
