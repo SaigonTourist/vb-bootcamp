@@ -14,6 +14,7 @@ Standard library only, so nothing has to be installed in the cloud environment.
   vg.py image --prompt "..." --out input/refs/presenter.png [--in ref.jpg]
   vg.py publish out/clip.mp4               signed link that plays in the browser
   vg.py gallery                            one page with every clip, signed link
+  vg.py wall [--label s2 | --job ID]       package the latest landed clip for the Bootcamp wall (wall/outbox/)
   vg.py doctor                             environment check, prints status only, never secrets
 
 Environment: OPENROUTER_API_KEY (or a managed credential for openrouter.ai in the cloud), VG_USER, VG_CONFIRM_EUR (3), VG_BUDGET_EUR (60), VG_USD_EUR (0.90),
@@ -548,6 +549,8 @@ def finish(j: dict, src: Path | None = None, url: str | None = None, cost=None):
         print(f"    placed in {placed.relative_to(REPO)}" + (f" (take {take.stem.rsplit('_t', 1)[1]}, kept in takes/)" if take else ""))
     if link:
         print(f"    watch: {link}")
+    if wall_url():
+        print(f"    wall: run 'vg.py wall --label {j['label']}' and post it (SKILL.md, Bootcamp wall)")
 
 
 def cmd_wait(a):
@@ -621,6 +624,104 @@ def cmd_sent(a):
     print("  --- what the method would flag ---" if findings else "  --- lint: clean ---")
     for lvl, code, msg in findings:
         print(f"  {'⚠' if lvl == 'warn' else '·'} {code}: {msg}")
+
+
+# ---------------------------------------------------------------- bootcamp wall
+
+WALL_CFG = SKILL / "wall.json"
+WALL_DIR = REPO / "wall"
+WALL_MAX_BYTES = 19 * 1024 * 1024  # the wall's asset store takes 20 MiB per file
+
+
+def wall_url() -> str | None:
+    url = os.environ.get("VG_WALL_URL")
+    if not url and WALL_CFG.exists():
+        url = json.loads(WALL_CFG.read_text()).get("url")
+    return url or None
+
+
+def ffmpeg_exe() -> str | None:
+    ff = os.environ.get("FFMPEG") or shutil.which("ffmpeg")
+    if not ff and (Path.home() / ".local" / "bin" / "ffmpeg").exists():
+        ff = str(Path.home() / ".local" / "bin" / "ffmpeg")
+    return ff
+
+
+def wall_package(j: dict, note: str = "") -> dict:
+    """A small mp4, a poster and the post row for one landed clip, in wall/outbox/. Never touches the network."""
+    import subprocess
+    src = REPO / j["file"]
+    if not src.exists():
+        die(f"{j['file']} is not in this session any more")
+    stem = f"{USER}_{j.get('label', 'clip')}_{j['id'][-8:]}"
+    box = WALL_DIR / "outbox"
+    box.mkdir(parents=True, exist_ok=True)
+    clip, poster = box / f"{stem}.mp4", box / f"{stem}.jpg"
+    ff = ffmpeg_exe()
+    if ff:
+        # long side 1280, h264 + aac, faststart: plays at once in every browser and stays far below the cap
+        scale = "scale='if(gt(iw,ih),min(1280,iw),-2)':'if(gt(iw,ih),-2,min(1280,ih))'"
+        subprocess.run([ff, "-y", "-loglevel", "error", "-i", str(src), "-vf", scale, "-c:v", "libx264", "-preset", "veryfast",
+                        "-crf", "24", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
+                        str(clip)], check=True)
+        subprocess.run([ff, "-y", "-loglevel", "error", "-ss", "1", "-i", str(src), "-frames:v", "1", "-vf", "scale=640:-2",
+                        "-q:v", "4", str(poster)], check=False)
+    else:
+        shutil.copyfile(src, clip)
+    if clip.stat().st_size > WALL_MAX_BYTES:
+        die(f"{clip.name} is {clip.stat().st_size / 1e6:.1f} MB, above the wall's 20 MB per clip")
+    slot = j.get("slot") or ""
+    parts = Path(slot).parts
+    template = parts[1] if len(parts) > 1 and parts[0] == "templates" else ""
+    cost = j.get("cost_usd", j.get("estimate_usd"))
+    row = {
+        "author": USER, "label": j.get("label", ""), "template": template, "slot": Path(slot).stem if slot else "",
+        "engine": j.get("key", ""), "model": j.get("model", ""), "mode": j.get("mode", "assisted"),
+        "duration": j.get("duration"), "ratio": j.get("ratio", ""),
+        "cost_eur": round(eur(float(cost)), 2) if cost is not None else None,
+        "render_s": j.get("seconds"), "prompt": j.get("prompt", ""),
+        "lint": [{"level": lvl, "code": code, "msg": msg} for lvl, code, msg in (j.get("lint") or [])],
+        "note": note, "job": j["id"], "created": int(time.time() * 1000), "source": "session",
+        "asset": None, "poster": None,
+    }
+    (box / f"{stem}.json").write_text(json.dumps(row, ensure_ascii=False, indent=2))
+    return {"stem": stem, "clip": clip, "poster": poster if poster.exists() else None, "row": box / f"{stem}.json"}
+
+
+def cmd_wall(a):
+    """Package a landed clip for the wall and print the two steps that post it from this session."""
+    vids = [j for j in jobs().values() if j.get("kind") == "video" and j.get("status") == "completed" and j.get("file")]
+    if a.job:
+        vids = [j for j in vids if j["id"] == a.job]
+    elif a.label:
+        vids = [j for j in vids if j.get("label") == a.label]
+    if not vids:
+        die("no landed clip matches in this session's ledger")
+    j = sorted(vids, key=lambda x: x.get("submitted", 0))[-1]
+    pk = wall_package(j, a.note or "")
+    url = wall_url()
+    rel = lambda p: str(p.relative_to(REPO))  # noqa: E731
+    print(f"  wall package ready: {rel(pk['clip'])} ({pk['clip'].stat().st_size / 1e6:.1f} MB)"
+          + (f", poster {rel(pk['poster'])}" if pk["poster"] else ""))
+    print(f"  post row: {rel(pk['row'])}")
+    if not url:
+        print("  · no wall configured (wall.json or VG_WALL_URL); the package stays in wall/outbox/.")
+        return
+    print(f"  wall: {url}")
+    print("  to post: upload the mp4 (and the poster) to the wall's assets, put the returned ids into the row's")
+    print("  'asset' and 'poster' fields, write the row to the wall's 'posts' collection with doc id = "
+          f"{pk['stem']}, then run: vg.py wall --done {pk['stem']}")
+
+
+def cmd_wall_done(stem: str):
+    box = WALL_DIR / "outbox"
+    sent = WALL_DIR / "posted"
+    sent.mkdir(parents=True, exist_ok=True)
+    moved = 0
+    for f in box.glob(f"{stem}.*"):
+        f.replace(sent / f.name)
+        moved += 1
+    print(f"  {stem}: marked as posted ({moved} files moved to wall/posted/)" if moved else f"  nothing in the outbox named {stem}")
 
 
 def cmd_spend(a):
@@ -805,9 +906,7 @@ def cmd_doctor(a):
         print(f"  {'✓' if good else '✗'} {what}{'' if good else '  → ' + hint}")
 
     line(sys.version_info >= (3, 8), f"python {sys.version.split()[0]}", "needs 3.8+")
-    ff = os.environ.get("FFMPEG") or shutil.which("ffmpeg")
-    if not ff and (Path.home() / ".local" / "bin" / "ffmpeg").exists():
-        ff = str(Path.home() / ".local" / "bin" / "ffmpeg")
+    ff = ffmpeg_exe()
     line(ff, f"ffmpeg {'at ' + ff if ff else 'missing'}", "run: bash scripts/setup_cloud.sh")
     if MOCK:
         print("  · mock mode: no network, no cost")
@@ -846,6 +945,7 @@ def cmd_doctor(a):
             line(False, "bucket upload + signed link", str(e)[:200])
     else:
         print("  · no bucket configured (VG_S3_*): clips stay in out/; publish and gallery are off")
+    print(f"  · Bootcamp wall: {wall_url() or 'not configured'}")
     print("  ready." if ok else "  fix the ✗ lines before the session.")
     sys.exit(0 if ok else 1)
 
@@ -884,6 +984,10 @@ def main(argv=None):
     p = sub.add_parser("sent", help="the exact prompt a clip was made from, its mode and the lint findings")
     p.add_argument("--job"); p.add_argument("--label"); p.set_defaults(f=cmd_sent)
     sub.add_parser("spend").set_defaults(f=cmd_spend)
+    p = sub.add_parser("wall", help="package a landed clip for the Bootcamp wall")
+    p.add_argument("--job"); p.add_argument("--label"); p.add_argument("--note")
+    p.add_argument("--done", metavar="STEM", help="mark a package as posted")
+    p.set_defaults(f=lambda a: cmd_wall_done(a.done) if a.done else cmd_wall(a))
 
     p = sub.add_parser("image"); p.add_argument("--prompt"); p.add_argument("--prompt-file"); p.add_argument("--out", required=True)
     p.add_argument("--in", dest="inp", nargs="*", default=[]); p.add_argument("--ratio", default="16:9")

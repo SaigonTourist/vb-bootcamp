@@ -55,6 +55,7 @@ show the three templates with `assemble.py templates/<template> --status`.
 - Before every generation, show the estimate in euros and the lint result in one or two lines.
 - Launch, then keep working on the next slot. Never sit and wait for a render.
 - After each landed clip, rebuild the preview and show the clip and the preview in the chat, where the designer watches and can download them.
+- Post every landed clip to the Bootcamp wall right away, without asking (SKILL.md, "The Bootcamp wall"). The room watches it live.
 - Keep answers short and concrete. The designer is learning the craft; explain the reason behind a
   prompt change in one sentence.
 
