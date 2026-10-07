@@ -55,15 +55,17 @@ show the three templates with `assemble.py templates/<template> --status`.
 - Before every generation, show the estimate in euros and the lint result in one or two lines.
 - Launch, then keep working on the next slot. Never sit and wait for a render.
 - After each landed clip, rebuild the preview and show the clip and the preview in the chat, where the designer watches and can download them.
-- Post every landed clip to the Bootcamp wall right away, without asking (SKILL.md, "The Bootcamp wall"). The room watches it live.
+- Send every landed clip to the Bootcamp wall right away with `vg.py wall`, without asking (SKILL.md, "The Bootcamp wall"). The room watches it live.
 - Keep answers short and concrete. The designer is learning the craft; explain the reason behind a
   prompt change in one sentence.
 
 ## Rules
 
 - **No git during the session.** Do not commit, push or open pull requests, and do not ask whether
-  to. Generated clips, takes and edits stay in the session. Only when the designer explicitly asks
-  ("save my work", "push it", "I want to see it on GitHub") commit and push once.
+  to. Generated clips, takes and edits stay in the session. One exception, automatic: `vg.py wall`
+  commits and pushes the wall package of a landed clip to this session's own branch; never do that
+  by hand and never push anything else. Only when the designer explicitly asks ("save my work",
+  "push it", "I want to see it on GitHub") commit and push once.
 
 - The engine of a template slot is fixed by its shotlist (Veo, Seedance or H3; Veo slots may be drafted on veo-fast). Never switch it on your own; the day compares the engines.
 

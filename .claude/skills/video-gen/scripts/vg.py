@@ -14,7 +14,7 @@ Standard library only, so nothing has to be installed in the cloud environment.
   vg.py image --prompt "..." --out input/refs/presenter.png [--in ref.jpg]
   vg.py publish out/clip.mp4               signed link that plays in the browser
   vg.py gallery                            one page with every clip, signed link
-  vg.py wall [--label s2 | --job ID]       package the latest landed clip for the Bootcamp wall (wall/outbox/)
+  vg.py wall [--label s2 | --job ID]       package a landed clip and send it to the Bootcamp wall through the repo
   vg.py doctor                             environment check, prints status only, never secrets
 
 Environment: OPENROUTER_API_KEY (or a managed credential for openrouter.ai in the cloud), VG_USER, VG_CONFIRM_EUR (3), VG_BUDGET_EUR (60), VG_USD_EUR (0.90),
@@ -550,7 +550,7 @@ def finish(j: dict, src: Path | None = None, url: str | None = None, cost=None):
     if link:
         print(f"    watch: {link}")
     if wall_url():
-        print(f"    wall: run 'vg.py wall --label {j['label']}' and post it (SKILL.md, Bootcamp wall)")
+        print(f"    wall: run 'vg.py wall --label {j['label']}' to send it to the Bootcamp wall")
 
 
 def cmd_wait(a):
@@ -688,8 +688,53 @@ def wall_package(j: dict, note: str = "") -> dict:
     return {"stem": stem, "clip": clip, "poster": poster if poster.exists() else None, "row": box / f"{stem}.json"}
 
 
+def git(*args, check=True):
+    import subprocess
+    r = subprocess.run(["git", "-C", str(REPO), *args], capture_output=True, text=True)
+    if check and r.returncode:
+        raise RuntimeError((r.stderr or r.stdout).strip()[-400:])
+    return r.stdout.strip()
+
+
+def wall_send(pk: dict) -> bool:
+    """Commit only this package and push it to the session's own branch (never main), so the wall
+    station, a Brutal session, can post it. The one git action a participant's session does on its own."""
+    files = [str(f.relative_to(REPO)) for f in (pk["clip"], pk["poster"], pk["row"]) if f]
+    branch = git("rev-parse", "--abbrev-ref", "HEAD", check=False) or "HEAD"
+    target = branch if branch not in ("main", "master", "HEAD") else f"wall/{USER}"
+    ident = [] if git("config", "user.email", check=False) else ["-c", f"user.name={USER}", "-c", "user.email=wall@vb-bootcamp.invalid"]
+    try:
+        git("add", "-f", "--", *files)
+        git(*ident, "commit", "-q", "-m", f"wall: {pk['stem']}", "--", *files)
+    except RuntimeError as e:
+        print(f"  ✗ could not commit the package: {e}")
+        return False
+    err = None
+    for _ in (1, 2):
+        try:
+            git("push", "-q", "origin", f"HEAD:refs/heads/{target}")
+            with open(WALL_DIR / "sent.txt", "a") as f:
+                f.write(pk["stem"] + "\n")
+            print(f"  ✓ sent to the wall (branch {target}); it appears there in a minute or two.")
+            return True
+        except RuntimeError as e:
+            err = e
+            time.sleep(3)
+    print(f"  ✗ push failed: {err}. The package stays in wall/outbox/; 'vg.py wall --resend' tries again.")
+    return False
+
+
 def cmd_wall(a):
-    """Package a landed clip for the wall and print the two steps that post it from this session."""
+    """Package a landed clip for the wall and send it through the repository."""
+    if a.resend:
+        sent = set((WALL_DIR / "sent.txt").read_text().split()) if (WALL_DIR / "sent.txt").exists() else set()
+        rows = [r for r in sorted((WALL_DIR / "outbox").glob("*.json")) if r.stem not in sent]
+        if not rows:
+            print("  nothing waiting in wall/outbox/.")
+        for r in rows:
+            jpg = r.with_suffix(".jpg")
+            wall_send({"stem": r.stem, "clip": r.with_suffix(".mp4"), "poster": jpg if jpg.exists() else None, "row": r})
+        return
     vids = [j for j in jobs().values() if j.get("kind") == "video" and j.get("status") == "completed" and j.get("file")]
     if a.job:
         vids = [j for j in vids if j["id"] == a.job]
@@ -699,18 +744,11 @@ def cmd_wall(a):
         die("no landed clip matches in this session's ledger")
     j = sorted(vids, key=lambda x: x.get("submitted", 0))[-1]
     pk = wall_package(j, a.note or "")
-    url = wall_url()
-    rel = lambda p: str(p.relative_to(REPO))  # noqa: E731
-    print(f"  wall package ready: {rel(pk['clip'])} ({pk['clip'].stat().st_size / 1e6:.1f} MB)"
-          + (f", poster {rel(pk['poster'])}" if pk["poster"] else ""))
-    print(f"  post row: {rel(pk['row'])}")
-    if not url:
-        print("  · no wall configured (wall.json or VG_WALL_URL); the package stays in wall/outbox/.")
+    print(f"  wall package: {pk['stem']} ({pk['clip'].stat().st_size / 1e6:.1f} MB)")
+    if a.no_send or os.environ.get("VG_WALL_SEND") == "0":
+        print("  not sent (--no-send); it stays in wall/outbox/.")
         return
-    print(f"  wall: {url}")
-    print("  to post: upload the mp4 (and the poster) to the wall's assets, put the returned ids into the row's")
-    print("  'asset' and 'poster' fields, write the row to the wall's 'posts' collection with doc id = "
-          f"{pk['stem']}, then run: vg.py wall --done {pk['stem']}")
+    wall_send(pk)
 
 
 def cmd_wall_done(stem: str):
@@ -987,6 +1025,8 @@ def main(argv=None):
     p = sub.add_parser("wall", help="package a landed clip for the Bootcamp wall")
     p.add_argument("--job"); p.add_argument("--label"); p.add_argument("--note")
     p.add_argument("--done", metavar="STEM", help="mark a package as posted")
+    p.add_argument("--no-send", action="store_true", help="package only, do not push")
+    p.add_argument("--resend", action="store_true", help="push every package still waiting in wall/outbox/")
     p.set_defaults(f=lambda a: cmd_wall_done(a.done) if a.done else cmd_wall(a))
 
     p = sub.add_parser("image"); p.add_argument("--prompt"); p.add_argument("--prompt-file"); p.add_argument("--out", required=True)
