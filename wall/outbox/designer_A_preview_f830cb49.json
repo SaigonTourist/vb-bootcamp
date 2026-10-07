@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "A_preview",
+  "template": "A_teaser",
+  "slot": "preview",
+  "engine": "",
+  "model": "",
+  "mode": "preview",
+  "duration": 24.8,
+  "ratio": "16:9",
+  "cost_eur": null,
+  "render_s": null,
+  "prompt": "",
+  "lint": [],
+  "note": "Template A teaser preview (uploaded)",
+  "job": "upload-f830cb49",
+  "created": 1791393696834,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
