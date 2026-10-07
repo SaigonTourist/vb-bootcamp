@@ -37,7 +37,7 @@ MAX_MP4 = 20 * 1024 * 1024
 FIELDS = {  # name: (type, max length for text)
     "author": (str, 40), "label": (str, 60), "template": (str, 40), "slot": (str, 40), "engine": (str, 20),
     "model": (str, 80), "mode": (str, 10), "ratio": (str, 10), "prompt": (str, 6000), "note": (str, 300),
-    "job": (str, 120), "source": (str, 20), "duration": ((int, float), None), "cost_eur": ((int, float), None),
+    "job": (str, 120), "source": (str, 20), "github": (str, 40), "duration": ((int, float), None), "cost_eur": ((int, float), None),
     "render_s": ((int, float), None), "created": ((int, float), None),
 }
 
@@ -47,6 +47,22 @@ def git(*args) -> str:
     if r.returncode:
         raise RuntimeError((r.stderr or r.stdout).strip()[-300:])
     return r.stdout
+
+
+def pushers() -> dict:
+    """Branch -> GitHub login of whoever pushed it last, from the repository's activity (needs gh).
+    The commits themselves are authored as "Claude", so this is the only record of who sent a clip."""
+    url = git("remote", "get-url", "origin").strip()
+    m = re.search(r"github\.com[:/]([^/]+)/([^/.]+)", url)
+    if not m:
+        return {}
+    r = subprocess.run(["gh", "api", f"repos/{m.group(1)}/{m.group(2)}/activity?per_page=100",
+                        "--jq", ".[] | [.ref, .actor.login] | @tsv"], capture_output=True, text=True)
+    out = {}
+    for line in r.stdout.splitlines():  # newest first
+        ref, _, login = line.partition("\t")
+        out.setdefault(ref.removeprefix("refs/heads/"), login)
+    return out
 
 
 def posted() -> set:
@@ -74,6 +90,7 @@ def scan(fetch=True) -> list:
     if fetch:
         git("fetch", "-q", "origin", "--prune")
     done, seen, out = posted(), set(), []
+    who = None
     INBOX.mkdir(parents=True, exist_ok=True)
     branches = [b.strip() for b in git("for-each-ref", "--format=%(refname:short)", "refs/remotes/origin").splitlines()]
     for br in branches:
@@ -108,8 +125,11 @@ def scan(fetch=True) -> list:
             except (ValueError, AttributeError):
                 print(f"  skip {stem}: the row is not valid JSON", file=sys.stderr)
                 continue
+            if who is None:
+                who = pushers()
+            row["github"] = who.get(br.removeprefix("origin/"), "")[:40]
             dst.with_suffix(".json").write_text(json.dumps(row, ensure_ascii=False, indent=1))
-            out.append({"stem": stem, "branch": br, "author": row["author"], "label": row["label"], "mode": row["mode"],
+            out.append({"stem": stem, "branch": br, "author": row["author"], "github": row["github"], "label": row["label"], "mode": row["mode"],
                         "mp4": str(dst.with_suffix(".mp4")),
                         "jpg": str(dst.with_suffix(".jpg")) if dst.with_suffix(".jpg").exists() else None,
                         "row": str(dst.with_suffix(".json"))})
