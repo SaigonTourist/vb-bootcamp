@@ -94,7 +94,7 @@ Open a new session on the repo with the dry-run key and work only through the ch
 | 5 | "Launch s3, s2 and a veo-fast draft of s1" | Three jobs queued, `wait` running in the background |
 | 6 | While they render: "Rewrite s1 so the man is sitting already" | Lint, estimate, one change named |
 | 7 | When they land: "Build the preview" | `out/A_teaser_preview.mp4`, watchable from the browser |
-| 7b | (nothing, it happens after each landed clip) | Claude runs `vg.py wall`: "sent to the wall (branch ...)". With the wall station running (`WALL_STATION.md`), the clip appears on the wall within two minutes. If the push fails, write down the exact message |
+| 7b | (nothing, it happens after each landed clip) | Claude runs `vg.py wall`: "sent to the wall (branch ...)". A 403 "Claude doesn't have GitHub access" means GitHub is not connected in that Claude account or the repo invitation is not accepted (SETUP.md step 1). With the wall station running (`WALL_STATION.md`), the clip appears on the wall within two minutes. If the push fails, write down the exact message |
 | 8 | "What have I spent?" | `vg.py spend` total, matches OpenRouter's key page |
 
 Record: minutes to the first launched render (target under 20), real render times per model, cost

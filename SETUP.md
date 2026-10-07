@@ -9,8 +9,13 @@ that does not look like this page.
 
 ## 1. Open Claude Code
 
-Go to **claude.ai/code** and sign in with your Claude account. If it asks to connect GitHub, accept.
-You should see the repository **vb-bootcamp** in the list (we invited your GitHub account).
+1. On **github.com**, signed in with your GitHub account, accept our invitation to **vb-bootcamp**
+   (it is in your email and at github.com/SaigonTourist/vb-bootcamp/invitations).
+2. Go to **claude.ai/code** and sign in with your Claude account. When it asks to connect GitHub,
+   accept with that same GitHub account. If it never asks, connect GitHub from Claude Code's
+   settings.
+3. You should see the repository **vb-bootcamp** in the list. Your clips reach the Bootcamp wall
+   through it, so without this step they stay in your chat only.
 
 ## 2. Add the video key to your environment
 
