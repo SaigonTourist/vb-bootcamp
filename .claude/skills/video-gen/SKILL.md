@@ -28,6 +28,25 @@ python3 .claude/skills/video-gen/scripts/assemble.py --help
 
 `vg.py show <key>` prints the exact call template, limits, prices and known failure modes.
 
+## Hands-on I, part 1: raw mode (unassisted)
+
+When the designer writes "Raw mode" (for example "Raw mode, slot s2: <their description>"), send their
+words **exactly as typed** to the slot's engine: `vg.py submit <engine> --prompt "<their words>" --dur
+<slot default> --slot templates/<template>/<slot> --raw`. No rewriting, no shot card, no questions, no
+lint advice before sending. Only the cost line, then launch.
+
+When the clip lands: show it, then run `vg.py sent --label <slot>` and answer in three short parts:
+**what you sent** (their words), **what went wrong** (look at a frame or two and use the findings:
+framing, action, physics, person, text, sound, look), and **the next step** (the field of the shot card
+that would have prevented it). Keep it encouraging; the point is to see the gap before learning the method.
+
+## Every delivery shows the prompt that was sent
+
+After every landed clip, raw or assisted, show the clip and then the exact prompt the engine received
+(`vg.py sent --label <label>`). For assisted takes add two or three lines on **what you added to their
+brief** (the light, the distance, the action first, the filler line) and why. The designer should
+always see the final format.
+
 ## The designer briefs, Claude prompts
 
 Designers do not write model prompts; they brief you, and the day's goal is that they learn to brief
@@ -40,7 +59,7 @@ sound with exact words, on-screen text, length.
    the engine per shot, defaults for what is missing).
 2. **Show the brief back before anything else**, in their words, as the filled card: each field,
    and for every field they did not give, your default marked *(assumed)*. Then the engine with its
-   reason and the estimate. Show the model prompt itself only if they ask, or after the render.
+   reason and the estimate. The model prompt itself comes after the render, with the clip.
 3. **Coach, briefly.** If a field that decides quality is missing or vague (no action, a feeling
    instead of something visible, no exact words for speech, "close-up" on an emotional face,
    a brand name, a date in the voice), say in one line what it would cost them and offer the fix.

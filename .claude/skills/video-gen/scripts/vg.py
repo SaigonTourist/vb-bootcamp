@@ -483,7 +483,11 @@ def cmd_submit(a):
     nrefs = len(a.ref) if not (a.first_frame or a.last_frame) else 0
     usd = estimate_usd(m, body["duration"], body.get("resolution"), body["generate_audio"], nrefs, body["aspect_ratio"])
     print(f"  {m['name']} · {body['duration']} s · {body['aspect_ratio']} · estimate {fmt_money(usd)}")
-    print_lint(lint(m, prompt, body["duration"]))
+    findings = lint(m, prompt, body["duration"])
+    if a.raw:
+        print("  raw mode: sent exactly as typed, no rewrite. Findings are kept for after the clip lands.")
+    else:
+        print_lint(findings)
     spent = budget_check(usd, a.over_budget)
     if a.dry_run:
         print(json.dumps(redacted(body), indent=2, ensure_ascii=False))
@@ -503,7 +507,8 @@ def cmd_submit(a):
     ledger_append({"id": jid, "kind": "video", "user": USER, "model": m["id"], "key": m["key"], "label": label,
                    "slot": str(target.relative_to(REPO)) if target else None, "duration": body["duration"],
                    "ratio": body["aspect_ratio"], "prompt": prompt, "estimate_usd": round(usd, 4),
-                   "status": status, "mock": MOCK, "submitted": time.time()})
+                   "status": status, "mock": MOCK, "submitted": time.time(), "mode": "raw" if a.raw else "assisted",
+                   "lint": [[lvl, code, msg] for lvl, code, msg in findings]})
     lo, hi = m.get("render_minutes", [0, 0])
     print(f"  → job {jid} queued ({lo}-{hi} min). Run 'vg.py wait' to collect it; keep working meanwhile.")
 
@@ -597,6 +602,25 @@ def cmd_status(a):
         print(f"  {j.get('status', '?'):11} {j.get('key', ''):9} {j.get('label', ''):18} {eur(float(cost)):6.2f} €{tag:5} "
               f"{j.get('file') or j['id']}")
     print(f"  session total {eur(spent_usd(state)):.2f} € of {BUDGET_EUR:.0f} €")
+
+
+def cmd_sent(a):
+    """What was really sent for a clip: shown after every delivery so the designer sees the final format."""
+    vids = [j for j in jobs().values() if j.get("kind") == "video"]
+    if a.job:
+        vids = [j for j in vids if j["id"] == a.job]
+    elif a.label:
+        vids = [j for j in vids if j.get("label") == a.label]
+    if not vids:
+        die("no matching generation in this session's ledger")
+    j = sorted(vids, key=lambda x: x.get("submitted", 0))[-1]
+    print(f"  {j.get('label')} · {j.get('model')} · {j.get('duration')} s · mode {j.get('mode', 'assisted')} · {j.get('status')}")
+    print("  --- prompt sent ---")
+    print("\n".join("  " + line for line in j.get("prompt", "").splitlines()))
+    findings = j.get("lint") or []
+    print("  --- what the method would flag ---" if findings else "  --- lint: clean ---")
+    for lvl, code, msg in findings:
+        print(f"  {'⚠' if lvl == 'warn' else '·'} {code}: {msg}")
 
 
 def cmd_spend(a):
@@ -850,12 +874,15 @@ def main(argv=None):
     p.add_argument("--label"); p.add_argument("--yes", action="store_true"); p.add_argument("--dry-run", action="store_true")
     p.add_argument("--over-budget", action="store_true", help="facilitator only")
     p.add_argument("--change-engine", action="store_true", help="only when the designer explicitly asks for another engine on a template slot")
+    p.add_argument("--raw", action="store_true", help="hands-on I part 1: the designer's words exactly as typed, no rewrite")
     p.set_defaults(f=cmd_submit)
 
     p = sub.add_parser("wait"); p.add_argument("--job"); p.add_argument("--max-minutes", type=float, default=9)
     p.add_argument("--every", type=float, default=15); p.set_defaults(f=cmd_wait)
 
     sub.add_parser("status").set_defaults(f=cmd_status)
+    p = sub.add_parser("sent", help="the exact prompt a clip was made from, its mode and the lint findings")
+    p.add_argument("--job"); p.add_argument("--label"); p.set_defaults(f=cmd_sent)
     sub.add_parser("spend").set_defaults(f=cmd_spend)
 
     p = sub.add_parser("image"); p.add_argument("--prompt"); p.add_argument("--prompt-file"); p.add_argument("--out", required=True)

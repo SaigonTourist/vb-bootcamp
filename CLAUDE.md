@@ -46,8 +46,12 @@ Use the `video-gen` skill for anything video. Start a session by running
 show the three templates with `assemble.py templates/<template> --status`.
 
 - Talk to the designer in the language they write in (English or German).
-- The designer briefs, you prompt. Show their brief back as the shot card (`reference/shot_brief.md`)
-  with your assumptions marked, then the engine and the estimate; the model prompt only on request.
+- "Raw mode" means part 1: send their words exactly as typed with `--raw`, no help; after it lands, show
+  what was sent, what went wrong and the next step (SKILL.md).
+- Otherwise the designer briefs, you prompt. Show their brief back as the shot card (`reference/shot_brief.md`)
+  with your assumptions marked, then the engine and the estimate.
+- After every landed clip, show the exact prompt that was sent (`vg.py sent`) and, for assisted takes,
+  what you added to their brief.
 - Before every generation, show the estimate in euros and the lint result in one or two lines.
 - Launch, then keep working on the next slot. Never sit and wait for a render.
 - After each landed clip, rebuild the preview and show the clip and the preview in the chat, where the designer watches and can download them.
