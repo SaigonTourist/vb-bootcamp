@@ -26,7 +26,7 @@
       "dur": 2.5,
       "lines": [
         "Drei Fragen",
-        "die jedes Gespräch öffnen"
+        "die jedes Beratungsgespräch öffnen"
       ],
       "task": "Write your series title."
     },
@@ -34,12 +34,12 @@
       "id": "q1",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
+      "dur": 5.0,
       "gen_dur": 8,
       "purpose": "Your question 1 to camera",
       "prompt": "prompts/q1.md",
-      "first_frame": "input/refs/presenter_B.png",
-      "caption": "1 · Was ist Ihnen gerade wichtig?",
+      "first_frame": "input/refs/presenter_B_b.png",
+      "caption": "1 · Was ist Ihnen bei Ihren Geldanlagen gerade am wichtigsten?",
       "task": "Write your first question in German, 14 words at most. Same start frame, same scene words as q2 and q3."
     },
     {
@@ -55,12 +55,12 @@
       "id": "q2",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
+      "dur": 5.2,
       "gen_dur": 8,
       "purpose": "Your question 2 to camera",
       "prompt": "prompts/q2.md",
-      "first_frame": "input/refs/presenter_B.png",
-      "caption": "2 · Was hat sich verändert?",
+      "first_frame": "input/refs/presenter_B_b.png",
+      "caption": "2 · Was hat sich für Sie verändert?",
       "task": "Your second question. Only the line changes from q1."
     },
     {
@@ -79,11 +79,11 @@
       "id": "q3",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
+      "dur": 5.5,
       "gen_dur": 8,
       "purpose": "Your question 3 to camera",
       "prompt": "prompts/q3.md",
-      "first_frame": "input/refs/presenter_B.png",
+      "first_frame": "input/refs/presenter_B_b.png",
       "caption": "3 · Woran merken Sie, dass es passt?",
       "task": "Your third question. Only the line changes; compare the three takes for consistency."
     },
@@ -93,7 +93,7 @@
       "dur": 3,
       "lines": [
         "Drei Fragen. Ein gutes Gespräch.",
-        "Mehr im Lernportal"
+        "Mehr dazu im Anlageberater-Lehrgang"
       ],
       "task": "Write your closing line."
     }

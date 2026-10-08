@@ -1,0 +1,6 @@
+SHOT: wide, eye level, 35mm at T2.8, static, 25 fps.
+SUBJECT AND ACTION: steady rain falls on an empty zoo path; puddles ripple on the asphalt, a closed kiosk with its wooden shutters down stands at the side, and one lone visitor with an umbrella walks slowly away from camera into the distance.
+PLACE: a zoo path lined with wet benches and dripping trees, an empty wooden enclosure fence on the right.
+LIGHT: grey overcast sky as one large diffuse key from above, about 2:1, cool and even, expose to protect the highlights.
+COLOUR: muted greys and greens, desaturated, wet surfaces with soft sheen.
+SOUND: steady rain on leaves and asphalt, water dripping from the kiosk roof, distant thunder.

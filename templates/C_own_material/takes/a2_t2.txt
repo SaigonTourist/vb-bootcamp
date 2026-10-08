@@ -1,0 +1,6 @@
+SHOT: wide, eye level, 35mm at T2.8, static, 25 fps.
+SUBJECT AND ACTION: a quiet, almost deserted zoo on a sunny afternoon: a single keeper in a green work jacket slowly sweeps leaves along an empty path, past a row of empty benches and an empty panda enclosure with bamboo and rocks.
+PLACE: a wide zoo path lined with tall trees, empty wooden benches, a wooden fence on the right, a closed ice-cream kiosk with its shutters down.
+LIGHT: one warm afternoon sun from camera-left, about 4:1, long calm shadows of the trees across the empty path, expose to protect the highlights.
+COLOUR: warm greens and golden light, calm and still.
+SOUND: wind in the leaves, the slow scrape of the broom, a single distant bird, otherwise quiet.

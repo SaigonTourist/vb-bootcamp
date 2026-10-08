@@ -17,55 +17,71 @@
       "id": "a0",
       "type": "gen",
       "model": "veo",
-      "dur": 4,
-      "purpose": "Opener: the place your material is about",
-      "prompt": "prompts/a0.md",
-      "seed": 5
+      "dur": 6,
+      "purpose": "Opener: the whole zoo, key message 1 (a share is a piece of the whole)",
+      "prompt": "prompts/a0_mine.md",
+      "seed": 5,
+      "caption": "Was ist eine Aktie?"
     },
     {
-      "id": "own1",
-      "type": "real",
-      "dur": 10,
-      "file": "input/own/clip.mp4",
-      "trim_start": 0,
-      "purpose": "Your material, part 1 (first key message)",
-      "caption": "Kernbotschaft 1"
+      "id": "p1",
+      "type": "gen",
+      "model": "h3",
+      "dur": 5.4,
+      "gen_dur": 8,
+      "purpose": "Presenter: a share is a piece of the whole zoo",
+      "prompt": "prompts/p1_zoo.md",
+      "first_frame": "input/refs/presenter_B_zoo_A.png"
+    },
+    {
+      "id": "p2",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6.0,
+      "gen_dur": 8,
+      "purpose": "Presenter: bond versus share, nothing guaranteed",
+      "prompt": "prompts/p2_zoo.md",
+      "first_frame": "input/refs/presenter_B_zoo_A.png",
+      "caption": "Anleihe: feste Zinsen · Aktie: keine Garantie"
     },
     {
       "id": "a1",
       "type": "gen",
       "model": "seedance",
       "dur": 5,
-      "purpose": "Shows key message 1 from your material",
-      "prompt": "prompts/a1.md"
-    },
-    {
-      "id": "own2",
-      "type": "real",
-      "dur": 10,
-      "file": "input/own/clip.mp4",
-      "trim_start": 10,
-      "purpose": "Your material, part 2 (second key message)",
-      "caption": "Kernbotschaft 2"
+      "purpose": "Good season: visitors at the panda enclosure",
+      "prompt": "prompts/a1_mine.md",
+      "caption": "Gute Saison: Dividende + Kursgewinn"
     },
     {
       "id": "a2",
       "type": "gen",
       "model": "veo",
       "dur": 6,
-      "purpose": "Shows key message 2, closes the arc",
-      "prompt": "prompts/a2.md",
-      "seed": 9
+      "purpose": "Bad season: a quiet, empty zoo on a sunny day",
+      "prompt": "prompts/a2_sunny.md",
+      "seed": 9,
+      "caption": "Schlechte Saison: Kurse schwanken – Verluste möglich"
+    },
+    {
+      "id": "p3",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6.0,
+      "gen_dur": 8,
+      "purpose": "Presenter: not a savings product, a stake",
+      "prompt": "prompts/p3_zoo.md",
+      "first_frame": "input/refs/presenter_B_zoo_A.png"
     },
     {
       "id": "card",
       "type": "card",
       "dur": 3,
       "lines": [
-        "Title of your piece",
-        "Einige Szenen wurden mit KI erstellt."
+        "Was ist eine Aktie?",
+        "Mehr dazu im Anlageberater-Lehrgang"
       ]
     }
   ],
-  "note": "Starter layout only. Claude replaces the slots, purposes and prompts with ones built from the designer's material in input/own/."
+  "note": "Built from input/own/modul_aktie_zoo.md (Was ist eine Aktie? Zoo-Analogie). No own photos or clip: every slot is generated."
 }

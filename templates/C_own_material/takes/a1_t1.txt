@@ -1,0 +1,5 @@
+ACTION: a cheerful crowd of adult visitors, seen from behind, gathers at the glass front of a panda enclosure; a giant panda sits on a log inside eating bamboo, and two of the adults lean closer and point.
+SHOT: medium-wide from behind the crowd, 35mm lens, slow push of about half a metre.
+PLACE: a sunny zoo enclosure with bamboo, rocks and a wooden climbing frame behind a tall glass front, green trees around.
+LIGHT: one warm afternoon sun from camera-left, about 4:1, soft reflections on the glass.
+SOUND: lively crowd murmur, delighted gasps, the crunch of bamboo.

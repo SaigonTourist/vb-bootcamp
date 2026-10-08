@@ -40,14 +40,25 @@
       "task": "Twice. Part 1, raw mode: describe it in your own words, sent exactly as typed. Part 2, assisted: brief it with three fields (what the viewer should take away, the one action, the sound). Then compare the two takes. The shot: the advisor prepares for the client, without a face."
     },
     {
-      "id": "s3",
+      "id": "s3a",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
-      "gen_dur": 8,
-      "purpose": "Presenter: tells your joke in German",
+      "dur": 5,
+      "gen_dur": 5,
+      "purpose": "Joke, line 1: the husband (customer from s2 take 1)",
       "prompt": "prompts/s3.md",
-      "first_frame": "input/refs/presenter_A.png",
+      "first_frame": "input/refs/husband.png",
+      "task": "Bring your joke. Design your presenter: ask for two or three start-frame candidates or bring a photo, and pick one. The joke is the German line, 14 words at most: timing beats length. Render, then fix one thing."
+    },
+    {
+      "id": "s3b",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6,
+      "gen_dur": 6,
+      "purpose": "Joke, line 2: the wife, punchline",
+      "prompt": "prompts/s3.md",
+      "first_frame": "input/refs/wife_a.png",
       "task": "Bring your joke. Design your presenter: ask for two or three start-frame candidates or bring a photo, and pick one. The joke is the German line, 14 words at most: timing beats length. Render, then fix one thing."
     },
     {
@@ -55,8 +66,8 @@
       "type": "card",
       "dur": 3,
       "lines": [
-        "Your tag line",
-        "Your subline"
+        "Volksbank",
+        "Die Beziehung, die hält."
       ],
       "task": "Design your end card. Write the tag line, then the look: a solid colour, the last frame of your punchline frozen and blurred behind the text, or your own image; text colour, size, centred or low, your logo. Ask for a still preview, it is instant and free, and iterate until you like it.",
       "purpose": "End card: your tag line and your look"

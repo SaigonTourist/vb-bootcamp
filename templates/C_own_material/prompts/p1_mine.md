@@ -1,0 +1,5 @@
+SHOT: medium shot from the waist up, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.
+ACTION: the woman looks straight into the lens and speaks in German, warm, calm and direct, at a natural pace, a small open-hand gesture on the word in capitals.
+DIALOGUE: "Mit einer Aktie besitzt du nicht den Löwen, sondern ein Stück vom GANZEN Zoo. Also, ja."
+SCENE: she sits at a pale wooden table with a plain closed folder in front of her, in a modern office, navy wool blazer over a cream blouse, shoulder-length dark-blonde wavy hair. A white wall with pale oak shelves behind her. One soft window light from camera left.
+RULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a short friendly nod.
