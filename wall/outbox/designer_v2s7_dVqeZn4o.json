@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "v2s7",
+  "template": "C_own_material",
+  "slot": "v2s7",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 366,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the woman with short ash-blond hair in a dark navy blazer over a white blouse pauses for a moment, lays the dark folder flat on the table, then looks to the colleague off camera-left and speaks in German, calm and decided, a small nod on the word DANKE.\nDIALOGUE: \"Ja. Lieber später starten als einen Fehler übersehen. DANKE, dass du es sagst. Also, ja.\"\nSCENE: same bank meeting room as the start frame: light oak table, tall window on the left wall, plain pale walls, soft daylight from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. She never looks into the lens. Speech ends on the last word, then a calm, warm look.",
+  "lint": [],
+  "note": "Der Satz, der fehlt v2 – Shot 7",
+  "job": "gen-vid-1791455724-6JpU52XiIVk7dVqeZn4o",
+  "created": 1791456200646,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
