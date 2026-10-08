@@ -1,0 +1,60 @@
+{
+  "id": "E_moon",
+  "title": "E · Wine to the Moon",
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "lesson": "A four-shot story with one object kept identical through start frames made from one reference image.",
+  "card_style": {
+    "bg": "0x0b0b1a",
+    "fg": "white"
+  },
+  "slots": [
+    {
+      "id": "e1",
+      "type": "gen",
+      "model": "veo",
+      "dur": 4,
+      "purpose": "Launch",
+      "prompt": "../C_own_material/prompts/a0.md",
+      "first_frame": "input/refs/bottle_launch.png"
+    },
+    {
+      "id": "e2",
+      "type": "gen",
+      "model": "veo",
+      "dur": 4,
+      "purpose": "Low orbit, about 100 km",
+      "prompt": "prompts/e2.md",
+      "first_frame": "input/refs/moon_e2.png"
+    },
+    {
+      "id": "e3",
+      "type": "gen",
+      "model": "veo",
+      "dur": 4,
+      "purpose": "Through space",
+      "prompt": "prompts/e3.md",
+      "first_frame": "input/refs/moon_e3.png"
+    },
+    {
+      "id": "e4",
+      "type": "gen",
+      "model": "veo",
+      "dur": 6,
+      "purpose": "Moon crash",
+      "prompt": "prompts/e4.md",
+      "first_frame": "input/refs/moon_e4.png"
+    },
+    {
+      "id": "card",
+      "type": "card",
+      "dur": 3,
+      "lines": [
+        "Ein Schluck Mut."
+      ]
+    }
+  ]
+}
