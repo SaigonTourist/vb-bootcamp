@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s9",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "9:16",
+  "cost_eur": 0.72,
+  "render_s": 56,
+  "prompt": "ACTION: With the tip of his vine-wood staff, Maximus slowly slides one coin back to his side, then a second, then a third. With each coin Gaius' eyebrows sink lower.\nSHOT: medium shot, eye level, static, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: warm evening, golden-orange light from an oil lamp or a campfire, cosy warm shadows.\nSOUND: only coins clinking on wood, three slow sliding scrapes; the rest is quiet room tone.",
+  "lint": [],
+  "note": "English redo, fixed take",
+  "job": "gen-vid-1791459362-8mgfJAwvYkAKMQ6LzOzR",
+  "created": 1791460213564,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
