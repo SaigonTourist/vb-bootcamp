@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s10",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "9:16",
+  "cost_eur": 0.54,
+  "render_s": 79,
+  "prompt": "ACTION: A thick glob of porridge slowly slides off Gaius' spoon and drops back into the bowl. He blinks once, slowly.\nSHOT: medium shot, eye level, slow push-in on Gaius, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: warm evening, golden-orange light from an oil lamp or a campfire, cosy warm shadows.\nSOUND: only a thick wet plop, an oil lamp crackling, quiet spoon scrapes; the rest is quiet room tone.",
+  "lint": [],
+  "note": "YouTube Short Legionär, Szene 10",
+  "job": "gen-vid-1791457522-3hm5hJaO7DkWcXnfH4gS",
+  "created": 1791458025141,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
