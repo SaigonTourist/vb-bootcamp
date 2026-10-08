@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s10",
+  "template": "C2_sekunde_danach",
+  "slot": "s10",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 85,
+  "prompt": "SHOT: medium-wide, eye level, 35mm at T2.8, very slow dolly out of about thirty centimetres, 25 fps, as in the start frame.\nSUBJECT AND ACTION: the woman in the dark navy blazer and the man in the white shirt sit side by side at her desk and look at the laptop together, its screen turned away from camera; she points at the screen, he nods slowly and his shoulders relax.\nPLACE: a small glass-walled bank office in the early evening, desk lamp on, a plant, the dark open-plan office behind the glass.\nLIGHT: warm desk lamp as key from camera-left, cool dusk through the windows, about 5:1.\nSOUND: quiet room tone, soft murmured talk too quiet to understand. No music.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "screen: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "Risikokultur 2/3 – s10",
+  "job": "gen-vid-1791457538-hwAdCVLQSf9PfVzuyjOs",
+  "created": 1791457978298,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
