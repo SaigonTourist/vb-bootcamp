@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s6",
+  "template": "C2_sekunde_danach",
+  "slot": "s6",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 67,
+  "prompt": "SHOT: medium-wide, eye level, 35mm at T2.8, static, 25 fps, as in the start frame.\nSUBJECT AND ACTION: the woman with light brown wavy hair in the light grey top, a beige coat over her arm, walks past behind the man at the desk toward the door and says warmly in German: \"Schönes Wochenende!\" The man in the dark grey suit jacket looks up and answers a little too quickly with a tight smile: \"Dir auch.\" She walks on out of frame, his smile drops.\nPLACE: an open-plan bank office in the early evening, empty desks, dusk in the windows, the back of a plain black monitor on the right.\nLIGHT: cool monitor light and a warm desk lamp, about 5:1.\nSOUND: quiet office room tone, her footsteps fading. Only these two short lines. No music.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "monitor: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "Risikokultur 2/3 – s6",
+  "job": "gen-vid-1791457534-3ksOYtKIPuryJzp3kTOR",
+  "created": 1791457964493,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
