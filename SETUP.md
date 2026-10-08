@@ -40,12 +40,13 @@ Save. The key never appears in your session, and it is switched off after today.
 In the same environment settings, under **environment variables**, add:
 
 ```
-VG_USER=yourfirstname
+VG_USER=Anna
 VG_BUDGET_EUR=40
 VG_CONFIRM_EUR=3
 ```
 
-`VG_USER` keeps your work apart from everyone else's. The other two are your spending guard rails:
+`VG_USER` is your first name as the room will see it on the Bootcamp wall: letters only, no spaces, no
+accents or umlauts (`Juergen`, not `Jürgen`). It also keeps your work apart from everyone else's. The other two are your spending guard rails:
 Claude asks before any single video above 3 €, and stops your session at 40 €.
 
 ## 4. Start a session and check
@@ -54,7 +55,7 @@ Now, and only now, start a **new session** on **vb-bootcamp** and type:
 
 > Run the doctor.
 
-You are ready when every line shows ✓:
+You are ready when every line shows ✓ and the doctor shows `VG_USER=` with your name (not `designer`):
 
 - python
 - ffmpeg
