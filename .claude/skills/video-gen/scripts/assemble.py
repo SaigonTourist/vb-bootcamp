@@ -9,6 +9,8 @@ Assemble a template (mock-up) from its shotlist: every slot gets the best clip a
   assemble.py templates/A_teaser --takes         every take of every slot, and which one is in use
   assemble.py templates/A_teaser --compare s1    the takes of s1 side by side, to choose
   assemble.py templates/A_teaser --use s1 t2     put take t2 into slot s1
+  assemble.py templates/A_teaser --card          a still of the end card, to iterate its design
+  assemble.py templates/B_series --frames bridge first/last frame for a bridge, at the real cut points
 
 Source per slot, first match wins:
   slots/<id>.mp4        generated today (vg.py submit --slot templates/A_teaser/<id>)
@@ -132,13 +134,122 @@ def render_card(out: Path, lines: list, dur: float, w: int, h: int, fps: int, bg
          "-c:a", "aac", "-b:a", "128k", "-shortest", str(out)])
 
 
-def segment(src: Path | None, out: Path, s: dict, sl: dict, tmp: Path, drawtext: bool, kind: str = ""):
+AI_LABEL = "Einige Szenen wurden mit KI erstellt."
+
+
+def card_options(s: dict, sl: dict) -> dict:
+    """Card settings: the template's card_style, overridden by the card slot's own fields."""
+    o = {"style": "solid", "bg": "0x14213d", "fg": "white", "size": "m", "align": "center", "ai_label": True}
+    o.update(sl.get("card_style", {}))
+    o.update({k: v for k, v in s.items() if k in ("style", "bg", "fg", "size", "align", "logo", "logo_pos", "image",
+                                                  "freeze_from", "font", "ai_label")})
+    return o
+
+
+def freeze_source(template: Path, sl: dict, card_id: str, wanted: str | None):
+    """The clip whose last frame becomes the card background: the named slot, else the last clip before the card."""
+    ids = [x["id"] for x in sl["slots"]]
+    order = [wanted] if wanted else list(reversed(ids[:ids.index(card_id)]))
+    for sid in order:
+        slot = next((x for x in sl["slots"] if x["id"] == sid), None)
+        if slot and slot["type"] != "card":
+            src, kind = source(template, slot)
+            if src is not None:
+                return src
+    return None
+
+
+def render_custom_card(out: Path, s: dict, sl: dict, template: Path, tmp: Path):
+    o = card_options(s, sl)
+    w, h = sl["size"]
+    fps = sl.get("fps", 25)
+    dur = float(s["dur"])
+    ff = ffmpeg()
+    scale = {"s": 0.8, "m": 1.0, "l": 1.3}.get(o["size"], 1.0)
+    cmd = [ff, "-y"]
+    style = o["style"]
+    if style == "freeze":
+        src = freeze_source(template, sl, s["id"], o.get("freeze_from"))
+        if src is None:
+            style = "solid"
+        else:
+            still = tmp / "freeze.png"
+            run([ff, "-y", "-sseof", "-0.3", "-i", str(src), "-frames:v", "1", str(still)])
+            cmd += ["-loop", "1", "-t", str(dur), "-i", str(still)]
+    if style == "image":
+        img = REPO / o["image"] if o.get("image") else None
+        if img and img.exists():
+            cmd += ["-loop", "1", "-t", str(dur), "-i", str(img)]
+        else:
+            style = "solid"
+    if style == "solid":
+        cmd += ["-f", "lavfi", "-i", f"color=c={o['bg']}:s={w}x{h}:r={fps}:d={dur}"]
+    cmd += ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo"]
+    chain = f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},setsar=1,fps={fps}"
+    if style == "freeze":
+        chain += ",boxblur=24:2,eq=brightness=-0.28:saturation=0.8"
+    elif style == "image":
+        chain += ",eq=brightness=-0.18"
+    chain += "[bg]"
+    chains, last = [chain], "bg"
+    logo = REPO / o["logo"] if o.get("logo") else None
+    if logo and logo.exists():
+        cmd += ["-i", str(logo)]
+        li = 2
+        lh = int(h * 0.12 * scale)
+        pos = "x=W-w-48:y=48" if o.get("logo_pos") == "corner" else "x=(W-w)/2:y=H*0.18"
+        chains.append(f"[{li}:v]scale=-1:{lh}[lg]")
+        chains.append(f"[{last}][lg]overlay={pos}[wl]")
+        last = "wl"
+    font = f"fontfile='{esc_path(REPO / o['font'])}'" if o.get("font") and (REPO / o["font"]).exists() else font_opt()
+    y0 = 0.40 if o["align"] == "center" else 0.68
+    y = int(h * y0)
+    alpha = "if(lt(t,0.35),t/0.35,1)"
+    draws = []
+    for i, line in enumerate(s.get("lines", [])):
+        tf = tmp / f"card_{i}.txt"
+        tf.write_text(line)
+        size = int(h * (0.08 if i == 0 else 0.042) * scale)
+        draws.append(f"drawtext={font}:textfile='{esc_path(tf)}':fontcolor={o['fg']}:fontsize={size}:"
+                     f"x=(w-text_w)/2:y={y}:alpha='{alpha}'")
+        y += int(size * 1.45)
+    if o.get("ai_label", True):
+        tf = tmp / "ai_label.txt"
+        tf.write_text(AI_LABEL)
+        draws.append(f"drawtext={font_opt()}:textfile='{esc_path(tf)}':fontcolor={o['fg']}@0.7:fontsize={int(h * 0.022)}:"
+                     f"x=(w-text_w)/2:y=h-text_h-{int(h * 0.04)}")
+    chains.append(f"[{last}]" + (",".join(draws) if draws else "null") + "[v]")
+    audio_index = 1
+    cmd += ["-filter_complex", ";".join(chains), "-map", "[v]", "-map", f"{audio_index}:a", "-t", str(dur),
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "128k", "-shortest", str(out)]
+    run(cmd)
+
+
+def card_preview(template: Path, sl: dict):
+    card = next((x for x in sl["slots"] if x["type"] == "card" and x["id"] == "card"), None) or \
+        next((x for x in reversed(sl["slots"]) if x["type"] == "card"), None)
+    if not card:
+        vg.die("this template has no card")
+    with tempfile.TemporaryDirectory() as t:
+        tmp = Path(t)
+        clip = tmp / "card.mp4"
+        render_custom_card(clip, card, sl, template, tmp)
+        out = vg.OUT / f"{template.name}_{card['id']}.png"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        run([ffmpeg(), "-y", "-ss", f"{min(1.5, float(card['dur']) - 0.1):.2f}", "-i", str(clip), "-frames:v", "1", str(out)])
+    o = card_options(card, sl)
+    print(f"  ✓ {out.relative_to(REPO)} · style {o['style']}, text {o['fg']}, {o['align']}, size {o['size']}"
+          + (f", logo {o['logo']}" if o.get("logo") else "") + (", AI label on" if o.get("ai_label", True) else ""))
+
+
+def segment(src: Path | None, out: Path, s: dict, sl: dict, tmp: Path, drawtext: bool, kind: str = "",
+            template: Path | None = None):
     w, h = sl["size"]
     fps = sl.get("fps", 25)
     dur = float(s["dur"])
     if s["type"] == "card" and drawtext:
-        card = sl.get("card_style", {})
-        render_card(out, s["lines"], dur, w, h, fps, card.get("bg", "0x14213d"), card.get("fg", "white"), tmp)
+        render_custom_card(out, s, sl, template or REPO, tmp)
         return
     if src is None:
         run([ffmpeg(), "-y", "-f", "lavfi", "-i", f"color=c=0x3a3a3a:s={w}x{h}:r={fps}:d={dur}",
@@ -213,7 +324,7 @@ def build(template: Path, sl: dict, publish: bool):
         for i, s in enumerate(sl["slots"]):
             src, kind = source(template, s)
             seg = tmp / f"{i:02d}_{s['id']}.mp4"
-            segment(src, seg, s, sl, tmp, drawtext, kind)
+            segment(src, seg, s, sl, tmp, drawtext, kind, template)
             got, _ = probe(seg)
             if abs(got - float(s["dur"])) > 0.15:
                 print(f"  ⚠ {s['id']}: segment is {got:.2f} s, shotlist says {s['dur']} s")
@@ -297,6 +408,48 @@ def compare(template: Path, slot: str, publish: bool):
         print(f"    watch: {vg.publish(out)}")
 
 
+def frame_at(template: Path, sl: dict, ref: str, out: Path) -> str:
+    """ref = '<slot>@cut' (the frame where that slot is cut in the edit) or '<slot>@start' (its first frame).
+    A slot not generated yet falls back to the start frame it will be made from."""
+    sid, where = ref.split("@")
+    slot = next(x for x in sl["slots"] if x["id"] == sid)
+    src, kind = source(template, slot)
+    ff = ffmpeg()
+    if kind in ("generated", "reserve", "real footage") and src is not None:
+        length, _ = probe(src)
+        start = float(slot.get("trim_start", 0))
+        if where == "start":
+            t = start
+            run([ff, "-y", "-ss", f"{t:.3f}", "-i", str(src), "-frames:v", "1", str(out)])
+        else:
+            # the frame shown last before the cut; reading the 0.3 s before it and keeping the last frame
+            # also works when the cut falls on the very end of the clip
+            t = min(start + float(slot["dur"]), length)
+            run([ff, "-y", "-ss", f"{max(t - 0.3, 0):.3f}", "-i", str(src), "-t", "0.3", "-update", "1", str(out)])
+        if not out.exists() or out.stat().st_size == 0:
+            vg.die(f"could not read a frame from {sid} at {t:.2f} s")
+        return f"{sid} {kind} clip at {t:.2f} s"
+    if where == "start" and slot.get("first_frame") and (REPO / slot["first_frame"]).exists():
+        shutil.copyfile(REPO / slot["first_frame"], out)
+        return f"{sid} not generated yet: its start frame {slot['first_frame']}"
+    if where == "start":
+        vg.die(f"{sid} has no clip and no start frame yet; make its start frame (or generate it) first")
+    vg.die(f"{sid} has no clip yet; generate it first (the bridge needs the frame where it is cut)")
+
+
+def bridge_frames(template: Path, sl: dict, sid: str):
+    slot = next((x for x in sl["slots"] if x["id"] == sid), None)
+    if not slot or not slot.get("first_frame_from"):
+        vg.die(f"{sid} is not a first/last-frame slot")
+    fdir = template / "frames"
+    fdir.mkdir(exist_ok=True)
+    first, last = fdir / f"{sid}_first.png", fdir / f"{sid}_last.png"
+    print(f"  ✓ first frame {first.relative_to(REPO)} ← {frame_at(template, sl, slot['first_frame_from'], first)}")
+    print(f"  ✓ last frame  {last.relative_to(REPO)} ← {frame_at(template, sl, slot['last_frame_from'], last)}")
+    print(f"  next: vg.py submit {slot['model']} --prompt-file <brief> --dur {int(slot.get('gen_dur', slot['dur']))} "
+          f"--first-frame {first.relative_to(REPO)} --last-frame {last.relative_to(REPO)} --slot {template.relative_to(REPO)}/{sid}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("template")
@@ -306,11 +459,17 @@ def main():
     ap.add_argument("--takes", action="store_true", help="list the takes of every slot")
     ap.add_argument("--use", nargs=2, metavar=("SLOT", "TAKE"), help="put a take into the slot, e.g. --use s1 t2")
     ap.add_argument("--compare", metavar="SLOT", help="the takes of one slot side by side")
+    ap.add_argument("--card", action="store_true", help="a still of the end card, instant and free, to iterate its design")
+    ap.add_argument("--frames", metavar="SLOT", help="first and last frame for a bridge slot, taken at the real cut points")
     a = ap.parse_args()
     template = (REPO / a.template) if not Path(a.template).is_absolute() else Path(a.template)
     sl = load(template)
     try:
-        if a.takes:
+        if a.frames:
+            bridge_frames(template, sl, a.frames)
+        elif a.card:
+            card_preview(template, sl)
+        elif a.takes:
             list_takes(template, sl)
         elif a.use:
             use_take(template, *a.use)

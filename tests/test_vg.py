@@ -128,6 +128,27 @@ class Body(unittest.TestCase):
         self.assertEqual(vg.build_body(vg.load_model("veo"), "x", seed=3)["seed"], 3)
 
 
+class EngineLock(unittest.TestCase):
+    def test_template_slot_keeps_its_engine(self):
+        with tempfile.TemporaryDirectory() as t:
+            env = dict(os.environ, VG_MOCK="1", VG_USER="lock", VG_LEDGER=str(Path(t) / "l.jsonl"), CLAUDE_PROJECT_DIR=str(REPO))
+
+            def submit(model, *extra):
+                return subprocess.run([sys.executable, str(SCRIPTS / "vg.py"), "submit", model, "--prompt", "ACTION: x.",
+                                       "--dur", "8", "--slot", "templates/A_teaser/s3", "--dry-run", *extra],
+                                      cwd=REPO, env=env, capture_output=True, text=True)
+
+            r = submit("veo")
+            self.assertEqual(r.returncode, 1)
+            self.assertIn("MiniMax H3 slot", r.stderr)
+            self.assertEqual(submit("h3").returncode, 0)
+            self.assertEqual(submit("veo", "--change-engine").returncode, 0)
+            r = subprocess.run([sys.executable, str(SCRIPTS / "vg.py"), "submit", "veo-fast", "--prompt", "SHOT: wide.\nx",
+                                "--dur", "6", "--slot", "templates/A_teaser/s1", "--dry-run"], cwd=REPO, env=env,
+                               capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, "drafting a Veo slot on veo-fast is allowed")
+
+
 class Takes(unittest.TestCase):
     def test_takes_compare_and_use(self):
         if not shutil.which("ffmpeg"):
@@ -151,6 +172,40 @@ class Takes(unittest.TestCase):
             self.assertTrue((root / "out/A_teaser_s2_takes.mp4").exists())
             run(asm, "templates/A_teaser", "--use", "s2", "t1")
             self.assertIn("t1 (in use), t2", run(asm, "templates/A_teaser", "--takes").stdout)
+
+
+class Card(unittest.TestCase):
+    def test_card_preview_all_styles(self):
+        if not shutil.which("ffmpeg"):
+            self.skipTest("ffmpeg missing")
+        import assemble
+        sl = json.loads((REPO / "templates/A_teaser/shotlist.json").read_text())
+        card = next(x for x in sl["slots"] if x["id"] == "card")
+        with tempfile.TemporaryDirectory() as t:
+            for style in ({"style": "solid", "bg": "0x1f3a2e"}, {"style": "freeze", "align": "lower", "size": "l"},
+                          {"style": "image", "image": ".claude/skills/video-gen/assets/mock_frame.png"}):
+                out = Path(t) / f"{style['style']}.mp4"
+                assemble.render_custom_card(out, {**card, **style}, sl, REPO / "templates/A_teaser", Path(t))
+                self.assertGreater(assemble.probe(out)[0], 2.5)
+
+
+class Bridge(unittest.TestCase):
+    def test_bridge_frames_at_the_cut(self):
+        if not shutil.which("ffmpeg"):
+            self.skipTest("ffmpeg missing")
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t) / "lab"
+            shutil.copytree(REPO, root, ignore=shutil.ignore_patterns("out", "jobs", ".git", "slots", "takes", "frames"))
+            (root / "templates/B_series/slots").mkdir()
+            shutil.copy(SCRIPTS.parent / "assets/mock.mp4", root / "templates/B_series/slots/q2.mp4")
+            shutil.copy(SCRIPTS.parent / "assets/mock_frame.png", root / "input/refs/presenter_B.png")
+            env = dict(os.environ, CLAUDE_PROJECT_DIR=str(root))
+            r = subprocess.run([sys.executable, str(root / ".claude/skills/video-gen/scripts/assemble.py"),
+                                "templates/B_series", "--frames", "bridge"], cwd=root, env=env, capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            self.assertIn("q2 generated clip at 6.40 s", r.stdout)
+            for f in ("bridge_first.png", "bridge_last.png"):
+                self.assertGreater((root / "templates/B_series/frames" / f).stat().st_size, 0)
 
 
 class Welcome(unittest.TestCase):

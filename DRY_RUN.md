@@ -94,6 +94,7 @@ Open a new session on the repo with the dry-run key and work only through the ch
 | 5 | "Launch s3, s2 and a veo-fast draft of s1" | Three jobs queued, `wait` running in the background |
 | 6 | While they render: "Rewrite s1 so the man is sitting already" | Lint, estimate, one change named |
 | 7 | When they land: "Build the preview" | `out/A_teaser_preview.mp4`, watchable from the browser |
+| 7b | (nothing, it happens after each landed clip) | Claude runs `vg.py wall`: "sent to the wall (branch ...)". A 403 "Claude doesn't have GitHub access" means GitHub is not connected in that Claude account or the repo invitation is not accepted (SETUP.md step 1). With the wall station running (`WALL_STATION.md`), the clip appears on the wall within two minutes. If the push fails, write down the exact message |
 | 8 | "What have I spent?" | `vg.py spend` total, matches OpenRouter's key page |
 
 Record: minutes to the first launched render (target under 20), real render times per model, cost
@@ -104,6 +105,7 @@ per participant, anything the browser could not open.
 - [ ] `jobs/` contains only `probes.jsonl` and `reserves.jsonl`; delete the dry-run ledger.
 - [ ] The shared key created with its 150 $ limit, every participant's environment configured and tested with `doctor`.
 - [ ] Reminder set to revoke the shared key after the day.
+- [ ] Bootcamp wall: not shared with participants (it runs on the projector from the facilitator's account), `main` protected in the repository settings, the station session running (`WALL_STATION.md`), the wall open on the projector.
 - [ ] Reserves reviewed and committed; previews of A, B and C build from reserves alone.
 - [ ] The corrected PDF sent: the IT list is claude.ai, github.com (and the bucket host), not the
       video endpoints; the fallback is pre-generated clips, not guest wifi.

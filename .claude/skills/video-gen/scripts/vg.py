@@ -14,6 +14,7 @@ Standard library only, so nothing has to be installed in the cloud environment.
   vg.py image --prompt "..." --out input/refs/presenter.png [--in ref.jpg]
   vg.py publish out/clip.mp4               signed link that plays in the browser
   vg.py gallery                            one page with every clip, signed link
+  vg.py wall [--label s2 | --job ID]       package a landed clip and send it to the Bootcamp wall through the repo
   vg.py doctor                             environment check, prints status only, never secrets
 
 Environment: OPENROUTER_API_KEY (or a managed credential for openrouter.ai in the cloud), VG_USER, VG_CONFIRM_EUR (3), VG_BUDGET_EUR (60), VG_USD_EUR (0.90),
@@ -450,17 +451,44 @@ def budget_check(usd, force=False):
     return spent
 
 
+ENGINE_FAMILY = {"veo-fast": "veo"}  # drafting a Veo slot on Veo Fast is part of the method
+
+
+def slot_engine(slot: str | None):
+    """(template slot id, engine the shotlist fixes for it), or (None, None) when not a template slot."""
+    target = slot_target(slot)
+    if not target or target.parent.name != "slots":
+        return None, None
+    shotlist = target.parent.parent / "shotlist.json"
+    if not shotlist.exists():
+        return None, None
+    for s in json.loads(shotlist.read_text())["slots"]:
+        if s["id"] == target.stem:
+            return s["id"], s.get("model")
+    return None, None
+
+
 def cmd_submit(a):
     m = load_model(a.model)
     if m["key"] == "image":
         die("use 'vg.py image' for start frames")
+    sid, fixed = slot_engine(a.slot)
+    if fixed and ENGINE_FAMILY.get(m["key"], m["key"]) != fixed and not a.change_engine:
+        die(f"slot {sid} is a {load_model(fixed)['name']} slot in its shotlist, not {m['name']}. The engines are fixed "
+            f"so the takes can be compared. Use {fixed}"
+            + (" (or veo-fast for a draft)" if fixed == "veo" else "")
+            + ". Only if the designer explicitly asks for another engine: add --change-engine and say so.")
     prompt = read_prompt(a)
     body = build_body(m, prompt, a.dur, a.ratio, a.resolution, None if not a.no_audio else False, a.seed,
                       a.first_frame, a.last_frame, a.ref, a.ref_video, a.negative)
     nrefs = len(a.ref) if not (a.first_frame or a.last_frame) else 0
     usd = estimate_usd(m, body["duration"], body.get("resolution"), body["generate_audio"], nrefs, body["aspect_ratio"])
     print(f"  {m['name']} · {body['duration']} s · {body['aspect_ratio']} · estimate {fmt_money(usd)}")
-    print_lint(lint(m, prompt, body["duration"]))
+    findings = lint(m, prompt, body["duration"])
+    if a.raw:
+        print("  raw mode: sent exactly as typed, no rewrite. Findings are kept for after the clip lands.")
+    else:
+        print_lint(findings)
     spent = budget_check(usd, a.over_budget)
     if a.dry_run:
         print(json.dumps(redacted(body), indent=2, ensure_ascii=False))
@@ -480,7 +508,8 @@ def cmd_submit(a):
     ledger_append({"id": jid, "kind": "video", "user": USER, "model": m["id"], "key": m["key"], "label": label,
                    "slot": str(target.relative_to(REPO)) if target else None, "duration": body["duration"],
                    "ratio": body["aspect_ratio"], "prompt": prompt, "estimate_usd": round(usd, 4),
-                   "status": status, "mock": MOCK, "submitted": time.time()})
+                   "status": status, "mock": MOCK, "submitted": time.time(), "mode": "raw" if a.raw else "assisted",
+                   "lint": [[lvl, code, msg] for lvl, code, msg in findings]})
     lo, hi = m.get("render_minutes", [0, 0])
     print(f"  → job {jid} queued ({lo}-{hi} min). Run 'vg.py wait' to collect it; keep working meanwhile.")
 
@@ -520,6 +549,8 @@ def finish(j: dict, src: Path | None = None, url: str | None = None, cost=None):
         print(f"    placed in {placed.relative_to(REPO)}" + (f" (take {take.stem.rsplit('_t', 1)[1]}, kept in takes/)" if take else ""))
     if link:
         print(f"    watch: {link}")
+    if wall_url():
+        print(f"    wall: run 'vg.py wall --label {j['label']}' to send it to the Bootcamp wall")
 
 
 def cmd_wait(a):
@@ -574,6 +605,161 @@ def cmd_status(a):
         print(f"  {j.get('status', '?'):11} {j.get('key', ''):9} {j.get('label', ''):18} {eur(float(cost)):6.2f} €{tag:5} "
               f"{j.get('file') or j['id']}")
     print(f"  session total {eur(spent_usd(state)):.2f} € of {BUDGET_EUR:.0f} €")
+
+
+def cmd_sent(a):
+    """What was really sent for a clip: shown after every delivery so the designer sees the final format."""
+    vids = [j for j in jobs().values() if j.get("kind") == "video"]
+    if a.job:
+        vids = [j for j in vids if j["id"] == a.job]
+    elif a.label:
+        vids = [j for j in vids if j.get("label") == a.label]
+    if not vids:
+        die("no matching generation in this session's ledger")
+    j = sorted(vids, key=lambda x: x.get("submitted", 0))[-1]
+    print(f"  {j.get('label')} · {j.get('model')} · {j.get('duration')} s · mode {j.get('mode', 'assisted')} · {j.get('status')}")
+    print("  --- prompt sent ---")
+    print("\n".join("  " + line for line in j.get("prompt", "").splitlines()))
+    findings = j.get("lint") or []
+    print("  --- what the method would flag ---" if findings else "  --- lint: clean ---")
+    for lvl, code, msg in findings:
+        print(f"  {'⚠' if lvl == 'warn' else '·'} {code}: {msg}")
+
+
+# ---------------------------------------------------------------- bootcamp wall
+
+WALL_CFG = SKILL / "wall.json"
+WALL_DIR = REPO / "wall"
+WALL_MAX_BYTES = 19 * 1024 * 1024  # the wall's asset store takes 20 MiB per file
+
+
+def wall_url() -> str | None:
+    url = os.environ.get("VG_WALL_URL")
+    if not url and WALL_CFG.exists():
+        url = json.loads(WALL_CFG.read_text()).get("url")
+    return url or None
+
+
+def ffmpeg_exe() -> str | None:
+    ff = os.environ.get("FFMPEG") or shutil.which("ffmpeg")
+    if not ff and (Path.home() / ".local" / "bin" / "ffmpeg").exists():
+        ff = str(Path.home() / ".local" / "bin" / "ffmpeg")
+    return ff
+
+
+def wall_package(j: dict, note: str = "") -> dict:
+    """A small mp4, a poster and the post row for one landed clip, in wall/outbox/. Never touches the network."""
+    import subprocess
+    src = REPO / j["file"]
+    if not src.exists():
+        die(f"{j['file']} is not in this session any more")
+    stem = f"{USER}_{j.get('label', 'clip')}_{j['id'][-8:]}"
+    box = WALL_DIR / "outbox"
+    box.mkdir(parents=True, exist_ok=True)
+    clip, poster = box / f"{stem}.mp4", box / f"{stem}.jpg"
+    ff = ffmpeg_exe()
+    if ff:
+        # long side 1280, h264 + aac, faststart: plays at once in every browser and stays far below the cap
+        scale = "scale='if(gt(iw,ih),min(1280,iw),-2)':'if(gt(iw,ih),-2,min(1280,ih))'"
+        subprocess.run([ff, "-y", "-loglevel", "error", "-i", str(src), "-vf", scale, "-c:v", "libx264", "-preset", "veryfast",
+                        "-crf", "24", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
+                        str(clip)], check=True)
+        subprocess.run([ff, "-y", "-loglevel", "error", "-ss", "1", "-i", str(src), "-frames:v", "1", "-vf", "scale=640:-2",
+                        "-q:v", "4", str(poster)], check=False)
+    else:
+        shutil.copyfile(src, clip)
+    if clip.stat().st_size > WALL_MAX_BYTES:
+        die(f"{clip.name} is {clip.stat().st_size / 1e6:.1f} MB, above the wall's 20 MB per clip")
+    slot = j.get("slot") or ""
+    parts = Path(slot).parts
+    template = parts[1] if len(parts) > 1 and parts[0] == "templates" else ""
+    cost = j.get("cost_usd", j.get("estimate_usd"))
+    row = {
+        "author": USER, "label": j.get("label", ""), "template": template, "slot": Path(slot).stem if slot else "",
+        "engine": j.get("key", ""), "model": j.get("model", ""), "mode": j.get("mode", "assisted"),
+        "duration": j.get("duration"), "ratio": j.get("ratio", ""),
+        "cost_eur": round(eur(float(cost)), 2) if cost is not None else None,
+        "render_s": j.get("seconds"), "prompt": j.get("prompt", ""),
+        "lint": [{"level": lvl, "code": code, "msg": msg} for lvl, code, msg in (j.get("lint") or [])],
+        "note": note, "job": j["id"], "created": int(time.time() * 1000), "source": "session",
+        "asset": None, "poster": None,
+    }
+    (box / f"{stem}.json").write_text(json.dumps(row, ensure_ascii=False, indent=2))
+    return {"stem": stem, "clip": clip, "poster": poster if poster.exists() else None, "row": box / f"{stem}.json"}
+
+
+def git(*args, check=True):
+    import subprocess
+    r = subprocess.run(["git", "-C", str(REPO), *args], capture_output=True, text=True)
+    if check and r.returncode:
+        raise RuntimeError((r.stderr or r.stdout).strip()[-400:])
+    return r.stdout.strip()
+
+
+def wall_send(pk: dict) -> bool:
+    """Commit only this package and push it to the session's own branch (never main), so the wall
+    station, a Brutal session, can post it. The one git action a participant's session does on its own."""
+    files = [str(f.relative_to(REPO)) for f in (pk["clip"], pk["poster"], pk["row"]) if f]
+    branch = git("rev-parse", "--abbrev-ref", "HEAD", check=False) or "HEAD"
+    target = branch if branch not in ("main", "master", "HEAD") else f"wall/{USER}"
+    ident = [] if git("config", "user.email", check=False) else ["-c", f"user.name={USER}", "-c", "user.email=wall@vb-bootcamp.invalid"]
+    try:
+        git("add", "-f", "--", *files)
+        git(*ident, "commit", "-q", "-m", f"wall: {pk['stem']}", "--", *files)
+    except RuntimeError as e:
+        print(f"  ✗ could not commit the package: {e}")
+        return False
+    err = None
+    for _ in (1, 2):
+        try:
+            git("push", "-q", "origin", f"HEAD:refs/heads/{target}")
+            with open(WALL_DIR / "sent.txt", "a") as f:
+                f.write(pk["stem"] + "\n")
+            print(f"  ✓ sent to the wall (branch {target}); it appears there in a minute or two.")
+            return True
+        except RuntimeError as e:
+            err = e
+            time.sleep(3)
+    print(f"  ✗ push failed: {err}. The package stays in wall/outbox/; 'vg.py wall --resend' tries again.")
+    return False
+
+
+def cmd_wall(a):
+    """Package a landed clip for the wall and send it through the repository."""
+    if a.resend:
+        sent = set((WALL_DIR / "sent.txt").read_text().split()) if (WALL_DIR / "sent.txt").exists() else set()
+        rows = [r for r in sorted((WALL_DIR / "outbox").glob("*.json")) if r.stem not in sent]
+        if not rows:
+            print("  nothing waiting in wall/outbox/.")
+        for r in rows:
+            jpg = r.with_suffix(".jpg")
+            wall_send({"stem": r.stem, "clip": r.with_suffix(".mp4"), "poster": jpg if jpg.exists() else None, "row": r})
+        return
+    vids = [j for j in jobs().values() if j.get("kind") == "video" and j.get("status") == "completed" and j.get("file")]
+    if a.job:
+        vids = [j for j in vids if j["id"] == a.job]
+    elif a.label:
+        vids = [j for j in vids if j.get("label") == a.label]
+    if not vids:
+        die("no landed clip matches in this session's ledger")
+    j = sorted(vids, key=lambda x: x.get("submitted", 0))[-1]
+    pk = wall_package(j, a.note or "")
+    print(f"  wall package: {pk['stem']} ({pk['clip'].stat().st_size / 1e6:.1f} MB)")
+    if a.no_send or os.environ.get("VG_WALL_SEND") == "0":
+        print("  not sent (--no-send); it stays in wall/outbox/.")
+        return
+    wall_send(pk)
+
+
+def cmd_wall_done(stem: str):
+    box = WALL_DIR / "outbox"
+    sent = WALL_DIR / "posted"
+    sent.mkdir(parents=True, exist_ok=True)
+    moved = 0
+    for f in box.glob(f"{stem}.*"):
+        f.replace(sent / f.name)
+        moved += 1
+    print(f"  {stem}: marked as posted ({moved} files moved to wall/posted/)" if moved else f"  nothing in the outbox named {stem}")
 
 
 def cmd_spend(a):
@@ -758,9 +944,7 @@ def cmd_doctor(a):
         print(f"  {'✓' if good else '✗'} {what}{'' if good else '  → ' + hint}")
 
     line(sys.version_info >= (3, 8), f"python {sys.version.split()[0]}", "needs 3.8+")
-    ff = os.environ.get("FFMPEG") or shutil.which("ffmpeg")
-    if not ff and (Path.home() / ".local" / "bin" / "ffmpeg").exists():
-        ff = str(Path.home() / ".local" / "bin" / "ffmpeg")
+    ff = ffmpeg_exe()
     line(ff, f"ffmpeg {'at ' + ff if ff else 'missing'}", "run: bash scripts/setup_cloud.sh")
     if MOCK:
         print("  · mock mode: no network, no cost")
@@ -799,6 +983,7 @@ def cmd_doctor(a):
             line(False, "bucket upload + signed link", str(e)[:200])
     else:
         print("  · no bucket configured (VG_S3_*): clips stay in out/; publish and gallery are off")
+    print(f"  · Bootcamp wall: {wall_url() or 'not configured'}")
     print("  ready." if ok else "  fix the ✗ lines before the session.")
     sys.exit(0 if ok else 1)
 
@@ -825,13 +1010,24 @@ def main(argv=None):
     p.add_argument("--ref", nargs="*", default=[]); p.add_argument("--ref-video", nargs="*", default=[])
     p.add_argument("--negative"); p.add_argument("--slot", help="templates/<template>/<slot id>")
     p.add_argument("--label"); p.add_argument("--yes", action="store_true"); p.add_argument("--dry-run", action="store_true")
-    p.add_argument("--over-budget", action="store_true", help="facilitator only"); p.set_defaults(f=cmd_submit)
+    p.add_argument("--over-budget", action="store_true", help="facilitator only")
+    p.add_argument("--change-engine", action="store_true", help="only when the designer explicitly asks for another engine on a template slot")
+    p.add_argument("--raw", action="store_true", help="hands-on I part 1: the designer's words exactly as typed, no rewrite")
+    p.set_defaults(f=cmd_submit)
 
     p = sub.add_parser("wait"); p.add_argument("--job"); p.add_argument("--max-minutes", type=float, default=9)
     p.add_argument("--every", type=float, default=15); p.set_defaults(f=cmd_wait)
 
     sub.add_parser("status").set_defaults(f=cmd_status)
+    p = sub.add_parser("sent", help="the exact prompt a clip was made from, its mode and the lint findings")
+    p.add_argument("--job"); p.add_argument("--label"); p.set_defaults(f=cmd_sent)
     sub.add_parser("spend").set_defaults(f=cmd_spend)
+    p = sub.add_parser("wall", help="package a landed clip for the Bootcamp wall")
+    p.add_argument("--job"); p.add_argument("--label"); p.add_argument("--note")
+    p.add_argument("--done", metavar="STEM", help="mark a package as posted")
+    p.add_argument("--no-send", action="store_true", help="package only, do not push")
+    p.add_argument("--resend", action="store_true", help="push every package still waiting in wall/outbox/")
+    p.set_defaults(f=lambda a: cmd_wall_done(a.done) if a.done else cmd_wall(a))
 
     p = sub.add_parser("image"); p.add_argument("--prompt"); p.add_argument("--prompt-file"); p.add_argument("--out", required=True)
     p.add_argument("--in", dest="inp", nargs="*", default=[]); p.add_argument("--ratio", default="16:9")
