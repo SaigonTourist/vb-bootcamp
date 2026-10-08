@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "sprint_t2",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 12,
+  "ratio": "16:9",
+  "cost_eur": 2.5,
+  "render_s": 210,
+  "prompt": "ACTION: the man from image 1 wins a bunch sprint on a finishing straight, beating a rider in a plain yellow jersey and a rider in a plain white jersey with rainbow chest stripes by half a wheel, then sits up and raises both arms.\n\nTHE WINNER: the man from image 1, his face, his metallic dark-blue helmet, violet mirrored sunglasses, plain matte black jersey with white geometric blocks on the left sleeve, black bib shorts, black socks, black bike with tan-wall tyres. All kit plain and unprinted.\n\nSHOT 1 (0-4 s): low tracking shot ahead of the bunch, 35mm lens. Twenty riders in tight formation; the man from image 1 sits third wheel behind yellow and rainbow, then swings right into open road. Whip pan right into shot 2.\n\nSHOT 2 (4-8 s): side tracking shot at hip height, 50mm lens. The three sprint shoulder to shoulder out of the saddle; the man from image 1 edges ahead. Fast push into the front wheels into shot 3.\n\nSHOT 3 (8-12 s): frontal shot from behind the finish line, 85mm lens, slight slow motion. All three throw their bikes at the white line; the man from image 1 crosses first, sits up, arms wide, shouting with joy.\n\nPLACE: sunny finishing straight in a southern French town, dark asphalt, barriers covered in plain solid blue and white boards, plain blank banners, flag-waving spectators, plane trees.\nLIGHT: hard late-afternoon sun from camera-left, long shadows.\nSOUND: crowd roar building to the line, whirring freewheels, the crowd erupting at the finish.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "257 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791456578-mlDciYwwx3bgYcR7Y32K",
+  "created": 1791456813062,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
