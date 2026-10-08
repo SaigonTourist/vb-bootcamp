@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "m1",
+  "template": "D_montage",
+  "slot": "m1",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 351,
+  "prompt": "SHOT: medium shot from the side, as in the start frame, smooth slow push-in of about half a metre on a gimbal, 35mm lens.\nACTION: the woman sets the white coffee cup down beside her, opens the grey laptop and starts typing, her eyes on the screen the whole time, her mouth gently closed with a relaxed, contented look.\nSCENE: morning in her home office in an old Viennese apartment, high ceiling, herringbone parquet, tall white double casement window with warm morning sun. Navy blazer over a plain cream top, shoulder-length chestnut-brown hair, small silver earrings, thin silver watch on her left wrist.\nSOUND: quiet morning room tone, the soft clink of the cup on the wooden desk, gentle laptop keys. Silent woman, ambient sound only.\nRULES: same face, hair and outfit as in the start frame. She stays silent with lips still for the whole take. Eyes on her work. Bright, warm, natural light. Smooth camera, one continuous take.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "screen: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    },
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791455739-ZIt48u93lD8pJGalcCtw",
+  "created": 1791456107772,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
