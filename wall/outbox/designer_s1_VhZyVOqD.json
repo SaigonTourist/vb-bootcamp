@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s1",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "raw",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 2.16,
+  "render_s": 135,
+  "prompt": "erstelle ein video wo ein mitarbeiter einer bank in einen meetingraum geht. Im raum sitzen mehr Männer als Frauen, in anzügen ohne krawatte am tisch. Alter 40 jahre bis 65 jahre. formal, professionell schauen, aber realistisch wie leute in banken schauen. Die Person hat etwas großes vor in dem Meeting raum, die Kamera begleitet die Person von hinten, es läuft musik die seriös aufzeigt, dass man etwas vor hat in dem Raum. Die Person geht in den Raum, und sagt \" Ich habe etwas zu berichten\". Alle gucken fragend, und das Video endet. Der Raum ist in der volkbsnk Zentrale im 3. Bezirk in wien und hat eine aussicht über wien.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "NO_SHOT",
+      "msg": "No SHOT: line. Veo picks the framing itself and tends to push in on faces."
+    }
+  ],
+  "note": "Raw mode: Ich habe etwas zu berichten",
+  "job": "gen-vid-1791446118-mi0yfRcSFwonVhZyVOqD",
+  "created": 1791446280700,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
