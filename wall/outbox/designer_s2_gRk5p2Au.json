@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "raw",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 240,
+  "prompt": "eine bankberaterin sitzt im ihrem büro und bereitet sich auf das nächste kundengespräch vor. sie liest dokumente am Bildschirm und macht notizen",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "bildschirm, dokumente: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791444757-mFHDOPDdTKJXgRk5p2Au",
+  "created": 1791445031862,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
