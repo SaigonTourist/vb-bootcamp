@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "shot4",
+  "template": "C_own_material",
+  "slot": "shot4",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 10,
+  "ratio": "16:9",
+  "cost_eur": 1.17,
+  "render_s": 471,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the woman looks up from the table to the colleague off camera-right and speaks in German, calm and steady, not apologetic, at a natural pace, one small open-hand gesture on the word OFFEN, keeps looking at him to the end.\nDIALOGUE: \"Bevor wir entscheiden: Ein Punkt ist für mich noch OFFEN. Wenn die Prüfung ausfällt, wer bemerkt das und übernimmt? Also, ja.\"\nSCENE: same meeting room as the start frame, light grey knitted top, soft daylight from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. She never looks into the lens. Speech ends on the last word, then she waits calmly.",
+  "lint": [],
+  "note": "Der Satz, der fehlt – shot4",
+  "job": "gen-vid-1791449424-fc0IywwQbsZeHrFAhweA",
+  "created": 1791449927292,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
