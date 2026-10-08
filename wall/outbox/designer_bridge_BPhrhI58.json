@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "bridge",
+  "template": "B_series",
+  "slot": "bridge",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 0.59,
+  "render_s": 287,
+  "prompt": "SHOT: medium shot from mid-chest up, eye level, camera locked off on a tripod, 35mm lens, exactly as in the first frame.\nACTION: the man unfolds his hands, picks up the printed cover letter from the desk, holds it up and reads it, slowly raises one eyebrow, lays the letter back down flat on the desk, folds his hands on it again and looks back up into the lens with a stern expression, mouth closed, ending exactly as in the last frame.\nSCENE: he sits behind a heavy dark oak desk in a wood-panelled office, charcoal pinstripe three-piece suit, dark red tie, silver-grey hair combed back, small grey moustache. One soft window light from camera left, a green-shaded desk lamp in the background.\nSOUND: quiet office room tone, the rustle of paper, a faint clock ticking.\nRULES: the same man, room, light and framing from the first frame to the last. Steady camera. He stays silent.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "letter: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    },
+    {
+      "level": "warn",
+      "code": "CONTINUITY",
+      "msg": "No model remembers another shot. Restate the full blocking instead of 'as before'."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791451251-iPBHDfTN0oVNBPhrhI58",
+  "created": 1791451553203,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
