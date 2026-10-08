@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s1_B",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 54,
+  "prompt": "SHOT: aerial crane shot, starts 30 metres above a busy city street looking down, descends smoothly over the full 6 seconds to eye level, ends medium-wide on one woman on the pavement, 24mm lens, 25 fps.\nSUBJECT AND ACTION: the first raindrops start to fall on a busy street; cars and buses move, pedestrians hurry and open umbrellas; the camera settles on a young woman with long straight dark brown hair, a tan camel wool coat and a white collared shirt, standing still with empty hands, looking up at the sky.\nPLACE: a four-lane city street, a large modern glass office building with a revolving door behind her, autumn leaves on the wet pavement.\nLIGHT: blue hour just after sunset, about 4:1, headlights and shop windows reflecting in the wet street, warm light from the office lobby, expose to protect the highlights.\nCOLOUR: deep blue dusk with warm amber reflections, the tan coat as the one warm accent, natural skin.\nSOUND: city traffic, a passing bus, the first drops pattering on the pavement and growing louder.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791448892-WISx6GbybkL1CoasRcKu",
+  "created": 1791449236303,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
