@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "A_final",
+  "template": "A_teaser",
+  "slot": "final",
+  "engine": "edit",
+  "model": "final edit",
+  "mode": "assisted",
+  "duration": null,
+  "ratio": "16:9",
+  "cost_eur": 8.24,
+  "render_s": null,
+  "prompt": "Teaser: Büro, Tür, Wasser, „Wir streichen das Papier. – Für mehr KI-Lizenzen.“ Endkarte „Weniger Papier. Mehr KI.“",
+  "lint": [],
+  "note": "Final edit",
+  "job": "final-A_final-1791447182",
+  "created": 1791447188141,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
