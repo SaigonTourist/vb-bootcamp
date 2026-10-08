@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "A_teaser",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 0.59,
+  "render_s": 303,
+  "prompt": "Fast-paced premium beer commercial shot, 5 seconds, one continuous take.\n\nThis shot starts on the provided start frame. The man and the beer glass stay exactly as in that frame: same face, hair, clothing, lighting, and the identical glass with the same shape, beer level, foam and condensation.\n\n0.0–0.5s: Already in motion from the first frame: the man lowers the glass from his lips, a little foam on his upper lip, satisfied expression.\n\n0.5–3.5s: He looks directly into the camera with a warm, friendly smile, raises the same glass slightly toward the camera in a toast and says clearly in German: \"Viel Spaß beim restlichen Workshop und Prost!\"\n\n3.5–5.0s: Speech ends on the last word; he holds the toast and keeps a relaxed, warm smile into the camera.\n\nAccurate lip sync to the German dialogue, natural friendly voice, relaxed and charismatic.\n\nCamera: medium close-up, very subtle slow push-in. Warm golden evening light, wooden bar, warm bokeh background, matching the start frame.\n\nStyle: cinematic, photorealistic, shallow depth of field, warm golden color grade, 4K.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "4k, cinematic: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791447278-VA5U8lfAMH1GEcee5XU8",
+  "created": 1791447611101,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
