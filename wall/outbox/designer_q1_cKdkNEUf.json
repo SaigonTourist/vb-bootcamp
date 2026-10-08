@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "q1",
+  "template": "B_series",
+  "slot": "q1",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 334,
+  "prompt": "SHOT: medium shot from the waist up, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman looks straight into the lens and speaks in German, calm, warm and confident, at a natural pace, a small open-hand gesture on the word KONZENTRIEREN, keeps eye contact to the end.\nDIALOGUE: \"Wo können Sie sich am besten KONZENTRIEREN – und warum gerade dort? Also, ja.\"\nSCENE: she sits at a desk with an open laptop in a modern Vienna bank office with glass partitions, navy blazer over a plain cream top, shoulder-length chestnut-brown hair, silver watch. Soft daylight from the window camera left, old rooftops and a cathedral spire outside.\nRULES: German pronunciation, native speaker from Vienna, a moderate Viennese accent, easy to understand. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a short friendly nod.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791451774-mer6MTIFmahzcKdkNEUf",
+  "created": 1791452144289,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
