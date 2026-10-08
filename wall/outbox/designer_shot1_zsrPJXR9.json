@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "shot1",
+  "template": "C_own_material",
+  "slot": "shot1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.72,
+  "render_s": 64,
+  "prompt": "SHOT: medium-wide, eye level, 35mm at T2.8, static, 25 fps, as in the start frame.\nSUBJECT AND ACTION: the woman at the head of the table in the dark navy blazer looks around the table, then begins stacking her papers into a neat pile.\nDIALOGUE: The woman in the dark navy blazer says in German: \"Gut. Dann starten wir wie geplant. Passt das für alle?\" The other two stay silent.\nPLACE: a bank meeting room, light oak table, laptops turned away from camera, paper folders, a window on the left.\nLIGHT: soft daylight from the window camera-left, about 4:1, ceiling lights on.\nSOUND: quiet office room tone, paper sliding on wood. Only she speaks. No music.",
+  "lint": [],
+  "note": "Der Satz, der fehlt – shot1",
+  "job": "gen-vid-1791449420-6KPiM4zkucyuzsrPJXR9",
+  "created": 1791449916175,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
