@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "E_moon_final",
+  "template": "E_moon",
+  "slot": "final",
+  "engine": "veo",
+  "model": "google/veo-3.1 (4 shots)",
+  "mode": "assisted",
+  "duration": 21.0,
+  "ratio": "16:9",
+  "cost_eur": 9.0,
+  "render_s": null,
+  "prompt": "Finished film 'Wine to the Moon': 1 a wine bottle lifts off like a rocket at sunset by the sea; 2 it climbs out of frame over the curved Earth in low orbit; 3 it flies past the Moon through the stars; 4 it crashes onto the lunar surface in slow motion, glass shards and a crown of red wine. End card: Ein Schluck Mut.",
+  "lint": [],
+  "note": "Finished film, template E",
+  "job": "final-E_moon-1791458815",
+  "created": 1791458820544,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
