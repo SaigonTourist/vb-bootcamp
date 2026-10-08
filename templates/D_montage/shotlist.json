@@ -1,0 +1,82 @@
+{
+  "id": "D_montage",
+  "title": "D · Montage: one day, four places, voice-over",
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "lesson": "A silent montage of the same woman in five shots, held together by start frames made from one presenter image, with a voice-over mixed in the edit.",
+  "card_style": {
+    "bg": "0x14213d",
+    "fg": "white"
+  },
+  "slots": [
+    {
+      "id": "intro",
+      "type": "card",
+      "dur": 2.5,
+      "lines": [
+        "Arbeiten, wo es passt."
+      ]
+    },
+    {
+      "id": "m1",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6,
+      "gen_dur": 6,
+      "purpose": "Home office, morning",
+      "prompt": "prompts/m1.md",
+      "first_frame": "input/refs/montage_m1.png"
+    },
+    {
+      "id": "m2",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6,
+      "gen_dur": 6,
+      "purpose": "Train, mid-morning",
+      "prompt": "prompts/m2.md",
+      "first_frame": "input/refs/montage_m2.png"
+    },
+    {
+      "id": "m3",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6,
+      "gen_dur": 6,
+      "purpose": "Kaffeehaus, late morning",
+      "prompt": "prompts/m3.md",
+      "first_frame": "input/refs/montage_m3.png"
+    },
+    {
+      "id": "m4",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6,
+      "gen_dur": 6,
+      "purpose": "Bank office, afternoon",
+      "prompt": "prompts/m4.md",
+      "first_frame": "input/refs/montage_m4.png"
+    },
+    {
+      "id": "m5",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6,
+      "gen_dur": 6,
+      "purpose": "Home office, evening",
+      "prompt": "prompts/m5.md",
+      "first_frame": "input/refs/montage_m5.png"
+    },
+    {
+      "id": "card",
+      "type": "card",
+      "dur": 3,
+      "lines": [
+        "Flexibilität schafft Freiraum."
+      ]
+    }
+  ]
+}

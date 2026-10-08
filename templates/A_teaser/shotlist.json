@@ -55,11 +55,15 @@
       "type": "card",
       "dur": 3,
       "lines": [
-        "Your tag line",
-        "Your subline"
+        "Gutes zieht Kreise"
       ],
       "task": "Design your end card. Write the tag line, then the look: a solid colour, the last frame of your punchline frozen and blurred behind the text, or your own image; text colour, size, centred or low, your logo. Ask for a still preview, it is instant and free, and iterate until you like it.",
-      "purpose": "End card: your tag line and your look"
+      "purpose": "End card: your tag line and your look",
+      "style": "image",
+      "image": "input/refs/card_A.png",
+      "fg": "white",
+      "size": "l",
+      "align": "center"
     }
   ],
   "note": "The prompts in prompts/ are worked examples and the source of the reserve clips, not the starting point: the designer briefs each slot from its task."
