@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s7",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "9:16",
+  "cost_eur": 0.54,
+  "render_s": 81,
+  "prompt": "ACTION: Gaius throws a shovel of earth over his shoulder without looking, then stares into the camera. Behind him others keep digging.\nSHOT: medium shot, eye level, static, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: warm evening, golden-orange light from an oil lamp or a campfire, cosy warm shadows.\nSOUND: only shovels biting into earth, clods of earth thudding; the rest is quiet room tone.",
+  "lint": [],
+  "note": "YouTube Short Legionär, Szene 7",
+  "job": "gen-vid-1791457517-OOmHiNT9HszYTWFL7648",
+  "created": 1791458012037,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
