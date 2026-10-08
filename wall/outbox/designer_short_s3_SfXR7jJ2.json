@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s3",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "9:16",
+  "cost_eur": 0.54,
+  "render_s": 85,
+  "prompt": "ACTION: Gaius lifts the clay cup and takes one sip. He freezes. His mouth slowly curls into a sour wavy line and his eyebrows slowly rise, then he lowers the cup and stares into the camera.\nSHOT: medium shot, eye level, static, slight parallax in the background smoke, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: early morning, low orange sunrise light from the left, long soft shadows, warm orange sky.\nSOUND: only a stone mill grinding, a single sip, a small reluctant swallow; the rest is quiet room tone.",
+  "lint": [],
+  "note": "YouTube Short Legionär, Szene 3",
+  "job": "gen-vid-1791457454-5UkH3XR4sBBdSfXR7jJ2",
+  "created": 1791457993020,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
