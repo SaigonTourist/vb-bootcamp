@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "C2_sekunde_danach",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 281,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the man with short sandy hair receding at the temples, clean-shaven, wearing a dark grey suit jacket, has just been about to leave; he stops, his eyes fix on the monitor in front of him, he leans in slightly and freezes, mouth closed. He says nothing at all.\nSCENE: an open-plan bank office in the early evening, empty desks, dusk in the windows, cool monitor light and a warm desk lamp.\nRULES: Silent take, no speech, mouth closed the whole time, only quiet office room tone and a computer fan. Steady camera, same framing for the whole take. He never looks into the lens.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "monitor: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "Risikokultur 2/3 – s3",
+  "job": "gen-vid-1791457540-wFA5O7yt03y1DfvkVZSr",
+  "created": 1791457956765,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
