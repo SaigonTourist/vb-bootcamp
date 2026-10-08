@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_final_en",
+  "template": "",
+  "slot": "",
+  "engine": "edit",
+  "model": "Nano Banana Pro + Veo 3.1 Fast + ElevenLabs + Lyria",
+  "mode": "assisted",
+  "duration": 59.6,
+  "ratio": "9:16",
+  "cost_eur": 15.28,
+  "render_s": null,
+  "prompt": "Finished YouTube Short, English version (12 scenes, cut with VO, music, karaoke captions). VO: You wanted glory. You got: a foot in the face. Eight men. One tent. One always snores. Breakfast: grain. Plus posca. Water with vinegar. Cheers. Centurion Maximus. His vine staff: a badge of rank. And an argument. You carry your own pack. Nickname: Marius' mules. 20 Roman miles. In 5 hours. In the rain. After the march: build a fortified camp. Every... single... evening. Training weapons? Deliberately heavier than real ones. Thanks, Maximus. Payday! Minus food. Minus gear. Minus burial fund. Reassuring. Gaius thinks of Rome. Rome does not think of Gaius. Night watch. Fall asleep, and your comrades beat you to death. Gaius is very awake. And all of this? For 25 years.",
+  "lint": [],
+  "note": "Finished YouTube Short “A Day as a Roman Legionary”, English, fixed version",
+  "job": "final-D_legionaer_short_en",
+  "created": 1791460468837,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
