@@ -24,7 +24,7 @@
       "id": "s1",
       "type": "gen",
       "model": "veo",
-      "dur": 6,
+      "dur": 8,
       "purpose": "Opener: the first thing the viewer sees",
       "prompt": "prompts/s1.md",
       "seed": 11,
@@ -34,7 +34,7 @@
       "id": "s2",
       "type": "gen",
       "model": "seedance",
-      "dur": 5,
+      "dur": 4,
       "purpose": "B-roll: the advisor prepares, no face",
       "prompt": "prompts/s2.md",
       "task": "Twice. Part 1, raw mode: describe it in your own words, sent exactly as typed. Part 2, assisted: brief it with three fields (what the viewer should take away, the one action, the sound). Then compare the two takes. The shot: the advisor prepares for the client, without a face."
@@ -43,11 +43,11 @@
       "id": "s3",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
-      "gen_dur": 8,
+      "dur": 4.8,
+      "gen_dur": 5,
       "purpose": "Presenter: tells your joke in German",
       "prompt": "prompts/s3.md",
-      "first_frame": "input/refs/presenter_A.png",
+      "first_frame": "input/refs/s3_start_medium.png",
       "task": "Bring your joke. Design your presenter: ask for two or three start-frame candidates or bring a photo, and pick one. The joke is the German line, 14 words at most: timing beats length. Render, then fix one thing."
     },
     {
@@ -55,11 +55,14 @@
       "type": "card",
       "dur": 3,
       "lines": [
-        "Your tag line",
-        "Your subline"
+        "Wissen, das schmeckt.",
+        "Jetzt Modul starten"
       ],
       "task": "Design your end card. Write the tag line, then the look: a solid colour, the last frame of your punchline frozen and blurred behind the text, or your own image; text colour, size, centred or low, your logo. Ask for a still preview, it is instant and free, and iterate until you like it.",
-      "purpose": "End card: your tag line and your look"
+      "purpose": "End card: your tag line and your look",
+      "style": "solid",
+      "bg": "0xB8650F",
+      "fg": "0xFFF6DC"
     }
   ],
   "note": "The prompts in prompts/ are worked examples and the source of the reserve clips, not the starting point: the designer briefs each slot from its task."

@@ -1,0 +1,13 @@
+Continuous commercial-style push-in shot, 8 seconds, no cuts, one unbroken camera move, every scene morphs into the next.
+
+0.0–1.5s: Starts on the provided frame: close-up of fresh green hop cones in the foreground, sunlit hop field behind, warm golden sun low in the background with soft lens flare. Camera pushes smoothly forward into the glowing hop cone.
+
+1.5–3.0s: The sunlit green hop petals turn liquid and become drops of crystal-clear spring water; the camera keeps moving forward as they fall into a cascading mossy alpine waterfall, sparkling in the same golden sunlight.
+
+3.0–4.5s: The camera dives into the falling water; the drops turn golden and solid and become malted barley grains pouring and tumbling in a malting facility, warm light, dust particles glowing.
+
+4.5–6.0s: The stream of grains flows forward and pours into the open top of a polished copper brew kettle in a traditional brewery, gentle steam rising, warm amber lighting.
+
+6.0–8.0s: The camera follows the grains down into the kettle, where they melt into golden beer, and ends in an extreme macro close-up of the beer: rising carbonation bubbles, rich amber color, backlit glow, filling the entire frame.
+
+Style: premium beer commercial, shallow depth of field, warm golden color grade matching the start frame, natural photographic look, smooth accelerating dolly-in.

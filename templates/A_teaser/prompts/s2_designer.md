@@ -1,0 +1,5 @@
+ACTION: a man's hand lifts a freshly poured glass of golden beer with a thick white foam head from a wooden bar counter, raises it slowly into frame, and his lips meet the rim for the first sip; the frame ends at his chin and lips, beads of condensation running down the glass.
+SHOT: close-up on the hand and glass, 85mm lens, shallow depth of field, very slow push-in of a few centimetres, framed below the eyes for the whole shot.
+PLACE: a small brewery taproom, worn oak bar counter, polished copper brewing kettles and wooden barrels softly out of focus behind.
+LIGHT: one soft warm key from a window camera-left, about 4:1, warm pendant lamps glowing in the background, light shining through the beer.
+SOUND: voice-over in German, a very deep, slow, resonant bass male voice like a cinema trailer narrator, says: "Hopfen, Malz, Wasser – und dieser eine Moment." Under it, the soft clink of the glass leaving the wood and the fizz of rising bubbles.
