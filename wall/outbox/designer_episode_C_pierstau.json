@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "episode_C",
+  "template": "C_own_material",
+  "slot": "episode",
+  "engine": "edit",
+  "model": "assemble",
+  "mode": "finished episode",
+  "duration": 44.0,
+  "ratio": "16:9",
+  "cost_eur": null,
+  "render_s": null,
+  "prompt": "Finished episode, template C: 'PAPIERSTAU – Der letzte Kampf gegen den Drucker'. a0 opener, own1 printer awakens, a1 Kernbotschaft 1, own2 fight, a2 charge and shout, a3 the off switch (Kernbotschaft 2), end card. Music under the fight, cut hard at the switch.",
+  "lint": [],
+  "note": "Fertige Folge PAPIERSTAU",
+  "job": "episode-1791457540-C_papierstau",
+  "created": 1791457552325,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
