@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s3b",
+  "template": "A_teaser",
+  "slot": "s3b",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "raw",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 438,
+  "prompt": "„Schatzi, beruhig di – des is nur a Zweitmeinung!“",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791446919-1aEB6lMYSMkuD9hPqGWz",
+  "created": 1791447376767,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
