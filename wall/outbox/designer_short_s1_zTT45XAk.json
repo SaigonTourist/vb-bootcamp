@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s1",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "9:16",
+  "cost_eur": 0.54,
+  "render_s": 82,
+  "prompt": "ACTION: A distant brass horn call sounds. Gaius' eyes snap open, then his heavy eyebrows slowly sink into a grumpy frown. The foot next to his face wiggles its toes once. Gentle parallax on the tent folds.\nSHOT: medium shot from slightly above, very slow push-in toward Gaius' face, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: early morning, low orange sunrise light from the left, long soft shadows, warm orange sky.\nSOUND: only a long low brass horn call from outside the tent, then one loud snore; the rest is quiet room tone.",
+  "lint": [],
+  "note": "YouTube Short Legionär, Szene 1",
+  "job": "gen-vid-1791457451-7PRAFPRrhjNazTT45XAk",
+  "created": 1791457985570,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
