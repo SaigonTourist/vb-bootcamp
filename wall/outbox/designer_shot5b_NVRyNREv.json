@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "shot5b",
+  "template": "C_own_material",
+  "slot": "shot5b",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 327,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the man opens the laptop in front of him, glances at it, then looks to his colleague off camera-left and speaks in German, factual and relaxed, a slight shake of the head on the word NOCH.\nDIALOGUE: \"Für den Normalbetrieb ja. Für den Ausfall NOCH nicht. Also, ja.\"\nSCENE: same meeting room as the start frame, white shirt with an open collar, soft daylight from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. He never looks into the lens. Speech ends on the last word, then he waits.",
+  "lint": [],
+  "note": "Der Satz, der fehlt – shot5b",
+  "job": "gen-vid-1791449430-iUgYoUPJSjySNVRyNREv",
+  "created": 1791449935408,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
