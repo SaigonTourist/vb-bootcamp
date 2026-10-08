@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "a0",
+  "template": "C_own_material",
+  "slot": "a0",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 0.36,
+  "render_s": 46,
+  "prompt": "SHOT: wide, low angle, 24mm, a fast accelerating dolly push toward the building, ending close on one window, 25 fps.\nSUBJECT AND ACTION: lightning splits a stormy night sky over a tall dark office tower; the camera races through the rain toward a single window high up that flickers with an ominous red light, and stops just outside the glass as the red glow pulses.\nPLACE: a city at night, rain, the office tower with rows of dark windows, one window glowing red.\nLIGHT: hard white lightning flashes from above, teal night ambience, the red window as the only warm source.\nCOLOUR: vivid teal and deep shadow, one red accent.\nSOUND: rolling thunder, rain, then a deep, ominous mechanical hum that swells.\nSTYLE: over-the-top action anime style, cel-shaded 2D look, bold clean line art, extremely dramatic camera moves, speed lines, glowing energy auras, white impact frames, floating papers like falling petals, epic lens flares, vivid orange and teal palette with deep shadows, clean wordless frames with plain surfaces.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "epic: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791456251-M7qaqDCBpr4zaiFouUCV",
+  "created": 1791456344766,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
