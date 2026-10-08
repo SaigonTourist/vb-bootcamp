@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "C2_s4",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 181,
+  "prompt": "ACTION: a man's hand rests on a plain black computer mouse on a dark desk, the index finger hovers above the button without clicking, then the hand slowly lets go of the mouse and lies flat on the desk.\nSHOT: close shot from the side at desk height, 50mm lens, static, shallow depth of field.\nPLACE: a dark grey desk in an office in the early evening, the edge of a plain black keyboard, a cold coffee cup out of focus.\nLIGHT: cool bluish glow from a monitor off frame, a warm desk lamp far in the background, low key, about 6:1.\nSOUND: quiet office room tone, the soft hum of a computer fan.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "monitor: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "Risikokultur 2/3 – s4",
+  "job": "gen-vid-1791457403-OFjLqcwjaSnhriJAufEz",
+  "created": 1791457946806,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
