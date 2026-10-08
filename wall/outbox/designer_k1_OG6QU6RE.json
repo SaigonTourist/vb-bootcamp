@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "k1",
+  "template": "C_own_material",
+  "slot": "k1",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 378,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the man uncrosses his arms, leans slightly toward the lens and complains in German, loud and exasperated, one hand thrown open toward the camera on the word in capitals, then folds his arms across his chest and glares.\nDIALOGUE: \"Was soll der MIST? Ihr habts ja nie offen!\"\nSCENE: a modern branch lobby, light-oak counter and a plant behind him on camera left, glass doors with daylight on camera right, blue work jacket over a dark grey t-shirt, grey hair, grey stubble.\nRULES: German pronunciation, native speaker from Austria, Viennese tone. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then he stays silent and glares.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456993-BGuoAEwxmB7COG6QU6RE",
+  "created": 1791457427078,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
