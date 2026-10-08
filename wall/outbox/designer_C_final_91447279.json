@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "C_final",
+  "template": "C_own_material",
+  "slot": "final",
+  "engine": "edit",
+  "model": "final edit",
+  "mode": "assisted",
+  "duration": null,
+  "ratio": "16:9",
+  "cost_eur": 0.0,
+  "render_s": null,
+  "prompt": "Eigenes Material: Sunday Cruise mit Schimpanse, Erdbeereis, Realismus-Pass im Schnitt",
+  "lint": [],
+  "note": "Final edit",
+  "job": "final-C_final-1791447279",
+  "created": 1791447284258,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
