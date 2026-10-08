@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "a2",
+  "template": "C_own_material",
+  "slot": "a2",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 2.16,
+  "render_s": 185,
+  "prompt": "SHOT: wide, eye level, 35mm at T2.8, static, 25 fps.\nSUBJECT AND ACTION: a quiet, almost deserted zoo on a sunny afternoon: a single keeper in a green work jacket slowly sweeps leaves along an empty path, past a row of empty benches and an empty panda enclosure with bamboo and rocks.\nPLACE: a wide zoo path lined with tall trees, empty wooden benches, a wooden fence on the right, a closed ice-cream kiosk with its shutters down.\nLIGHT: one warm afternoon sun from camera-left, about 4:1, long calm shadows of the trees across the empty path, expose to protect the highlights.\nCOLOUR: warm greens and golden light, calm and still.\nSOUND: wind in the leaves, the slow scrape of the broom, a single distant bird, otherwise quiet.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791458079-z3MKlFsxMnWUKJmTxwiy",
+  "created": 1791458461426,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
