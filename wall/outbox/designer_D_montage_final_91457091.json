@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "D_montage_final",
+  "template": "D_montage",
+  "slot": "final",
+  "engine": "h3",
+  "model": "minimax/hailuo-3 (5 shots + voice-over)",
+  "mode": "assisted",
+  "duration": 35.5,
+  "ratio": "16:9",
+  "cost_eur": 7.6,
+  "render_s": null,
+  "prompt": "Finished montage: one day, four places in Vienna (home office morning, train, Kaffeehaus, bank office, home office evening). Five silent H3 shots from start frames of one presenter, H3 voice-over: Mein Arbeitstag hat keine fixe Adresse. / In der Früh im Zug: Mails erledigt, bevor ich ankomme. / Im Kaffeehaus, bei einer Melange, kommen mir die besten Ideen. / Im Büro treffe ich mein Team – genau dann, wenn es zählt. / Konzentriert arbeiten, egal wo – abends bleibt Zeit für mich. End card: Flexibilität schafft Freiraum.",
+  "lint": [],
+  "note": "Finished montage, template D",
+  "job": "final-D_montage-1791457091",
+  "created": 1791457098537,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
