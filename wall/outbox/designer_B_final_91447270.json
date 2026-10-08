@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "B_final",
+  "template": "B_series",
+  "slot": "final",
+  "engine": "edit",
+  "model": "final edit",
+  "mode": "assisted",
+  "duration": null,
+  "ratio": "16:9",
+  "cost_eur": 5.68,
+  "render_s": null,
+  "prompt": "Serie: interne Kommunikation als Parodie, drei KI-Fragen, Leopold am Telefon, ALLOW ALL",
+  "lint": [],
+  "note": "Final edit",
+  "job": "final-B_final-1791447270",
+  "created": 1791447276805,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
