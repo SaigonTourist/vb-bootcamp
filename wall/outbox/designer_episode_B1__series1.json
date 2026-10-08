@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "episode_B1",
+  "template": "B_series",
+  "slot": "episode",
+  "engine": "edit",
+  "model": "assemble",
+  "mode": "finished episode",
+  "duration": 33.8,
+  "ratio": "16:9",
+  "cost_eur": null,
+  "render_s": null,
+  "prompt": "Finished episode, template B: 'Fragen, die du im Bewerbungsgespräch nie hören willst – Folge 1: Head of KI (m/w/d)'. Intro card, q1, b1, q2, bridge, q3, end card.",
+  "lint": [],
+  "note": "Fertige Folge 1",
+  "job": "episode-1791451885-B_series1",
+  "created": 1791451891583,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
