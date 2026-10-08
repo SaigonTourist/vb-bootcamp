@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "Der_Satz_der_fehlt",
+  "template": "C_own_material",
+  "slot": "final",
+  "engine": "cut",
+  "model": "veo-fast + h3 + seedance",
+  "mode": "assisted",
+  "duration": 60.1,
+  "ratio": "16:9",
+  "cost_eur": 17.0,
+  "render_s": null,
+  "prompt": "Finaler Schnitt: Der Satz, der fehlt (60 s). Shot 1 veo-fast, Shots 2/4/5a/5b/6 H3 mit Startbildern, Shot 3 Seedance, Schlusskarte mit KI-Hinweis.",
+  "lint": [],
+  "note": "Der Satz, der fehlt – finaler Schnitt, 60 s",
+  "job": "final-C-1791450821",
+  "created": 1791450830842,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
