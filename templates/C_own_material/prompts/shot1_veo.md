@@ -1,0 +1,6 @@
+SHOT: medium-wide, eye level, 35mm at T2.8, static, 25 fps, as in the start frame.
+SUBJECT AND ACTION: the woman at the head of the table in a dark blazer looks around the table, then begins stacking her papers into a neat pile.
+DIALOGUE: The woman in the dark blazer says in German: "Gut. Dann starten wir wie geplant. Passt das für alle?"
+PLACE: a bank meeting room, light oak table, closed laptops turned away from camera, paper folders, a window on the left.
+LIGHT: soft daylight from the window camera-left, about 4:1, ceiling lights on.
+SOUND: quiet office room tone, paper sliding on wood. Only she speaks. No music.
