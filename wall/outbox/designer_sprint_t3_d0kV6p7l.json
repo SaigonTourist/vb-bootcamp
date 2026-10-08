@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "sprint_t3",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 12,
+  "ratio": "16:9",
+  "cost_eur": 2.5,
+  "render_s": 190,
+  "prompt": "ACTION: the man from image 1 wins a small-group sprint at a mountain-top finish, crossing the line two bike lengths clear of a rider in a plain yellow jersey and a rider in a plain white jersey with rainbow chest stripes, then sits up with both arms fully stretched high above his head.\n\nTHE WINNER: the man from image 1, his face, slim lean climber's build, 32 years old, 178 cm and 67 kg, narrow shoulders, thin arms and legs. His metallic dark-blue helmet, violet mirrored sunglasses, plain matte black jersey with white geometric blocks on the left sleeve, black bib shorts, black bike with tan-wall tyres. All kit plain and unprinted.\n\nSHOT 1 (0-4 s): low tracking shot ahead of five riders on the last steep ramp, 35mm lens. Huge crowds packed tight on both sides of the narrow road, waving flags. The man from image 1 jumps out of the saddle and pulls away. Whip pan right into shot 2.\n\nSHOT 2 (4-8 s): side tracking shot at hip height, 50mm lens. He dances on the pedals, the gap to yellow and rainbow growing, snow-capped peaks behind. Fast push forward into shot 3.\n\nSHOT 3 (8-12 s): frontal shot from behind the finish line, 85mm lens, slight slow motion. He crosses first with both arms straight up, roaring with joy. Behind him yellow slams a fist on his handlebars and rainbow shakes his head, scowling.\n\nPLACE: mountain summit finish above the tree line, grey rock and green alpine slopes, jagged snowy peaks, barriers with plain solid blue boards, plain blank banners.\nLIGHT: bright midday sun from camera-left, deep blue sky.\nSOUND: a French TV commentator shouting in French, voice cracking with excitement: \"Incroyable ! Il gagne ! Il gagne ! C'est fantastique !\", a huge crowd roaring and cheering, cowbells ringing.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "303 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    },
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791457524-iJey7EZr0IGKd0kV6p7l",
+  "created": 1791457735632,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
