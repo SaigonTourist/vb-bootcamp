@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "b1",
+  "template": "B_series",
+  "slot": "b1",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 0.84,
+  "render_s": 361,
+  "prompt": "ACTION: a woman's hand rests on a plain white computer mouse, slides it a few centimetres to the right, and clicks once with the index finger; on the blurred monitor behind, a soft blue highlight appears on one line.\nSHOT: close shot at desk height from the side, the hand and mouse sharp in the foreground, the monitor far behind and out of focus, 85mm lens, very slow lateral track of a few centimetres.\nPLACE: a quiet office desk of pale oak, a closed grey folder and a white ceramic cup beside the mouse, a navy blazer sleeve at the wrist.\nLIGHT: one soft key from a window camera-left, morning daylight, about 4:1, the monitor glow as a cool practical.\nSOUND: quiet office room tone, the crisp click of the mouse, faint keyboard typing in the distance.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "monitor: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791451318-WeXoOP8MATBOMIkDHYFg",
+  "created": 1791451738245,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
