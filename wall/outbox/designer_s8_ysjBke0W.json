@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s8",
+  "template": "C2_sekunde_danach",
+  "slot": "s8",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 7,
+  "ratio": "16:9",
+  "cost_eur": 0.82,
+  "render_s": 325,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the man with short sandy hair receding at the temples, clean-shaven in a white shirt without jacket stands in the open glass doorway, one hand on the door frame, and speaks in German to his manager off camera-left, quietly and directly, not hiding, a short breath before the word FEHLER.\nDIALOGUE: \"Hast du kurz? Ich hab bei einer Freigabe einen FEHLER gemacht. Also, ja.\"\nSCENE: the doorway of a small glass-walled office in a bank in the early evening, the dark open-plan office behind him, warm desk lamp light from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. He never looks into the lens. Speech ends on the last word, then he waits.",
+  "lint": [],
+  "note": "Risikokultur 2/3 – s8",
+  "job": "gen-vid-1791457553-YdmBqER66NjEysjBke0W",
+  "created": 1791457971719,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
