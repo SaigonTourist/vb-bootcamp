@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "A_s1_draft_grey",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 56,
+  "prompt": "SHOT: wide, eye level, 28mm at T2.8, slow dolly following him at walking pace, 25 fps.\nSUBJECT AND ACTION: a young man in his early twenties, short dark-blond hair, navy wool suit and open white shirt, seen from behind, walks across a lakeside square toward an old pastel town house, climbs two stone steps and pushes its heavy wooden door open.\nPLACE: a small Upper Austrian lake town: a wide calm lake on the left with mountains across the water, cobblestones, a row of pastel yellow and ochre town houses with plain painted facades and green shutters.\nLIGHT: soft overcast morning sky as one large diffuse key from above, about 2:1, gentle even light, faint mist over the lake, expose to protect the highlights.\nCOLOUR: soft pastel facades, deep blue-green water, natural skin, restrained and filmic.\nSOUND: gentle lake water lapping, his footsteps on cobblestones, a church bell far away, the creak of the heavy door.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791448636-AVW4oTsGGG90pUvGNFfN",
+  "created": 1791448718155,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
