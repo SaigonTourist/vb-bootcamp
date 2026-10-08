@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "raw",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 239,
+  "prompt": "A new young Austrian customers comes into the bank and the Austrian banking advicer is greeting the client. The bank is called Volksbank. The bank is new but traditional setting in Upper Austria, Gmunden.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "BRAND",
+      "msg": "'volksbank' named. It will be drawn, logos included. Describe it without the name; put real logos in the edit."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791444902-9YoCg9sEWwRDE6bcBEmP",
+  "created": 1791445154102,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
