@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "raw",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 291,
+  "prompt": "A manager notices a new employee standing outside in the rain and spontaneously shares an umbrella. Rainy day, autumn, In front of the door to the big modern office building.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445047-66hHljYMYdkAz5dcgpv9",
+  "created": 1791445350952,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
