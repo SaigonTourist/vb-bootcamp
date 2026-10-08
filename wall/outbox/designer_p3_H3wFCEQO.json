@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "p3",
+  "template": "C_own_material",
+  "slot": "p3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 395,
+  "prompt": "SHOT: medium shot from the waist up, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman looks straight into the lens and speaks in German, warm, calm and direct, at a natural pace, a small open-hand gesture on the word in capitals.\nDIALOGUE: \"Eine Aktie ist kein Sparprodukt, sondern eine BETEILIGUNG – im Guten wie im Schlechten. Also, ja.\"\nSCENE: she stands outdoors in a green zoo on a wonderful sunny day, in front of a wooden paddock fence with tall old trees and a giraffe grazing in the distance, navy wool blazer over a cream blouse, shoulder-length dark-blonde wavy hair. One warm sun from camera left, about 4:1, leaves moving gently in a light breeze.\nSOUND: her voice close and clear, soft birdsong, distant murmur of visitors.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a short friendly nod.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791458076-hCtvfRiBPWZAH3wFCEQO",
+  "created": 1791458493530,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
