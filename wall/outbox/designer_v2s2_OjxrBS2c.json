@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "v2s2",
+  "template": "C_own_material",
+  "slot": "v2s2",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 313,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the man with short sandy hair receding at the temples, clean-shaven, in a white shirt with an open collar leans back in his chair with a pen already in his hand and speaks in German to the woman at the head of the table off camera-left, casual and a little impatient, a small shrug on the word SPÄT.\nDIALOGUE: \"Von uns nicht. Wir sind eh schon SPÄT dran. Also, ja.\"\nSCENE: same bank meeting room as the start frame: light oak table, tall window on the left wall, plain pale walls, soft daylight from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. He never looks into the lens. Speech ends on the last word, then he waits.",
+  "lint": [],
+  "note": "Der Satz, der fehlt v2 – Shot 2",
+  "job": "gen-vid-1791455706-AV6NsAYs0sjVOjxrBS2c",
+  "created": 1791456179624,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
