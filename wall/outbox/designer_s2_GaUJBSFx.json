@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 0.84,
+  "render_s": 177,
+  "prompt": "Fast, energetic premium beer commercial shot, 4 seconds, no cuts.\n\nThis shot starts on the provided start frame. The beer glass in that frame is the hero glass: keep its exact shape, size, rim, thickness, condensation, beer color, bubbles and foam exactly as shown, the same glass for the whole shot.\n\n0.0–1.2s: Starting exactly on the provided frame, a quick, smooth pull-back (accelerating dolly-out) reveals the full beer glass from the start frame, filled with golden beer and a creamy foam head, standing on a wooden table in warm golden evening light.\n\n1.2–2.2s: A hand enters the frame and grips this same glass, lifting it in one fluid motion.\n\n2.2–4.0s: The camera follows the glass up to a man, framed from the nose down, who takes a satisfying sip from it, foam touching the lips, beer level visibly dropping, a relaxed smile, warm sunlit bokeh background.\n\nStyle: cinematic, photorealistic, shallow depth of field, warm golden color grade matching the previous scene, 4K.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "4k, cinematic: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791446770-xftILqgzcIjYGaUJBSFx",
+  "created": 1791446969503,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
