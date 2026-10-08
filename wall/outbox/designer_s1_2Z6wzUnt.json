@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "s1",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.72,
+  "render_s": 68,
+  "prompt": "Continuous commercial-style push-in shot, 8 seconds, no cuts, one unbroken camera move, every scene morphs into the next.\n\n0.0–1.5s: Starts on the provided frame: close-up of fresh green hop cones in the foreground, sunlit hop field behind, warm golden sun low in the background with soft lens flare. Camera pushes smoothly forward into the glowing hop cone.\n\n1.5–3.0s: The sunlit green hop petals turn liquid and become drops of crystal-clear spring water; the camera keeps moving forward as they fall into a cascading mossy alpine waterfall, sparkling in the same golden sunlight.\n\n3.0–4.5s: The camera dives into the falling water; the drops turn golden and solid and become malted barley grains pouring and tumbling in a malting facility, warm light, dust particles glowing.\n\n4.5–6.0s: The stream of grains flows forward and pours into the open top of a polished copper brew kettle in a traditional brewery, gentle steam rising, warm amber lighting.\n\n6.0–8.0s: The camera follows the grains down into the kettle, where they melt into golden beer, and ends in an extreme macro close-up of the beer: rising carbonation bubbles, rich amber color, backlit glow, filling the entire frame.\n\nStyle: premium beer commercial, shallow depth of field, warm golden color grade matching the start frame, natural photographic look, smooth accelerating dolly-in.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "212 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    },
+    {
+      "level": "warn",
+      "code": "NO_SHOT",
+      "msg": "No SHOT: line. Veo picks the framing itself and tends to push in on faces."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791446376-IqZ3IrsSKVd82Z6wzUnt",
+  "created": 1791446459719,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
