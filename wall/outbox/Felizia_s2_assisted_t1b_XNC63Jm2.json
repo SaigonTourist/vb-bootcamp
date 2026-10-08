@@ -1,0 +1,37 @@
+{
+  "author": "Felizia",
+  "label": "s2_assisted_t1b",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 30,
+  "ratio": "16:9",
+  "cost_eur": 2.78,
+  "render_s": 296,
+  "prompt": "ACTION: a tall man in a long grey wool overcoat walks through heavy wooden doors into a grand old banking hall and across the marble floor to three golden teller counters; the three clerks greet him, he states his business, and the seated woman in the middle sends him to the older man at the left counter, who rises, comes round his counter and shakes his hand.\nCAST: exactly four people. The customer: tall, short dark beard, slim glasses, grey wool overcoat over a dark suit, very deep rich bass-baritone. The woman at the middle counter: middle-aged, white blazer, warm clear medium voice. Mr. Bloom at the left counter: about 55, short silver-grey hair, clean-shaven, charcoal suit and dark tie, warm gravelly baritone. The young man at the right counter: navy suit, bright light tenor.\nSHOT: wide from behind the customer, then a steady medium-wide side framing holding all three counters, 35mm lens, slow push of a few centimetres.\nPLACE: a grand old banking hall, pink-brown marble walls, tall arched windows, polished marble floor, three golden counters; the laptops face away with their backs to the camera.\nLIGHT: one soft warm key from the tall windows camera-left, about 4:1.\nDIALOGUE, English, one voice at a time, lips in sync, calm and refined: woman \"Hello!\", Mr. Bloom \"Hello.\", young man \"Hello!\", customer \"Hello.\" Woman \"How may I assist you, sir?\" Customer \"Good day. I would like to take out a loan to purchase several properties for my company.\" Woman, open hand toward the left counter \"We truly appreciate your visit, sir. Mr. Bloom, our financing expert, will be delighted to assist you.\" Mr. Bloom, hand extended, smiling \"Good day, sir. My name is Bloom.\" Customer, shaking hands \"A pleasure. My name is Bluefield.\"\nSOUND: footsteps echoing on marble, soft typing from the two seated men, quiet room tone, a laptop lid, a chair moving; voices only on the spoken lines; hands rest and move naturally.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "324 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    },
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    },
+    {
+      "level": "warn",
+      "code": "PERISHABLE",
+      "msg": "Spoken may. Dates, prices, numbers and deadlines go on screen as text; spoken, they force a re-render every time they change."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791451519-jFVc4YcDfKLWXNC63Jm2",
+  "created": 1791451881576,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
