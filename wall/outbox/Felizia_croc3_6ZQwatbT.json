@@ -1,0 +1,21 @@
+{
+  "author": "Felizia",
+  "label": "croc3",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.56,
+  "render_s": 155,
+  "prompt": "ACTION: standing on top of the gold mound, the dapper crocodile gentleman from image 1 looks down over the edge at a deep pool of gold coins below, and his eyes grow huge and delighted while a happy grin spreads across his snout.\nSHOT: medium shot from the front at his eye level, 35mm lens, locked off with a tiny push in on his face.\nPLACE: the top of a gold-bar mound overlooking a shimmering pool of loose gold coins and banknotes, a little golden ladder leaning on the mound.\nLIGHT: one warm golden key camera-left, about 3:1.\nSOUND: a soft sparkling shimmer of coins below, gentle; no voices, no music.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456776-bjeUTpXZ9m6j6ZQwatbT",
+  "created": 1791457207585,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
