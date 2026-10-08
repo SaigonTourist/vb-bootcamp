@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s1_final",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 2.16,
+  "render_s": 123,
+  "prompt": "SHOT: one continuous unbroken crane move from about 10 metres up, descending smoothly over the full 6 seconds to eye level, ending on the woman exactly as in the last frame, 24mm lens, 25 fps.\nSUBJECT AND ACTION: the first raindrops fall on a busy city street; cars and buses pass, pedestrians hurry by with umbrellas; the camera settles on the young woman from the last frame, dark brown hair, tan camel coat, standing still with her arms crossed.\nPLACE: a four-lane street, the large glass office building with a revolving door behind her, autumn leaves on the wet pavement.\nLIGHT: one soft key from a grey overcast autumn morning sky, about 4:1, soft reflections on the wet street, warm light from the office lobby, expose to protect the highlights.\nCOLOUR: cool greys and slate blue, the tan coat as the one warm accent, natural skin.\nSOUND: city traffic, a passing bus, the first drops pattering and growing louder.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791450658-BEWFcHBCdAOXZUx1zn0r",
+  "created": 1791450794125,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
