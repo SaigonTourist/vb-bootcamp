@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s1",
+  "template": "C2_sekunde_danach",
+  "slot": "s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 53,
+  "prompt": "SHOT: medium-wide, eye level, 35mm at T2.8, very slow dolly in of about thirty centimetres, 25 fps, as in the start frame.\nSUBJECT AND ACTION: the woman in the dark navy blazer stands at the head of the empty meeting table, closes the dark folder in her hands, looks up toward the camera side and says quietly in German: \"Und das wusste schon jemand?\" Then she stays still.\nPLACE: a bank meeting room in the early evening, light oak table, empty chairs, tall window on the left with a dusky sky.\nLIGHT: cool dusk from the window camera-left, ceiling lights on, about 5:1, slightly dark and serious.\nSOUND: quiet room tone, a low muted hum. Only she speaks. No music.",
+  "lint": [],
+  "note": "Risikokultur 2/3 – s1",
+  "job": "gen-vid-1791457532-32MBb5HrFSpCURUYRKot",
+  "created": 1791457952791,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
