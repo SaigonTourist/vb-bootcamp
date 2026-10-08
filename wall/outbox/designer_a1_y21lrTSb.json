@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "a1",
+  "template": "C_own_material",
+  "slot": "a1",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 0.84,
+  "render_s": 162,
+  "prompt": "ACTION: a man's weathered hand in a blue work-jacket sleeve drums its fingers impatiently on a white counter top, four quick taps, pauses, then four more.\nSHOT: close shot at counter height from the side, the hand sharp, the lobby behind out of focus, 85mm lens, static.\nPLACE: a white and light-oak service counter in a modern lobby, a small plant at the edge of frame, glass doors far behind.\nLIGHT: soft daylight from glass doors camera-right, about 4:1, warm ceiling downlights.\nSOUND: quiet lobby room tone, the hard tapping of fingertips on the counter.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456996-AHRMz6hXiXD7y21lrTSb",
+  "created": 1791457430456,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
