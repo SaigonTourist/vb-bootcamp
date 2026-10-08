@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "a1",
+  "template": "C_own_material",
+  "slot": "a1",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 202,
+  "prompt": "ACTION: a cheerful crowd of adult visitors, seen from behind, gathers at the glass front of a panda enclosure; a giant panda sits on a log inside eating bamboo, and two of the adults lean closer and point.\nSHOT: medium-wide from behind the crowd, 35mm lens, slow push of about half a metre.\nPLACE: a sunny zoo enclosure with bamboo, rocks and a wooden climbing frame behind a tall glass front, green trees around.\nLIGHT: one warm afternoon sun from camera-left, about 4:1, soft reflections on the glass.\nSOUND: lively crowd murmur, delighted gasps, the crunch of bamboo.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456976-UfsBcDH22uVF2Q3aJ5rE",
+  "created": 1791457472617,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
