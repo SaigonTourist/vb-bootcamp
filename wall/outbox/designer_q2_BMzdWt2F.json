@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "q2",
+  "template": "B_series",
+  "slot": "q2",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 351,
+  "prompt": "SHOT: medium shot from mid-chest up, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the man looks straight into the lens and speaks in German, slowly, dry and stern, with deadpan seriousness, slight emphasis on the word in capitals, keeps his hands folded on the desk, then raises one eyebrow a little at the end.\nDIALOGUE: \"Wir haben Ihre Antworten von einer KI bewerten lassen. Wollen Sie das ERGEBNIS sehen? Also, ja.\"\nSCENE: he sits behind a heavy dark oak desk in a wood-panelled office, charcoal pinstripe three-piece suit, dark red tie, silver-grey hair combed back, small grey moustache, a printed letter on the desk. One soft window light from camera left, a green-shaded desk lamp in the background. Quiet office room tone, a faint clock ticking.\nRULES: German pronunciation, native speaker from Austria, a deep measured older voice. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a stern silent look into the lens.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "letter: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791450834-SoFpV1FzQ4BLBMzdWt2F",
+  "created": 1791451214392,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
