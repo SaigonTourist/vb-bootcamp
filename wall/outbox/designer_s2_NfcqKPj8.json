@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 213,
+  "prompt": "ACTION: a hand holding a large dark umbrella tilts it over the rain-soaked shoulder of a beige wool coat; the raindrops stop hitting the shoulder, and the umbrella settles so it covers both people standing side by side.\nSHOT: close shot at shoulder height from behind, 50mm lens, both people seen only from the shoulders and backs, camera locked off.\nPLACE: in front of the glass revolving door of a large modern office building, wet stone steps, autumn leaves on the wet pavement.\nLIGHT: grey overcast autumn morning, one soft key from the sky above, about 4:1, warm light glowing from the lobby behind the glass.\nSOUND: steady heavy rain on the pavement, then the rain turns to a soft drumming on the umbrella fabric and the scene goes quieter.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445908-SXodP5xabLTdNfcqKPj8",
+  "created": 1791446134701,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
