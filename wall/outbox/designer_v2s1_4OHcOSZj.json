@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "v2s1",
+  "template": "C_own_material",
+  "slot": "v2s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.72,
+  "render_s": 57,
+  "prompt": "SHOT: medium-wide, eye level, 35mm at T2.8, static, 25 fps, as in the start frame.\nSUBJECT AND ACTION: the woman at the head of the table in the dark navy blazer closes the dark folder in front of her and looks around the table at her two colleagues.\nDIALOGUE: The woman in the dark navy blazer says in German: \"Letzter Punkt: die Freigabe des neuen Prozesses. Gibt es noch Einwände?\" The other two stay silent and keep their seats.\nPLACE: a bank meeting room, light oak table, tall window on the left, plain pale walls.\nLIGHT: soft daylight from the window camera-left, about 4:1, ceiling lights on.\nSOUND: quiet office room tone, the soft thud of the folder closing. Only she speaks. No music.",
+  "lint": [],
+  "note": "Der Satz, der fehlt v2 – Shot 1",
+  "job": "gen-vid-1791455695-7t8tW2Xeyyep4OHcOSZj",
+  "created": 1791456174921,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
