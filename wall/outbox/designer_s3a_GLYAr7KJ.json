@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s3a",
+  "template": "A_teaser",
+  "slot": "s3a",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "raw",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 0.59,
+  "render_s": 391,
+  "prompt": "„Aha! Seit wann geht des scho?!“",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791446916-1ThOmSGvhtMUGLYAr7KJ",
+  "created": 1791447372491,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
