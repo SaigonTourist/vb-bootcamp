@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "Risikokultur_2_Die_Sekunde_danach",
+  "template": "C2_sekunde_danach",
+  "slot": "final",
+  "engine": "cut",
+  "model": "veo-fast + h3 + seedance",
+  "mode": "assisted",
+  "duration": 57.9,
+  "ratio": "16:9",
+  "cost_eur": 7.5,
+  "render_s": null,
+  "prompt": "Risikokultur 2/3: Die Sekunde danach. Kalter Einstieg, Rückspul-Effekt, Fehler früh melden (58 s).",
+  "lint": [],
+  "note": "Risikokultur 2/3 – Die Sekunde danach, 58 s",
+  "job": "final-C2-1791458098",
+  "created": 1791458108246,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
