@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "q2",
+  "template": "B_series",
+  "slot": "q2",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 471,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman sits relaxed in the armchair, soft eyes, smooth forehead. She looks straight into the lens and asks the question in German, warm and curious, at a natural pace, a small open-hand gesture on the word in capitals, then holds a calm, friendly look into the lens.\nDIALOGUE: \"Zweite Frage: Wie lange DAUERT das Training? Also, ja.\"\nSCENE: light grey armchair in a quiet lounge corner, camel blazer over a cream top, brown hair in an updo. Sheer curtains and a window on camera left, a brass lamp and a wooden shelf behind her. One soft window light from camera left.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then she stays silent with a calm, friendly look.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791451204-DIwSaih3hhnWbdzzdmnp",
+  "created": 1791451730822,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
