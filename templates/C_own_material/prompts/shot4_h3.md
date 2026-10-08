@@ -1,0 +1,5 @@
+SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.
+ACTION: the woman looks up from the table to the colleague off camera-right and speaks in German, calm and steady, not apologetic, at a natural pace, one small open-hand gesture on the word OFFEN, keeps looking at him to the end.
+DIALOGUE: "Bevor wir entscheiden: Ein Punkt ist für mich noch OFFEN. Wenn die Prüfung ausfällt, wer bemerkt das und übernimmt? Also, ja."
+SCENE: same meeting room as the start frame, light grey knitted top, soft daylight from camera-left.
+RULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. She never looks into the lens. Speech ends on the last word, then she waits calmly.

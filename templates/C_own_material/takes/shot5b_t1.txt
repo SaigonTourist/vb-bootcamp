@@ -1,0 +1,5 @@
+SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.
+ACTION: the man opens the laptop in front of him, glances at it, then looks to his colleague off camera-left and speaks in German, factual and relaxed, a slight shake of the head on the word NOCH.
+DIALOGUE: "Für den Normalbetrieb ja. Für den Ausfall NOCH nicht. Also, ja."
+SCENE: same meeting room as the start frame, white shirt with an open collar, soft daylight from camera-left.
+RULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. He never looks into the lens. Speech ends on the last word, then he waits.

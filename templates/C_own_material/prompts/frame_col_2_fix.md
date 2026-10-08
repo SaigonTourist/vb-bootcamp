@@ -1,0 +1,1 @@
+The same photo of the same man from image 1, identical face, hair, white shirt, room and light. His mouth is gently closed with relaxed lips, calm and focused expression. The photo fills the whole 16:9 frame edge to edge, plain room on the right side.

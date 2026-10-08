@@ -1,12 +1,12 @@
 {
   "id": "C_own_material",
-  "title": "C · Your material",
+  "title": "C · Der Satz, der fehlt",
   "size": [
     1920,
     1080
   ],
   "fps": 25,
-  "lesson": "Start from what you already have: a module script, photos of your spaces and objects, a clip you own. Claude rewrites this shotlist from it; your footage stays untouched and generated shots carry each key message.",
+  "lesson": "Built from the designer's script \"Der Satz, der fehlt\": three fictional people, one decision, one question that changes it.",
   "card_style": {
     "bg": "0x14213d",
     "fg": "white"
@@ -14,58 +14,106 @@
   "frames": [],
   "slots": [
     {
-      "id": "a0",
+      "id": "shot1",
       "type": "gen",
       "model": "veo",
-      "dur": 4,
-      "purpose": "Opener: the place your material is about",
-      "prompt": "prompts/a0.md",
-      "seed": 5
+      "dur": 8,
+      "purpose": "0-8 s: Führungskraft will den Start beschließen",
+      "prompt": "prompts/shot1_veo.md",
+      "first_frame": "input/refs/C/room.png",
+      "seed": 11
     },
     {
-      "id": "own1",
+      "id": "shot2a",
       "type": "real",
-      "dur": 10,
-      "file": "input/own/clip.mp4",
+      "file": "templates/C_own_material/slots/shot2.mp4",
       "trim_start": 0,
-      "purpose": "Your material, part 1 (first key message)",
-      "caption": "Kernbotschaft 1"
+      "dur": 3.3,
+      "purpose": "8-18 s: Mitarbeiterin zögert, innere Stimme",
+      "caption": "Was passiert, wenn die Prüfung ausfällt?"
     },
     {
-      "id": "a1",
-      "type": "gen",
-      "model": "seedance",
-      "dur": 5,
-      "purpose": "Shows key message 1 from your material",
-      "prompt": "prompts/a1.md"
-    },
-    {
-      "id": "own2",
+      "id": "shot2b",
       "type": "real",
-      "dur": 10,
-      "file": "input/own/clip.mp4",
-      "trim_start": 10,
-      "purpose": "Your material, part 2 (second key message)",
-      "caption": "Kernbotschaft 2"
+      "file": "templates/C_own_material/slots/shot2.mp4",
+      "trim_start": 3.4,
+      "dur": 3.3,
+      "purpose": "innere Stimme, Teil 2",
+      "caption": "Vielleicht ist das längst geklärt."
     },
     {
-      "id": "a2",
+      "id": "shot2c",
+      "type": "real",
+      "file": "templates/C_own_material/slots/shot2.mp4",
+      "trim_start": 6.8,
+      "dur": 3.4,
+      "purpose": "innere Stimme, Teil 3",
+      "caption": "Wir sind ohnehin schon spät dran."
+    },
+    {
+      "id": "shot3",
+      "type": "real",
+      "dur": 5,
+      "purpose": "18-23 s: Hand stoppt beim Zuklappen (Seedance take, first 1.8 s at half speed)",
+      "file": "templates/C_own_material/slots/shot3_edit.mp4",
+      "trim_start": 0
+    },
+    {
+      "id": "shot4",
       "type": "gen",
-      "model": "veo",
+      "model": "h3",
+      "dur": 10,
+      "purpose": "23-33 s: Mitarbeiterin stellt die Frage",
+      "prompt": "prompts/shot4_h3.md",
+      "first_frame": "input/refs/C/emp_2.png"
+    },
+    {
+      "id": "shot5a",
+      "type": "gen",
+      "model": "h3",
       "dur": 6,
-      "purpose": "Shows key message 2, closes the arc",
-      "prompt": "prompts/a2.md",
-      "seed": 9
+      "purpose": "33-39 s: Führungskraft greift die Frage auf",
+      "prompt": "prompts/shot5a_h3.md",
+      "first_frame": "input/refs/C/lead_1.png"
+    },
+    {
+      "id": "shot5b",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6,
+      "purpose": "39-45 s: Kollege: Ausfall noch nicht geklärt",
+      "prompt": "prompts/shot5b_h3.md",
+      "first_frame": "input/refs/C/col_2_fix.png"
+    },
+    {
+      "id": "shot6",
+      "type": "gen",
+      "model": "h3",
+      "dur": 8,
+      "purpose": "45-53 s: Führungskraft notiert und dankt",
+      "prompt": "prompts/shot6_h3.md",
+      "first_frame": "input/refs/C/lead_1.png"
     },
     {
       "id": "card",
       "type": "card",
-      "dur": 3,
+      "dur": 7,
       "lines": [
-        "Title of your piece",
-        "Einige Szenen wurden mit KI erstellt."
+        "Du musst noch keine Lösung haben,",
+        "um eine wichtige Frage zu stellen."
       ]
     }
   ],
-  "note": "Starter layout only. Claude replaces the slots, purposes and prompts with ones built from the designer's material in input/own/."
+  "note": "Rewritten from the designer script. Fiktive Szene als Lernimpuls, kein dokumentierter Vorfall.",
+  "unused_in_edit": [
+    {
+      "id": "shot2",
+      "type": "gen",
+      "model": "h3",
+      "dur": 10,
+      "purpose": "8-18 s: Mitarbeiterin zögert (innere Stimme als Untertitel) (rendered here, cut in as shot2a-c)",
+      "prompt": "prompts/shot2_h3.md",
+      "first_frame": "input/refs/C/emp_2.png"
+    }
+  ]
 }
