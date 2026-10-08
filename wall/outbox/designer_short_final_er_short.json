@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_final",
+  "template": "",
+  "slot": "",
+  "engine": "edit",
+  "model": "Nano Banana Pro + Veo 3.1 Fast + ElevenLabs + Lyria",
+  "mode": "assisted",
+  "duration": 59.0,
+  "ratio": "9:16",
+  "cost_eur": 10.64,
+  "render_s": null,
+  "prompt": "Fertiger YouTube Short (12 Szenen, Schnitt mit VO, Musik, Karaoke-Untertiteln). VO: Du wolltest Ruhm. Du bekommst: einen Fuß im Gesicht. Acht Männer. Ein Zelt. Einer schnarcht immer. Frühstück: Getreide. Dazu Posca. Wasser mit Essig. Prost. Centurio Maximus. Sein Rebstock: Rangabzeichen. Und ein Argument. Dein Gepäck trägst du selbst. Spitzname: Marius' Maultiere. 20 römische Meilen. In 5 Stunden. Im Regen. Am Ziel: ein befestigtes Lager bauen. Jeden. Einzelnen. Abend. Übungswaffen? Absichtlich schwerer als echte. Danke, Maximus. Zahltag! Minus Essen. Minus Ausrüstung. Minus Begräbniskasse. Beruhigend. Gaius denkt an Rom. Rom denkt nicht an Gaius. Nachtwache. Wer einschläft, wird von Kameraden erschlagen. Gaius ist sehr wach. Und das Ganze? 25 Jahre lang.",
+  "lint": [],
+  "note": "Fertiges YouTube Short „Ein Tag als Legionär“, 59 s",
+  "job": "final-D_legionaer_short",
+  "created": 1791458251179,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
