@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "C_shot3",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 280,
+  "prompt": "ACTION: a woman's hand slowly lowers the lid of a laptop until it is almost closed, stops two centimetres above the keyboard and stays still.\nSHOT: close shot from the side at table height, 50mm lens, static.\nPLACE: a light oak meeting table, a closed grey notebook far out of focus, a water glass.\nLIGHT: soft daylight from a window camera-left, about 4:1.\nSOUND: quiet room tone, the faint creak of the laptop hinge.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "notebook: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "Der Satz, der fehlt – Shot 3: die Hand stoppt",
+  "job": "gen-vid-1791449105-bh7DegUyO387Bsp4DVys",
+  "created": 1791449446681,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
