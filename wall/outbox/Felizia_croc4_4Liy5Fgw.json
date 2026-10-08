@@ -1,0 +1,21 @@
+{
+  "author": "Felizia",
+  "label": "croc4",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.56,
+  "render_s": 268,
+  "prompt": "ACTION: the dapper crocodile gentleman from image 1 bends his knees and leaps off the gold mound in a graceful dive with arms forward, and plunges head-first down into a deep pool of gold coins, vanishing under the surface as coins splash upward.\nSHOT: wide shot from the side catching the whole arc of the dive, 35mm lens, follows him down.\nPLACE: a huge pool of loose gold coins and banknotes below a mound of gold bars, a little golden ladder leaning on the mound.\nLIGHT: one warm golden key from above, about 3:1, glittering coins.\nSOUND: a soft whoosh of the leap, then a big rich clatter and jingle of coins as he plunges in; no voices, no music.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456781-ETJuodtUbNt24Liy5Fgw",
+  "created": 1791457210691,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
