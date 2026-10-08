@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "a0",
+  "template": "C_own_material",
+  "slot": "a0",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 2.16,
+  "render_s": 154,
+  "prompt": "SHOT: wide, slightly high angle, 24mm at T2.8, slow lateral track of about one metre, 25 fps.\nSUBJECT AND ACTION: early morning in a large green zoo: gravel paths wind between enclosures, a giraffe walks slowly across its paddock, a few first visitors stroll along a path in the distance.\nPLACE: grassy enclosures with wooden fences, tall old trees, a pond with a small wooden bridge, low wooden animal houses.\nLIGHT: one low soft sun from camera-left just after sunrise, about 4:1, light morning haze, expose to protect the highlights.\nCOLOUR: fresh greens, warm wood, soft blue sky, natural and restrained.\nSOUND: morning birdsong, distant animal calls, gravel crunching softly under footsteps far away.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456973-6CMax46y7PkKzJoachvZ",
+  "created": 1791457467704,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
