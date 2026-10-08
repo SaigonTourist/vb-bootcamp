@@ -1,0 +1,18 @@
+{
+  "author": "Felizia",
+  "label": "krokodil_geldtresor",
+  "template": "C_own_material",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "ratio": "16:9",
+  "duration": 24,
+  "cost_eur": 2.36,
+  "render_s": null,
+  "prompt": "Template C, 4-clip sequence, original cartoon crocodile tycoon (own design, not a copyrighted character): enters a bank vault and opens a safe-deposit box, climbs through onto a mound of gold bars with a short angelic 'aah', his eyes grow delighted at the money pool, then he leaps and dives into the pool of coins. Sound: webbed waddling, vault/box, coin clatter.",
+  "note": "Zusammenschnitt der 4 Clips in Reihenfolge. Einige Szenen wurden mit KI erstellt.",
+  "job": "croc-combined",
+  "created": 1791457447073,
+  "source": "session"
+}
