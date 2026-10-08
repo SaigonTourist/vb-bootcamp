@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s1",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 71,
+  "prompt": "SHOT: wide, low angle just above the ground between two rows, 24mm at T2.8, slow dolly forward of about one metre along the row, 25 fps.\nSUBJECT AND ACTION: tall hop vines climb their wires in long straight rows into the distance; as the camera glides forward, the first rays of the rising sun break over the horizon and light the mist between the rows.\nPLACE: a hop field in the countryside, tall wooden poles with taut wires, green hop cones hanging heavy on the vines, gentle hills on the horizon.\nLIGHT: one hard low key from the rising sun straight ahead behind the vines, about 6:1, soft morning mist catching the light, expose to protect the highlights.\nCOLOUR: fresh greens and warm gold, pale blue sky, no glow.\nSOUND: birdsong, a light breeze rustling the leaves, quiet open-air ambience.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445386-Y2ERbvu2UB9DpO8KBsMl",
+  "created": 1791445531376,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
