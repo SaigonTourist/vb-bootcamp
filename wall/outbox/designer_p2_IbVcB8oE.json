@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "p2",
+  "template": "C_own_material",
+  "slot": "p2",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 390,
+  "prompt": "SHOT: medium shot from the waist up, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman looks straight into the lens and speaks in German, warm, calm and direct, at a natural pace, a small open-hand gesture on the word in capitals.\nDIALOGUE: \"Bei einer Anleihe leihst du dem Zoo Geld. Mit einer Aktie ist NICHTS garantiert. Also, ja.\"\nSCENE: she sits at a pale wooden table with a plain closed folder in front of her, in a modern office, navy wool blazer over a cream blouse, shoulder-length dark-blonde wavy hair. A white wall with pale oak shelves behind her. One soft window light from camera left.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a short friendly nod.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456983-6dsqAgMkrX2NIbVcB8oE",
+  "created": 1791457487969,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
