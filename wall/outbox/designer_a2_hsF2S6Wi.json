@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "a2",
+  "template": "C_own_material",
+  "slot": "a2",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 2.16,
+  "render_s": 165,
+  "prompt": "SHOT: wide, eye level, 35mm at T2.8, static, 25 fps.\nSUBJECT AND ACTION: steady rain falls on an empty zoo path; puddles ripple on the asphalt, a closed kiosk with its wooden shutters down stands at the side, and one lone visitor with an umbrella walks slowly away from camera into the distance.\nPLACE: a zoo path lined with wet benches and dripping trees, an empty wooden enclosure fence on the right.\nLIGHT: grey overcast sky as one large diffuse key from above, about 2:1, cool and even, expose to protect the highlights.\nCOLOUR: muted greys and greens, desaturated, wet surfaces with soft sheen.\nSOUND: steady rain on leaves and asphalt, water dripping from the kiosk roof, distant thunder.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456975-0ovT4bXSVMljhsF2S6Wi",
+  "created": 1791457478554,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
