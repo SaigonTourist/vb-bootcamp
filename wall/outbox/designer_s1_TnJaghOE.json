@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s1",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 91,
+  "prompt": "SHOT: close-up, slightly low, 85mm at T2, shallow depth of field, slow dolly forward of about twenty centimetres, 25 fps.\nSUBJECT AND ACTION: a single green hop cone hangs from its vine and sways gently in the breeze; as the camera glides closer, the first rays of the rising sun break through behind it and light up its papery petals.\nPLACE: a hop field in the countryside, tall vines on wires softly out of focus behind, more hop cones blurred in the background, gentle hills on the horizon.\nLIGHT: one hard low key from the rising sun straight ahead behind the cone, about 6:1, soft morning mist catching the light, expose to protect the highlights.\nCOLOUR: fresh greens and warm gold, pale blue sky, no glow.\nSOUND: birdsong, a light breeze rustling the leaves, quiet open-air ambience.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445387-ILFx2uyPaNjETnJaghOE",
+  "created": 1791445536251,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
