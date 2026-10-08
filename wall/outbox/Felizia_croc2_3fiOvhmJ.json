@@ -1,0 +1,27 @@
+{
+  "author": "Felizia",
+  "label": "croc2",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.56,
+  "render_s": 313,
+  "prompt": "ACTION: the dapper crocodile gentleman from image 1 squeezes through an open safe-deposit hatch and climbs up, emerging to stand proudly on top of a small mound of stacked gold bars, cane in one hand, a tiny golden ladder leaning against the mound.\nSHOT: low wide angle looking up at him on the gold mound, 35mm lens, slow push in of a few centimetres.\nPLACE: inside a vast treasure chamber, a mound of gleaming stacked gold bars, a little golden ladder leaning on it, warm golden reflections all around.\nLIGHT: one warm golden key from above, about 3:1, shiny highlights on the gold.\nSOUND: webbed waddling and scrabbling, then a short glorious angelic choir singing a bright \"aaah\" the moment he steps onto the gold; no spoken words.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791456771-T6rcNwmdUHke3fiOvhmJ",
+  "created": 1791457204719,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
