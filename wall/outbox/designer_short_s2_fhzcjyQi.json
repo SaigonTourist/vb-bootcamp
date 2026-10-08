@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s2",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "9:16",
+  "cost_eur": 0.54,
+  "render_s": 85,
+  "prompt": "ACTION: The big comrade's belly rises and falls with each snore, the tent wall flutters with it. Gaius blinks once, very slowly, and does not move.\nSHOT: wide shot, eye level, slow pull back that reveals the whole crowded tent, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: early morning, low orange sunrise light from the left, long soft shadows, warm orange sky.\nSOUND: only loud rhythmic snoring, creaking leather, a rope straining; the rest is quiet room tone.",
+  "lint": [],
+  "note": "YouTube Short Legionär, Szene 2",
+  "job": "gen-vid-1791457452-HSd2DKXfM32EfhzcjyQi",
+  "created": 1791457989286,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
