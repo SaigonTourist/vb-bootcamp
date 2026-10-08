@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "short_s11",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "9:16",
+  "cost_eur": 0.72,
+  "render_s": 75,
+  "prompt": "ACTION: Gaius' eyelids slowly droop halfway, his head dips, then his eyes snap wide open again and he stands rigidly straight. The torch flame flickers gently and keeps the same small size.\nSHOT: medium shot, eye level, very slow push-in, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: night, deep blue moonlight, one flickering orange torch as the only warm light.\nSOUND: only crickets, a crackling torch, a slow heavy heartbeat; the rest is quiet room tone.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "CONTINUITY",
+      "msg": "No model remembers another shot. Restate the full blocking instead of 'as before'."
+    }
+  ],
+  "note": "English redo, fixed take",
+  "job": "gen-vid-1791459444-96fbF4iiSf4r1ttBTSzJ",
+  "created": 1791460218029,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
