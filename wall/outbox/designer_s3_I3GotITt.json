@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "A_teaser",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 372,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman looks straight into the lens and speaks in German, dry and deadpan with a straight face, at a brisk natural pace, a short pause before the word EINER and raises one finger on it, keeps eye contact to the end, then a small smile at the very end.\nDIALOGUE: \"Wie viele Deutsche wechseln eine Glühbirne? EINER. Wir sind effizient. Humor ist nicht vorgesehen. Also, ja.\"\nSCENE: she sits at a round oak table in a quiet meeting room, navy knitted top, dark blond hair tied back loosely. One soft window light from camera left, warm lamp in the background.\nRULES: German pronunciation, native speaker from southern Germany. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a relaxed half smile.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791447272-fV41gbKOlltyI3GotITt",
+  "created": 1791447660279,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
