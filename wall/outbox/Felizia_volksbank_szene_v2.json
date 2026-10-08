@@ -1,0 +1,21 @@
+{
+  "author": "Felizia",
+  "label": "volksbank_szene_v2",
+  "template": "",
+  "slot": "",
+  "engine": "veo",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 45,
+  "ratio": "16:9",
+  "cost_eur": null,
+  "render_s": null,
+  "prompt": "7 chained 8s clips (first-frame continuation): customer enters a grand bank hall, greeted by three clerks, asks for a property loan, is introduced to financing expert Mr Bloom, walks with him to a meeting room (screens show the bank name), door closes. English dialogue, one distinct voice per person.",
+  "lint": [],
+  "note": "Einige Szenen wurden mit KI erstellt. Bekannter Fehler: leise Klaviermusik im letzten Clip.",
+  "job": "openrouter-veo-3.1-fast-7-clips",
+  "created": 1791450549144,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
