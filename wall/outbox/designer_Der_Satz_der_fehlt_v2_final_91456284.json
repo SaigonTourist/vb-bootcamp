@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "Der_Satz_der_fehlt_v2_final",
+  "template": "C_own_material",
+  "slot": "final",
+  "engine": "cut",
+  "model": "veo-fast + h3",
+  "mode": "assisted",
+  "duration": 56.3,
+  "ratio": "16:9",
+  "cost_eur": 6.17,
+  "render_s": null,
+  "prompt": "Drehbuch v2: Risikokomitee, fester Sitzplan, Nahaufnahmen aus dem Raumbild, Füllwörter geschnitten (56 s).",
+  "lint": [],
+  "note": "Der Satz, der fehlt – v2 final, 56 s",
+  "job": "final-C-v2r-1791456284",
+  "created": 1791456291783,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
