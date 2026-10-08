@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "A_s1_draft",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 56,
+  "prompt": "SHOT: medium-wide, eye level, 35mm at T2.8, camera follows one metre behind him at walking pace and stops when he stops, 25 fps.\nSUBJECT AND ACTION: seen from behind, a man in a navy suit with an open shirt collar walks through an open glass door, stops at the head of a long table, rests both hands on an empty chair and says in German: \"Ich habe etwas zu berichten.\" The seven people at the table turn toward him; two raise their eyebrows.\nPEOPLE: five men and two women aged forty to sixty-five, grey and dark suits, open collars, ordinary office faces.\nPLACE: long walnut table, closed folders and water glasses, floor-to-ceiling window with a view over the rooftops of Vienna.\nLIGHT: soft overcast daylight from the window, about 4:1, ceiling lights on, expose to protect the highlights.\nCOLOUR: navy, grey and walnut, natural skin.\nSOUND: low string pulse under quiet room tone, footsteps on carpet, then his line. Only he speaks.",
+  "lint": [],
+  "note": "Assisted Draft (veo-fast): Ich habe etwas zu berichten",
+  "job": "gen-vid-1791448670-dsaJfRh56RWb9gYcAWg2",
+  "created": 1791448744780,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
