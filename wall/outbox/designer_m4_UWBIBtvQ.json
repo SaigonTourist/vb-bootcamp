@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "m4",
+  "template": "D_montage",
+  "slot": "m4",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 287,
+  "prompt": "SHOT: medium-wide shot, as in the start frame, a gimbal moving smoothly alongside her at walking pace, 35mm lens.\nACTION: the woman walks into the office with the grey laptop under her arm, reaches her desk and sits down, setting the laptop on the desk, calm and confident, mouth closed.\nSCENE: afternoon in a modern Vienna bank office with glass partitions, through the large window old tiled rooftops and the tall gothic spire of the cathedral, a colleague in the background soft and blurred. Navy blazer over a plain cream top, shoulder-length chestnut-brown hair with a few grey strands, small silver earrings, thin silver watch on her left wrist.\nSOUND: quiet office room tone, her footsteps, the soft tap of the laptop on the desk. Silent woman, ambient sound only.\nRULES: same face, hair and outfit as in the start frame. She stays silent with lips still for the whole take. Eyes on her work, the window or the people around her. Warm natural daylight. Smooth camera, one continuous take.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456183-IErsC8DoXVkYUWBIBtvQ",
+  "created": 1791456619600,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
