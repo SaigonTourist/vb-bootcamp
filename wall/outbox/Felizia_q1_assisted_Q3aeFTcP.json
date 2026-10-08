@@ -1,0 +1,27 @@
+{
+  "author": "Felizia",
+  "label": "q1_assisted",
+  "template": "B_series",
+  "slot": "q1",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 386,
+  "prompt": "SHOT: medium shot from the waist up, eye level, camera locked off on a tripod, 35mm lens, as in the\nstart frame.\nACTION: the woman looks straight into the lens and speaks in German, warm and direct, at a natural\npace, a small open-hand gesture on the word in capitals, keeps eye contact to the end.\nDIALOGUE: \"Erste Frage: Was ist Ihnen gerade WICHTIG? Dann zuhören, nicht antworten. Also, ja.\"\nSCENE: she stands leaning lightly against a tall table in a bright training room, dark green fine-knit\nblazer over a grey top, dark blond hair tied back loosely. One soft window light from camera right,\nwarm lamp in the background.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera,\nsame framing for the whole take. Speech ends on the last word, then a short friendly nod.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791451072-eyYP53sLGnc3Q3aeFTcP",
+  "created": 1791451891402,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
