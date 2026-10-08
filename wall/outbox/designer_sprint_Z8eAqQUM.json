@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "sprint",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 12,
+  "ratio": "16:9",
+  "cost_eur": 2.5,
+  "render_s": 307,
+  "prompt": "ACTION: a road cyclist in black wins a bunch sprint on a grand tour finishing straight, beating a rider in a yellow leader's jersey and a rider in a white jersey with rainbow chest stripes by half a wheel, then sits up and raises both arms.\n\nTHE RIDER (same in every shot): late twenties, dark stubble, metallic dark-blue aero helmet, violet mirrored wraparound sunglasses, black jersey with a black-and-white block pattern on the left sleeve, black bib shorts, black socks, matte black bike, deep carbon wheels, tan-wall tyres.\n\nSHOT 1 (0-4 s): low tracking shot ahead of the bunch, 35mm lens. Twenty riders in tight formation; the rider in black sits third wheel behind yellow and rainbow, then swings right into open road. Whip pan right into shot 2.\n\nSHOT 2 (4-8 s): side tracking shot at hip height, 50mm lens. The three sprint shoulder to shoulder out of the saddle, bikes rocking; the rider in black edges ahead. Fast push into the front wheels into shot 3.\n\nSHOT 3 (8-12 s): frontal shot from behind the finish line, 85mm lens, slight slow motion. All three throw their bikes at the white line; the black bike crosses first. He sits up, arms wide, shouting with joy.\n\nPLACE: sunny finishing straight in a southern French town, dark asphalt, barriers packed with flag-waving spectators, plane trees, finish gantry overhead.\nLIGHT: hard late-afternoon sun from camera-left, long shadows, reflections on helmets and carbon.\nSOUND: crowd roar building to the line, whirring freewheels, tyres humming, the crowd erupting at the finish.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "257 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791456127-gWMtEROxGEWPZ8eAqQUM",
+  "created": 1791456481731,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
