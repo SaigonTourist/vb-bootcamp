@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "a3",
+  "template": "C_own_material",
+  "slot": "a3",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 1.67,
+  "render_s": 206,
+  "prompt": "ACTION: the woman from image 1: 'Kollegin Klammer', an anime-style woman in her thirties with short spiky red hair, big determined green eyes, an orange cardigan over a white shirt, dark trousers, one single large silver stapler as her weapon, lowers her stapler, pauses and glances at the back of the printer from image 2: a gigantic grey office printer as an anime boss monster, two glowing red status lights as eyes, its paper tray a jagged snapping mouth, a dark purple aura, where she spots a small power button; she casually presses it with one finger. The red eyes go dark, the purple aura fizzles out, the paper drifts gently to the floor; she shrugs, colleagues pop up from behind the desks cheering with joyful anime tears, and the sun rises golden in the window behind them.\nSHOT: medium shot, the camera calmly following her to the back of the printer, then a slow pull back to a wide shot of the whole cheering office with the sunrise in the window.\nPLACE: the open-plan office, the giant printer, desks, papers on the floor, large windows.\nLIGHT: from red and purple night to warm golden sunrise light flooding through the windows.\nSOUND: a tiny plastic click, a falling electronic power-down whine, soft rustle of settling paper, then happy office colleagues shouting \"Juhu!\" and clapping.\nSTYLE: over-the-top action anime style, cel-shaded 2D look, bold clean line art, extremely dramatic camera moves, speed lines, glowing energy auras, white impact frames, floating papers like falling petals, epic lens flares, vivid orange and teal palette with deep shadows, clean wordless frames with plain surfaces.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "270 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    },
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "epic: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791457149-3V3nZmvOutOIyg2J5wYg",
+  "created": 1791457385179,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
