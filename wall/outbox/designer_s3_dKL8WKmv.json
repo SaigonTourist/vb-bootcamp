@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "A_teaser",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 481,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman sits relaxed, soft eyes, smooth forehead. Looking into the lens she asks the question in German with light curiosity, answers \"Wir.\" with a small proud nod, then delivers the rest dry and warm, then breaks into a short, warm, genuine laugh, eyes crinkling, and looks back into the lens.\nDIALOGUE: \"Wer kennt seine Kunden am längsten? Wir. Manche schon seit dem ersten SPARSCHWEIN.\"\nSCENE: light grey armchair in a quiet lounge corner, camel blazer over a cream top, brown hair in an updo. Sheer curtains and a window on camera left, a brass lamp and a wooden shelf behind her. One soft window light from camera left.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera, same framing for the whole take.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LAUGH",
+      "msg": "Acted laughter looks uncomfortable. Direct a smile or a short smirk."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791446399-NQdczfmxTdPjdKL8WKmv",
+  "created": 1791446938649,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
