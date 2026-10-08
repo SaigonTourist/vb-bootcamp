@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "A_teaser_final",
+  "template": "A_teaser",
+  "slot": "final",
+  "engine": "veo",
+  "model": "veo 3.1 + seedance 2.5 + hailuo-3",
+  "mode": "assisted",
+  "duration": 20.4,
+  "ratio": "16:9",
+  "cost_eur": 6.84,
+  "render_s": null,
+  "prompt": "Finished teaser: s1 a busy grey street in the rain, the camera comes down to the woman standing alone (Veo). s2 a manager shares his umbrella: Kommen Sie, unter den Schirm. Willkommen im Team! (Seedance). s3 presenter: Schlechtes Wetter gibt es nicht. Nur gute Laune mit Regenschirm. (H3). End card: Gutes zieht Kreise.",
+  "lint": [],
+  "note": "Finished teaser, template A",
+  "job": "final-A_teaser-1791457163",
+  "created": 1791457168183,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
