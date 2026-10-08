@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "bridge",
+  "template": "B_series",
+  "slot": "bridge",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 0.59,
+  "render_s": 271,
+  "prompt": "SHOT: medium shot from the waist up, eye level, camera locked off on a tripod, 35mm lens, exactly as in the first frame.\nACTION: the woman keeps looking into the lens, gives one small calm nod, takes a slow relaxed breath through the nose, and settles back into the same still, friendly pose as in the last frame. Her lips stay gently closed the whole time.\nSCENE: she sits at a pale wooden table with a plain closed folder in front of her, in a modern office, navy wool blazer over a cream blouse, shoulder-length dark-blonde wavy hair. A white wall with pale oak shelves behind her. One soft window light from camera left.\nSOUND: quiet room tone only, a soft breath.\nRULES: steady camera, same framing for the whole take, smooth natural motion, ends exactly in the pose of the last frame.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791455878-tkmRghjH6rEedWfcZXeo",
+  "created": 1791456163290,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
