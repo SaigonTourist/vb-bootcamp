@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "A_teaser_preview",
+  "template": "A_teaser",
+  "slot": "preview",
+  "engine": "cut",
+  "model": "veo + seedance + h3",
+  "mode": "raw",
+  "duration": 20.4,
+  "ratio": "16:9",
+  "cost_eur": 6.2,
+  "render_s": null,
+  "prompt": "Schnitt: s1 (Veo) + s2 (Seedance) + s3 (H3) + Endkarte, alles Raw-Takes",
+  "lint": [],
+  "note": "Teaser A komplett: drei Raw-Takes zusammengeschnitten",
+  "job": "preview-A-1791447083",
+  "created": 1791447087742,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
