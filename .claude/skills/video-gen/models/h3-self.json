@@ -1,0 +1,48 @@
+{
+  "key": "h3-self",
+  "id": "minimax-h3",
+  "provider": "media-pipeline",
+  "name": "MiniMax H3 (Brutal self-hosted)",
+  "role": "Same engine as h3, rendered on Brutal's own GPU instead of OpenRouter: people speaking with their own audio, image-to-video from one start frame",
+  "limits": {
+    "durations": [5, 10, 15],
+    "ratios": ["9:16"],
+    "resolutions": [],
+    "frame_images": ["first_frame"],
+    "refs": "none",
+    "max_refs": 0,
+    "audio": true,
+    "seed": false
+  },
+  "defaults": { "duration": 10, "aspect_ratio": "9:16", "generate_audio": true },
+  "pricing": {
+    "usd_per_second": 0,
+    "note": "Not billed through OpenRouter: it runs on Brutal's GPU. The estimate shows 0; every real render still costs GPU time, so the confirmation rule still applies."
+  },
+  "render_minutes": [2, 16],
+  "prompt_templates": ["h3_talking.md", "h3_object.md"],
+  "example_call": {
+    "method": "POST",
+    "url": "https://media-pipeline.cloud.brutal.ai/api/generate",
+    "headers": { "Authorization": "Bearer <managed credential for media-pipeline.cloud.brutal.ai>", "Content-Type": "application/json" },
+    "body": {
+      "topic": "{{prompt}}",
+      "language": "de",
+      "engine": "minimax-h3",
+      "rewritePrompt": false,
+      "voiceMode": "native",
+      "subtitlesEnabled": false,
+      "musicEnabled": false,
+      "duration": 10,
+      "image_ref": "data:image/png;base64,{{first_frame}}"
+    }
+  },
+  "gotchas": [
+    "The GPU is off when idle. The first render after a pause waits 4 to 7 minutes for it to start; it switches off after about 15 idle minutes. Launch related takes together.",
+    "Render time once the GPU runs: about 1.5 min for 5 s, 4.5 min for 10 s, 9 min for 15 s.",
+    "Only 5, 10 or 15 s. One start frame (--first-frame), no reference images, no last frame.",
+    "The pipeline was built for reels: expect a vertical 1080x1920 clip. Check the first render before planning a 16:9 piece around it.",
+    "'Try again later or use a hosted engine' means no GPU was available: use h3 (OpenRouter) for that take.",
+    "Same habits as h3: it keeps talking to the end and invents lettering on covers and screens."
+  ]
+}

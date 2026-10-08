@@ -35,6 +35,10 @@ exactly like this:
 
 Save. The key never appears in your session, and it is switched off after today.
 
+**Only if the facilitators hand you a second slip (Brutal GPU):** add one more credential the same way, with
+**Name** `MEDIA_PIPELINE`, **Allowed websites** `media-pipeline.cloud.brutal.ai`, **Path prefixes** `/api/generate`,
+the same `Authorization` / `Bearer` header and the key from that slip. Then start a new session.
+
 ## 3. Add three settings
 
 In the same environment settings, under **environment variables**, add:

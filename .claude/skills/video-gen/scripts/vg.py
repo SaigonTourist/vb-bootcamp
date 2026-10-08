@@ -45,6 +45,7 @@ SKILL = Path(__file__).resolve().parents[1]
 MODELS = SKILL / "models"
 ASSETS = SKILL / "assets"
 BASE = "https://openrouter.ai/api/v1"
+MP_BASE = "https://media-pipeline.cloud.brutal.ai"  # Brutal's self-hosted H3 (engine h3-self)
 
 
 def repo_root() -> Path:
@@ -258,6 +259,33 @@ def or_headers():
     return {"Authorization": f"Bearer {k}"} if k else {}
 
 
+def mp_headers():
+    """Brutal's media pipeline: like OpenRouter, a managed credential for media-pipeline.cloud.brutal.ai adds the
+    header in the cloud; MEDIA_PIPELINE_API_KEY in the environment is the local fallback."""
+    k = os.environ.get("MEDIA_PIPELINE_API_KEY", "").strip()
+    return {"Authorization": f"Bearer {k}"} if k else {}
+
+
+def is_mp(m_or_job: dict) -> bool:
+    return m_or_job.get("provider") == "media-pipeline"
+
+
+def mp_body(m, prompt, dur=None, first_frame=None, refs=(), last_frame=None) -> dict:
+    lim = m["limits"]
+    dur = int(dur or m["defaults"]["duration"])
+    if dur not in lim["durations"]:
+        die(f"{m['name']} renders {lim['durations']} seconds only, not {dur}.")
+    if refs or last_frame:
+        die(f"{m['name']} takes one start frame (--first-frame) and nothing else.")
+    body = {"topic": prompt, "language": os.environ.get("VG_LANG", "de"), "engine": m["id"], "rewritePrompt": False,
+            "voiceMode": "native", "subtitlesEnabled": False, "musicEnabled": False, "duration": dur}
+    if first_frame:
+        body["image_ref"] = data_url(first_frame)
+    if os.environ.get("VG_MP_DRYRUN") == "1":
+        body["dryRun"] = True  # free integration test: no GPU, the "video" is a placeholder file
+    return body
+
+
 def sniff_mime(raw: bytes, name: str) -> str:
     """The bytes decide, not the extension: image models may return JPEG for a file we named .png."""
     if raw[:8] == b"\x89PNG\r\n\x1a\n":
@@ -279,9 +307,9 @@ def data_url(p: Path) -> str:
     return f"data:{sniff_mime(raw, str(p))};base64," + base64.b64encode(raw).decode()
 
 
-def download(url, dest: Path, auth=True):
+def download(url, dest: Path, auth=True, headers=None):
     dest.parent.mkdir(parents=True, exist_ok=True)
-    req = urllib.request.Request(url, headers=or_headers() if auth else {})
+    req = urllib.request.Request(url, headers=headers if headers is not None else (or_headers() if auth else {}))
     with urllib.request.urlopen(req, timeout=600) as r, open(dest, "wb") as f:
         shutil.copyfileobj(r, f, 1 << 20)
     return dest
@@ -410,7 +438,7 @@ def cmd_models(a):
         live = {x["id"]: x for x in http("GET", f"{BASE}/videos/models", headers=or_headers())["data"]}
         print()
         for m in all_models():
-            if m["key"] == "image":
+            if m["key"] == "image" or is_mp(m):
                 continue
             x = live.get(m["id"])
             if not x:
@@ -451,7 +479,7 @@ def budget_check(usd, force=False):
     return spent
 
 
-ENGINE_FAMILY = {"veo-fast": "veo"}  # drafting a Veo slot on Veo Fast is part of the method
+ENGINE_FAMILY = {"veo-fast": "veo", "h3-self": "h3"}  # drafting a Veo slot on Veo Fast is part of the method
 
 
 def slot_engine(slot: str | None):
@@ -479,11 +507,17 @@ def cmd_submit(a):
             + (" (or veo-fast for a draft)" if fixed == "veo" else "")
             + ". Only if the designer explicitly asks for another engine: add --change-engine and say so.")
     prompt = read_prompt(a)
-    body = build_body(m, prompt, a.dur, a.ratio, a.resolution, None if not a.no_audio else False, a.seed,
-                      a.first_frame, a.last_frame, a.ref, a.ref_video, a.negative)
-    nrefs = len(a.ref) if not (a.first_frame or a.last_frame) else 0
-    usd = estimate_usd(m, body["duration"], body.get("resolution"), body["generate_audio"], nrefs, body["aspect_ratio"])
-    print(f"  {m['name']} · {body['duration']} s · {body['aspect_ratio']} · estimate {fmt_money(usd)}")
+    if is_mp(m):
+        body = mp_body(m, prompt, a.dur, a.first_frame, a.ref, a.last_frame)
+        body["aspect_ratio"], body["generate_audio"] = m["defaults"]["aspect_ratio"], True
+        usd = 0.0
+        print(f"  {m['name']} · {body['duration']} s · vertical · runs on Brutal's GPU (not billed through OpenRouter)")
+    else:
+        body = build_body(m, prompt, a.dur, a.ratio, a.resolution, None if not a.no_audio else False, a.seed,
+                          a.first_frame, a.last_frame, a.ref, a.ref_video, a.negative)
+        nrefs = len(a.ref) if not (a.first_frame or a.last_frame) else 0
+        usd = estimate_usd(m, body["duration"], body.get("resolution"), body["generate_audio"], nrefs, body["aspect_ratio"])
+        print(f"  {m['name']} · {body['duration']} s · {body['aspect_ratio']} · estimate {fmt_money(usd)}")
     findings = lint(m, prompt, body["duration"])
     if a.raw:
         print("  raw mode: sent exactly as typed, no rewrite. Findings are kept for after the clip lands.")
@@ -502,6 +536,16 @@ def cmd_submit(a):
     if MOCK:
         jid = f"mock-{int(time.time() * 1000)}"
         status = "pending"
+    elif is_mp(m):
+        send = {k: v for k, v in body.items() if k not in ("aspect_ratio", "generate_audio")}
+        try:
+            gpu = http("GET", f"{MP_BASE}/api/generate/gpu-status", headers=mp_headers(), timeout=30)
+            if gpu.get("vm") != "ready":
+                print(f"  · Brutal GPU is {gpu.get('vm')}: add 4 to 7 minutes for it to start. Launch related takes now, together.")
+        except RuntimeError:
+            pass
+        r = http("POST", f"{MP_BASE}/api/generate", body=send, headers=mp_headers())
+        jid, status = r["task"]["id"], r["task"].get("status", "pending")
     else:
         r = http("POST", f"{BASE}/videos", body=body, headers=or_headers())
         jid, status = r["id"], r.get("status", "pending")
@@ -509,19 +553,19 @@ def cmd_submit(a):
                    "slot": str(target.relative_to(REPO)) if target else None, "duration": body["duration"],
                    "ratio": body["aspect_ratio"], "prompt": prompt, "estimate_usd": round(usd, 4),
                    "status": status, "mock": MOCK, "submitted": time.time(), "mode": "raw" if a.raw else "assisted",
-                   "lint": [[lvl, code, msg] for lvl, code, msg in findings]})
+                   "lint": [[lvl, code, msg] for lvl, code, msg in findings], "provider": m.get("provider", "openrouter")})
     lo, hi = m.get("render_minutes", [0, 0])
     print(f"  → job {jid} queued ({lo}-{hi} min). Run 'vg.py wait' to collect it; keep working meanwhile.")
 
 
-def finish(j: dict, src: Path | None = None, url: str | None = None, cost=None):
+def finish(j: dict, src: Path | None = None, url: str | None = None, cost=None, headers=None):
     name = f"{j['label']}_{j['id'][-8:]}.mp4"
     dest = OUT / name
     if src:
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src, dest)
     else:
-        download(url, dest)
+        download(url, dest, headers=headers)
     placed, take = None, None
     if j.get("slot"):
         placed = REPO / j["slot"]
@@ -564,6 +608,23 @@ def cmd_wait(a):
         for j in pending:
             if j.get("mock"):
                 finish(j, src=mock_clip(), cost=0.0)
+                continue
+            if is_mp(j):
+                try:
+                    t = http("GET", f"{MP_BASE}/api/generate/{j['id']}", headers=mp_headers(), timeout=60)["task"]
+                except RuntimeError as e:
+                    print(f"  · {j['label']}: poll error, retrying ({e})")
+                    continue
+                st = t.get("status")
+                if st == "completed":
+                    finish(j, url=f"{MP_BASE}/api/generate/{j['id']}/download", cost=0.0, headers=mp_headers())
+                elif st in ("failed", "cancelled"):
+                    err = (t.get("errorMessage") or st)[:400]
+                    ledger_append({"id": j["id"], "status": "failed", "error": err})
+                    hint = " No GPU was free: launch this take on h3 (OpenRouter)." if "hosted engine" in err else ""
+                    print(f"  ✗ {j['label']} failed: {err}{hint}")
+                elif st != j.get("status"):
+                    ledger_append({"id": j["id"], "status": st})
                 continue
             try:
                 s = http("GET", f"{BASE}/videos/{j['id']}", headers=or_headers(), timeout=60)
@@ -983,6 +1044,13 @@ def cmd_doctor(a):
             line(False, "bucket upload + signed link", str(e)[:200])
     else:
         print("  · no bucket configured (VG_S3_*): clips stay in out/; publish and gallery are off")
+    if not MOCK:
+        try:
+            gpu = http("GET", f"{MP_BASE}/api/generate/gpu-status", headers=mp_headers(), timeout=20)
+            print(f"  · h3-self (Brutal GPU): key accepted, GPU {gpu.get('vm')}")
+        except Exception as e:  # noqa: BLE001
+            why = "no credential for media-pipeline.cloud.brutal.ai" if "401" in str(e) else str(e)[:100]
+            print(f"  · h3-self (Brutal GPU) not available here: {why}. h3 through OpenRouter still works.")
     print(f"  · Bootcamp wall: {wall_url() or 'not configured'}")
     print("  ready." if ok else "  fix the ✗ lines before the session.")
     sys.exit(0 if ok else 1)

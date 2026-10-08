@@ -25,8 +25,23 @@ python3 .claude/skills/video-gen/scripts/assemble.py --help
 | Drafting a Veo shot | `veo-fast` | About a quarter of the price; same prompt and seed, then `veo` for the keeper |
 | B-roll without faces, scenes from several references, long takes | `seedance` | Up to 30 s and many references; rejects images of real people |
 | A start frame (a presenter, a room, an object pose) | `vg.py image` | Nano Banana Pro, about 0.13 € |
+| The same H3 on Brutal's own GPU, vertical 9:16 | `h3-self` | Only when the facilitators say so and `doctor` shows "h3-self … key accepted"; 5, 10 or 15 s; one start frame |
 
 `vg.py show <key>` prints the exact call template, limits, prices and known failure modes.
+
+### h3-self: H3 on Brutal's GPU
+
+`h3-self` runs MiniMax H3 on Brutal's own GPU (media-pipeline.cloud.brutal.ai) instead of OpenRouter. It
+fills `h3` slots like `h3` does (same engine family, no `--change-engine` needed). Use it only when the
+facilitators announce it, or when OpenRouter is out of credit, and only if `vg.py doctor` shows the key as accepted.
+
+- `vg.py submit h3-self --prompt-file <file> --dur 5|10|15 [--first-frame img] --slot templates/<t>/<slot>`,
+  then `vg.py wait` and `vg.py wall` as always. The prompt is sent word for word, with its own audio.
+- The GPU is off when idle: the first render waits 4 to 7 minutes for it to start, then about 1.5 / 4.5 / 9
+  minutes for 5 / 10 / 15 s. Launch related takes together, not one by one. Say this to the designer before launching.
+- Expect a vertical clip. Never send the same take twice to check: `vg.py status` shows it is running.
+- It costs GPU time, not OpenRouter credit: the estimate shows 0 €, but still launch only what the designer asked for.
+- A failure saying "use a hosted engine" means no GPU was free: offer `h3` (OpenRouter) for that take.
 
 ## Hands-on I, part 1: raw mode (unassisted)
 
