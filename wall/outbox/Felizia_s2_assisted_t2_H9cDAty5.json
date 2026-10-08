@@ -1,0 +1,32 @@
+{
+  "author": "Felizia",
+  "label": "s2_assisted_t2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 15,
+  "ratio": "16:9",
+  "cost_eur": 1.39,
+  "render_s": 309,
+  "prompt": "ACTION: two men in a grand old bank, a silver-haired man in a charcoal suit and a tall bearded man in a grey wool overcoat, walk side by side along an elegant corridor into a meeting room, sit down at a large wooden table, and the heavy door swings shut behind them.\nCAST: exactly two people. Mr. Bloom: about 55, short silver-grey hair, clean-shaven, charcoal suit and dark tie, warm gravelly baritone. The customer: tall, short dark beard, slim glasses, grey wool overcoat over a dark suit, very deep rich bass-baritone.\nSHOT: a medium front framing moving backwards at walking pace so both faces stay in view, then a steady wide shot of the room, 35mm lens.\nPLACE: an elegant corridor with marble floor, wood panelling and framed paintings, opening into a noble meeting room with a large polished wooden table, leather chairs, a side table holding a coffee machine, a plate of cookies and glasses, and two large wall screens showing plain dark-blue panels turned mostly away from the camera.\nLIGHT: one soft warm key from tall windows camera-left, about 4:1.\nDIALOGUE, English, one voice at a time, lips in sync, calm and refined: Mr. Bloom, open hand \"Allow me to show you one of our consultation rooms.\" Customer \"Certainly, thank you.\" Walking, customer \"A good acquaintance recommended your bank most warmly.\" Mr. Bloom, smiling \"That is very kind to hear.\" In the room, Mr. Bloom \"Please, do take a seat.\"\nSOUND: footsteps echoing on marble then wood, quiet corridor room tone, a chair pulled out, the heavy door closing with a soft click at the end; voices only on the spoken lines; gentle smiles.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "276 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    },
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "screens: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791450985-uU3E0T3zG1cHH9cDAty5",
+  "created": 1791451886377,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
