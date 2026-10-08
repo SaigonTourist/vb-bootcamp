@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "a2",
+  "template": "C_own_material",
+  "slot": "a2",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.72,
+  "render_s": 66,
+  "prompt": "SHOT: low angle medium shot, 24mm, the camera slowly circles her, the frame shaking harder and harder, 25 fps.\nSUBJECT AND ACTION: Kollegin Klammer, an anime-style woman in her thirties with short spiky red hair, big determined green eyes, an orange cardigan over a white shirt and dark trousers, raises one single large silver stapler high above her head and charges a gigantic energy attack: her orange aura grows into a towering blaze, the whole room shakes, papers spiral upward, and she shouts in German, slowly and with full force: \"Ultimativer ... Heftklammer ... HAGELSTURM!\"\nPLACE: the dark open-plan office at night, desks trembling, the giant grey printer with red eyes looming in the background.\nLIGHT: her orange aura as the key from below, teal night light, epic lens flares.\nSOUND: a rising roar of energy, rumbling and rattling desks, her shout in German.\nSTYLE: over-the-top action anime style, cel-shaded 2D look, bold clean line art, extremely dramatic camera moves, speed lines, glowing energy auras, white impact frames, floating papers like falling petals, epic lens flares, vivid orange and teal palette with deep shadows, clean wordless frames with plain surfaces.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "190 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    },
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "epic: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791456661-8ohxdEykLyNdfgJ0BkIf",
+  "created": 1791457379999,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
