@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "e4_draft",
+  "template": "E_moon",
+  "slot": "e4",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 110,
+  "prompt": "SHOT: wide shot from the lunar surface, as in the start frame, camera locked off, the impact plays in slow motion, 24mm lens, 25 fps.\nSUBJECT AND ACTION: the dark red wine bottle drops the last few metres onto the grey dusty ground and slams into it; the glass shatters into hundreds of glittering shards that fly outward in slow motion, a large burst of dark red wine splashes up in a crown and droplets arc away, lunar dust puffs up around the impact.\nPLACE: the grey cratered surface of the Moon, small rocks, black sky, the blue Earth small on the horizon.\nLIGHT: hard sunlight from camera right, long black shadows, the wine and shards glinting.\nCOLOUR: grey moon dust, black sky, deep red wine, sparkling glass.\nSOUND: a dull heavy boom, the crunch and tinkle of breaking glass, the splash of liquid, then silence.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791458133-RPyQL2P5WZjiDpmpWNaj",
+  "created": 1791458259807,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
