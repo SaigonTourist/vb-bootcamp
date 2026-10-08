@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "a0_final",
+  "template": "C_own_material",
+  "slot": "a0",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 1.44,
+  "render_s": 90,
+  "prompt": "SHOT: wide shot from a distance like a classic launch broadcast, as in the start frame, the camera tilts up slowly and smoothly to follow the ascent, 85mm lens, 25 fps.\nSUBJECT AND ACTION: the dark red wine bottle flies upward like a real rocket, climbing steadily into the sky on a bright white-orange exhaust flame from its base, staying upright and rigid; below, the smoke cloud at the launch pad billows and spreads outward.\nPLACE: a coastal launch site at the sea, a lattice launch tower, low service buildings and lamp posts, calm sea to the horizon.\nLIGHT: sunset behind, warm orange horizon fading into a purple sky, the exhaust flame lighting the smoke from inside, expose to protect the highlights.\nCOLOUR: deep orange, violet and the dark red of the bottle, natural rich tones.\nSOUND: a deep rocket rumble building to a roaring engine, wind across the launch site.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791457693-On7jZR6cZGuuugrrUuIO",
+  "created": 1791457791375,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
