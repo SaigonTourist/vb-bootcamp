@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "e2_final",
+  "template": "E_moon",
+  "slot": "e2",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 1.44,
+  "render_s": 109,
+  "prompt": "SHOT: wide shot, as in the start frame, camera locked off and completely still, 35mm lens, 25 fps.\nSUBJECT AND ACTION: the dark red wine bottle, upright and rigid, accelerates straight up on a bright exhaust flame, climbs quickly through the frame and flies out of the top edge within four seconds, leaving a long glowing flame trail and the curved Earth behind.\nPLACE: low Earth orbit about 100 kilometres up, the curved Earth with ocean and white clouds far below, a thin glowing blue band of atmosphere, black space above.\nLIGHT: the sun low behind the bottle, a warm rim of light on the glass, expose to protect the highlights.\nCOLOUR: deep blue Earth, black space, the dark red bottle, warm sunlight.\nSOUND: a deep fading engine rumble, then a near silent low hum.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791458664-UJ9B8h7svTrgrgjBwyZw",
+  "created": 1791458809339,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
