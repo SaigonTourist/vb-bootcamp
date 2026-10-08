@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "raw",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 273,
+  "prompt": "erstelle mir ein kurzes video, ein kundenberater des Volksbanken Verbunds Österreich bereitet hochnervös einen Meetingraum bereit für ein unglaublich wichtiges Kundengespräch, er dekoriert das Zimmer und ist dabei sichtbar nervös, er läuft auf und ab und schwitzt sichtlich vor dem wichtigen Kundentermin.",
+  "lint": [],
+  "note": "Raw mode: nervöser Kundenberater",
+  "job": "gen-vid-1791445472-i7olyqRIqs9PqiTGOl2Z",
+  "created": 1791445775024,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
