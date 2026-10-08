@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "s1",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 83,
+  "prompt": "Continuous commercial-style push-in shot, 6 seconds, no cuts, seamless match-cut transitions.\n\n0.0–1.0s: Starts on the provided frame: close-up of fresh green hop cones in the foreground, sunlit hop field behind, warm golden sun low in the background with soft lens flare. Camera pushes smoothly forward into the hop cones.\n\n1.0–2.0s: Pushing through the green hop leaves transitions seamlessly into crystal-clear spring water cascading down a mossy alpine mountain waterfall, sparkling in sunlight.\n\n2.0–3.0s: The camera dives into the water spray, which morphs into golden malted barley grains pouring and tumbling in a malting facility, warm light, dust particles glowing.\n\n3.0–4.0s: Flying through the falling grains reveals a traditional brewery interior with polished copper brew kettles and gentle steam, warm amber lighting.\n\n4.0–6.0s: The camera pushes into a copper kettle and ends in an extreme macro close-up of golden beer: rising carbonation bubbles, rich amber color, backlit glow, filling the entire frame.\n\nStyle: premium beer commercial, cinematic, shallow depth of field, warm golden color grade, smooth accelerating dolly-in, photorealistic, 4K.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "4k, cinematic: says nothing executable. Name the lens, the distance, one light source and its direction."
+    },
+    {
+      "level": "warn",
+      "code": "NO_SHOT",
+      "msg": "No SHOT: line. Veo picks the framing itself and tends to push in on faces."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791446108-b6KDnbNSjyZpPhWu7SsR",
+  "created": 1791446213118,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
