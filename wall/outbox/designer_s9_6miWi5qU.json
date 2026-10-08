@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s9",
+  "template": "C2_sekunde_danach",
+  "slot": "s9",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 7,
+  "ratio": "16:9",
+  "cost_eur": 0.82,
+  "render_s": 340,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the woman with short ash-blond hair in the dark navy blazer lets go of the folder, sets her work bag down beside the desk, sits back down and looks to her colleague in the doorway off camera-right, calm and warm, speaks in German, a small inviting gesture toward the chair on the word SETZ.\nDIALOGUE: \"Gut, dass du sofort kommst. SETZ dich, wir schauen's uns gemeinsam an. Also, ja.\"\nSCENE: her small glass-walled office in a bank in the early evening, desk lamp on, a plant, a laptop, the darkening open-plan office behind the glass.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. She never looks into the lens. Speech ends on the last word, then a calm look.",
+  "lint": [],
+  "note": "Risikokultur 2/3 – s9",
+  "job": "gen-vid-1791457556-msySL6RpmGRI6miWi5qU",
+  "created": 1791457975258,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
