@@ -1,0 +1,5 @@
+ACTION: under the edge of a desk, a young adult's nervous hands hold a smartphone low on their lap and type fast with both thumbs; a single drop of sweat falls from above onto the glowing screen and the thumbs freeze for a moment.
+SHOT: close-up of the hands and phone from slightly above, 50mm lens, shallow depth of field with the screen out of focus as a soft glow, slight handheld movement.
+PLACE: under a heavy dark oak desk in a wood-panelled office, dark suit trousers and the edge of a white shirt cuff, a polished parquet floor.
+LIGHT: one soft key from a window camera-left, about 4:1, the cool blue glow of the phone screen on the fingers.
+SOUND: soft rapid tapping on glass, nervous breathing, the faint tick of an office clock.

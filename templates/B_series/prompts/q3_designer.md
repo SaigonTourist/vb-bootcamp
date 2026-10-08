@@ -1,0 +1,5 @@
+SHOT: medium shot from mid-chest up, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.
+ACTION: the man looks straight into the lens and speaks in German, slowly, dry and stern, with deadpan seriousness, slight emphasis on the word in capitals, keeps his hands folded on the desk, then raises one eyebrow a little at the end.
+DIALOGUE: "Ihr Anschreiben ist wortgleich mit drei anderen Bewerbungen. ZUFALL? Also, ja."
+SCENE: he sits behind a heavy dark oak desk in a wood-panelled office, charcoal pinstripe three-piece suit, dark red tie, silver-grey hair combed back, small grey moustache, a printed letter on the desk. One soft window light from camera left, a green-shaded desk lamp in the background. Quiet office room tone, a faint clock ticking.
+RULES: German pronunciation, native speaker from Austria, a deep measured older voice. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a stern silent look into the lens.

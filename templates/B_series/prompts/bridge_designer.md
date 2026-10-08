@@ -1,0 +1,5 @@
+SHOT: medium shot from mid-chest up, eye level, camera locked off on a tripod, 35mm lens, exactly as in the first frame.
+ACTION: the man unfolds his hands, picks up the printed cover letter from the desk, holds it up and reads it, slowly raises one eyebrow, lays the letter back down flat on the desk, folds his hands on it again and looks back up into the lens with a stern expression, mouth closed, ending exactly as in the last frame.
+SCENE: he sits behind a heavy dark oak desk in a wood-panelled office, charcoal pinstripe three-piece suit, dark red tie, silver-grey hair combed back, small grey moustache. One soft window light from camera left, a green-shaded desk lamp in the background.
+SOUND: quiet office room tone, the rustle of paper, a faint clock ticking.
+RULES: the same man, room, light and framing from the first frame to the last. Steady camera. He stays silent.

@@ -23,23 +23,26 @@
     {
       "id": "intro",
       "type": "card",
-      "dur": 2.5,
+      "dur": 3.5,
       "lines": [
-        "Drei Fragen",
-        "die jedes Gespräch öffnen"
+        "Fragen, die du im Bewerbungsgespräch\nnie hören willst",
+        "",
+        "",
+        "Folge 1: Head of KI (m/w/d)"
       ],
-      "task": "Write your series title."
+      "task": "Write your series title.",
+      "size": "s"
     },
     {
       "id": "q1",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
+      "dur": 5.6,
       "gen_dur": 8,
       "purpose": "Your question 1 to camera",
       "prompt": "prompts/q1.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "1 · Was ist Ihnen gerade wichtig?",
+      "caption": "Erklären Sie mir bitte, warum wir Sie statt einer KI bezahlen sollten.",
       "task": "Write your first question in German, 14 words at most. Same start frame, same scene words as q2 and q3."
     },
     {
@@ -55,12 +58,12 @@
       "id": "q2",
       "type": "gen",
       "model": "h3",
-      "dur": 6.4,
+      "dur": 6.3,
       "gen_dur": 8,
       "purpose": "Your question 2 to camera",
       "prompt": "prompts/q2.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "2 · Was hat sich verändert?",
+      "caption": "Wir haben Ihre Antworten von einer KI bewerten lassen.\nWollen Sie das Ergebnis sehen?",
       "task": "Your second question. Only the line changes from q1."
     },
     {
@@ -84,7 +87,7 @@
       "purpose": "Your question 3 to camera",
       "prompt": "prompts/q3.md",
       "first_frame": "input/refs/presenter_B.png",
-      "caption": "3 · Woran merken Sie, dass es passt?",
+      "caption": "Ihr Anschreiben ist wortgleich mit drei anderen Bewerbungen. Zufall?",
       "task": "Your third question. Only the line changes; compare the three takes for consistency."
     },
     {
@@ -92,10 +95,10 @@
       "type": "card",
       "dur": 3,
       "lines": [
-        "Drei Fragen. Ein gutes Gespräch.",
-        "Mehr im Lernportal"
+        "Unsere KI hat Sie übrigens schon abgelehnt."
       ],
-      "task": "Write your closing line."
+      "task": "Write your closing line.",
+      "size": "s"
     }
   ],
   "note": "The prompts in prompts/ are worked examples and the source of the reserve clips, not the starting point: the designer briefs each slot from its task."
