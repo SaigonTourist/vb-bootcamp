@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "shot6",
+  "template": "C_own_material",
+  "slot": "shot6",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 9,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 393,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the woman writes one short line on the top paper in front of her with a pen, then looks up to her colleague off camera-right and speaks in German, calm and appreciative, a small smile on the word DANKE.\nDIALOGUE: \"Dann klären wir das mit den Zuständigen, bevor wir den Start freigeben. DANKE fürs Nachfragen. Also, ja.\"\nSCENE: same meeting room as the start frame, dark navy blazer over a white blouse, soft daylight from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. She never looks into the lens. Speech ends on the last word, then a relaxed half smile.",
+  "lint": [],
+  "note": "Der Satz, der fehlt – shot6",
+  "job": "gen-vid-1791449433-qw8iEf0qqndXGBAcUq3r",
+  "created": 1791449939802,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
