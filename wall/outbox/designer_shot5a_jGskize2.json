@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "shot5a",
+  "template": "C_own_material",
+  "slot": "shot5a",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 310,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the woman lays her stack of papers back down on the table, turns toward the colleague off camera-right and speaks in German, warm and matter-of-fact, a small nod on the word GUT.\nDIALOGUE: \"GUT, dass du es ansprichst. Ist das schon geklärt? Also, ja.\"\nSCENE: same meeting room as the start frame, dark navy blazer over a white blouse, soft daylight from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. She never looks into the lens. Speech ends on the last word, then she listens.",
+  "lint": [],
+  "note": "Der Satz, der fehlt – shot5a",
+  "job": "gen-vid-1791449427-TS8CAtcuOjrzjGskize2",
+  "created": 1791449931478,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
