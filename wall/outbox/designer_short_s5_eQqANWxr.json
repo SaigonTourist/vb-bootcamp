@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s5",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "9:16",
+  "cost_eur": 0.54,
+  "render_s": 47,
+  "prompt": "ACTION: Gaius takes two heavy steps forward, the pot and the shovel swing and clank, he lets out a long sigh and his shoulders sink a little lower.\nSHOT: medium-wide shot, eye level, side view, slow lateral track with him, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: grey rainy day, flat cool grey overcast light, light rain, wet ground, muted colours.\nSOUND: only metal clanking, heavy squelching footsteps in mud, one long sigh; the rest is quiet room tone.",
+  "lint": [],
+  "note": "YouTube Short Legionär, Szene 5",
+  "job": "gen-vid-1791457458-0dDZnLH5yG9IeQqANWxr",
+  "created": 1791458001821,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
