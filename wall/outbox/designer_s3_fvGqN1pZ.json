@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "A_teaser",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 361,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the man looks straight into the lens and speaks in German, warm and cheerful, at a natural\npace, lifts the glass of beer a little toward the camera on the word PROST, keeps eye contact to the end.\nDIALOGUE: \"PROST! Auf alles, was Sie gleich lernen. Also, ja.\"\nSCENE: he stands at the wooden bar of a small brewery taproom, dark green linen shirt with rolled\nsleeves, copper kettles and barrels behind him. One soft window light from camera left, warm pendant\nlamps in the background.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera,\nsame framing for the whole take. Speech ends on the last word, then a relaxed half smile.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445150-nmhCQIp2fLbMfvGqN1pZ",
+  "created": 1791445545160,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
