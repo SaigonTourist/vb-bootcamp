@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 237,
+  "prompt": "ACTION: an advisor in a dark blazer, seen from behind, walks two steps toward a young woman who has just come in, then pulls back a chair at a round oak table and opens one hand toward the seat; she sets her bag down and sits.\nSHOT: medium-wide shot from behind the advisor's shoulder, 35mm lens, camera locked off on a tripod; both people stay small enough that no face fills the frame.\nPLACE: a small advisory room in an old town house by a lake, pale oak floor, white vaulted ceiling, a tall window with the lake and mountains softly out of focus.\nLIGHT: one soft key from the tall window camera-left, about 4:1, a warm pendant lamp above the table.\nSOUND: quiet room tone, soft footsteps on wood, the light scrape of the chair, no voices.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445949-BA3ctK4tMS5ERcAZhZf8",
+  "created": 1791446212501,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
