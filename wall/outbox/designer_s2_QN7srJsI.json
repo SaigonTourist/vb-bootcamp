@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 242,
+  "prompt": "ACTION: a man's hand lifts a freshly poured glass of golden beer with a thick white foam head from a wooden bar counter, raises it slowly into frame, and his lips meet the rim for the first sip; the frame ends at his chin and lips, beads of condensation running down the glass.\nSHOT: close-up on the hand and glass, 85mm lens, shallow depth of field, very slow push-in of a few centimetres, framed below the eyes for the whole shot.\nPLACE: a small brewery taproom, worn oak bar counter, polished copper brewing kettles and wooden barrels softly out of focus behind.\nLIGHT: one soft warm key from a window camera-left, about 4:1, warm pendant lamps glowing in the background, light shining through the beer.\nSOUND: voice-over in German, a very deep, slow, resonant bass male voice like a cinema trailer narrator, says: \"Hopfen, Malz, Wasser – und dieser eine Moment.\" Under it, the soft clink of the glass leaving the wood and the fizz of rising bubbles.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "FACE",
+      "msg": "Seedance is the b-roll model here. Faces in close-up belong on H3."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791445234-CynXYCIfiT8iQN7srJsI",
+  "created": 1791445540355,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
