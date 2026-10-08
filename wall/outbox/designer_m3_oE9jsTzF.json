@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "m3",
+  "template": "D_montage",
+  "slot": "m3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 339,
+  "prompt": "SHOT: medium shot from the side, as in the start frame, slow smooth sideways dolly along the marble table, 35mm lens.\nACTION: the woman makes a note with one finger on the tablet, its screen facing her and away from the camera, then lifts the Melange, takes a small sip and sets the cup back on the silver tray, a relaxed closed-mouth smile.\nSCENE: late morning in a classic Viennese Kaffeehaus, round white marble table, dark bentwood chairs, red velvet banquette, tall old windows, guests in the background soft and blurred. Navy blazer over a plain cream top, shoulder-length chestnut-brown hair with a few grey strands, small silver earrings, thin silver watch on her left wrist.\nSOUND: quiet café murmur too soft to make out words, the light clink of a cup on a saucer. Silent woman, ambient sound only.\nRULES: same face, hair and outfit as in the start frame. She stays silent with lips still for the whole take. Eyes on her work, the window or the people around her. Warm natural daylight. Smooth camera, one continuous take.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "screen, tablet: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791456179-9mtNUsXveecfoE9jsTzF",
+  "created": 1791456615286,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
