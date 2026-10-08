@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "bridge",
+  "template": "B_series",
+  "slot": "bridge",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 0.59,
+  "render_s": 265,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, exactly as in the first frame.\nACTION: the woman holds a calm, friendly look into the lens and gives one small, thoughtful nod as if hearing an answer. She glances briefly down and to the side, collecting her next thought, then looks back into the lens, lifts her right hand into a small open gesture and parts her lips as if about to speak, ending exactly as in the last frame. She stays silent the whole time.\nSCENE: light grey armchair in a quiet lounge corner, camel blazer over a cream top, brown hair in an updo. Sheer curtains and a window on camera left, a brass lamp and a wooden shelf behind her. One soft window light from camera left.\nSOUND: quiet room tone, the faint rustle of the blazer fabric.\nRULES: the same woman, room, light and framing from the first frame to the last. Steady camera. No speech.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791455686-qs36HaddUoyRDVHj6iYT",
+  "created": 1791456002577,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
