@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "k2",
+  "template": "C_own_material",
+  "slot": "k2",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 338,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman stands behind the counter, raises her eyebrows, spreads both arms wide to show the open lobby, and answers in German with a cheeky, slightly smug smile, a little too pleased with her own comeback.\nDIALOGUE: \"Guten Tag! Wie Sie sehen, haben wir OFFEN!\"\nSCENE: she stands behind a white and light-oak counter in a modern branch lobby, camel blazer over a cream top, brown hair in an updo. Glass doors with daylight behind her on camera right.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then she keeps the smug smile.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456998-dD34jG976b5pDob0hJQh",
+  "created": 1791457435165,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
