@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s1",
+  "template": "A_teaser",
+  "slot": "s1",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.54,
+  "render_s": 77,
+  "prompt": "SHOT: medium-wide, eye level, 35mm at T2, slow dolly in of about one metre toward the entrance, 25 fps.\nSUBJECT AND ACTION: the glass entrance of a small bank branch on a quiet town square in the early morning. Inside, the ceiling lights switch on one row after another, from the back of the room toward the door, and the glass door slides open by itself, as if inviting the viewer in.\nPLACE: a two-storey stone building with a plain light facade and no lettering, wide glass front, cobblestones and a wooden bench in the foreground.\nLIGHT: blue hour just before sunrise, cool soft skylight from above, about 3:1, the warm interior lights as the only practicals, expose to protect the highlights.\nCOLOUR: cool blue dusk outside, warm amber inside, restrained, no glow.\nSOUND: soft solo piano, light and curious, a few slow notes rising; faint birdsong and the hush of the glass door.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791446534-MEWi8fXF9j27aiBzzsZg",
+  "created": 1791446659604,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
