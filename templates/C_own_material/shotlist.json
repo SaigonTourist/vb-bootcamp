@@ -1,6 +1,6 @@
 {
   "id": "C_own_material",
-  "title": "C · Der Satz, der fehlt",
+  "title": "C · Der Satz, der fehlt (v2)",
   "size": [
     1920,
     1080
@@ -14,93 +14,86 @@
   "frames": [],
   "slots": [
     {
-      "id": "shot1",
+      "id": "v2s1",
       "type": "gen",
       "model": "veo",
       "dur": 8,
-      "purpose": "0-8 s: Führungskraft will den Start beschließen",
-      "prompt": "prompts/shot1_veo.md",
-      "first_frame": "input/refs/C/room.png",
+      "purpose": "0-8 s: Führungskraft fragt nach Einwänden",
+      "prompt": "prompts/v2_shot1_veo.md",
+      "first_frame": "input/refs/C/v2_room.png",
       "seed": 11
     },
     {
-      "id": "shot2a",
-      "type": "real",
-      "file": "templates/C_own_material/slots/shot2.mp4",
-      "trim_start": 0,
-      "dur": 3.3,
-      "purpose": "8-18 s: Mitarbeiterin zögert, innere Stimme",
-      "caption": "Was passiert, wenn die Prüfung ausfällt?"
-    },
-    {
-      "id": "shot2b",
-      "type": "real",
-      "file": "templates/C_own_material/slots/shot2.mp4",
-      "trim_start": 3.4,
-      "dur": 3.3,
-      "purpose": "innere Stimme, Teil 2",
-      "caption": "Vielleicht ist das längst geklärt."
-    },
-    {
-      "id": "shot2c",
-      "type": "real",
-      "file": "templates/C_own_material/slots/shot2.mp4",
-      "trim_start": 6.8,
-      "dur": 3.4,
-      "purpose": "innere Stimme, Teil 3",
-      "caption": "Wir sind ohnehin schon spät dran."
-    },
-    {
-      "id": "shot3",
-      "type": "real",
-      "dur": 5,
-      "purpose": "18-23 s: Hand stoppt beim Zuklappen (Seedance take, first 1.8 s at half speed)",
-      "file": "templates/C_own_material/slots/shot3_edit.mp4",
-      "trim_start": 0
-    },
-    {
-      "id": "shot4",
-      "type": "gen",
-      "model": "h3",
-      "dur": 10,
-      "purpose": "23-33 s: Mitarbeiterin stellt die Frage",
-      "prompt": "prompts/shot4_h3.md",
-      "first_frame": "input/refs/C/emp_2.png"
-    },
-    {
-      "id": "shot5a",
+      "id": "v2s2",
       "type": "gen",
       "model": "h3",
       "dur": 6,
-      "purpose": "33-39 s: Führungskraft greift die Frage auf",
-      "prompt": "prompts/shot5a_h3.md",
-      "first_frame": "input/refs/C/lead_1.png"
+      "purpose": "8-13 s: Kollege: eh schon spät dran",
+      "prompt": "prompts/v2_shot2_h3.md",
+      "first_frame": "input/refs/C/v2_col.png"
     },
     {
-      "id": "shot5b",
-      "type": "gen",
-      "model": "h3",
-      "dur": 6,
-      "purpose": "39-45 s: Kollege: Ausfall noch nicht geklärt",
-      "prompt": "prompts/shot5b_h3.md",
-      "first_frame": "input/refs/C/col_2_fix.png"
-    },
-    {
-      "id": "shot6",
+      "id": "v2s3",
       "type": "gen",
       "model": "h3",
       "dur": 8,
-      "purpose": "45-53 s: Führungskraft notiert und dankt",
-      "prompt": "prompts/shot6_h3.md",
-      "first_frame": "input/refs/C/lead_1.png"
+      "purpose": "13-21 s: Mitarbeiterin bleibt an einer Zeile hängen",
+      "prompt": "prompts/v2_shot3_h3.md",
+      "first_frame": "input/refs/C/v2_emp.png"
+    },
+    {
+      "id": "v2s4",
+      "type": "gen",
+      "model": "h3",
+      "dur": 5,
+      "purpose": "21-26 s: wie schwer es ihr fällt",
+      "prompt": "prompts/v2_shot4_h3.md",
+      "first_frame": "input/refs/C/v2_emp_close.png"
+    },
+    {
+      "id": "v2s5",
+      "type": "gen",
+      "model": "h3",
+      "dur": 10,
+      "purpose": "26-36 s: das Bedenken",
+      "prompt": "prompts/v2_shot5_h3.md",
+      "first_frame": "input/refs/C/v2_emp.png"
+    },
+    {
+      "id": "v2s6",
+      "type": "gen",
+      "model": "h3",
+      "dur": 5,
+      "purpose": "36-41 s: Kollege: alles nochmal testen",
+      "prompt": "prompts/v2_shot6_h3.md",
+      "first_frame": "input/refs/C/v2_col.png"
+    },
+    {
+      "id": "v2s7",
+      "type": "gen",
+      "model": "h3",
+      "dur": 8,
+      "purpose": "41-48 s: Führungskraft entscheidet",
+      "prompt": "prompts/v2_shot7_h3.md",
+      "first_frame": "input/refs/C/v2_lead.png"
+    },
+    {
+      "id": "v2s8",
+      "type": "gen",
+      "model": "veo",
+      "dur": 6,
+      "purpose": "48-54 s: alle arbeiten weiter",
+      "prompt": "prompts/v2_shot8_veo.md",
+      "first_frame": "input/refs/C/v2_room.png",
+      "seed": 12
     },
     {
       "id": "card",
       "type": "card",
       "dur": 7,
       "lines": [
-        "Du musst noch keine Lösung haben,",
-        "um eine wichtige Frage zu stellen."
+        "Bedenken anzusprechen macht Arbeit.",
+        "Sie zu verschweigen kann teurer werden."
       ]
     }
   ],

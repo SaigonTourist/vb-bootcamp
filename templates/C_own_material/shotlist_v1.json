@@ -1,0 +1,119 @@
+{
+  "id": "C_own_material",
+  "title": "C · Der Satz, der fehlt",
+  "size": [
+    1920,
+    1080
+  ],
+  "fps": 25,
+  "lesson": "Built from the designer's script \"Der Satz, der fehlt\": three fictional people, one decision, one question that changes it.",
+  "card_style": {
+    "bg": "0x14213d",
+    "fg": "white"
+  },
+  "frames": [],
+  "slots": [
+    {
+      "id": "shot1",
+      "type": "gen",
+      "model": "veo",
+      "dur": 8,
+      "purpose": "0-8 s: Führungskraft will den Start beschließen",
+      "prompt": "prompts/shot1_veo.md",
+      "first_frame": "input/refs/C/room.png",
+      "seed": 11
+    },
+    {
+      "id": "shot2a",
+      "type": "real",
+      "file": "templates/C_own_material/slots/shot2.mp4",
+      "trim_start": 0,
+      "dur": 3.3,
+      "purpose": "8-18 s: Mitarbeiterin zögert, innere Stimme",
+      "caption": "Was passiert, wenn die Prüfung ausfällt?"
+    },
+    {
+      "id": "shot2b",
+      "type": "real",
+      "file": "templates/C_own_material/slots/shot2.mp4",
+      "trim_start": 3.4,
+      "dur": 3.3,
+      "purpose": "innere Stimme, Teil 2",
+      "caption": "Vielleicht ist das längst geklärt."
+    },
+    {
+      "id": "shot2c",
+      "type": "real",
+      "file": "templates/C_own_material/slots/shot2.mp4",
+      "trim_start": 6.8,
+      "dur": 3.4,
+      "purpose": "innere Stimme, Teil 3",
+      "caption": "Wir sind ohnehin schon spät dran."
+    },
+    {
+      "id": "shot3",
+      "type": "real",
+      "dur": 5,
+      "purpose": "18-23 s: Hand stoppt beim Zuklappen (Seedance take, first 1.8 s at half speed)",
+      "file": "templates/C_own_material/slots/shot3_edit.mp4",
+      "trim_start": 0
+    },
+    {
+      "id": "shot4",
+      "type": "gen",
+      "model": "h3",
+      "dur": 7.6,
+      "purpose": "23-33 s: Mitarbeiterin stellt die Frage",
+      "prompt": "prompts/shot4_h3.md",
+      "first_frame": "input/refs/C/emp_2.png"
+    },
+    {
+      "id": "shot5a",
+      "type": "gen",
+      "model": "h3",
+      "dur": 5.1,
+      "purpose": "33-39 s: Führungskraft greift die Frage auf",
+      "prompt": "prompts/shot5a_h3.md",
+      "first_frame": "input/refs/C/lead_1.png"
+    },
+    {
+      "id": "shot5b",
+      "type": "gen",
+      "model": "h3",
+      "dur": 4.9,
+      "purpose": "39-45 s: Kollege: Ausfall noch nicht geklärt",
+      "prompt": "prompts/shot5b_h3.md",
+      "first_frame": "input/refs/C/col_2_fix.png"
+    },
+    {
+      "id": "shot6",
+      "type": "gen",
+      "model": "h3",
+      "dur": 6.7,
+      "purpose": "45-53 s: Führungskraft notiert und dankt",
+      "prompt": "prompts/shot6_h3.md",
+      "first_frame": "input/refs/C/lead_1.png"
+    },
+    {
+      "id": "card",
+      "type": "card",
+      "dur": 7,
+      "lines": [
+        "Du musst noch keine Lösung haben,",
+        "um eine wichtige Frage zu stellen."
+      ]
+    }
+  ],
+  "note": "Rewritten from the designer script. Fiktive Szene als Lernimpuls, kein dokumentierter Vorfall.",
+  "unused_in_edit": [
+    {
+      "id": "shot2",
+      "type": "gen",
+      "model": "h3",
+      "dur": 10,
+      "purpose": "8-18 s: Mitarbeiterin zögert (innere Stimme als Untertitel) (rendered here, cut in as shot2a-c)",
+      "prompt": "prompts/shot2_h3.md",
+      "first_frame": "input/refs/C/emp_2.png"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.
+ACTION: the woman with short ash-blond hair in a dark navy blazer over a white blouse pauses for a moment, lays the dark folder flat on the table, then looks to the colleague off camera-left and speaks in German, calm and decided, a small nod on the word DANKE.
+DIALOGUE: "Ja. Lieber später starten als einen Fehler übersehen. DANKE, dass du es sagst. Also, ja."
+SCENE: same bank meeting room as the start frame: light oak table, tall window on the left wall, plain pale walls, soft daylight from camera-left.
+RULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. She never looks into the lens. Speech ends on the last word, then a calm, warm look.

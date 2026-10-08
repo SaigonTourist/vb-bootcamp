@@ -1,0 +1,4 @@
+SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.
+ACTION: the woman with shoulder-length light brown wavy hair in a light grey knitted top with a round collar looks down at her notebook on the table, her gaze stops on one line, her pen hovers above it and stays still. She thinks. She says nothing at all.
+SCENE: same bank meeting room as the start frame: light oak table, tall window on the left wall, plain pale walls, soft daylight from camera-left.
+RULES: Silent take, no speech, mouth closed the whole time, only quiet room tone and a chair creaking softly nearby. Steady camera, same framing for the whole take. She never looks into the lens.
