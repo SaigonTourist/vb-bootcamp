@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 200,
+  "prompt": "A manager notices a new employee standing outside in the rain and spontaneously shares an umbrella. Rainy day, autumn, In front of the door to the big modern office building.\nRAIN: the rain is just starting: clearly visible fresh raindrops falling in the foreground close to the camera, first drops darkening her coat and hair.\nDIALOGUE: as he holds the umbrella over her, only the man speaks, in German, warm and friendly: \"Kommen Sie, unter den Schirm. Willkommen im Team!\" She smiles and does not speak.\nSOUND: rain starting on the pavement, then soft drumming on the umbrella.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791446781-AX9vaZ9DnlmIqQjgc2xc",
+  "created": 1791446995477,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
