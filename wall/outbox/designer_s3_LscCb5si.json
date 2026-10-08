@@ -1,0 +1,27 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "A_teaser",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "raw",
+  "duration": 7,
+  "ratio": "16:9",
+  "cost_eur": 0.82,
+  "render_s": 415,
+  "prompt": "erstelle ein video wo ein mitarbeiter einer bank in einen meetingraum geht. Im raum sitzen mehr Männer als Frauen, in anzügen ohne krawatte am tisch. Alter 40 jahre bis 65 jahre. formal, professionell schauen, aber realistisch wie leute in banken schauen. Die Person hat etwas großes vor in dem Meeting raum, die Kamera begleitet die Person von hinten, es läuft musik die seriös aufzeigt, dass man etwas vor hat in dem Raum. Die Person geht in den Raum, und sagt \" Ich habe etwas zu berichten\". Alle gucken fragend, und das Video endet. Der Raum ist in der volkbsnk Zentrale im 3. Bezirk in wien und hat eine aussicht über wien.",
+  "lint": [
+    {
+      "level": "info",
+      "code": "FEW_WORDS",
+      "msg": "5 words in 7 s. H3 fills silence by repeating words; end with a short filler line you cut later."
+    }
+  ],
+  "note": "Raw mode: gleicher Text wie s1, auf H3",
+  "job": "gen-vid-1791446398-Mbof4W3MP20JLscCb5si",
+  "created": 1791446838595,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
