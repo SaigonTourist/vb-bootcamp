@@ -1,0 +1,21 @@
+{
+  "author": "Felizia",
+  "label": "croc1",
+  "template": "",
+  "slot": "",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.56,
+  "render_s": 337,
+  "prompt": "ACTION: the dapper crocodile gentleman from image 1 strides cheerfully into a bank vault, taps along a wall of small golden safe-deposit boxes with his cane, stops at one, turns a tiny key and swings its little door wide open.\nSHOT: medium-wide tracking shot following him from the side, 35mm lens, slow steady move of a few centimetres.\nPLACE: a grand bank vault, polished marble floor, a huge round steel vault door standing open in the background, a wall of small brass safe-deposit boxes.\nLIGHT: one warm key from a lamp camera-left, about 3:1, a golden glow.\nSOUND: soft webbed waddling footsteps, the heavy clunk of a vault door, the little click and creak of the small box opening; no voices, no music.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456767-2rn9ACtSEuI9dY7Lh6Wj",
+  "created": 1791457200918,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
