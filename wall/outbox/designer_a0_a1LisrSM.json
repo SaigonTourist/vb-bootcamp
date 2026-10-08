@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "a0",
+  "template": "C_own_material",
+  "slot": "a0",
+  "engine": "veo",
+  "model": "google/veo-3.1",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 1.44,
+  "render_s": 115,
+  "prompt": "SHOT: wide, eye level, 28mm at T2.8, static, 25 fps, exactly as in the first frame.\nSUBJECT AND ACTION: the two glass sliding door panels glide open, and the man in the blue work jacket strides through into the lobby with fast, heavy steps, frowning, jaw set, swinging his arms, then turns sharply toward the counter on camera left, heading straight for it.\nPLACE: a modern lobby with a pale stone floor, a white and light-oak counter in the left foreground, a plant, glass sliding doors and a street with trees outside.\nLIGHT: daylight through the glass doors, soft ceiling downlights inside, about 3:1, expose to protect the highlights.\nCOLOUR: cool neutral daylight, warm oak, the strong blue of the jacket, no glow.\nSOUND: quiet lobby room tone, the hum of the sliding doors, heavy footsteps on stone, an annoyed huff.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791457964-ojqLOGdFKTpNa1LisrSM",
+  "created": 1791458100321,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
