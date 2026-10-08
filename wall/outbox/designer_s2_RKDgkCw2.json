@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s2",
+  "template": "A_teaser",
+  "slot": "s2",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 1.05,
+  "render_s": 257,
+  "prompt": "ACTION: a woman's hand holds a yellow highlighter over a page of handwritten notes, pauses for a moment, then draws one slow, deliberate stroke across a single line and lifts the pen. The page is in soft focus; the stroke of yellow ink is the sharpest detail in frame.\nSHOT: close shot from slightly above and behind her right shoulder, only her hand, forearm in a navy blazer sleeve and the edge of the desk in frame, 50mm lens, very slow push of a few centimetres.\nPLACE: a quiet advisory room in a regional bank branch, pale oak desk, a closed grey folder and a white ceramic cup beside the notes, a tall green plant out of focus in the background.\nLIGHT: one soft key from tall windows camera-left, morning daylight, about 4:1, a warm desk lamp as a practical.\nSOUND: quiet office room tone, muffled indistinct voices far away in the next room, the soft click of a computer mouse, the faint squeak of the highlighter on paper.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791448462-EdMOie3ug4nNRKDgkCw2",
+  "created": 1791448751679,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
