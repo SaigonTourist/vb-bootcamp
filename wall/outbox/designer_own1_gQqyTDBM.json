@@ -1,0 +1,37 @@
+{
+  "author": "designer",
+  "label": "own1",
+  "template": "C_own_material",
+  "slot": "own1",
+  "engine": "seedance",
+  "model": "bytedance/seedance-2.5",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 1.67,
+  "render_s": 348,
+  "prompt": "ACTION: in a dark open-plan office at night, the printer from image 1: a gigantic grey office printer as an anime boss monster, two glowing red status lights as eyes, its paper tray a jagged snapping mouth, a dark purple aura, powers up: its purple aura flares, its red eyes flash bright, it roars and blasts a hurricane of paper sheets across the room; office colleagues in anime style flee past the camera with exaggerated streaming anime tears and wide-open screaming mouths, chairs spinning away.\nSHOT: starts low and close on the printer's red eyes lighting up, then a fast pull back and whip pan along the fleeing colleagues, dramatic Dutch angle.\nPLACE: an open-plan office at night, rows of desks with dark monitors, office chairs, ceiling panels.\nLIGHT: the printer's red eyes and purple aura as the key, teal night light through the windows.\nSOUND: a mechanical roar, a howling storm of paper, panicked comic screams.\nSTYLE: over-the-top action anime style, cel-shaded 2D look, bold clean line art, extremely dramatic camera moves, speed lines, glowing energy auras, white impact frames, floating papers like falling petals, epic lens flares, vivid orange and teal palette with deep shadows, clean wordless frames with plain surfaces.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "LONG",
+      "msg": "203 words. Long prompts bury the action; keep it under ~150 and lead with what happens."
+    },
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "monitors: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    },
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright, epic: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791456253-COKtZUBOf9kfgQqyTDBM",
+  "created": 1791456623490,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
