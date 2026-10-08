@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "v2s6",
+  "template": "C_own_material",
+  "slot": "v2s6",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 5,
+  "ratio": "16:9",
+  "cost_eur": 0.59,
+  "render_s": 263,
+  "prompt": "SHOT: medium shot, eye level, camera locked off, 35mm lens, as in the start frame.\nACTION: the man with short sandy hair receding at the temples, clean-shaven, in a white shirt with an open collar puts his pen down on the table, breathes out audibly, and speaks in German toward the woman on the left side of the table off camera-left, a little reluctant, a short tilt of the head on the word ALLES.\nDIALOGUE: \"Das heißt, wir müssen ALLES nochmal testen. Also, ja.\"\nSCENE: same bank meeting room as the start frame: light oak table, tall window on the left wall, plain pale walls, soft daylight from camera-left.\nRULES: German pronunciation, Austrian native speaker. Mouth matches every word. Steady camera, same framing for the whole take. He never looks into the lens. Speech ends on the last word, then he waits.",
+  "lint": [],
+  "note": "Der Satz, der fehlt v2 – Shot 6",
+  "job": "gen-vid-1791455719-8eIVGK75fZPdJtaCYZnR",
+  "created": 1791456196606,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
