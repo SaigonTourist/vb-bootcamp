@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "short_s8",
+  "template": "",
+  "slot": "",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "9:16",
+  "cost_eur": 0.54,
+  "render_s": 81,
+  "prompt": "ACTION: Gaius heaves the heavy wooden sword up, swings slowly at the post, the sword drags him half a step sideways. Maximus slowly raises one eyebrow.\nSHOT: medium-wide shot, eye level, static, vertical 9:16, 25 fps.\nLOOK: the drawing of the first frame stays exactly as it is: flat 2D cartoon, thick dark outlines, round pure-white heads, soft cel shading, painted warm background, held poses and slow eyebrow movements for comic timing.\nLIGHT: grey rainy day, flat cool grey overcast light, light rain, wet ground, muted colours.\nSOUND: only a heavy dull wooden thud, a strained grunt without words; the rest is quiet room tone.",
+  "lint": [],
+  "note": "YouTube Short Legionär, Szene 8",
+  "job": "gen-vid-1791457519-M3sx9gmfyVqRU7az0cdR",
+  "created": 1791458016451,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
