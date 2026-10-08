@@ -14,78 +14,87 @@
   "frames": [],
   "slots": [
     {
-      "id": "v2s1",
-      "type": "gen",
-      "model": "veo",
-      "dur": 8,
-      "purpose": "0-8 s: Führungskraft fragt nach Einwänden",
-      "prompt": "prompts/v2_shot1_veo.md",
-      "first_frame": "input/refs/C/v2_room.png",
-      "seed": 11
+      "id": "v2s1a",
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s1.mp4",
+      "trim_start": 0,
+      "dur": 4,
+      "purpose": "0-4 s: Führungskraft fragt nach Einwänden",
+      "caption": "Risikokomitee · Freigabe neuer Kreditprozess"
+    },
+    {
+      "id": "v2s1b",
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s1.mp4",
+      "trim_start": 4,
+      "dur": 4,
+      "purpose": "4-8 s: Gibt es noch Einwände?"
     },
     {
       "id": "v2s2",
-      "type": "gen",
-      "model": "h3",
-      "dur": 6,
-      "purpose": "8-13 s: Kollege: eh schon spät dran",
-      "prompt": "prompts/v2_shot2_h3.md",
-      "first_frame": "input/refs/C/v2_col.png"
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s2.mp4",
+      "trim_start": 0,
+      "dur": 4.2,
+      "purpose": "Kollege: eh schon spät dran"
     },
     {
-      "id": "v2s3",
-      "type": "gen",
-      "model": "h3",
-      "dur": 8,
-      "purpose": "13-21 s: Mitarbeiterin bleibt an einer Zeile hängen",
-      "prompt": "prompts/v2_shot3_h3.md",
-      "first_frame": "input/refs/C/v2_emp.png"
+      "id": "v2s3a",
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s3.mp4",
+      "trim_start": 0,
+      "dur": 4,
+      "purpose": "Mitarbeiterin zögert",
+      "caption": "Der Ausfalltest fehlt noch."
+    },
+    {
+      "id": "v2s3b",
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s3.mp4",
+      "trim_start": 4,
+      "dur": 4,
+      "purpose": "Mitarbeiterin zögert",
+      "caption": "Wenn ich das jetzt sage, verschiebt sich alles."
     },
     {
       "id": "v2s4",
-      "type": "gen",
-      "model": "h3",
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s4.mp4",
+      "trim_start": 0,
       "dur": 5,
-      "purpose": "21-26 s: wie schwer es ihr fällt",
-      "prompt": "prompts/v2_shot4_h3.md",
-      "first_frame": "input/refs/C/v2_emp_close.png"
+      "purpose": "wie schwer es ihr fällt"
     },
     {
       "id": "v2s5",
-      "type": "gen",
-      "model": "h3",
-      "dur": 10,
-      "purpose": "26-36 s: das Bedenken",
-      "prompt": "prompts/v2_shot5_h3.md",
-      "first_frame": "input/refs/C/v2_emp.png"
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s5.mp4",
+      "trim_start": 0,
+      "dur": 7.75,
+      "purpose": "das Bedenken"
     },
     {
       "id": "v2s6",
-      "type": "gen",
-      "model": "h3",
-      "dur": 5,
-      "purpose": "36-41 s: Kollege: alles nochmal testen",
-      "prompt": "prompts/v2_shot6_h3.md",
-      "first_frame": "input/refs/C/v2_col.png"
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s6.mp4",
+      "trim_start": 0,
+      "dur": 4.1,
+      "purpose": "Kollege: alles nochmal testen"
     },
     {
       "id": "v2s7",
-      "type": "gen",
-      "model": "h3",
-      "dur": 8,
-      "purpose": "41-48 s: Führungskraft entscheidet",
-      "prompt": "prompts/v2_shot7_h3.md",
-      "first_frame": "input/refs/C/v2_lead.png"
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s7.mp4",
+      "trim_start": 0,
+      "dur": 6.15,
+      "purpose": "Führungskraft entscheidet"
     },
     {
       "id": "v2s8",
-      "type": "gen",
-      "model": "veo",
+      "type": "real",
+      "file": "templates/C_own_material/slots/v2s8.mp4",
+      "trim_start": 0,
       "dur": 6,
-      "purpose": "48-54 s: alle arbeiten weiter",
-      "prompt": "prompts/v2_shot8_veo.md",
-      "first_frame": "input/refs/C/v2_room.png",
-      "seed": 12
+      "purpose": "alle arbeiten weiter"
     },
     {
       "id": "card",

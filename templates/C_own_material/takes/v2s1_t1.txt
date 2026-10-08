@@ -1,0 +1,6 @@
+SHOT: medium-wide, eye level, 35mm at T2.8, static, 25 fps, as in the start frame.
+SUBJECT AND ACTION: the woman at the head of the table in the dark navy blazer closes the dark folder in front of her and looks around the table at her two colleagues.
+DIALOGUE: The woman in the dark navy blazer says in German: "Letzter Punkt: die Freigabe des neuen Prozesses. Gibt es noch Einwände?" The other two stay silent and keep their seats.
+PLACE: a bank meeting room, light oak table, tall window on the left, plain pale walls.
+LIGHT: soft daylight from the window camera-left, about 4:1, ceiling lights on.
+SOUND: quiet office room tone, the soft thud of the folder closing. Only she speaks. No music.

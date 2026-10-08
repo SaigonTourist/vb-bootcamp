@@ -1,0 +1,4 @@
+SHOT: close shot from the shoulders up, eye level, camera locked off, 50mm lens, as in the start frame.
+ACTION: the woman with shoulder-length light brown wavy hair in a light grey knitted top with a round collar presses her lips together for a moment, glances up to the right toward the head of the table, looks down again, then breathes out slowly through her nose and straightens her shoulders. Small, restrained movements. She says nothing at all.
+SCENE: same bank meeting room as the start frame: light oak table, tall window on the left wall, plain pale walls, soft daylight from camera-left.
+RULES: Silent take, no speech, mouth closed the whole time, only quiet room tone. Steady camera, same framing for the whole take. She never looks into the lens.

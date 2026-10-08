@@ -1,0 +1,5 @@
+SHOT: medium-wide, eye level, 35mm at T2.8, static, 25 fps, as in the start frame.
+SUBJECT AND ACTION: everyone stays in their seat. The man on the right in the white shirt pulls the open grey laptop closer and starts typing. The woman at the head of the table in the dark navy blazer writes a short note on her folder. The woman on the left in the light grey top lets her shoulders drop and opens her notebook.
+PLACE: a bank meeting room, light oak table, tall window on the left, plain pale walls.
+LIGHT: soft daylight from the window camera-left, about 4:1, ceiling lights on.
+SOUND: quiet office room tone, soft typing, a page turning. Nobody speaks. No music.
