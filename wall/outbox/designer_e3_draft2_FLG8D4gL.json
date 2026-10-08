@@ -1,0 +1,32 @@
+{
+  "author": "designer",
+  "label": "e3_draft2",
+  "template": "E_moon",
+  "slot": "e3",
+  "engine": "veo-fast",
+  "model": "google/veo-3.1-fast",
+  "mode": "assisted",
+  "duration": 4,
+  "ratio": "16:9",
+  "cost_eur": 0.36,
+  "render_s": 45,
+  "prompt": "SHOT: wide shot, as in the start frame, camera locked off and completely still, the stars fixed in place, 35mm lens, 25 fps.\nSUBJECT AND ACTION: the dark red wine bottle, rigid, cork first, flies fast across the frame from left to right on a soft exhaust flame, passes in front of the bright Moon and exits the right edge of the frame within four seconds.\nPLACE: deep black space, a dense field of stars, the grey cratered Moon ahead.\nLIGHT: hard sunlight from camera left on the glass and the label, deep black shadows.\nCOLOUR: black and silver space, the dark red bottle, the cream label.\nSOUND: a soft low hum, a faint whoosh as it passes.",
+  "lint": [
+    {
+      "level": "warn",
+      "code": "TEXT_SURFACE",
+      "msg": "label: models invent letters on anything readable. Turn it away, keep it blurred, add real text in the edit."
+    },
+    {
+      "level": "info",
+      "code": "VAGUE",
+      "msg": "bright: says nothing executable. Name the lens, the distance, one light source and its direction."
+    }
+  ],
+  "note": "",
+  "job": "gen-vid-1791458365-fYPTYYIkMJGkFLG8D4gL",
+  "created": 1791458532496,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
