@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "A_teaser",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 334,
+  "prompt": "SHOT: medium shot, eye level, camera locked off on a tripod, 35mm lens, as in the start frame.\nACTION: the woman leans back slightly in the armchair, relaxed and at ease, soft eyes and a smooth forehead. She looks straight into the lens and asks the question in German with light curiosity, makes a short pause with a small knowing look, then delivers the answer dry and calm, at a natural pace. Keeps eye contact to the end.\nDIALOGUE: \"Warum können Geister nicht lügen? ... Weil man sie sofort DURCHSCHAUT.\"\nSCENE: she sits in a light grey armchair in a quiet lounge corner, camel blazer over a cream top, brown hair in an updo. Sheer curtains and a tall window on camera left, a small brass lamp and a wooden shelf in the background. One soft window light from camera left.\nRULES: German pronunciation, native speaker from Austria. Mouth matches every word. Steady camera, same framing for the whole take. Speech ends on the last word, then a relaxed amused half smile.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445551-aPgwwiByuMrsfMpcYM7P",
+  "created": 1791445908844,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
