@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "m5",
+  "template": "D_montage",
+  "slot": "m5",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "assisted",
+  "duration": 6,
+  "ratio": "16:9",
+  "cost_eur": 0.7,
+  "render_s": 310,
+  "prompt": "SHOT: medium shot from the side, as in the start frame, slow smooth pull-back of about half a metre, 35mm lens.\nACTION: the woman rests her hand on the closed laptop, leans back in her chair and looks out of the window at the glowing facade, relaxed and content, a soft closed-mouth smile.\nSCENE: evening golden hour in her Viennese Altbau home office, warm low orange sun through the tall white double casement window, golden light patches on the wall, desk lamp on, herringbone parquet. Navy blazer over a plain cream top, shoulder-length chestnut-brown hair with a few grey strands, small silver earrings, thin silver watch on her left wrist.\nSOUND: quiet evening room tone, faint distant street sounds through the window. Silent woman, ambient sound only.\nRULES: same face, hair and outfit as in the start frame. She stays silent with lips still for the whole take. Eyes on her work, the window or the people around her. Warm natural daylight. Smooth camera, one continuous take.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791456187-gxT5G7IU1CCzsrN0UT4h",
+  "created": 1791456623767,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
