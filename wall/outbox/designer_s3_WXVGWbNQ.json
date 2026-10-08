@@ -1,0 +1,21 @@
+{
+  "author": "designer",
+  "label": "s3",
+  "template": "A_teaser",
+  "slot": "s3",
+  "engine": "h3",
+  "model": "minimax/hailuo-3",
+  "mode": "raw",
+  "duration": 8,
+  "ratio": "16:9",
+  "cost_eur": 0.94,
+  "render_s": 333,
+  "prompt": "make a surprise scene. The wife of the customer who just entered the bank ist exiting a meeting with a different banking advisor. The customer is surprised and outraged.",
+  "lint": [],
+  "note": "",
+  "job": "gen-vid-1791445633-UBzi7Fzxob2dWXVGWbNQ",
+  "created": 1791446208343,
+  "source": "session",
+  "asset": null,
+  "poster": null
+}
